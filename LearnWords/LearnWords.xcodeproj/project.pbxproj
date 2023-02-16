@@ -26,6 +26,11 @@
 		8FDA2A03299E4E8F00DD4003 /* MainTabbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA29FE299E4E8F00DD4003 /* MainTabbarView.xib */; };
 		8FDA2A04299E4E8F00DD4003 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29FF299E4E8F00DD4003 /* BaseCoordinator.swift */; };
 		8FDA2A05299E4E8F00DD4003 /* BaseViewFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA2A00299E4E8F00DD4003 /* BaseViewFromNib.swift */; };
+		8FDA2A0B299E567C00DD4003 /* SettingsMainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA2A09299E567C00DD4003 /* SettingsMainMenuViewController.swift */; };
+		8FDA2A0C299E567C00DD4003 /* SettingsMainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA2A0A299E567C00DD4003 /* SettingsMainMenuViewController.xib */; };
+		8FDA2A0E299E569400DD4003 /* SettingsMainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA2A0D299E569400DD4003 /* SettingsMainMenuViewModel.swift */; };
+		8FDA2A10299E6C9400DD4003 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA2A0F299E6C9400DD4003 /* SettingsCoordinator.swift */; };
+		8FDA2A12299E7C4E00DD4003 /* UIViewController+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA2A11299E7C4E00DD4003 /* UIViewController+ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +55,11 @@
 		8FDA29FE299E4E8F00DD4003 /* MainTabbarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTabbarView.xib; sourceTree = "<group>"; };
 		8FDA29FF299E4E8F00DD4003 /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		8FDA2A00299E4E8F00DD4003 /* BaseViewFromNib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewFromNib.swift; sourceTree = "<group>"; };
+		8FDA2A09299E567C00DD4003 /* SettingsMainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMainMenuViewController.swift; sourceTree = "<group>"; };
+		8FDA2A0A299E567C00DD4003 /* SettingsMainMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsMainMenuViewController.xib; sourceTree = "<group>"; };
+		8FDA2A0D299E569400DD4003 /* SettingsMainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMainMenuViewModel.swift; sourceTree = "<group>"; };
+		8FDA2A0F299E6C9400DD4003 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		8FDA2A11299E7C4E00DD4003 /* UIViewController+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ext.swift"; sourceTree = "<group>"; };
 		BDAF99E192F044DC42D5F440 /* Pods-LearnWords.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnWords.release.xcconfig"; path = "Target Support Files/Pods-LearnWords/Pods-LearnWords.release.xcconfig"; sourceTree = "<group>"; };
 		FD94A19289068F6A6A3AB6AE /* Pods_LearnWords.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LearnWords.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -95,6 +105,7 @@
 		8F85B67E299AC16C0097657D /* LearnWords */ = {
 			isa = PBXGroup;
 			children = (
+				8FDA2A06299E555E00DD4003 /* Screens */,
 				8F85B67F299AC16C0097657D /* AppDelegate.swift */,
 				8F85B681299AC16C0097657D /* SceneDelegate.swift */,
 				8FDA29EA299E4D9A00DD4003 /* CustomUI */,
@@ -122,6 +133,7 @@
 		8FDA29EF299E4DA700DD4003 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8FDA2A11299E7C4E00DD4003 /* UIViewController+ext.swift */,
 				8FDA29F0299E4DA700DD4003 /* Date+.swift */,
 				8FDA29F1299E4DA700DD4003 /* UIView+ext.swift */,
 			);
@@ -148,6 +160,33 @@
 				8FDA2A00299E4E8F00DD4003 /* BaseViewFromNib.swift */,
 			);
 			path = BaseClasses;
+			sourceTree = "<group>";
+		};
+		8FDA2A06299E555E00DD4003 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				8FDA2A07299E559B00DD4003 /* Settings */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		8FDA2A07299E559B00DD4003 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				8FDA2A08299E55ED00DD4003 /* SettingsMainMenu */,
+				8FDA2A0F299E6C9400DD4003 /* SettingsCoordinator.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		8FDA2A08299E55ED00DD4003 /* SettingsMainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				8FDA2A09299E567C00DD4003 /* SettingsMainMenuViewController.swift */,
+				8FDA2A0A299E567C00DD4003 /* SettingsMainMenuViewController.xib */,
+				8FDA2A0D299E569400DD4003 /* SettingsMainMenuViewModel.swift */,
+			);
+			path = SettingsMainMenu;
 			sourceTree = "<group>";
 		};
 		FB68A1162FE42147CDD3C76E /* Pods */ = {
@@ -220,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F85B68C299AC16E0097657D /* LaunchScreen.storyboard in Resources */,
+				8FDA2A0C299E567C00DD4003 /* SettingsMainMenuViewController.xib in Resources */,
 				8F85B689299AC16E0097657D /* Assets.xcassets in Resources */,
 				8FDA2A03299E4E8F00DD4003 /* MainTabbarView.xib in Resources */,
 				8F85B687299AC16C0097657D /* Main.storyboard in Resources */,
@@ -276,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FDA2A0E299E569400DD4003 /* SettingsMainMenuViewModel.swift in Sources */,
 				8FDA29FA299E4DB500DD4003 /* DateFormatter.swift in Sources */,
 				8FDA2A02299E4E8F00DD4003 /* BaseViewModel.swift in Sources */,
 				8FDA29F3299E4DA800DD4003 /* UIView+ext.swift in Sources */,
@@ -283,6 +324,9 @@
 				8F85B684299AC16C0097657D /* ViewController.swift in Sources */,
 				8FDA29F8299E4DB500DD4003 /* KeyboardObserver.swift in Sources */,
 				8F85B680299AC16C0097657D /* AppDelegate.swift in Sources */,
+				8FDA2A0B299E567C00DD4003 /* SettingsMainMenuViewController.swift in Sources */,
+				8FDA2A10299E6C9400DD4003 /* SettingsCoordinator.swift in Sources */,
+				8FDA2A12299E7C4E00DD4003 /* UIViewController+ext.swift in Sources */,
 				8FDA2A01299E4E8F00DD4003 /* BaseViewController.swift in Sources */,
 				8FDA2A04299E4E8F00DD4003 /* BaseCoordinator.swift in Sources */,
 				8FDA29F2299E4DA800DD4003 /* Date+.swift in Sources */,
