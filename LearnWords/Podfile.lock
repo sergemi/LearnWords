@@ -1,10 +1,10 @@
 PODS:
   - Alamofire (5.6.4)
-  - Realm (10.35.1):
-    - Realm/Headers (= 10.35.1)
-  - Realm/Headers (10.35.1)
-  - RealmSwift (10.35.1):
-    - Realm (= 10.35.1)
+  - Realm (10.36.0):
+    - Realm/Headers (= 10.36.0)
+  - Realm/Headers (10.36.0)
+  - RealmSwift (10.36.0):
+    - Realm (= 10.36.0)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
@@ -34,8 +34,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
-  Realm: ee5a67274a2c338dec50f5e01a811b6b8d657a10
-  RealmSwift: 82f822142caa1e6ab96d3ea30bc83233e3d78ea3
+  Realm: 3fd136cb4c83a927482a7f1612496d37beed3cf5
+  RealmSwift: 513d4dcbf5bfc4d573454088b592685fc48dd716
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxOptional: 3664964c96b69dd20c9cf78bdfe546615e26eca8
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
