@@ -26,6 +26,7 @@ class SettingsMainMenuViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
         bindUI()
     }
     
@@ -33,5 +34,9 @@ class SettingsMainMenuViewController: BaseViewController {
         log.method()
         
         setupLocalBtn.rx.tap.bind(to: model.localBaseBtnObserver).disposed(by: disposeBag)
+    }
+    
+    func setupUI() {
+        setupLocalBtn.setTitle("Settings.MainMenu.SystemSettings".localized())
     }
 }

@@ -11,3 +11,13 @@
 "Tabbar.AddWord" = "+ Word";
 "Tabbar.Stat" = "Statistics";
 "Tabbar.Settings" = "Settings";
+
+// Learn coordinator
+// BaseLearn
+"Learn.BaseLearn.Continue" = "Learn";
+"Learn.BaseLearn.Lern" = "Learn";
+
+
+//Settings coordinator
+// MainMenu
+"Settings.MainMenu.SystemSettings" = "System settings";

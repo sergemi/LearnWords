@@ -32,6 +32,18 @@
 		8FDA2A10299E6C9400DD4003 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA2A0F299E6C9400DD4003 /* SettingsCoordinator.swift */; };
 		8FDA2A12299E7C4E00DD4003 /* UIViewController+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA2A11299E7C4E00DD4003 /* UIViewController+ext.swift */; };
 		8FDA2A17299F7D7500DD4003 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA2A19299F7D7500DD4003 /* Localizable.strings */; };
+		8FDA2A26299FAD9500DD4003 /* StatCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA2A25299FAD9500DD4003 /* StatCoordinator.swift */; };
+		8FDA2A28299FADAA00DD4003 /* BaseStatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA2A27299FADAA00DD4003 /* BaseStatViewModel.swift */; };
+		8FDA2A2D299FADB900DD4003 /* BaseLearnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA2A2B299FADB900DD4003 /* BaseLearnViewModel.swift */; };
+		8FDA2A2E299FADBA00DD4003 /* LearnCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA2A2C299FADB900DD4003 /* LearnCoordinator.swift */; };
+		8FDA2A31299FAEBE00DD4003 /* BaseLearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA2A2F299FAEBE00DD4003 /* BaseLearnViewController.swift */; };
+		8FDA2A32299FAEBE00DD4003 /* BaseLearnViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA2A30299FAEBE00DD4003 /* BaseLearnViewController.xib */; };
+		8FDA2A35299FB1BD00DD4003 /* BaseStatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA2A33299FB1BD00DD4003 /* BaseStatViewController.swift */; };
+		8FDA2A36299FB1BD00DD4003 /* BaseStatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA2A34299FB1BD00DD4003 /* BaseStatViewController.xib */; };
+		8FDA2A3A299FB74B00DD4003 /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA2A38299FB74B00DD4003 /* MainTabBarViewModel.swift */; };
+		8FDA2A3B299FB74B00DD4003 /* MainTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA2A39299FB74B00DD4003 /* MainTabBarCoordinator.swift */; };
+		8FDA2A3D299FBDD600DD4003 /* String+localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA2A3C299FBDD500DD4003 /* String+localization.swift */; };
+		8FF3E5CF299FC67E00D64A0D /* UIButton+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5CE299FC67E00D64A0D /* UIButton+ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +83,18 @@
 		8FDA2A20299F7DB900DD4003 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		8FDA2A21299F7DB900DD4003 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		8FDA2A22299F7DB900DD4003 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8FDA2A25299FAD9500DD4003 /* StatCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatCoordinator.swift; path = LearnWords/Screens/Stat/StatCoordinator.swift; sourceTree = SOURCE_ROOT; };
+		8FDA2A27299FADAA00DD4003 /* BaseStatViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseStatViewModel.swift; sourceTree = "<group>"; };
+		8FDA2A2B299FADB900DD4003 /* BaseLearnViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLearnViewModel.swift; sourceTree = "<group>"; };
+		8FDA2A2C299FADB900DD4003 /* LearnCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnCoordinator.swift; sourceTree = "<group>"; };
+		8FDA2A2F299FAEBE00DD4003 /* BaseLearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLearnViewController.swift; sourceTree = "<group>"; };
+		8FDA2A30299FAEBE00DD4003 /* BaseLearnViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseLearnViewController.xib; sourceTree = "<group>"; };
+		8FDA2A33299FB1BD00DD4003 /* BaseStatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStatViewController.swift; sourceTree = "<group>"; };
+		8FDA2A34299FB1BD00DD4003 /* BaseStatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseStatViewController.xib; sourceTree = "<group>"; };
+		8FDA2A38299FB74B00DD4003 /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
+		8FDA2A39299FB74B00DD4003 /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
+		8FDA2A3C299FBDD500DD4003 /* String+localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+localization.swift"; path = "LearnWords/Extensions/String+localization.swift"; sourceTree = SOURCE_ROOT; };
+		8FF3E5CE299FC67E00D64A0D /* UIButton+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ext.swift"; sourceTree = "<group>"; };
 		BDAF99E192F044DC42D5F440 /* Pods-LearnWords.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnWords.release.xcconfig"; path = "Target Support Files/Pods-LearnWords/Pods-LearnWords.release.xcconfig"; sourceTree = "<group>"; };
 		FD94A19289068F6A6A3AB6AE /* Pods_LearnWords.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LearnWords.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -145,9 +169,11 @@
 		8FDA29EF299E4DA700DD4003 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8FDA2A3C299FBDD500DD4003 /* String+localization.swift */,
 				8FDA2A11299E7C4E00DD4003 /* UIViewController+ext.swift */,
 				8FDA29F0299E4DA700DD4003 /* Date+.swift */,
 				8FDA29F1299E4DA700DD4003 /* UIView+ext.swift */,
+				8FF3E5CE299FC67E00D64A0D /* UIButton+ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -177,6 +203,9 @@
 		8FDA2A06299E555E00DD4003 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				8FDA2A37299FB74B00DD4003 /* MainTabBar */,
+				8FDA2A29299FADB900DD4003 /* Learn */,
+				8FDA2A23299FAA9000DD4003 /* Stat */,
 				8FDA2A07299E559B00DD4003 /* Settings */,
 			);
 			path = Screens;
@@ -199,6 +228,53 @@
 				8FDA2A0D299E569400DD4003 /* SettingsMainMenuViewModel.swift */,
 			);
 			path = SettingsMainMenu;
+			sourceTree = "<group>";
+		};
+		8FDA2A23299FAA9000DD4003 /* Stat */ = {
+			isa = PBXGroup;
+			children = (
+				8FDA2A25299FAD9500DD4003 /* StatCoordinator.swift */,
+				8FDA2A24299FAAA400DD4003 /* BaseStat */,
+			);
+			path = Stat;
+			sourceTree = "<group>";
+		};
+		8FDA2A24299FAAA400DD4003 /* BaseStat */ = {
+			isa = PBXGroup;
+			children = (
+				8FDA2A27299FADAA00DD4003 /* BaseStatViewModel.swift */,
+				8FDA2A33299FB1BD00DD4003 /* BaseStatViewController.swift */,
+				8FDA2A34299FB1BD00DD4003 /* BaseStatViewController.xib */,
+			);
+			path = BaseStat;
+			sourceTree = "<group>";
+		};
+		8FDA2A29299FADB900DD4003 /* Learn */ = {
+			isa = PBXGroup;
+			children = (
+				8FDA2A2A299FADB900DD4003 /* BaseLearn */,
+				8FDA2A2C299FADB900DD4003 /* LearnCoordinator.swift */,
+			);
+			path = Learn;
+			sourceTree = "<group>";
+		};
+		8FDA2A2A299FADB900DD4003 /* BaseLearn */ = {
+			isa = PBXGroup;
+			children = (
+				8FDA2A2B299FADB900DD4003 /* BaseLearnViewModel.swift */,
+				8FDA2A2F299FAEBE00DD4003 /* BaseLearnViewController.swift */,
+				8FDA2A30299FAEBE00DD4003 /* BaseLearnViewController.xib */,
+			);
+			path = BaseLearn;
+			sourceTree = "<group>";
+		};
+		8FDA2A37299FB74B00DD4003 /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				8FDA2A38299FB74B00DD4003 /* MainTabBarViewModel.swift */,
+				8FDA2A39299FB74B00DD4003 /* MainTabBarCoordinator.swift */,
+			);
+			path = MainTabBar;
 			sourceTree = "<group>";
 		};
 		FB68A1162FE42147CDD3C76E /* Pods */ = {
@@ -273,10 +349,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FDA2A32299FAEBE00DD4003 /* BaseLearnViewController.xib in Resources */,
 				8F85B68C299AC16E0097657D /* LaunchScreen.storyboard in Resources */,
 				8FDA2A0C299E567C00DD4003 /* SettingsMainMenuViewController.xib in Resources */,
 				8F85B689299AC16E0097657D /* Assets.xcassets in Resources */,
 				8FDA2A17299F7D7500DD4003 /* Localizable.strings in Resources */,
+				8FDA2A36299FB1BD00DD4003 /* BaseStatViewController.xib in Resources */,
 				8FDA2A03299E4E8F00DD4003 /* MainTabbarView.xib in Resources */,
 				8F85B687299AC16C0097657D /* Main.storyboard in Resources */,
 				8FDA29ED299E4D9A00DD4003 /* PopupViewController.xib in Resources */,
@@ -334,10 +412,17 @@
 			files = (
 				8FDA2A0E299E569400DD4003 /* SettingsMainMenuViewModel.swift in Sources */,
 				8FDA29FA299E4DB500DD4003 /* DateFormatter.swift in Sources */,
+				8FDA2A26299FAD9500DD4003 /* StatCoordinator.swift in Sources */,
 				8FDA2A02299E4E8F00DD4003 /* BaseViewModel.swift in Sources */,
 				8FDA29F3299E4DA800DD4003 /* UIView+ext.swift in Sources */,
+				8FDA2A28299FADAA00DD4003 /* BaseStatViewModel.swift in Sources */,
 				8FDA2A05299E4E8F00DD4003 /* BaseViewFromNib.swift in Sources */,
 				8F85B684299AC16C0097657D /* ViewController.swift in Sources */,
+				8FDA2A2D299FADB900DD4003 /* BaseLearnViewModel.swift in Sources */,
+				8FDA2A3A299FB74B00DD4003 /* MainTabBarViewModel.swift in Sources */,
+				8FF3E5CF299FC67E00D64A0D /* UIButton+ext.swift in Sources */,
+				8FDA2A3B299FB74B00DD4003 /* MainTabBarCoordinator.swift in Sources */,
+				8FDA2A2E299FADBA00DD4003 /* LearnCoordinator.swift in Sources */,
 				8FDA29F8299E4DB500DD4003 /* KeyboardObserver.swift in Sources */,
 				8F85B680299AC16C0097657D /* AppDelegate.swift in Sources */,
 				8FDA2A0B299E567C00DD4003 /* SettingsMainMenuViewController.swift in Sources */,
@@ -346,9 +431,12 @@
 				8FDA2A01299E4E8F00DD4003 /* BaseViewController.swift in Sources */,
 				8FDA2A04299E4E8F00DD4003 /* BaseCoordinator.swift in Sources */,
 				8FDA29F2299E4DA800DD4003 /* Date+.swift in Sources */,
+				8FDA2A35299FB1BD00DD4003 /* BaseStatViewController.swift in Sources */,
 				8F85B682299AC16C0097657D /* SceneDelegate.swift in Sources */,
 				8FDA29EE299E4D9A00DD4003 /* PopupViewController.swift in Sources */,
+				8FDA2A31299FAEBE00DD4003 /* BaseLearnViewController.swift in Sources */,
 				8FDA29F9299E4DB500DD4003 /* Logger.swift in Sources */,
+				8FDA2A3D299FBDD600DD4003 /* String+localization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

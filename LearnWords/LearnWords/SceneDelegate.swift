@@ -28,7 +28,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
         
-        startCoordinator = SettingsCoordinator()
+//        startCoordinator = SettingsCoordinator()
+//        startCoordinator = StatCoordinator()
+//        startCoordinator = LearnCoordinator()
+        startCoordinator = MainTabBarCoordinator()
         startCoordinator?.start()
         startCoordinator?.setAsRootViewController()
     }
