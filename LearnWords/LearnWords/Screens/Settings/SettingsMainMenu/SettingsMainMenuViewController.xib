@@ -10,7 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsMainMenuViewController" customModule="LearnWords" customModuleProvider="target">
             <connections>
-                <outlet property="setupLocalBtn" destination="twF-YX-XeG" id="28l-yN-5ki"/>
+                <outlet property="editWordsBtn" destination="Z6c-in-4dg" id="Z6C-ad-pzE"/>
+                <outlet property="setupSystemlBtn" destination="twF-YX-XeG" id="28l-yN-5ki"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,11 +25,18 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Setup local base"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6c-in-4dg">
+                    <rect key="frame" x="132.66666666666666" y="708" width="127.99999999999997" height="35"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="editWordsBtn"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="twF-YX-XeG" secondAttribute="bottom" constant="20" id="IFm-ah-6zM"/>
+                <constraint firstItem="Z6c-in-4dg" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="YvN-0j-2gw"/>
+                <constraint firstItem="twF-YX-XeG" firstAttribute="top" secondItem="Z6c-in-4dg" secondAttribute="bottom" constant="20" id="gVF-oi-FWE"/>
                 <constraint firstItem="twF-YX-XeG" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="vJB-8q-KrZ"/>
             </constraints>
             <point key="canvasLocation" x="21" y="20"/>

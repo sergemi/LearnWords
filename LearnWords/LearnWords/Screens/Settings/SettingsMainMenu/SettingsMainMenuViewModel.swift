@@ -15,6 +15,7 @@ class SettingsMainMenuViewModel: BaseViewModel {
     weak var settingsCoordinator: SettingsCoordinatorProtocl? = nil
     
     let localBaseBtnObserver = PublishSubject<Void>()
+    let editWordsBtnObserver = PublishSubject<Void>()
     
     
     init() {
@@ -22,6 +23,10 @@ class SettingsMainMenuViewModel: BaseViewModel {
 //            print("!localBaseBtnObserver!")
             let settingsURL = URL(string: UIApplication.openSettingsURLString)!
             UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+        }).disposed(by: disposeBag)
+        
+        _ = editWordsBtnObserver.bind(onNext: { [weak self] _ in
+            print("!editWordsBtnObserver!")
         }).disposed(by: disposeBag)
     }
 }

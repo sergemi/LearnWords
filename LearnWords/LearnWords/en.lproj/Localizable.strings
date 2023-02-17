@@ -21,3 +21,4 @@
 //Settings coordinator
 // MainMenu
 "Settings.MainMenu.SystemSettings" = "System settings";
+"Settings.MainMenu.EditWords" = "Edit words";

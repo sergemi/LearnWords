@@ -21,7 +21,8 @@ class SettingsMainMenuViewController: BaseViewController {
         }
     }
     
-    @IBOutlet weak var setupLocalBtn: UIButton!
+    @IBOutlet weak var setupSystemlBtn: UIButton!
+    @IBOutlet weak var editWordsBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +34,12 @@ class SettingsMainMenuViewController: BaseViewController {
     override func bindUI() {
         log.method()
         
-        setupLocalBtn.rx.tap.bind(to: model.localBaseBtnObserver).disposed(by: disposeBag)
+        setupSystemlBtn.rx.tap.bind(to: model.localBaseBtnObserver).disposed(by: disposeBag)
+        editWordsBtn.rx.tap.bind(to: model.editWordsBtnObserver).disposed(by: disposeBag)
     }
     
     func setupUI() {
-        setupLocalBtn.setTitle("Settings.MainMenu.SystemSettings".localized())
+        setupSystemlBtn.setTitle("Settings.MainMenu.SystemSettings".localized())
+        editWordsBtn.setTitle("Settings.MainMenu.EditWords".localized())
     }
 }

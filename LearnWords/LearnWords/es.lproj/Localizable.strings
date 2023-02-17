@@ -20,5 +20,6 @@
 //Settings coordinator
 // MainMenu
 "Settings.MainMenu.SystemSettings" = "Ajustes del sistema";
+"Settings.MainMenu.EditWords" = "Editar palabras";
 
 
