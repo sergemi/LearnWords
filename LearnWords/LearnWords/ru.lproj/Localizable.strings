@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  LearnWords
+
+  Created by sergemi on 17.02.2023.
+  
+*/
+
+// Main Tabbar
+"Tabbar.Learn" = "Учить";
+"Tabbar.AddWord" = "+ слово";
+"Tabbar.Stat" = "Статистика";
+"Tabbar.Settings" = "Настройки";

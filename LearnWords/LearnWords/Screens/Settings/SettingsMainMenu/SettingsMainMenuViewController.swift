@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class SettingsMainMenuViewController: BaseViewController {
     var model = SettingsMainMenuViewModel()
@@ -23,10 +25,13 @@ class SettingsMainMenuViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        bindUI()
     }
     
     override func bindUI() {
         log.method()
+        
+        setupLocalBtn.rx.tap.bind(to: model.localBaseBtnObserver).disposed(by: disposeBag)
     }
 }

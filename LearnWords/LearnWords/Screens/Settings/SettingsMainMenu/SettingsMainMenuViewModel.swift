@@ -13,4 +13,15 @@ import RxCocoa
 class SettingsMainMenuViewModel: BaseViewModel {
     let disposeBag = DisposeBag()
     weak var settingsCoordinator: SettingsCoordinatorProtocl? = nil
+    
+    let localBaseBtnObserver = PublishSubject<Void>()
+    
+    
+    init() {
+        _ = localBaseBtnObserver.bind(onNext: { [weak self] _ in
+//            print("!localBaseBtnObserver!")
+            let settingsURL = URL(string: UIApplication.openSettingsURLString)!
+            UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+        }).disposed(by: disposeBag)
+    }
 }
