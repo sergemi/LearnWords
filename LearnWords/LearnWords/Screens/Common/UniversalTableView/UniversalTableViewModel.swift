@@ -23,4 +23,5 @@ class UniversalTableViewModel: BaseViewModel {
     let canEdit = BehaviorRelay<Bool>(value: false)
     let canSelect = BehaviorRelay<Bool>(value: false)
     let canMultiSelect = BehaviorRelay<Bool>(value: false)
+    let hasActionAllBtn = BehaviorRelay<Bool>(value: false)
 }
