@@ -13,9 +13,11 @@ import RxCocoa
 //protocol UniversalTableViewModel: BaseViewModel {
 class UniversalTableViewModel: BaseViewModel {
     let disposeBag = DisposeBag()
+    
     let name = BehaviorRelay<String?>(value: "")
     let details = BehaviorRelay<String?>(value: "")
     let tableHeader = BehaviorRelay<String?>(value: "")
+    let addBtnCaption = BehaviorRelay<String?>(value: "Add")
     
     let rows = BehaviorRelay<[ModelTableViewCell]>(value: [])
     

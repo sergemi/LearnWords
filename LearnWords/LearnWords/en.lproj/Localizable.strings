@@ -17,6 +17,8 @@
 "Learn.BaseLearn.Continue" = "Learn";
 "Learn.BaseLearn.Lern" = "Learn";
 
+// Modules list
+"Learn.ModulesList.Name" = "Select Module";
 
 //Settings coordinator
 // MainMenu
@@ -24,4 +26,5 @@
 "Settings.MainMenu.EditWords" = "Edit words";
 
 // Modules list
-"Settings.ModulesList.Name" = "Select Module";
+"Settings.ModulesList.Name" = "Editing modules";
+"Settings.ModulesList.addBtn" = "Add module";

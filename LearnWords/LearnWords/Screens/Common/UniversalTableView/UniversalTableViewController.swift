@@ -13,7 +13,8 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
     
     var viewModel: UniversalTableViewModel? = nil
     
-    let rightBtn = UIBarButtonItem(image: UIImage(named: "add"), style: .plain, target: nil, action: nil)
+//    let rightBtn = UIBarButtonItem(image: UIImage(named: "add"), style: .plain, target: nil, action: nil)
+    let rightBtn = UIBarButtonItem(title: "Add module", style: .plain, target: nil, action: nil)
     
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var tableHeaderLbl: UILabel!
@@ -62,6 +63,10 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
         
         _ = viewModel?.tableHeader.subscribe(onNext: {[weak self] value in
             self?.tableHeaderLbl.text = value
+        }).disposed(by: disposeBag)
+        
+        _ = viewModel?.addBtnCaption.subscribe(onNext: {[weak self] value in
+            self?.rightBtn.title = value
         }).disposed(by: disposeBag)
         
         _ = viewModel?.hasActionAllBtn.subscribe(onNext: {[weak self] value in

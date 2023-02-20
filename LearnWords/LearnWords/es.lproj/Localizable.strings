@@ -17,10 +17,14 @@
 "Learn.BaseLearn.Continue" = "Continuar";
 "Learn.BaseLearn.New" = "Neuva";
 
+// Modules list
+"Learn.ModulesList.Name" = "Selección de módulo";
+
 //Settings coordinator
 // MainMenu
 "Settings.MainMenu.SystemSettings" = "Ajustes del sistema";
 "Settings.MainMenu.EditWords" = "Editar palabras";
 
 // Modules list
-"Settings.ModulesList.Name" = "Selección de módulo";
+"Settings.ModulesList.Name" = "Editing modules";
+"Settings.ModulesList.addBtn" = "Add module";
