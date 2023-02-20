@@ -14,9 +14,18 @@ class SettingsModuleListViewModel: UniversalTableViewModel {
         log.method()
         super.init()
         
-//        details.accept("SettingsModuleListViewModel details\n test test test\ntest")
-        details.accept(nil)
-        tableHeader.accept(nil)
+        details.accept("SettingsModuleListViewModel details\n test test test\ntest")
+//        details.accept(nil)
+//        tableHeader.accept(nil)
+        tableHeader.accept("Header")
         hasActionAllBtn.accept(true)
+        
+        let testRows: [ModelTableViewCell] = [
+            ModelTableViewCell(checkbox: .hiden, title: "title one", showArrow: true),
+            ModelTableViewCell(checkbox: .empty, title: "title two", percent: 20, showArrow: true),
+            ModelTableViewCell(checkbox: .checked, title: "title three", showArrow: true),
+            ModelTableViewCell(checkbox: .hiden, title: "title four", showArrow: true)
+        ]
+        rows.accept(testRows)
     }
 }

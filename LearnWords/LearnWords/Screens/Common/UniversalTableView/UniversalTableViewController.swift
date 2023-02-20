@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class UniversalTableViewController: BaseViewController {
+class UniversalTableViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     var viewModel: UniversalTableViewModel? = nil
     
@@ -28,6 +28,15 @@ class UniversalTableViewController: BaseViewController {
 
         setupUI()
         bindUI()
+    }
+    
+    fileprivate func setupTableView() {
+        let cellNib = UINib(nibName: "DataTableViewCell", bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: "DataTableViewCell")
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        log.method()
     }
     
     override func bindUI() {
@@ -52,11 +61,35 @@ class UniversalTableViewController: BaseViewController {
             var isVisible = value == true
             self?.actionSelectedBtn.isHidden = !isVisible
         }).disposed(by: disposeBag)
+        
+        _ = viewModel?.rows.subscribe(onNext: {[weak self] value in
+            self?.tableView.reloadData()
+        }).disposed(by: disposeBag)
     }
     
     func setupUI() {
+        setupTableView()
 //        continueBtn.setTitle("Learn.BaseLearn.Continue".localized())
 //        newBtn.setTitle("Learn.BaseLearn.New".localized())
     }
 
+    // MARK: - UITableViewDataSource
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let rows = viewModel?.rows.value else {
+            return 0
+        }
+        
+        return rows.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = self.tableView.dequeueReusableCell(withIdentifier: "DataTableViewCell", for: indexPath) as! DataTableViewCell
+        guard let rows = viewModel?.rows.value else {
+            return cell
+        }
+        let cellModel = rows[indexPath.row]
+        cell.setup(model: cellModel)
+        
+        return cell
+    }
 }
