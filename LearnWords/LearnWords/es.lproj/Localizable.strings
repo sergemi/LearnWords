@@ -22,4 +22,5 @@
 "Settings.MainMenu.SystemSettings" = "Ajustes del sistema";
 "Settings.MainMenu.EditWords" = "Editar palabras";
 
-
+// Modules list
+"Settings.ModulesList.Name" = "Selección de módulo";

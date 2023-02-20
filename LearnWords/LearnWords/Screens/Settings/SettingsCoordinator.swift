@@ -50,7 +50,6 @@ class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocol {
     func selectModule() {
 //        let model = SettingsModuleListViewModel()
         let model = SettingsModuleListViewModel()
-        model.name.accept("Module select")
         let vc =  UniversalTableViewController(viewModel: model)
         
         navigationController.pushViewController(vc, animated: true)

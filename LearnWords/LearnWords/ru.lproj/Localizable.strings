@@ -22,3 +22,6 @@
 "Settings.MainMenu.SystemSettings" = "Системные настройки";
 "Settings.MainMenu.EditWords" = "Редактировать слова";
 
+// Modules list
+"Settings.ModulesList.Name" = "Выбор модуля";
+

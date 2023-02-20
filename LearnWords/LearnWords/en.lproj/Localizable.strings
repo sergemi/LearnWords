@@ -22,3 +22,6 @@
 // MainMenu
 "Settings.MainMenu.SystemSettings" = "System settings";
 "Settings.MainMenu.EditWords" = "Edit words";
+
+// Modules list
+"Settings.ModulesList.Name" = "Select Module";

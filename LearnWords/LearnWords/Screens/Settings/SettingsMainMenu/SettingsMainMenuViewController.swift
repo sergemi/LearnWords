@@ -35,6 +35,7 @@ class SettingsMainMenuViewController: BaseViewController {
         
         setupSystemlBtn.rx.tap.bind(to: model.localBaseBtnObserver).disposed(by: disposeBag)
         editWordsBtn.rx.tap.bind(to: model.editWordsBtnObserver).disposed(by: disposeBag)
+        
     }
     
     func setupUI() {

@@ -13,6 +13,8 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
     
     var viewModel: UniversalTableViewModel? = nil
     
+    let rightBtn = UIBarButtonItem(image: UIImage(named: "add"), style: .plain, target: nil, action: nil)
+    
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var tableHeaderLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -27,7 +29,6 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
         super.viewDidLoad()
 
         setupUI()
-        bindUI()
     }
     
     fileprivate func setupTableView() {
@@ -41,6 +42,12 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
     
     override func bindUI() {
         log.method()
+        
+        guard let viewModel2 = viewModel else {
+            return
+        }
+        
+        rightBtn.rx.tap.bind(to: (viewModel2.addBtnObserver)).disposed(by: self.disposeBag)
         
         _ = viewModel?.name.subscribe(onNext: { [weak self] value in
             guard let value = value else {
@@ -65,6 +72,18 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
         _ = viewModel?.rows.subscribe(onNext: {[weak self] value in
             self?.tableView.reloadData()
         }).disposed(by: disposeBag)
+        
+        _ = viewModel?.canAdd.subscribe(onNext: { [weak self] value in
+            guard let self = self else {
+                return
+            }
+            if value == true {
+                self.navigationItem.rightBarButtonItem = self.rightBtn
+            }
+            else {
+                self.navigationItem.rightBarButtonItem = nil
+            }
+        }).disposed(by: disposeBag)
     }
     
     func setupUI() {
@@ -83,7 +102,7 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = self.tableView.dequeueReusableCell(withIdentifier: "DataTableViewCell", for: indexPath) as! DataTableViewCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "DataTableViewCell", for: indexPath) as! DataTableViewCell
         guard let rows = viewModel?.rows.value else {
             return cell
         }
