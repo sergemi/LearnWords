@@ -19,5 +19,5 @@
 
 //Settings coordinator
 // MainMenu
-"Settings.MainMenu.SystemSettings" = "Налаштування системи";
+"Settings.MainMenu.SystemSettings" = "Систємні налаштування";
 "Settings.MainMenu.EditWords" = "Редагувати слова";

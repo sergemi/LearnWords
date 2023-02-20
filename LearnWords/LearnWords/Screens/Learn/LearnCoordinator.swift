@@ -8,11 +8,11 @@
 //import Foundation
 import UIKit
 
-protocol LearnCoordinatorProtocl: AnyObject {
+protocol LearnCoordinatorProtocol: AnyObject {
     func BaseLearn()
 }
 
-class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocl {
+class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocol {
     var currentViewController: UIViewController?
     
     var childCoordinators: [CoordinatorProtocol] = []
@@ -37,7 +37,7 @@ class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocl {
         self.navigationController = nc
     }
     
-    // MARK: - LearnCoordinatorProtocl
+    // MARK: - LearnCoordinatorProtocol
     func BaseLearn() {
         log.method()
         

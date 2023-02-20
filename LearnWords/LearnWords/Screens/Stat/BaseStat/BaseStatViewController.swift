@@ -12,7 +12,7 @@ import RxSwift
 class BaseStatViewController: BaseViewController {
     var model = BaseStatViewModel()
     
-    weak var statCoordinator: StatCoordinatorProtocl? {
+    weak var statCoordinator: StatCoordinatorProtocol? {
         get {
             return model.statCoordinator
         }
@@ -23,8 +23,6 @@ class BaseStatViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        bindUI()
     }
 
     override func bindUI() {

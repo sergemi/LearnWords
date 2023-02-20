@@ -44,6 +44,14 @@
 		8FDA2A3B299FB74B00DD4003 /* MainTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA2A39299FB74B00DD4003 /* MainTabBarCoordinator.swift */; };
 		8FDA2A3D299FBDD600DD4003 /* String+localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA2A3C299FBDD500DD4003 /* String+localization.swift */; };
 		8FF3E5CF299FC67E00D64A0D /* UIButton+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5CE299FC67E00D64A0D /* UIButton+ext.swift */; };
+		8FF3E5D2299FE64D00D64A0D /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5D0299FE64D00D64A0D /* DataTableViewCell.swift */; };
+		8FF3E5D3299FE64D00D64A0D /* DataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF3E5D1299FE64D00D64A0D /* DataTableViewCell.xib */; };
+		8FF3E5D529A239AC00D64A0D /* UICheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5D429A239AC00D64A0D /* UICheckbox.swift */; };
+		8FF3E5DA29A24FDD00D64A0D /* UniversalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5D829A24FDD00D64A0D /* UniversalTableViewController.swift */; };
+		8FF3E5DB29A24FDD00D64A0D /* UniversalTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF3E5D929A24FDD00D64A0D /* UniversalTableViewController.xib */; };
+		8FF3E5DD29A2521900D64A0D /* UniversalTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5DC29A2521900D64A0D /* UniversalTableViewModel.swift */; };
+		8FF3E5DF29A2633500D64A0D /* SettingsModuleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5DE29A2633500D64A0D /* SettingsModuleListViewModel.swift */; };
+		8FF3E5E229A3773500D64A0D /* ModelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E129A3773500D64A0D /* ModelTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +103,14 @@
 		8FDA2A39299FB74B00DD4003 /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
 		8FDA2A3C299FBDD500DD4003 /* String+localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+localization.swift"; path = "LearnWords/Extensions/String+localization.swift"; sourceTree = SOURCE_ROOT; };
 		8FF3E5CE299FC67E00D64A0D /* UIButton+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ext.swift"; sourceTree = "<group>"; };
+		8FF3E5D0299FE64D00D64A0D /* DataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
+		8FF3E5D1299FE64D00D64A0D /* DataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataTableViewCell.xib; sourceTree = "<group>"; };
+		8FF3E5D429A239AC00D64A0D /* UICheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICheckbox.swift; sourceTree = "<group>"; };
+		8FF3E5D829A24FDD00D64A0D /* UniversalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalTableViewController.swift; sourceTree = "<group>"; };
+		8FF3E5D929A24FDD00D64A0D /* UniversalTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UniversalTableViewController.xib; sourceTree = "<group>"; };
+		8FF3E5DC29A2521900D64A0D /* UniversalTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalTableViewModel.swift; sourceTree = "<group>"; };
+		8FF3E5DE29A2633500D64A0D /* SettingsModuleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModuleListViewModel.swift; sourceTree = "<group>"; };
+		8FF3E5E129A3773500D64A0D /* ModelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTableViewCell.swift; sourceTree = "<group>"; };
 		BDAF99E192F044DC42D5F440 /* Pods-LearnWords.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnWords.release.xcconfig"; path = "Target Support Files/Pods-LearnWords/Pods-LearnWords.release.xcconfig"; sourceTree = "<group>"; };
 		FD94A19289068F6A6A3AB6AE /* Pods_LearnWords.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LearnWords.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -140,6 +156,7 @@
 		8F85B67E299AC16C0097657D /* LearnWords */ = {
 			isa = PBXGroup;
 			children = (
+				8FF3E5E029A375D300D64A0D /* Models */,
 				8FDA2A06299E555E00DD4003 /* Screens */,
 				8F85B67F299AC16C0097657D /* AppDelegate.swift */,
 				8F85B681299AC16C0097657D /* SceneDelegate.swift */,
@@ -161,7 +178,10 @@
 			isa = PBXGroup;
 			children = (
 				8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */,
+				8FF3E5D429A239AC00D64A0D /* UICheckbox.swift */,
 				8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */,
+				8FF3E5D0299FE64D00D64A0D /* DataTableViewCell.swift */,
+				8FF3E5D1299FE64D00D64A0D /* DataTableViewCell.xib */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -203,6 +223,7 @@
 		8FDA2A06299E555E00DD4003 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				8FF3E5D629A24E2800D64A0D /* Common */,
 				8FDA2A37299FB74B00DD4003 /* MainTabBar */,
 				8FDA2A29299FADB900DD4003 /* Learn */,
 				8FDA2A23299FAA9000DD4003 /* Stat */,
@@ -216,6 +237,7 @@
 			children = (
 				8FDA2A08299E55ED00DD4003 /* SettingsMainMenu */,
 				8FDA2A0F299E6C9400DD4003 /* SettingsCoordinator.swift */,
+				8FF3E5DE29A2633500D64A0D /* SettingsModuleListViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -275,6 +297,32 @@
 				8FDA2A39299FB74B00DD4003 /* MainTabBarCoordinator.swift */,
 			);
 			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		8FF3E5D629A24E2800D64A0D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8FF3E5D729A24E3500D64A0D /* UniversalTableView */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		8FF3E5D729A24E3500D64A0D /* UniversalTableView */ = {
+			isa = PBXGroup;
+			children = (
+				8FF3E5D829A24FDD00D64A0D /* UniversalTableViewController.swift */,
+				8FF3E5D929A24FDD00D64A0D /* UniversalTableViewController.xib */,
+				8FF3E5DC29A2521900D64A0D /* UniversalTableViewModel.swift */,
+			);
+			path = UniversalTableView;
+			sourceTree = "<group>";
+		};
+		8FF3E5E029A375D300D64A0D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8FF3E5E129A3773500D64A0D /* ModelTableViewCell.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		FB68A1162FE42147CDD3C76E /* Pods */ = {
@@ -354,9 +402,11 @@
 				8FDA2A0C299E567C00DD4003 /* SettingsMainMenuViewController.xib in Resources */,
 				8F85B689299AC16E0097657D /* Assets.xcassets in Resources */,
 				8FDA2A17299F7D7500DD4003 /* Localizable.strings in Resources */,
+				8FF3E5D3299FE64D00D64A0D /* DataTableViewCell.xib in Resources */,
 				8FDA2A36299FB1BD00DD4003 /* BaseStatViewController.xib in Resources */,
 				8FDA2A03299E4E8F00DD4003 /* MainTabbarView.xib in Resources */,
 				8F85B687299AC16C0097657D /* Main.storyboard in Resources */,
+				8FF3E5DB29A24FDD00D64A0D /* UniversalTableViewController.xib in Resources */,
 				8FDA29ED299E4D9A00DD4003 /* PopupViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,20 +465,26 @@
 				8FDA2A26299FAD9500DD4003 /* StatCoordinator.swift in Sources */,
 				8FDA2A02299E4E8F00DD4003 /* BaseViewModel.swift in Sources */,
 				8FDA29F3299E4DA800DD4003 /* UIView+ext.swift in Sources */,
+				8FF3E5D529A239AC00D64A0D /* UICheckbox.swift in Sources */,
 				8FDA2A28299FADAA00DD4003 /* BaseStatViewModel.swift in Sources */,
+				8FF3E5DA29A24FDD00D64A0D /* UniversalTableViewController.swift in Sources */,
 				8FDA2A05299E4E8F00DD4003 /* BaseViewFromNib.swift in Sources */,
 				8F85B684299AC16C0097657D /* ViewController.swift in Sources */,
 				8FDA2A2D299FADB900DD4003 /* BaseLearnViewModel.swift in Sources */,
+				8FF3E5DD29A2521900D64A0D /* UniversalTableViewModel.swift in Sources */,
 				8FDA2A3A299FB74B00DD4003 /* MainTabBarViewModel.swift in Sources */,
 				8FF3E5CF299FC67E00D64A0D /* UIButton+ext.swift in Sources */,
 				8FDA2A3B299FB74B00DD4003 /* MainTabBarCoordinator.swift in Sources */,
 				8FDA2A2E299FADBA00DD4003 /* LearnCoordinator.swift in Sources */,
 				8FDA29F8299E4DB500DD4003 /* KeyboardObserver.swift in Sources */,
+				8FF3E5DF29A2633500D64A0D /* SettingsModuleListViewModel.swift in Sources */,
 				8F85B680299AC16C0097657D /* AppDelegate.swift in Sources */,
 				8FDA2A0B299E567C00DD4003 /* SettingsMainMenuViewController.swift in Sources */,
 				8FDA2A10299E6C9400DD4003 /* SettingsCoordinator.swift in Sources */,
 				8FDA2A12299E7C4E00DD4003 /* UIViewController+ext.swift in Sources */,
+				8FF3E5E229A3773500D64A0D /* ModelTableViewCell.swift in Sources */,
 				8FDA2A01299E4E8F00DD4003 /* BaseViewController.swift in Sources */,
+				8FF3E5D2299FE64D00D64A0D /* DataTableViewCell.swift in Sources */,
 				8FDA2A04299E4E8F00DD4003 /* BaseCoordinator.swift in Sources */,
 				8FDA29F2299E4DA800DD4003 /* Date+.swift in Sources */,
 				8FDA2A35299FB1BD00DD4003 /* BaseStatViewController.swift in Sources */,

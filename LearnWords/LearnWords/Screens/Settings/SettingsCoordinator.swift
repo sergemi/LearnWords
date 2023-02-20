@@ -8,11 +8,12 @@
 //import Foundation
 import UIKit
 
-protocol SettingsCoordinatorProtocl: AnyObject {
+protocol SettingsCoordinatorProtocol: AnyObject {
     func mainMenu()
+    func selectModule()
 }
 
-class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocl {
+class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocol {
     var currentViewController: UIViewController?
     
     var childCoordinators: [CoordinatorProtocol] = []
@@ -37,13 +38,22 @@ class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocl {
         self.navigationController = nc
     }
     
-    // MARK: - SettingsCoordinatorProtocl
+    // MARK: - SettingsCoordinatorProtocol
     func mainMenu() {
         log.method()
         
         let vc = SettingsMainMenuViewController.loadFromNib()
         vc.settingsCoordinator = self
         navigationController.setViewControllers([vc], animated: true)
+    }
+    
+    func selectModule() {
+//        let model = SettingsModuleListViewModel()
+        let model = SettingsModuleListViewModel()
+        model.name.accept("Module select")
+        let vc =  UniversalTableViewController(viewModel: model)
+        
+        navigationController.pushViewController(vc, animated: true)
     }
  
     // MARK: - CoordinatorProtocol

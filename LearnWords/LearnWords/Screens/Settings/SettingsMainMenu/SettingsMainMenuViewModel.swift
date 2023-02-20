@@ -12,7 +12,7 @@ import RxCocoa
 
 class SettingsMainMenuViewModel: BaseViewModel {
     let disposeBag = DisposeBag()
-    weak var settingsCoordinator: SettingsCoordinatorProtocl? = nil
+    weak var settingsCoordinator: SettingsCoordinatorProtocol? = nil
     
     let localBaseBtnObserver = PublishSubject<Void>()
     let editWordsBtnObserver = PublishSubject<Void>()
@@ -27,6 +27,7 @@ class SettingsMainMenuViewModel: BaseViewModel {
         
         _ = editWordsBtnObserver.bind(onNext: { [weak self] _ in
             print("!editWordsBtnObserver!")
+            self?.settingsCoordinator?.selectModule()
         }).disposed(by: disposeBag)
     }
 }

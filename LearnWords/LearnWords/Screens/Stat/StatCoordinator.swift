@@ -8,11 +8,11 @@
 //import Foundation
 import UIKit
 
-protocol StatCoordinatorProtocl: AnyObject {
+protocol StatCoordinatorProtocol: AnyObject {
     func BaseStat()
 }
 
-class StatCoordinator: CoordinatorProtocol, StatCoordinatorProtocl {
+class StatCoordinator: CoordinatorProtocol, StatCoordinatorProtocol {
     var currentViewController: UIViewController?
     
     var childCoordinators: [CoordinatorProtocol] = []
@@ -37,7 +37,7 @@ class StatCoordinator: CoordinatorProtocol, StatCoordinatorProtocl {
         self.navigationController = nc
     }
     
-    // MARK: - StatCoordinatorProtocl
+    // MARK: - StatCoordinatorProtocol
     func BaseStat() {
         log.method()
         

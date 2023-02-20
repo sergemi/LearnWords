@@ -16,7 +16,7 @@ class BaseLearnViewController: BaseViewController {
     @IBOutlet weak var continueBtn: UIButton!
     @IBOutlet weak var newBtn: UIButton!
     
-    weak var learnCoordinator: LearnCoordinatorProtocl? {
+    weak var learnCoordinator: LearnCoordinatorProtocol? {
         get {
             return model.learnCoordinator
         }
@@ -29,7 +29,6 @@ class BaseLearnViewController: BaseViewController {
         super.viewDidLoad()
 
         setupUI()
-        bindUI()
     }
     
     override func bindUI() {

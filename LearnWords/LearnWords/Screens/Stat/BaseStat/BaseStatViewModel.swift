@@ -12,7 +12,7 @@ import RxCocoa
 
 class BaseStatViewModel: BaseViewModel {
     let disposeBag = DisposeBag()
-    weak var statCoordinator: StatCoordinatorProtocl? = nil
+    weak var statCoordinator: StatCoordinatorProtocol? = nil
     
     init() {
     }

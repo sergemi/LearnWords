@@ -12,7 +12,7 @@ import RxSwift
 class SettingsMainMenuViewController: BaseViewController {
     var model = SettingsMainMenuViewModel()
     
-    weak var settingsCoordinator: SettingsCoordinatorProtocl? {
+    weak var settingsCoordinator: SettingsCoordinatorProtocol? {
         get {
             return model.settingsCoordinator
         }
@@ -28,7 +28,6 @@ class SettingsMainMenuViewController: BaseViewController {
         super.viewDidLoad()
         
         setupUI()
-        bindUI()
     }
     
     override func bindUI() {

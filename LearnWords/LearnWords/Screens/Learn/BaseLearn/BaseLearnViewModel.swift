@@ -12,7 +12,7 @@ import RxCocoa
 
 class BaseLearnViewModel: BaseViewModel {
     let disposeBag = DisposeBag()
-    weak var learnCoordinator: LearnCoordinatorProtocl? = nil
+    weak var learnCoordinator: LearnCoordinatorProtocol? = nil
     
     
     init() {
