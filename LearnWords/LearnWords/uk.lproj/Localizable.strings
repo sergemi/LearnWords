@@ -31,7 +31,12 @@
 
 // Add module
 "Settings.AddModule.Title" = "Add module";
-"Settings.AddModule.title placeholder" = "Module Name";
+"Settings.AddModule.saveModuleBtn" = "Add";
+"Settings.AddModule.name placeholder" = "Module Name";
 "Settings.AddModule.tableHeader" = "Topics:";
-"Settings.AddModule.saveModuleBtn" = "Save";
 "Settings.AddModule.addTopicBtn" = "Add topic";
+
+// Edit module
+"Settings.EditModule.Title" = "Edit module";
+"Settings.EditModule.saveModuleBtn" = "Save";
+

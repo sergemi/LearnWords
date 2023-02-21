@@ -36,4 +36,8 @@ class UniversalTableViewModel: BaseViewModel {
     func reloadTableData () {
         log.method()
     }
+    
+    func selectRow(index: Int) {
+        log.method()
+    }
 }

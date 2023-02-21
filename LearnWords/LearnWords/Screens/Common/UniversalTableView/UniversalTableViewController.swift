@@ -47,6 +47,8 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
         tableView.dataSource = self
         tableView.delegate = self
         
+        tableView.allowsMultipleSelection = false
+        
         log.method()
     }
     
@@ -110,6 +112,10 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
             }
         }).disposed(by: disposeBag)
         
+        _ = viewModel.canSelect.subscribe(onNext: {[weak self] value in
+            self?.tableView.allowsSelection = value
+        }).disposed(by: disposeBag)
+        
         _ = viewModel.canEdit.subscribe(onNext: { [weak self] value in
             guard let self = self else {
                 return
@@ -146,6 +152,11 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
         cell.setup(model: cellModel)
         
         return cell
+    }
+    
+    // MARK: - UITableViewDataSource
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel?.selectRow(index: indexPath.row)
     }
     
     // MARK: - UITextFieldDelegate

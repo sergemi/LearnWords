@@ -29,6 +29,7 @@ class SettingsModuleListViewModel: UniversalTableViewModel {
 //        hasActionAllBtn.accept(true)
         canAdd.accept(true)
 //        canEdit.accept(true)
+        canSelect.accept(true)
         
 //        let testRows: [ModelTableViewCell] = [
 //            ModelTableViewCell(checkbox: .hiden, title: "title one", showArrow: true),
@@ -39,16 +40,6 @@ class SettingsModuleListViewModel: UniversalTableViewModel {
 //        rows.accept(testRows)
     }
     
-    override func reloadTableData (){
-        let realm = try! Realm()
-        modules = Array(realm.objects(ModelModule.self))
-        
-        let modulesRows = modules.map{
-            ModelTableViewCell(checkbox: .hiden, title: $0.name, showArrow: true)
-        }
-        rows.accept(modulesRows)
-    }
-    
     fileprivate func bind() {
         _ = addBtnObserver.bind(onNext: { [weak self] _ in
             guard let self = self else {
@@ -56,5 +47,21 @@ class SettingsModuleListViewModel: UniversalTableViewModel {
             }
             self.settingsCoordinator?.addModule()
         }).disposed(by: disposeBag)
+    }
+    
+    override func reloadTableData (){
+        let realm = try! Realm()
+        modules = Array(realm.objects(ModelModule.self))
+        
+        let modulesRows = modules.map{
+//            ModelTableViewCell(checkbox: .hiden, title: $0.name, showArrow: true)
+            ModelTableViewCell(checkbox: .empty, title: $0.name, showArrow: true)
+        }
+        rows.accept(modulesRows)
+    }
+    
+    override func selectRow(index: Int) {
+        let module = modules[index]
+        self.settingsCoordinator?.editModule(module)
     }
 }

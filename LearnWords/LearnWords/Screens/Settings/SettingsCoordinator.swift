@@ -13,6 +13,7 @@ protocol SettingsCoordinatorProtocol: AnyObject {
     
     func selectModule()
     func addModule()
+    func editModule(_ module: ModelModule)
 }
 
 class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocol {
@@ -58,6 +59,13 @@ class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocol {
     
     func addModule() {
         let model = SettingsAddModuleViewModel()
+        model.settingsCoordinator = self
+        let vc =  UniversalTableViewController(viewModel: model)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func editModule(_ module: ModelModule) {
+        let model = SettingsAddModuleViewModel(module: module)
         model.settingsCoordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
