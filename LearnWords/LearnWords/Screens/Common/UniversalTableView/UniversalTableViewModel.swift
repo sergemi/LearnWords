@@ -15,7 +15,9 @@ class UniversalTableViewModel: BaseViewModel {
     let disposeBag = DisposeBag()
     
     let name = BehaviorRelay<String?>(value: "")
+    let namePlaceholder = BehaviorRelay<String?>(value: "")
     let details = BehaviorRelay<String?>(value: "")
+    let detailsPlaceholder = BehaviorRelay<String?>(value: "")
     let tableHeader = BehaviorRelay<String?>(value: "")
     let addBtnCaption = BehaviorRelay<String?>(value: "Add")
     

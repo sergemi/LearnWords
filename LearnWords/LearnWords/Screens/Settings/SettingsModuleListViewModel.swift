@@ -17,6 +17,8 @@ class SettingsModuleListViewModel: UniversalTableViewModel {
         
         name.accept("Settings.ModulesList.Name".localized())
         
+        namePlaceholder.accept("Module Name")
+        
 //        details.accept("SettingsModuleListViewModel details\n test test test\ntest")
 //        details.accept(nil)
 //        tableHeader.accept(nil)
@@ -24,6 +26,7 @@ class SettingsModuleListViewModel: UniversalTableViewModel {
 //        tableHeader.accept("Header")
 //        hasActionAllBtn.accept(true)
         canAdd.accept(true)
+//        canEdit.accept(true)
         
         let testRows: [ModelTableViewCell] = [
             ModelTableViewCell(checkbox: .hiden, title: "title one", showArrow: true),

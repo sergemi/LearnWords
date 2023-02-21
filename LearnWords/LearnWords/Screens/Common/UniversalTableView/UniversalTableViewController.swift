@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class UniversalTableViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class UniversalTableViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     var viewModel: UniversalTableViewModel? = nil
     
@@ -20,6 +20,9 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
     @IBOutlet weak var tableHeaderLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var actionSelectedBtn: UIButton!
+    
+    @IBOutlet weak var nameTextField: CustomTextField!
+    @IBOutlet weak var descriptionTextView: UITextView!
     
     convenience init(viewModel: UniversalTableViewModel) {
         self.init(nibName: String(describing: "UniversalTableViewController"), bundle: nil)
@@ -44,41 +47,50 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
     override func bindUI() {
         log.method()
         
-        guard let viewModel2 = viewModel else {
+        guard let viewModel = viewModel else {
             return
         }
         
-        rightBtn.rx.tap.bind(to: (viewModel2.addBtnObserver)).disposed(by: self.disposeBag)
+        rightBtn.rx.tap.bind(to: (viewModel.addBtnObserver)).disposed(by: self.disposeBag)
         
-        _ = viewModel?.name.subscribe(onNext: { [weak self] value in
+        _ = viewModel.name.subscribe(onNext: { [weak self] value in
             guard let value = value else {
                 return
             }
             self?.title = value
         }).disposed(by: disposeBag)
         
-        _ = viewModel?.details.subscribe(onNext: {[weak self] value in
+        _ = viewModel.namePlaceholder.subscribe(onNext: { [weak self] value in
+            guard let value = value else {
+                return
+            }
+            self?.nameTextField.placeholder = value
+            self?.nameTextField._placeholder = value
+            
+        }).disposed(by: disposeBag)
+        
+        _ = viewModel.details.subscribe(onNext: {[weak self] value in
             self?.descriptionLbl.text = value
         }).disposed(by: disposeBag)
         
-        _ = viewModel?.tableHeader.subscribe(onNext: {[weak self] value in
+        _ = viewModel.tableHeader.subscribe(onNext: {[weak self] value in
             self?.tableHeaderLbl.text = value
         }).disposed(by: disposeBag)
         
-        _ = viewModel?.addBtnCaption.subscribe(onNext: {[weak self] value in
+        _ = viewModel.addBtnCaption.subscribe(onNext: {[weak self] value in
             self?.rightBtn.title = value
         }).disposed(by: disposeBag)
         
-        _ = viewModel?.hasActionAllBtn.subscribe(onNext: {[weak self] value in
+        _ = viewModel.hasActionAllBtn.subscribe(onNext: {[weak self] value in
             var isVisible = value == true
             self?.actionSelectedBtn.isHidden = !isVisible
         }).disposed(by: disposeBag)
         
-        _ = viewModel?.rows.subscribe(onNext: {[weak self] value in
+        _ = viewModel.rows.subscribe(onNext: {[weak self] value in
             self?.tableView.reloadData()
         }).disposed(by: disposeBag)
         
-        _ = viewModel?.canAdd.subscribe(onNext: { [weak self] value in
+        _ = viewModel.canAdd.subscribe(onNext: { [weak self] value in
             guard let self = self else {
                 return
             }
@@ -89,10 +101,21 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
                 self.navigationItem.rightBarButtonItem = nil
             }
         }).disposed(by: disposeBag)
+        
+        _ = viewModel.canEdit.subscribe(onNext: { [weak self] value in
+            guard let self = self else {
+                return
+            }
+            self.nameTextField.isHidden = !value
+            self.descriptionTextView.isHidden = !value
+            self.descriptionLbl.isHidden = value
+        }).disposed(by: disposeBag)
     }
     
     func setupUI() {
         setupTableView()
+        
+        nameTextField.delegate = self
 //        continueBtn.setTitle("Learn.BaseLearn.Continue".localized())
 //        newBtn.setTitle("Learn.BaseLearn.New".localized())
     }
@@ -115,5 +138,11 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
         cell.setup(model: cellModel)
         
         return cell
+    }
+    
+    // MARK: - UITextFieldDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
