@@ -56,6 +56,11 @@
 		8FF3E5E629A43CE400D64A0D /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E529A43CE400D64A0D /* UIColor+ext.swift */; };
 		8FF3E5E829A43DAE00D64A0D /* UITextField+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E729A43DAE00D64A0D /* UITextField+ext.swift */; };
 		8FF3E5EA29A4CC6200D64A0D /* SettingsAddModuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E929A4CC6200D64A0D /* SettingsAddModuleViewModel.swift */; };
+		8FF3E5EC29A4D9A100D64A0D /* ModelWordPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5EB29A4D9A100D64A0D /* ModelWordPair.swift */; };
+		8FF3E5EE29A4DB4F00D64A0D /* ModelExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5ED29A4DB4F00D64A0D /* ModelExercise.swift */; };
+		8FF3E5F029A4DE6400D64A0D /* ModelLearnedWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5EF29A4DE6400D64A0D /* ModelLearnedWord.swift */; };
+		8FF3E5F229A4F97700D64A0D /* ModelTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5F129A4F97700D64A0D /* ModelTopic.swift */; };
+		8FF3E5F429A4FBAB00D64A0D /* ModelModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5F329A4FBAB00D64A0D /* ModelModule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +124,11 @@
 		8FF3E5E529A43CE400D64A0D /* UIColor+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
 		8FF3E5E729A43DAE00D64A0D /* UITextField+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+ext.swift"; sourceTree = "<group>"; };
 		8FF3E5E929A4CC6200D64A0D /* SettingsAddModuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAddModuleViewModel.swift; sourceTree = "<group>"; };
+		8FF3E5EB29A4D9A100D64A0D /* ModelWordPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelWordPair.swift; sourceTree = "<group>"; };
+		8FF3E5ED29A4DB4F00D64A0D /* ModelExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelExercise.swift; sourceTree = "<group>"; };
+		8FF3E5EF29A4DE6400D64A0D /* ModelLearnedWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelLearnedWord.swift; sourceTree = "<group>"; };
+		8FF3E5F129A4F97700D64A0D /* ModelTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTopic.swift; sourceTree = "<group>"; };
+		8FF3E5F329A4FBAB00D64A0D /* ModelModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelModule.swift; sourceTree = "<group>"; };
 		BDAF99E192F044DC42D5F440 /* Pods-LearnWords.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnWords.release.xcconfig"; path = "Target Support Files/Pods-LearnWords/Pods-LearnWords.release.xcconfig"; sourceTree = "<group>"; };
 		FD94A19289068F6A6A3AB6AE /* Pods_LearnWords.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LearnWords.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -333,6 +343,11 @@
 			isa = PBXGroup;
 			children = (
 				8FF3E5E129A3773500D64A0D /* ModelTableViewCell.swift */,
+				8FF3E5EF29A4DE6400D64A0D /* ModelLearnedWord.swift */,
+				8FF3E5ED29A4DB4F00D64A0D /* ModelExercise.swift */,
+				8FF3E5F129A4F97700D64A0D /* ModelTopic.swift */,
+				8FF3E5F329A4FBAB00D64A0D /* ModelModule.swift */,
+				8FF3E5EB29A4D9A100D64A0D /* ModelWordPair.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -475,15 +490,18 @@
 				8FDA2A0E299E569400DD4003 /* SettingsMainMenuViewModel.swift in Sources */,
 				8FDA29FA299E4DB500DD4003 /* DateFormatter.swift in Sources */,
 				8FDA2A26299FAD9500DD4003 /* StatCoordinator.swift in Sources */,
+				8FF3E5F429A4FBAB00D64A0D /* ModelModule.swift in Sources */,
 				8FDA2A02299E4E8F00DD4003 /* BaseViewModel.swift in Sources */,
 				8FDA29F3299E4DA800DD4003 /* UIView+ext.swift in Sources */,
 				8FF3E5D529A239AC00D64A0D /* UICheckbox.swift in Sources */,
 				8FDA2A28299FADAA00DD4003 /* BaseStatViewModel.swift in Sources */,
 				8FF3E5DA29A24FDD00D64A0D /* UniversalTableViewController.swift in Sources */,
 				8FF3E5E429A43C0400D64A0D /* CustomTextField.swift in Sources */,
+				8FF3E5F029A4DE6400D64A0D /* ModelLearnedWord.swift in Sources */,
 				8FDA2A05299E4E8F00DD4003 /* BaseViewFromNib.swift in Sources */,
 				8F85B684299AC16C0097657D /* ViewController.swift in Sources */,
 				8FDA2A2D299FADB900DD4003 /* BaseLearnViewModel.swift in Sources */,
+				8FF3E5F229A4F97700D64A0D /* ModelTopic.swift in Sources */,
 				8FF3E5DD29A2521900D64A0D /* UniversalTableViewModel.swift in Sources */,
 				8FDA2A3A299FB74B00DD4003 /* MainTabBarViewModel.swift in Sources */,
 				8FF3E5CF299FC67E00D64A0D /* UIButton+ext.swift in Sources */,
@@ -493,6 +511,7 @@
 				8FF3E5DF29A2633500D64A0D /* SettingsModuleListViewModel.swift in Sources */,
 				8FF3E5E629A43CE400D64A0D /* UIColor+ext.swift in Sources */,
 				8F85B680299AC16C0097657D /* AppDelegate.swift in Sources */,
+				8FF3E5EC29A4D9A100D64A0D /* ModelWordPair.swift in Sources */,
 				8FDA2A0B299E567C00DD4003 /* SettingsMainMenuViewController.swift in Sources */,
 				8FDA2A10299E6C9400DD4003 /* SettingsCoordinator.swift in Sources */,
 				8FF3E5EA29A4CC6200D64A0D /* SettingsAddModuleViewModel.swift in Sources */,
@@ -506,6 +525,7 @@
 				8F85B682299AC16C0097657D /* SceneDelegate.swift in Sources */,
 				8FDA29EE299E4D9A00DD4003 /* PopupViewController.swift in Sources */,
 				8FDA2A31299FAEBE00DD4003 /* BaseLearnViewController.swift in Sources */,
+				8FF3E5EE29A4DB4F00D64A0D /* ModelExercise.swift in Sources */,
 				8FDA29F9299E4DB500DD4003 /* Logger.swift in Sources */,
 				8FDA2A3D299FBDD600DD4003 /* String+localization.swift in Sources */,
 				8FF3E5E829A43DAE00D64A0D /* UITextField+ext.swift in Sources */,
