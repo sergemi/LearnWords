@@ -15,7 +15,7 @@ class SettingsModuleListViewModel: UniversalTableViewModel {
         super.init()
         bind()
         
-        name.accept("Settings.ModulesList.Name".localized())
+        title.accept("Settings.ModulesList.Title".localized())
         
 //        namePlaceholder.accept("Module Name")
         

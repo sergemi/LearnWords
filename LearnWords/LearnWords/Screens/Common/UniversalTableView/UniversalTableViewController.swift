@@ -53,12 +53,14 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
         
         rightBtn.rx.tap.bind(to: (viewModel.addBtnObserver)).disposed(by: self.disposeBag)
         
-        _ = viewModel.name.subscribe(onNext: { [weak self] value in
+        _ = viewModel.title.subscribe(onNext: { [weak self] value in
             guard let value = value else {
                 return
             }
             self?.title = value
         }).disposed(by: disposeBag)
+        
+        (nameTextField.rx.text <-> viewModel.name).disposed(by: disposeBag)
         
         _ = viewModel.namePlaceholder.subscribe(onNext: { [weak self] value in
             guard let value = value else {

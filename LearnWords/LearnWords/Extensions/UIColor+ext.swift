@@ -1,6 +1,6 @@
 //
 //  UIColor+ext.swift
-//  rzero
+//  LearnWords
 //
 //  Created by sergemi on 03.03.2021.
 //

@@ -15,8 +15,8 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
         super.init()
         bind()
         
-        name.accept("Settings.AddModule.name".localized())
-        namePlaceholder.accept("Settings.AddModule.name placeholder".localized())
+        title.accept("Settings.AddModule.Title".localized())
+        namePlaceholder.accept("Settings.AddModule.title placeholder".localized())
         tableHeader.accept("Settings.AddModule.tableHeader".localized())
         addBtnCaption.accept("Settings.AddModule.saveModuleBtn".localized())
         canEdit.accept(true)

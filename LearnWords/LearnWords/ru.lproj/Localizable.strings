@@ -26,12 +26,12 @@
 "Settings.MainMenu.EditWords" = "Редактировать слова";
 
 // Modules list
-"Settings.ModulesList.Name" = "Editing modules";
+"Settings.ModulesList.Title" = "Editing modules";
 "Settings.ModulesList.addBtn" = "Add module";
 
 // Add module
-"Settings.AddModule.name" = "Add module";
-"Settings.AddModule.name placeholder" = "Module Name";
+"Settings.AddModule.Title" = "Add module";
+"Settings.AddModule.title placeholder" = "Module Name";
 "Settings.AddModule.tableHeader" = "Topics:";
 "Settings.AddModule.saveModuleBtn" = "Save";
 "Settings.AddModule.addTopicBtn" = "Add topic";

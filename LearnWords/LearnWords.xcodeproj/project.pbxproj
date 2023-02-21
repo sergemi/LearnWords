@@ -61,6 +61,7 @@
 		8FF3E5F029A4DE6400D64A0D /* ModelLearnedWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5EF29A4DE6400D64A0D /* ModelLearnedWord.swift */; };
 		8FF3E5F229A4F97700D64A0D /* ModelTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5F129A4F97700D64A0D /* ModelTopic.swift */; };
 		8FF3E5F429A4FBAB00D64A0D /* ModelModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5F329A4FBAB00D64A0D /* ModelModule.swift */; };
+		8FF3E5F629A507AD00D64A0D /* RxHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5F529A507AD00D64A0D /* RxHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +130,7 @@
 		8FF3E5EF29A4DE6400D64A0D /* ModelLearnedWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelLearnedWord.swift; sourceTree = "<group>"; };
 		8FF3E5F129A4F97700D64A0D /* ModelTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTopic.swift; sourceTree = "<group>"; };
 		8FF3E5F329A4FBAB00D64A0D /* ModelModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelModule.swift; sourceTree = "<group>"; };
+		8FF3E5F529A507AD00D64A0D /* RxHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxHelpers.swift; sourceTree = "<group>"; };
 		BDAF99E192F044DC42D5F440 /* Pods-LearnWords.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnWords.release.xcconfig"; path = "Target Support Files/Pods-LearnWords/Pods-LearnWords.release.xcconfig"; sourceTree = "<group>"; };
 		FD94A19289068F6A6A3AB6AE /* Pods_LearnWords.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LearnWords.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				8FDA29F5299E4DB500DD4003 /* KeyboardObserver.swift */,
+				8FF3E5F529A507AD00D64A0D /* RxHelpers.swift */,
 				8FDA29F6299E4DB500DD4003 /* Logger.swift */,
 				8FDA29F7299E4DB500DD4003 /* DateFormatter.swift */,
 			);
@@ -518,6 +521,7 @@
 				8FDA2A12299E7C4E00DD4003 /* UIViewController+ext.swift in Sources */,
 				8FF3E5E229A3773500D64A0D /* ModelTableViewCell.swift in Sources */,
 				8FDA2A01299E4E8F00DD4003 /* BaseViewController.swift in Sources */,
+				8FF3E5F629A507AD00D64A0D /* RxHelpers.swift in Sources */,
 				8FF3E5D2299FE64D00D64A0D /* DataTableViewCell.swift in Sources */,
 				8FDA2A04299E4E8F00DD4003 /* BaseCoordinator.swift in Sources */,
 				8FDA29F2299E4DA800DD4003 /* Date+.swift in Sources */,
