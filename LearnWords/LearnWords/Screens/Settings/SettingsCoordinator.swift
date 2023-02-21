@@ -10,7 +10,9 @@ import UIKit
 
 protocol SettingsCoordinatorProtocol: AnyObject {
     func mainMenu()
+    
     func selectModule()
+    func addModule()
 }
 
 class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocol {
@@ -48,10 +50,16 @@ class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocol {
     }
     
     func selectModule() {
-//        let model = SettingsModuleListViewModel()
         let model = SettingsModuleListViewModel()
+        model.settingsCoordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
-        
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func addModule() {
+        let model = SettingsAddModuleViewModel()
+        model.settingsCoordinator = self
+        let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
  

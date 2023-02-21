@@ -17,7 +17,7 @@ class SettingsModuleListViewModel: UniversalTableViewModel {
         
         name.accept("Settings.ModulesList.Name".localized())
         
-        namePlaceholder.accept("Module Name")
+//        namePlaceholder.accept("Module Name")
         
 //        details.accept("SettingsModuleListViewModel details\n test test test\ntest")
 //        details.accept(nil)
@@ -28,13 +28,13 @@ class SettingsModuleListViewModel: UniversalTableViewModel {
         canAdd.accept(true)
 //        canEdit.accept(true)
         
-        let testRows: [ModelTableViewCell] = [
-            ModelTableViewCell(checkbox: .hiden, title: "title one", showArrow: true),
-            ModelTableViewCell(checkbox: .empty, title: "title two", percent: 20, showArrow: true),
-            ModelTableViewCell(checkbox: .checked, title: "title three", showArrow: true),
-            ModelTableViewCell(checkbox: .hiden, title: "title four", showArrow: true)
-        ]
-        rows.accept(testRows)
+//        let testRows: [ModelTableViewCell] = [
+//            ModelTableViewCell(checkbox: .hiden, title: "title one", showArrow: true),
+//            ModelTableViewCell(checkbox: .empty, title: "title two", percent: 20, showArrow: true),
+//            ModelTableViewCell(checkbox: .checked, title: "title three", showArrow: true),
+//            ModelTableViewCell(checkbox: .hiden, title: "title four", showArrow: true)
+//        ]
+//        rows.accept(testRows)
     }
     
     fileprivate func bind() {
@@ -42,7 +42,7 @@ class SettingsModuleListViewModel: UniversalTableViewModel {
             guard let self = self else {
                 return
             }
-            print("++++++")
+            self.settingsCoordinator?.addModule()
         }).disposed(by: disposeBag)
     }
 }

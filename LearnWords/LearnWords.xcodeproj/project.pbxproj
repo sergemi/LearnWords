@@ -55,6 +55,7 @@
 		8FF3E5E429A43C0400D64A0D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E329A43C0400D64A0D /* CustomTextField.swift */; };
 		8FF3E5E629A43CE400D64A0D /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E529A43CE400D64A0D /* UIColor+ext.swift */; };
 		8FF3E5E829A43DAE00D64A0D /* UITextField+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E729A43DAE00D64A0D /* UITextField+ext.swift */; };
+		8FF3E5EA29A4CC6200D64A0D /* SettingsAddModuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E929A4CC6200D64A0D /* SettingsAddModuleViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,7 @@
 		8FF3E5E329A43C0400D64A0D /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		8FF3E5E529A43CE400D64A0D /* UIColor+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
 		8FF3E5E729A43DAE00D64A0D /* UITextField+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+ext.swift"; sourceTree = "<group>"; };
+		8FF3E5E929A4CC6200D64A0D /* SettingsAddModuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAddModuleViewModel.swift; sourceTree = "<group>"; };
 		BDAF99E192F044DC42D5F440 /* Pods-LearnWords.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnWords.release.xcconfig"; path = "Target Support Files/Pods-LearnWords/Pods-LearnWords.release.xcconfig"; sourceTree = "<group>"; };
 		FD94A19289068F6A6A3AB6AE /* Pods_LearnWords.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LearnWords.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -247,6 +249,7 @@
 				8FDA2A08299E55ED00DD4003 /* SettingsMainMenu */,
 				8FDA2A0F299E6C9400DD4003 /* SettingsCoordinator.swift */,
 				8FF3E5DE29A2633500D64A0D /* SettingsModuleListViewModel.swift */,
+				8FF3E5E929A4CC6200D64A0D /* SettingsAddModuleViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				8F85B680299AC16C0097657D /* AppDelegate.swift in Sources */,
 				8FDA2A0B299E567C00DD4003 /* SettingsMainMenuViewController.swift in Sources */,
 				8FDA2A10299E6C9400DD4003 /* SettingsCoordinator.swift in Sources */,
+				8FF3E5EA29A4CC6200D64A0D /* SettingsAddModuleViewModel.swift in Sources */,
 				8FDA2A12299E7C4E00DD4003 /* UIViewController+ext.swift in Sources */,
 				8FF3E5E229A3773500D64A0D /* ModelTableViewCell.swift in Sources */,
 				8FDA2A01299E4E8F00DD4003 /* BaseViewController.swift in Sources */,
