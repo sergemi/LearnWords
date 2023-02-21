@@ -29,7 +29,7 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
             addBtnCaption.accept("Settings.EditModule.saveModuleBtn".localized())
         }
         
-        namePlaceholder.accept("Settings.AddModule.title placeholder".localized())
+        namePlaceholder.accept("Settings.AddModule.name placeholder".localized())
         tableHeader.accept("Settings.AddModule.tableHeader".localized())
         name.accept(module.name)
         details.accept(module.details)
@@ -77,27 +77,22 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
                 }
             }
         }).disposed(by: disposeBag)
-        // todo: crash here. Need remove assign property or wrap in realm.write
         _ = details.subscribe(onNext: { [weak self] value in
             guard let self = self, let value = value else {
                 return
             }
             self.canAdd.accept(self.isAddBtnEnabled())
-//            self.module.details = value
         }).disposed(by: disposeBag)
 
         _ = name.subscribe(onNext: { [weak self] value in
             guard let self = self, let value = value else {
                 return
             }
-//            self.module.name = value
             self.canAdd.accept(self.isAddBtnEnabled())
         }).disposed(by: disposeBag)
     }
     
     func isAddBtnEnabled() -> Bool {
-        let modName = module.name
-        let modDetails = module.details
         guard let newName = name.value, let newDetails = details.value else {
             return false
         }
