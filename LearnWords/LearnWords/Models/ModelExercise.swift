@@ -18,7 +18,7 @@ enum exerciseType: Int, PersistableEnum {
 }
 
 class ModelExercise: EmbeddedObject {
-    @Persisted(primaryKey: true) var id: ObjectId
+    @Persisted var id: ObjectId
     @Persisted var type: exerciseType = .choseTranslate
     @Persisted var maxScore: Int = 5
     @Persisted var correct: Int = 0

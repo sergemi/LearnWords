@@ -10,6 +10,6 @@ import RealmSwift
 
 class ModelLearnedWord: Object {
     @Persisted(primaryKey: true) var id: ObjectId
-    @Persisted var word: ModelWordPair
+    @Persisted var word: ModelWordPair?
     @Persisted var exercises: List<ModelExercise>
 }

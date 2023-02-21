@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import RealmSwift
 
 class SettingsModuleListViewModel: UniversalTableViewModel {
     var settingsCoordinator: SettingsCoordinatorProtocol? = nil
+    var modules: [ModelModule] = []
     
     override init() {
         log.method()
@@ -35,6 +37,16 @@ class SettingsModuleListViewModel: UniversalTableViewModel {
 //            ModelTableViewCell(checkbox: .hiden, title: "title four", showArrow: true)
 //        ]
 //        rows.accept(testRows)
+    }
+    
+    override func reloadTableData (){
+        let realm = try! Realm()
+        modules = Array(realm.objects(ModelModule.self))
+        
+        let modulesRows = modules.map{
+            ModelTableViewCell(checkbox: .hiden, title: $0.name, showArrow: true)
+        }
+        rows.accept(modulesRows)
     }
     
     fileprivate func bind() {

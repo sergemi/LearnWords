@@ -32,4 +32,8 @@ class UniversalTableViewModel: BaseViewModel {
     let hasActionAllBtn = BehaviorRelay<Bool>(value: false)
     
     let addBtnObserver = PublishSubject<Void>()
+    
+    func reloadTableData () {
+        log.method()
+    }
 }

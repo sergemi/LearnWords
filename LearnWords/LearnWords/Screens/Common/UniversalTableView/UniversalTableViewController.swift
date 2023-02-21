@@ -35,6 +35,12 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
         setupUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        viewModel?.reloadTableData()
+    }
+    
     fileprivate func setupTableView() {
         let cellNib = UINib(nibName: "DataTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "DataTableViewCell")
@@ -61,7 +67,7 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
         }).disposed(by: disposeBag)
         
         (nameTextField.rx.text <-> viewModel.name).disposed(by: disposeBag)
-        
+        (descriptionTextView.rx.text <-> viewModel.details).disposed(by: disposeBag)
         _ = viewModel.namePlaceholder.subscribe(onNext: { [weak self] value in
             guard let value = value else {
                 return
