@@ -12,6 +12,7 @@ class LearnModuleViewModel: UniversalTableViewModel {
     var learnCoordinator: LearnCoordinatorProtocol? = nil
     
     var module: ModelModule
+    var topics: [ModelTopic] = []
     
     init(module: ModelModule) {
         self.module = module
@@ -22,5 +23,22 @@ class LearnModuleViewModel: UniversalTableViewModel {
         
         name.accept(module.name)
         details.accept(module.details)
+        
+        canSelect.accept(true)
+    }
+    
+    override func reloadTableData(){
+        let realm = try! Realm()
+        topics = Array(module.topics)
+        
+        let topicsRows = topics.map{
+            ModelTableViewCell(checkbox: .empty, title: $0.name, showArrow: true)
+        }
+        rows.accept(topicsRows)
+    }
+    
+    override func selectRow(index: Int) {
+        let topic = topics[index]
+//        self.settingsCoordinator?.editTopic(module: module, topic: topic)
     }
 }
