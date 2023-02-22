@@ -11,7 +11,7 @@ import RealmSwift
 class SettingsAddModuleViewModel: UniversalTableViewModel {
     var settingsCoordinator: SettingsCoordinatorProtocol? = nil
     
-    var module: ModelModule// = ModelModule()
+    var module: ModelModule
     var isNew = true
     
     var topics: [ModelTopic] = []
@@ -25,14 +25,7 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
         deleteLineAlertTitle = "Settings.AddModule.DeleteTableLine.Title".localized()
         deleteLineAlertMessage = "Settings.AddModule.DeleteTableLine.Message".localized()
         
-        if isNew {
-            title.accept("Settings.AddModule.Title".localized())
-            rightBarBtnCaption.accept("Settings.AddModule.saveModuleBtn".localized())
-        }
-        else {
-            title.accept("Settings.EditModule.Title".localized())
-            rightBarBtnCaption.accept("Settings.EditModule.saveModuleBtn".localized())
-        }
+        UpdateNewOrEdit()
         
         namePlaceholder.accept("Settings.AddModule.name placeholder".localized())
         tableHeader.accept("Settings.AddModule.tableHeader".localized())
@@ -48,23 +41,21 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
         bind()
     }
     
+    func UpdateNewOrEdit() {
+        if isNew {
+            title.accept("Settings.AddModule.Title".localized())
+            rightBarBtnCaption.accept("Settings.AddModule.saveModuleBtn".localized())
+        }
+        else {
+            title.accept("Settings.EditModule.Title".localized())
+            rightBarBtnCaption.accept("Settings.EditModule.saveModuleBtn".localized())
+        }
+    }
+    
     convenience override init() {
         self.init(module: ModelModule(), isNew: true)
     }
-    
-//    override init() {
-//        log.method()
-//        super.init()
-//        bind()
-//
-//        title.accept("Settings.AddModule.Title".localized())
-//        namePlaceholder.accept("Settings.AddModule.title placeholder".localized())
-//        tableHeader.accept("Settings.AddModule.tableHeader".localized())
-//        rightBarBtnCaption.accept("Settings.AddModule.saveModuleBtn".localized())
-//        canEdit.accept(true)
-//        haveRightBarBtn.accept(true)
-//    }
-    
+        
     fileprivate func bind() {
         _ = rightBtnObserver.bind(onNext: { [weak self] _ in
             guard let self = self else {
@@ -81,11 +72,17 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
                 if self.isNew {
                     realm.add(self.module)
                 }
+                self.isNew = false
+                self.UpdateNewOrEdit()
+                self.haveRightBarBtn.accept(self.isAddBtnEnabled())
             }
         }).disposed(by: disposeBag)
         
         _ = addBtnObserver.bind(onNext: { [weak self] _ in
-            self?.settingsCoordinator?.addTopic()
+            guard let module = self?.module else {
+                return
+            }
+            self?.settingsCoordinator?.addTopic(module: module)
         }).disposed(by: disposeBag)
         
         _ = details.subscribe(onNext: { [weak self] value in
@@ -121,7 +118,8 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
     
     override func reloadTableData(){
         let realm = try! Realm()
-        topics = Array(realm.objects(ModelTopic.self))
+//        topics = Array(realm.objects(ModelTopic.self))
+        topics = Array(module.topics)
         
         let topicsRows = topics.map{
 //            ModelTableViewCell(checkbox: .hiden, title: $0.name, showArrow: true)
@@ -132,16 +130,17 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
     
     override func selectRow(index: Int) {
         let topic = topics[index]
-        self.settingsCoordinator?.editTopic(topic)
+        self.settingsCoordinator?.editTopic(module: module, topic: topic)
     }
     
     override func deleteRow(index: Int) {
         log.method()
         
-        let topicToDelete = topics[index]
+//        let topicToDelete = topics[index]
         let realm = try! Realm()
         try! realm.write {
-            realm.delete(topicToDelete)
+//            realm.delete(topicToDelete)
+            module.topics.remove(at: index)
         }
         reloadTableData()
     }

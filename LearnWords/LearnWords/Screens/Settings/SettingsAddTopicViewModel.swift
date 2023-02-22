@@ -10,11 +10,13 @@ import RealmSwift
 
 class SettingsAddTopicViewModel: UniversalTableViewModel {
     var settingsCoordinator: SettingsCoordinatorProtocol? = nil
-    
+
+    var module: ModelModule
     var topic: ModelTopic
     var isNew = true
     
-    init(topic: ModelTopic, isNew: Bool = false) {
+    init(module: ModelModule, topic: ModelTopic, isNew: Bool = false) {
+        self.module = module
         self.topic = topic
         self.isNew = isNew
         
@@ -42,8 +44,8 @@ class SettingsAddTopicViewModel: UniversalTableViewModel {
         bind()
     }
     
-    convenience override init() {
-        self.init(topic: ModelTopic(), isNew: true)
+    convenience init(module: ModelModule) {
+        self.init(module: module, topic: ModelTopic(), isNew: true)
     }
     
     fileprivate func bind() {
@@ -61,6 +63,7 @@ class SettingsAddTopicViewModel: UniversalTableViewModel {
                 self.topic.details = self.details.value ?? ""
                 if self.isNew {
                     realm.add(self.topic)
+                    self.module.topics.append(self.topic)
                 }
             }
         }).disposed(by: disposeBag)
