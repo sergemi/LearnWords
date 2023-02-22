@@ -68,12 +68,10 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
             
             let realm = try! Realm()
             try! realm.write {
+                self.module.name = self.name.value ?? ""
+                self.module.details = self.details.value ?? ""
                 if self.isNew {
                     realm.add(self.module)
-                }
-                else {
-                    self.module.name = self.name.value ?? ""
-                    self.module.details = self.details.value ?? ""
                 }
             }
         }).disposed(by: disposeBag)

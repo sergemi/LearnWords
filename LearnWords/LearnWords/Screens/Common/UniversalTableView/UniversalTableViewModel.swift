@@ -40,4 +40,8 @@ class UniversalTableViewModel: BaseViewModel {
     func selectRow(index: Int) {
         log.method()
     }
+    
+    func deleteRow(index: Int) {
+        log.method()
+    }
 }

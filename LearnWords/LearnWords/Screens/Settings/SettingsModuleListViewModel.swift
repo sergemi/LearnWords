@@ -49,7 +49,7 @@ class SettingsModuleListViewModel: UniversalTableViewModel {
         }).disposed(by: disposeBag)
     }
     
-    override func reloadTableData (){
+    override func reloadTableData(){
         let realm = try! Realm()
         modules = Array(realm.objects(ModelModule.self))
         
@@ -63,5 +63,16 @@ class SettingsModuleListViewModel: UniversalTableViewModel {
     override func selectRow(index: Int) {
         let module = modules[index]
         self.settingsCoordinator?.editModule(module)
+    }
+    
+    override func deleteRow(index: Int) {
+        log.method()
+        
+        let moduleToDelete = modules[index]
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(moduleToDelete)
+        }
+        reloadTableData()
     }
 }
