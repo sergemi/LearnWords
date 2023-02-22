@@ -13,6 +13,7 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
     
     var module: ModelModule
     var isNew = true
+    var isCanAdd = true
     
     var topics: [ModelTopic] = []
     
@@ -25,7 +26,7 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
         deleteLineAlertTitle = "Settings.AddModule.DeleteTableLine.Title".localized()
         deleteLineAlertMessage = "Settings.AddModule.DeleteTableLine.Message".localized()
         
-        UpdateNewOrEdit()
+        UpdateButtonsVisibility()
         
         namePlaceholder.accept("Settings.AddModule.name placeholder".localized())
         tableHeader.accept("Settings.AddModule.tableHeader".localized())
@@ -33,7 +34,7 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
         details.accept(module.details)
         
         canEdit.accept(true)
-        canAdd.accept(true)
+//        canAdd.accept(true)
         canSelect.accept(true)
         canDeleteRows.accept(true)
 //        haveRightBarBtn.accept(true)
@@ -41,14 +42,16 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
         bind()
     }
     
-    func UpdateNewOrEdit() {
+    func UpdateButtonsVisibility() {
         if isNew {
             title.accept("Settings.AddModule.Title".localized())
             rightBarBtnCaption.accept("Settings.AddModule.saveModuleBtn".localized())
+            canAdd.accept(false)
         }
         else {
             title.accept("Settings.EditModule.Title".localized())
             rightBarBtnCaption.accept("Settings.EditModule.saveModuleBtn".localized())
+            canAdd.accept(isCanAdd)
         }
     }
     
@@ -73,7 +76,7 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
                     realm.add(self.module)
                 }
                 self.isNew = false
-                self.UpdateNewOrEdit()
+                self.UpdateButtonsVisibility()
                 self.haveRightBarBtn.accept(self.isAddBtnEnabled())
             }
         }).disposed(by: disposeBag)

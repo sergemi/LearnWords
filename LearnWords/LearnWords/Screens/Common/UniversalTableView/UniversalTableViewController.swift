@@ -96,7 +96,7 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
         }).disposed(by: disposeBag)
         
         _ = viewModel.canAdd.subscribe(onNext: {[weak self] value in
-            var isVisible = value == true
+            let isVisible = value == true
             self?.addBtn.isHidden = !isVisible
         }).disposed(by: disposeBag)
         
@@ -109,7 +109,7 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
         }).disposed(by: disposeBag)
         
         _ = viewModel.hasActionAllBtn.subscribe(onNext: {[weak self] value in
-            var isVisible = value == true
+            let isVisible = value == true
             self?.actionSelectedBtn.isHidden = !isVisible
         }).disposed(by: disposeBag)
         
