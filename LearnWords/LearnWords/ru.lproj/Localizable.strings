@@ -50,8 +50,22 @@
 "Settings.AddModule.name placeholder" = "Module Name";
 "Settings.AddModule.tableHeader" = "Topics:";
 "Settings.AddModule.addTopicBtn" = "Add topic";
+"Settings.AddModule.DeleteTableLine.Title" = "Delete topic";
+"Settings.AddModule.DeleteTableLine.Message" = "Are you sure you want to delete the topic?";
 
 // Edit module
 "Settings.EditModule.Title" = "Edit module";
 "Settings.EditModule.saveModuleBtn" = "Save";
+
+// Add topic
+"Settings.AddTopic.Title" = "Add topic";
+"Settings.AddTopic.saveModuleBtn" = "Add";
+"Settings.AddTopic.name placeholder" = "Topic Name";
+"Settings.AddTopic.tableHeader" = "Words:";
+"Settings.AddTopic.addTopicBtn" = "Add Word";
+
+// Edit topic
+"Settings.EditTopic.Title" = "Edit topic";
+"Settings.EditTopic.saveModuleBtn" = "Save";
+
 

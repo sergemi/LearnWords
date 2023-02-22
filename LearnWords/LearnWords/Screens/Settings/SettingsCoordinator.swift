@@ -14,6 +14,8 @@ protocol SettingsCoordinatorProtocol: AnyObject {
     func selectModule()
     func addModule()
     func editModule(_ module: ModelModule)
+    func addTopic()
+    func editTopic(_ topic: ModelTopic)
 }
 
 class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocol {
@@ -66,6 +68,20 @@ class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocol {
     
     func editModule(_ module: ModelModule) {
         let model = SettingsAddModuleViewModel(module: module)
+        model.settingsCoordinator = self
+        let vc =  UniversalTableViewController(viewModel: model)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func addTopic() {
+        let model = SettingsAddTopicViewModel()
+        model.settingsCoordinator = self
+        let vc =  UniversalTableViewController(viewModel: model)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func editTopic(_ topic: ModelTopic) {
+        let model = SettingsAddTopicViewModel(topic: topic)
         model.settingsCoordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
