@@ -14,8 +14,8 @@
             filePath = "LearnWords/Screens/Common/UniversalTableView/UniversalTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "bindUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "LearnWords/Screens/Common/UniversalTableView/UniversalTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,10 +46,10 @@
             filePath = "LearnWords/Screens/Common/UniversalTableView/UniversalTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "UniversalTableViewController"
-            landmarkType = "3">
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -62,10 +62,10 @@
             filePath = "LearnWords/Screens/Common/UniversalTableView/UniversalTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "UniversalTableViewController"
-            landmarkType = "3">
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -78,8 +78,8 @@
             filePath = "LearnWords/Screens/Common/UniversalTableView/UniversalTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "bindUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -190,8 +190,8 @@
             filePath = "LearnWords/Screens/Common/UniversalTableView/UniversalTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "bindUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -206,8 +206,8 @@
             filePath = "LearnWords/Screens/Common/UniversalTableView/UniversalTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "bindUI()"
             landmarkType = "7">
             <Locations>
@@ -254,8 +254,8 @@
             filePath = "LearnWords/Screens/Common/UniversalTableView/UniversalTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "bindUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -270,8 +270,8 @@
             filePath = "LearnWords/Screens/Common/UniversalTableView/UniversalTableViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "reloadTableData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -286,10 +286,10 @@
             filePath = "LearnWords/Screens/Common/UniversalTableView/UniversalTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
-            landmarkName = "UniversalTableViewController"
-            landmarkType = "3">
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -302,8 +302,8 @@
             filePath = "LearnWords/Screens/Settings/SettingsAddModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "unknown"
             landmarkType = "0">
          </BreakpointContent>
@@ -334,8 +334,8 @@
             filePath = "LearnWords/Screens/Settings/SettingsAddModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "bind()"
             landmarkType = "9">
          </BreakpointContent>
@@ -350,8 +350,8 @@
             filePath = "LearnWords/Screens/Common/UniversalTableView/UniversalTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -430,8 +430,8 @@
             filePath = "LearnWords/Screens/Settings/SettingsAddModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "bind()"
             landmarkType = "9">
             <Locations>
@@ -478,8 +478,8 @@
             filePath = "LearnWords/Screens/Settings/SettingsAddModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "isAddBtnEnabled()"
             landmarkType = "9">
          </BreakpointContent>
@@ -494,8 +494,8 @@
             filePath = "LearnWords/Screens/Settings/SettingsAddModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "isAddBtnEnabled()"
             landmarkType = "9">
          </BreakpointContent>
@@ -510,8 +510,8 @@
             filePath = "LearnWords/Screens/Settings/SettingsAddModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "isAddBtnEnabled()"
             landmarkType = "9">
          </BreakpointContent>
@@ -526,8 +526,8 @@
             filePath = "LearnWords/Screens/Settings/SettingsAddModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "isAddBtnEnabled()"
             landmarkType = "9">
          </BreakpointContent>
@@ -542,8 +542,8 @@
             filePath = "LearnWords/Screens/Settings/SettingsAddModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "isAddBtnEnabled()"
             landmarkType = "9">
          </BreakpointContent>
@@ -606,8 +606,8 @@
             filePath = "LearnWords/Screens/Settings/SettingsAddModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "bind()"
             landmarkType = "9">
             <Locations>
@@ -654,8 +654,8 @@
             filePath = "LearnWords/Screens/Settings/SettingsAddModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "bind()"
             landmarkType = "9">
          </BreakpointContent>
@@ -670,10 +670,10 @@
             filePath = "LearnWords/Screens/Common/UniversalTableView/UniversalTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
-            landmarkName = "UniversalTableViewController"
-            landmarkType = "3">
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "tableView(_:canEditRowAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

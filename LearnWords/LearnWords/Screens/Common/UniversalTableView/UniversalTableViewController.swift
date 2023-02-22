@@ -18,6 +18,7 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
     
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var tableHeaderLbl: UILabel!
+    @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var actionSelectedBtn: UIButton!
     
@@ -59,7 +60,8 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
             return
         }
         
-        rightBtn.rx.tap.bind(to: (viewModel.addBtnObserver)).disposed(by: self.disposeBag)
+        rightBtn.rx.tap.bind(to: (viewModel.rightBtnObserver)).disposed(by: self.disposeBag)
+        addBtn.rx.tap.bind(to: (viewModel.addBtnObserver)).disposed(by: self.disposeBag)
         
         _ = viewModel.title.subscribe(onNext: { [weak self] value in
             guard let value = value else {
@@ -91,6 +93,15 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
         
         _ = viewModel.tableHeader.subscribe(onNext: {[weak self] value in
             self?.tableHeaderLbl.text = value
+        }).disposed(by: disposeBag)
+        
+        _ = viewModel.canAdd.subscribe(onNext: {[weak self] value in
+            var isVisible = value == true
+            self?.addBtn.isHidden = !isVisible
+        }).disposed(by: disposeBag)
+        
+        _ = viewModel.addBtnCaption.subscribe(onNext: {[weak self] value in
+            self?.addBtn.setTitle(value)
         }).disposed(by: disposeBag)
         
         _ = viewModel.rightBarBtnCaption.subscribe(onNext: {[weak self] value in

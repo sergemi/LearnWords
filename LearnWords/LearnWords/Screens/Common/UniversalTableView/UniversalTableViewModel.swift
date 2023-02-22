@@ -31,7 +31,10 @@ class UniversalTableViewModel: BaseViewModel {
     let canSelect = BehaviorRelay<Bool>(value: false)
     let canMultiSelect = BehaviorRelay<Bool>(value: false)
     let hasActionAllBtn = BehaviorRelay<Bool>(value: false)
+    let canAdd = BehaviorRelay<Bool>(value: false)
+    let addBtnCaption = BehaviorRelay<String?>(value: "Add".localized())
     
+    let rightBtnObserver = PublishSubject<Void>()
     let addBtnObserver = PublishSubject<Void>()
     
     // delete table line

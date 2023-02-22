@@ -44,7 +44,7 @@ class SettingsModuleListViewModel: UniversalTableViewModel {
     }
     
     fileprivate func bind() {
-        _ = addBtnObserver.bind(onNext: { [weak self] _ in
+        _ = rightBtnObserver.bind(onNext: { [weak self] _ in
             guard let self = self else {
                 return
             }

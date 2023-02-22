@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UniversalTableViewController" customModule="LearnWords" customModuleProvider="target">
             <connections>
                 <outlet property="actionSelectedBtn" destination="7Ah-wJ-83l" id="g5Y-88-drd"/>
+                <outlet property="addBtn" destination="PWD-Hc-mCr" id="X8x-ZS-nPw"/>
                 <outlet property="descriptionLbl" destination="YwQ-X8-Fxd" id="gdR-IJ-Q0h"/>
                 <outlet property="descriptionTextView" destination="Nsa-lK-EWQ" id="CfW-rf-K5W"/>
                 <outlet property="nameTextField" destination="AaD-Yd-qcl" id="P0b-xo-2GK"/>
@@ -25,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="hyq-Ra-0RU" userLabel="headerStackView">
-                    <rect key="frame" x="20" y="78.999999999999986" width="353" height="177.66666666666663"/>
+                    <rect key="frame" x="20" y="78.999999999999986" width="353" height="217.66666666666663"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AaD-Yd-qcl" userLabel="nameTextField" customClass="CustomTextField" customModule="LearnWords" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="353" height="34"/>
@@ -49,23 +50,42 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tableHeader" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="don-fH-Ki1" userLabel="tableHeader">
-                            <rect key="frame" x="0.0" y="157.33333333333334" width="353" height="20.333333333333343"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AWW-DN-z8J" userLabel="tableHeader">
+                            <rect key="frame" x="0.0" y="157.33333333333334" width="353" height="60.333333333333343"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tableHeader" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="don-fH-Ki1" userLabel="tableHeaderLbl">
+                                    <rect key="frame" x="0.0" y="19.999999999999972" width="93.666666666666671" height="20.333333333333329"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWD-Hc-mCr" userLabel="addBtn">
+                                    <rect key="frame" x="298.33333333333331" y="13" width="54.666666666666686" height="34.333333333333336"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Add"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="PWD-Hc-mCr" firstAttribute="centerY" secondItem="AWW-DN-z8J" secondAttribute="centerY" id="5oZ-SW-wo8"/>
+                                <constraint firstItem="don-fH-Ki1" firstAttribute="leading" secondItem="AWW-DN-z8J" secondAttribute="leading" id="9jk-cf-1wD"/>
+                                <constraint firstAttribute="height" secondItem="don-fH-Ki1" secondAttribute="height" multiplier="2.96721" id="Se7-28-i5E"/>
+                                <constraint firstItem="don-fH-Ki1" firstAttribute="centerY" secondItem="AWW-DN-z8J" secondAttribute="centerY" id="jIJ-At-3ki"/>
+                                <constraint firstAttribute="trailing" secondItem="PWD-Hc-mCr" secondAttribute="trailing" id="qTX-kM-TKK"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <constraints>
                         <constraint firstItem="Nsa-lK-EWQ" firstAttribute="leading" secondItem="hyq-Ra-0RU" secondAttribute="leading" id="2aA-2u-kuX"/>
+                        <constraint firstAttribute="trailing" secondItem="AWW-DN-z8J" secondAttribute="trailing" id="8t5-ja-f9b"/>
+                        <constraint firstItem="AWW-DN-z8J" firstAttribute="leading" secondItem="hyq-Ra-0RU" secondAttribute="leading" id="APW-xS-mPH"/>
                         <constraint firstAttribute="trailing" secondItem="Nsa-lK-EWQ" secondAttribute="trailing" id="VnT-fp-ucY"/>
                         <constraint firstAttribute="trailing" secondItem="AaD-Yd-qcl" secondAttribute="trailing" id="a88-y9-Ggm"/>
-                        <constraint firstItem="don-fH-Ki1" firstAttribute="leading" secondItem="hyq-Ra-0RU" secondAttribute="leading" id="jFd-IP-ru1"/>
                         <constraint firstItem="AaD-Yd-qcl" firstAttribute="leading" secondItem="hyq-Ra-0RU" secondAttribute="leading" id="uib-eq-SsS"/>
                     </constraints>
                 </stackView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LPj-0n-vSI">
-                    <rect key="frame" x="20" y="266.66666666666669" width="353" height="487.00000000000006"/>
+                    <rect key="frame" x="20" y="306.66666666666674" width="353" height="447"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fgd-Z1-ml9" userLabel="footerStackView">

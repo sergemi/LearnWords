@@ -12,6 +12,7 @@
 "No" = "No";
 "DeleteTableLine.Title" = "Delete line";
 "DeleteTableLine.Message" = "Are you sure you want to delete the line?";
+"Add" = "Add";
 
 // Main Tabbar
 "Tabbar.Learn" = "Learn";
