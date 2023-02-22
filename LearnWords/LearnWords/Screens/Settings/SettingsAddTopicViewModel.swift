@@ -14,6 +14,7 @@ class SettingsAddTopicViewModel: UniversalTableViewModel {
     var module: ModelModule
     var topic: ModelTopic
     var isNew = true
+    var isCanAdd = true
     
     init(module: ModelModule, topic: ModelTopic, isNew: Bool = false) {
         self.module = module
@@ -22,14 +23,7 @@ class SettingsAddTopicViewModel: UniversalTableViewModel {
         
         super.init()
         
-        if isNew {
-            title.accept("Settings.AddTopic.Title".localized())
-            rightBarBtnCaption.accept("Settings.AddTopic.saveModuleBtn".localized())
-        }
-        else {
-            title.accept("Settings.EditTopic.Title".localized())
-            rightBarBtnCaption.accept("Settings.EditTopic.saveModuleBtn".localized())
-        }
+        UpdateButtonsVisibility()
         
         namePlaceholder.accept("Settings.AddTopic.name placeholder".localized())
         tableHeader.accept("Settings.AddTopic.tableHeader".localized())
@@ -42,6 +36,19 @@ class SettingsAddTopicViewModel: UniversalTableViewModel {
 //        haveRightBarBtn.accept(true)
         
         bind()
+    }
+    
+    func UpdateButtonsVisibility() {
+        if isNew {
+            title.accept("Settings.AddTopic.Title".localized())
+            rightBarBtnCaption.accept("Settings.AddTopic.saveModuleBtn".localized())
+            canAdd.accept(false)
+        }
+        else {
+            title.accept("Settings.EditTopic.Title".localized())
+            rightBarBtnCaption.accept("Settings.EditTopic.saveModuleBtn".localized())
+            canAdd.accept(isCanAdd)
+        }
     }
     
     convenience init(module: ModelModule) {
@@ -62,9 +69,11 @@ class SettingsAddTopicViewModel: UniversalTableViewModel {
                 self.topic.name = self.name.value ?? ""
                 self.topic.details = self.details.value ?? ""
                 if self.isNew {
-                    realm.add(self.topic)
                     self.module.topics.append(self.topic)
                 }
+                self.isNew = false
+                self.UpdateButtonsVisibility()
+                self.haveRightBarBtn.accept(self.isAddBtnEnabled())
             }
         }).disposed(by: disposeBag)
         

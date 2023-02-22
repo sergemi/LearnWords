@@ -121,11 +121,9 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
     
     override func reloadTableData(){
         let realm = try! Realm()
-//        topics = Array(realm.objects(ModelTopic.self))
         topics = Array(module.topics)
         
         let topicsRows = topics.map{
-//            ModelTableViewCell(checkbox: .hiden, title: $0.name, showArrow: true)
             ModelTableViewCell(checkbox: .empty, title: $0.name, showArrow: true)
         }
         rows.accept(topicsRows)
@@ -138,11 +136,9 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
     
     override func deleteRow(index: Int) {
         log.method()
-        
-//        let topicToDelete = topics[index]
+    
         let realm = try! Realm()
         try! realm.write {
-//            realm.delete(topicToDelete)
             module.topics.remove(at: index)
         }
         reloadTableData()
