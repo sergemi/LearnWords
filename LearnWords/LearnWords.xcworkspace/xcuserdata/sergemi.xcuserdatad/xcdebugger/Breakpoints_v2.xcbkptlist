@@ -599,54 +599,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "89DF2FFA-EAE4-4D47-8735-9C5A1C2AA737"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LearnWords/Screens/Common/UniversalTableView/UniversalTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
-            landmarkName = "tableView(_:editActionsForRowAt:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "89DF2FFA-EAE4-4D47-8735-9C5A1C2AA737 - edd4bec60cd9890a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LearnWords.UniversalTableViewController.tableView(_: __C.UITableView, editActionsForRowAt: Foundation.IndexPath) -&gt; Swift.Optional&lt;Swift.Array&lt;__C.UITableViewRowAction&gt;&gt;"
-                  moduleName = "LearnWords"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sergemi/Documents/programming/LearnWords/LearnWords/LearnWords/Screens/Common/UniversalTableView/UniversalTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "200"
-                  endingLineNumber = "200"
-                  offsetFromSymbolStart = "171">
-               </Location>
-               <Location
-                  uuid = "89DF2FFA-EAE4-4D47-8735-9C5A1C2AA737 - f282046cd9ae974"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UITableViewRowAction, Foundation.IndexPath) -&gt; () in LearnWords.UniversalTableViewController.tableView(_: __C.UITableView, editActionsForRowAt: Foundation.IndexPath) -&gt; Swift.Optional&lt;Swift.Array&lt;__C.UITableViewRowAction&gt;&gt;"
-                  moduleName = "LearnWords"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sergemi/Documents/programming/LearnWords/LearnWords/LearnWords/Screens/Common/UniversalTableView/UniversalTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "201"
-                  endingLineNumber = "201"
-                  offsetFromSymbolStart = "141">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "4172CC5A-8E64-4E34-8274-0134B4F3A5F2"
             shouldBeEnabled = "No"
             ignoreCount = "0"
