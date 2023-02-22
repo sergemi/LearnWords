@@ -10,6 +10,8 @@ import UIKit
 
 protocol LearnCoordinatorProtocol: AnyObject {
     func BaseLearn()
+    func selectModule()
+    func module(_ module: ModelModule)
 }
 
 class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocol {
@@ -44,6 +46,20 @@ class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocol {
         let vc = BaseLearnViewController.loadFromNib()
         vc.learnCoordinator = self
         navigationController.setViewControllers([vc], animated: true)
+    }
+    
+    func selectModule() {
+        let model = LearnModulesListViewModel()
+        model.learnCoordinator = self
+        let vc =  UniversalTableViewController(viewModel: model)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func module(_ module: ModelModule) {
+        let model = LearnModuleViewModel(module: module)
+        model.learnCoordinator = self
+        let vc =  UniversalTableViewController(viewModel: model)
+        navigationController.pushViewController(vc, animated: true)
     }
  
     // MARK: - CoordinatorProtocol

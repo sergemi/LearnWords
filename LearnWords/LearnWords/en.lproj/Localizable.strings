@@ -25,7 +25,11 @@
 "Learn.BaseLearn.Lern" = "Learn";
 
 // Modules list
-"Learn.ModulesList.Name" = "Select Module";
+"Learn.ModulesList.Title" = "Select module";
+
+// Module
+"Learn.Module.Title" = "";
+"Learn.Module.tableHeader" = "Topics:";
 
 //Settings coordinator
 // MainMenu

@@ -31,7 +31,7 @@ class SettingsModuleListViewModel: UniversalTableViewModel {
 //        tableHeader.accept("Header")
 //        hasActionAllBtn.accept(true)
         haveRightBarBtn.accept(true)
-//        canEdit.accept(true)
+        canDeleteRows.accept(true)
         canSelect.accept(true)
         
 //        let testRows: [ModelTableViewCell] = [

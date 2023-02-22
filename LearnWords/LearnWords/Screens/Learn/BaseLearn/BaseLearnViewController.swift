@@ -33,6 +33,9 @@ class BaseLearnViewController: BaseViewController {
     
     override func bindUI() {
         log.method()
+        
+        continueBtn.rx.tap.bind(to: model.continueBtnObserver).disposed(by: disposeBag)
+        newBtn.rx.tap.bind(to: model.newBtnObserver).disposed(by: disposeBag)
     }
     
     func setupUI() {

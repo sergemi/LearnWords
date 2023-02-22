@@ -25,7 +25,12 @@
 "Learn.BaseLearn.New" = "Новый";
 
 // Modules list
-"Learn.ModulesList.Name" = "Выбор модуля";
+"Learn.ModulesList.Title" = "Выбор модуля";
+
+// Module
+"Learn.Module.Title" = "";
+"Learn.Module.tableHeader" = "Topics:";
+
 
 
 //Settings coordinator

@@ -25,7 +25,12 @@
 "Learn.BaseLearn.New" = "Neuva";
 
 // Modules list
-"Learn.ModulesList.Name" = "Selección de módulo";
+"Learn.ModulesList.Title" = "Selección de módulo";
+
+// Module
+"Learn.Module.Title" = "";
+"Learn.Module.tableHeader" = "Topics:";
+
 
 //Settings coordinator
 // MainMenu
