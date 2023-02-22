@@ -122,3 +122,24 @@ extension BaseViewController: BasePopupDelegate {
         popupVC = nil
     }
 }
+
+extension BaseViewController {
+    func addBackBtn(movetoroot: Bool = false) {
+//        let backBtn = UIBarButtonItem(title: "<", style: .plain, target: nil, action: nil)
+        let backBtn = UIBarButtonItem(image: UIImage(named: "arrow_left"), style: .plain, target: self, action: #selector(ncPop))
+        
+        self.navigationItem.leftBarButtonItem = backBtn
+    }
+    
+    func removeBackBtn() {
+        self.navigationItem.leftBarButtonItem = nil
+    }
+    
+    @objc func ncPop() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func ncPopToRoot() {
+        navigationController?.popToRootViewController(animated: true)
+    }
+}

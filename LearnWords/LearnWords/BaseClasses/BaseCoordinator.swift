@@ -64,7 +64,6 @@ extension CoordinatorProtocol {
         navigationController.dismiss(animated: true)
         
         removeFromParent()
-        
     }
     
     func start(coordinator: CoordinatorProtocol) {

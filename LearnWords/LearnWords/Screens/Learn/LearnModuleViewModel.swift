@@ -17,7 +17,7 @@ class LearnModuleViewModel: UniversalTableViewModel {
         self.module = module
         super.init()
         
-        title.accept("Learn.Module.Title".localized())
+        title.accept(self.module.name)
         tableHeader.accept("Learn.Module.tableHeader".localized())
         
         name.accept(module.name)

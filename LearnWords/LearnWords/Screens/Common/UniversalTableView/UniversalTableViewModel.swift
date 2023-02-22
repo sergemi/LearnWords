@@ -25,6 +25,7 @@ class UniversalTableViewModel: BaseViewModel {
     let rows = BehaviorRelay<[ModelTableViewCell]>(value: [])
     
     let haveRightBarBtn = BehaviorRelay<Bool>(value: false)
+    let haveBackBarBtn = BehaviorRelay<Bool>(value: true)
     let canDeleteRows = BehaviorRelay<Bool>(value: false)
     let canEdit = BehaviorRelay<Bool>(value: false)
     let canSelect = BehaviorRelay<Bool>(value: false)

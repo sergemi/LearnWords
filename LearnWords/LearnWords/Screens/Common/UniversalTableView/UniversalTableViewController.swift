@@ -68,6 +68,12 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
             self?.title = value
         }).disposed(by: disposeBag)
         
+        _ = viewModel.haveBackBarBtn.subscribe(onNext: { [weak self] value in
+            if value {
+                self?.addBackBtn()
+            }
+        }).disposed(by: disposeBag)
+        
         (nameTextField.rx.text <-> viewModel.name).disposed(by: disposeBag)
         (descriptionTextView.rx.text <-> viewModel.details).disposed(by: disposeBag)
         _ = viewModel.namePlaceholder.subscribe(onNext: { [weak self] value in
