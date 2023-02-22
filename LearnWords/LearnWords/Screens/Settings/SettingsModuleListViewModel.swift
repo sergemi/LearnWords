@@ -27,10 +27,10 @@ class SettingsModuleListViewModel: UniversalTableViewModel {
 //        details.accept("SettingsModuleListViewModel details\n test test test\ntest")
 //        details.accept(nil)
 //        tableHeader.accept(nil)
-        addBtnCaption.accept("Settings.ModulesList.addBtn".localized())
+        rightBarBtnCaption.accept("Settings.ModulesList.addBtn".localized())
 //        tableHeader.accept("Header")
 //        hasActionAllBtn.accept(true)
-        canAdd.accept(true)
+        haveRightBarBtn.accept(true)
 //        canEdit.accept(true)
         canSelect.accept(true)
         

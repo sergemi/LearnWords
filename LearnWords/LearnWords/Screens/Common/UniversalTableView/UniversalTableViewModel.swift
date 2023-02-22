@@ -20,11 +20,11 @@ class UniversalTableViewModel: BaseViewModel {
     let details = BehaviorRelay<String?>(value: "")
     let detailsPlaceholder = BehaviorRelay<String?>(value: "")
     let tableHeader = BehaviorRelay<String?>(value: "")
-    let addBtnCaption = BehaviorRelay<String?>(value: "Add")
+    let rightBarBtnCaption = BehaviorRelay<String?>(value: "Add")
     
     let rows = BehaviorRelay<[ModelTableViewCell]>(value: [])
     
-    let canAdd = BehaviorRelay<Bool>(value: false)
+    let haveRightBarBtn = BehaviorRelay<Bool>(value: false)
     let canDelete = BehaviorRelay<Bool>(value: false)
     let canEdit = BehaviorRelay<Bool>(value: false)
     let canSelect = BehaviorRelay<Bool>(value: false)

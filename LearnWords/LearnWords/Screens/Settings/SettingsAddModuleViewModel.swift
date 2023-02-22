@@ -22,11 +22,11 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
         
         if isNew {
             title.accept("Settings.AddModule.Title".localized())
-            addBtnCaption.accept("Settings.AddModule.saveModuleBtn".localized())
+            rightBarBtnCaption.accept("Settings.AddModule.saveModuleBtn".localized())
         }
         else {
             title.accept("Settings.EditModule.Title".localized())
-            addBtnCaption.accept("Settings.EditModule.saveModuleBtn".localized())
+            rightBarBtnCaption.accept("Settings.EditModule.saveModuleBtn".localized())
         }
         
         namePlaceholder.accept("Settings.AddModule.name placeholder".localized())
@@ -35,7 +35,7 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
         details.accept(module.details)
         
         canEdit.accept(true)
-//        canAdd.accept(true)
+//        haveRightBarBtn.accept(true)
         
         bind()
     }
@@ -52,9 +52,9 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
 //        title.accept("Settings.AddModule.Title".localized())
 //        namePlaceholder.accept("Settings.AddModule.title placeholder".localized())
 //        tableHeader.accept("Settings.AddModule.tableHeader".localized())
-//        addBtnCaption.accept("Settings.AddModule.saveModuleBtn".localized())
+//        rightBarBtnCaption.accept("Settings.AddModule.saveModuleBtn".localized())
 //        canEdit.accept(true)
-//        canAdd.accept(true)
+//        haveRightBarBtn.accept(true)
 //    }
     
     fileprivate func bind() {
@@ -79,14 +79,14 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
             guard let self = self, let value = value else {
                 return
             }
-            self.canAdd.accept(self.isAddBtnEnabled())
+            self.haveRightBarBtn.accept(self.isAddBtnEnabled())
         }).disposed(by: disposeBag)
 
         _ = name.subscribe(onNext: { [weak self] value in
             guard let self = self, let value = value else {
                 return
             }
-            self.canAdd.accept(self.isAddBtnEnabled())
+            self.haveRightBarBtn.accept(self.isAddBtnEnabled())
         }).disposed(by: disposeBag)
     }
     

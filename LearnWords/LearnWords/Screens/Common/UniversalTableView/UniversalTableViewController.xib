@@ -50,7 +50,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tableHeader" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="don-fH-Ki1" userLabel="tableHeader">
-                            <rect key="frame" x="129.66666666666666" y="157.33333333333334" width="93.666666666666657" height="20.333333333333343"/>
+                            <rect key="frame" x="0.0" y="157.33333333333334" width="353" height="20.333333333333343"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -60,6 +60,7 @@
                         <constraint firstItem="Nsa-lK-EWQ" firstAttribute="leading" secondItem="hyq-Ra-0RU" secondAttribute="leading" id="2aA-2u-kuX"/>
                         <constraint firstAttribute="trailing" secondItem="Nsa-lK-EWQ" secondAttribute="trailing" id="VnT-fp-ucY"/>
                         <constraint firstAttribute="trailing" secondItem="AaD-Yd-qcl" secondAttribute="trailing" id="a88-y9-Ggm"/>
+                        <constraint firstItem="don-fH-Ki1" firstAttribute="leading" secondItem="hyq-Ra-0RU" secondAttribute="leading" id="jFd-IP-ru1"/>
                         <constraint firstItem="AaD-Yd-qcl" firstAttribute="leading" secondItem="hyq-Ra-0RU" secondAttribute="leading" id="uib-eq-SsS"/>
                     </constraints>
                 </stackView>
