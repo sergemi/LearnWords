@@ -170,12 +170,26 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
-            self.viewModel?.deleteRow(index: indexPath.row)
+        let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  [weak self] (contextualAction, view, boolValue) in
+            guard let self = self, let viewModel = self.viewModel else { return }
+            
+//            self.showAlert(title: "title", message: "message", callback: {_ in
+//                print("callback")
+//            })
+            
+            self.showYesNoAlert(title: viewModel.deleteLineAlertTitle,
+                                message: viewModel.deleteLineAlertMessage,
+                                yesTitle: viewModel.deleteLineAlertYesTitle,
+                                noTitle: viewModel.deleteLineAlertNoTitle,
+                                yesCallback: { _ in
+                self.viewModel?.deleteRow(index: indexPath.row)
+            })
+            
+//            self.viewModel?.deleteRow(index: indexPath.row)
             
         }
         let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
 
         return swipeActions
-    }        
+    }
 }

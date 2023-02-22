@@ -6,6 +6,13 @@
   
 */
 
+// Common
+"Ok" = "Ok";
+"Yes" = "Yes";
+"No" = "No";
+"DeleteTableLine.Title" = "Delete line";
+"DeleteTableLine.Message" = "Are you sure you want to delete the line?";
+
 // Main Tabbar
 "Tabbar.Learn" = "Learn";
 "Tabbar.AddWord" = "+ Word";
@@ -28,6 +35,9 @@
 // Modules list
 "Settings.ModulesList.Title" = "Editing modules";
 "Settings.ModulesList.addBtn" = "Add module";
+"Settings.ModulesList.DeleteTableLine.Title" = "Delete module";
+"Settings.ModulesList.DeleteTableLine.Message" = "Are you sure you want to delete the module?";
+
 
 // Add module
 "Settings.AddModule.Title" = "Add module";

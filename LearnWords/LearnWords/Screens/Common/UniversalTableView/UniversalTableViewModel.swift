@@ -33,6 +33,12 @@ class UniversalTableViewModel: BaseViewModel {
     
     let addBtnObserver = PublishSubject<Void>()
     
+    // delete table line
+    var deleteLineAlertTitle = "DeleteTableLine.Title".localized()
+    var deleteLineAlertMessage = "DeleteTableLine.Message".localized()
+    var deleteLineAlertYesTitle = "Yes".localized()
+    var deleteLineAlertNoTitle = "No".localized()
+    
     func reloadTableData () {
         log.method()
     }

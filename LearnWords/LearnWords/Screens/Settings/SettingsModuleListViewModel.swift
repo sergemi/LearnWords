@@ -17,6 +17,9 @@ class SettingsModuleListViewModel: UniversalTableViewModel {
         super.init()
         bind()
         
+        deleteLineAlertTitle = "Settings.ModulesList.DeleteTableLine.Title".localized()
+        deleteLineAlertMessage = "Settings.ModulesList.DeleteTableLine.Message".localized()
+        
         title.accept("Settings.ModulesList.Title".localized())
         
 //        namePlaceholder.accept("Module Name")
