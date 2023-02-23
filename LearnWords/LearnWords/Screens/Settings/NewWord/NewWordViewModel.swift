@@ -42,6 +42,32 @@ class NewWordViewModel: BaseViewModel {
     }
     
     fileprivate func bind() {
+        _ = rightBtnObserver.bind(onNext: { [weak self] _ in
+            guard let self = self else {
+                return
+            }
+            print("++ Save word ++")
+            print("target: \(String(describing: (self.target.value) ?? ""))")
+            print("translate: \(String(describing: (self.translate.value) ?? ""))")
+            
+            let realm = try! Realm()
+            try! realm.write {
+                if self.learnedWord.word == nil {
+                    self.learnedWord.word = ModelWordPair()
+                }
+                self.learnedWord.word?.target = self.target.value ?? ""
+                self.learnedWord.word?.pronounce = self.pronounce.value ?? ""
+                self.learnedWord.word?.notes = self.notes.value ?? ""
+                self.learnedWord.word?.translate = self.translate.value ?? ""
+                if self.isNew {
+                    self.topic.words.append(self.learnedWord)
+                }
+                self.isNew = false
+                self.UpdateButtonsVisibility()
+                self.haveRightBarBtn.accept(self.isRightBtnEnabled())
+            }
+        }).disposed(by: disposeBag)
+        
         _ = target.subscribe(onNext: { [weak self] value in
             guard let self = self else {
                 return
