@@ -382,8 +382,8 @@
             filePath = "LearnWords/Screens/Settings/SettingsCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "editModule(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -398,8 +398,8 @@
             filePath = "LearnWords/Screens/Settings/SettingsCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "editModule(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -704,7 +704,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
             endingLineNumber = "131"
-            landmarkName = "setBackBtn(movetoroot:)"
+            landmarkName = "addBackBtn(movetoroot:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

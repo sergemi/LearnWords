@@ -77,6 +77,13 @@ class SettingsAddTopicViewModel: UniversalTableViewModel {
             }
         }).disposed(by: disposeBag)
         
+        _ = addBtnObserver.bind(onNext: { [weak self] _ in
+            guard let topic = self?.topic else {
+                return
+            }
+            self?.settingsCoordinator?.newWord(topic: topic)
+        }).disposed(by: disposeBag)
+        
         _ = details.subscribe(onNext: { [weak self] value in
             guard let self = self, let value = value else {
                 return
