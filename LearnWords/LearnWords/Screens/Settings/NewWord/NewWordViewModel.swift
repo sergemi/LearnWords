@@ -35,6 +35,13 @@ class NewWordViewModel: BaseViewModel {
         
         bind()
         UpdateButtonsVisibility()
+        
+        if let word = learnedWord.word {
+            target.accept(word.target)
+            pronounce.accept(word.pronounce)
+            translate.accept(word.translate)
+            notes.accept(word.notes)
+        }
     }
     
     convenience init(topic: ModelTopic) {

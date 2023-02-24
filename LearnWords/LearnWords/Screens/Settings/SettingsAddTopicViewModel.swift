@@ -16,6 +16,8 @@ class SettingsAddTopicViewModel: UniversalTableViewModel {
     var isNew = true
     var isCanAdd = true
     
+    var words: [ModelLearnedWord] = []
+    
     init(module: ModelModule, topic: ModelTopic, isNew: Bool = false) {
         self.module = module
         self.topic = topic
@@ -113,5 +115,20 @@ class SettingsAddTopicViewModel: UniversalTableViewModel {
         else {
             return topic.name != newName || topic.details != newDetails
         }
+    }
+    
+    override func reloadTableData(){
+        let realm = try! Realm()
+        words = Array(topic.words)
+        
+        let wordRows = words.map{
+            ModelTableViewCell(checkbox: .empty, title: $0.word?.target ?? "", showArrow: true)
+        }
+        rows.accept(wordRows)
+    }
+    
+    override func selectRow(index: Int) {
+        let word = words[index]
+        self.settingsCoordinator?.editWord(topic: topic, learnedWord: word)
     }
 }
