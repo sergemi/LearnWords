@@ -27,15 +27,18 @@ class SettingsAddTopicViewModel: UniversalTableViewModel {
         
         UpdateButtonsVisibility()
         
+        deleteLineAlertTitle = "Settings.AddTopic.DeleteTableLine.Title".localized()
+        deleteLineAlertMessage = "Settings.AddTopic.DeleteTableLine.Message".localized()
+        
         namePlaceholder.accept("Settings.AddTopic.name placeholder".localized())
         tableHeader.accept("Settings.AddTopic.tableHeader".localized())
         name.accept(topic.name)
         details.accept(topic.details)
         
         canEdit.accept(true)
-        canAdd.accept(true)
+//        canAdd.accept(true)
         canSelect.accept(true)
-//        haveRightBarBtn.accept(true)
+        canDeleteRows.accept(true)
         
         bind()
     }
@@ -130,5 +133,13 @@ class SettingsAddTopicViewModel: UniversalTableViewModel {
     override func selectRow(index: Int) {
         let word = words[index]
         self.settingsCoordinator?.editWord(topic: topic, learnedWord: word)
+    }
+    
+    override func deleteRow(index: Int) {
+        let realm = try! Realm()
+        try! realm.write {
+            topic.words.remove(at: index)
+        }
+        reloadTableData()
     }
 }
