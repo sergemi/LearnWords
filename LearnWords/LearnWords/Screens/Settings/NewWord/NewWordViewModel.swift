@@ -82,7 +82,21 @@ class NewWordViewModel: BaseViewModel {
             self.haveRightBarBtn.accept(self.isRightBtnEnabled())
         }).disposed(by: disposeBag)
         
+        _ = pronounce.subscribe(onNext: { [weak self] value in
+            guard let self = self else {
+                return
+            }
+            self.haveRightBarBtn.accept(self.isRightBtnEnabled())
+        }).disposed(by: disposeBag)
+        
         _ = translate.subscribe(onNext: { [weak self] value in
+            guard let self = self else {
+                return
+            }
+            self.haveRightBarBtn.accept(self.isRightBtnEnabled())
+        }).disposed(by: disposeBag)
+        
+        _ = notes.subscribe(onNext: { [weak self] value in
             guard let self = self else {
                 return
             }
@@ -116,7 +130,7 @@ class NewWordViewModel: BaseViewModel {
             guard let word = learnedWord.word else {
                 return false
             }
-            return word.target != targetVal || word.translate != translateVal
+            return word.target != targetVal || word.translate != translateVal || word.pronounce != pronounce.value || word.notes != notes.value
         }
     }
 }
