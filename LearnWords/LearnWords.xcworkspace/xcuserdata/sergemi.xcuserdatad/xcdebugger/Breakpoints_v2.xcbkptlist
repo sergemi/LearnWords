@@ -782,8 +782,8 @@
             filePath = "LearnWords/CustomUI/CustomTextField.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "floatingLabelColor"
             landmarkType = "24">
          </BreakpointContent>
@@ -798,8 +798,8 @@
             filePath = "LearnWords/CustomUI/CustomTextField.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "text"
             landmarkType = "24">
          </BreakpointContent>
@@ -814,8 +814,8 @@
             filePath = "LearnWords/CustomUI/CustomTextField.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "RemoveFloatingLabel()"
             landmarkType = "7">
          </BreakpointContent>
@@ -839,54 +839,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C13A5B85-076B-4537-9EEA-6A20F4881C99"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LearnWords/CustomUI/CustomTextField.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "UpdateFloatingLabel()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E589C480-24BE-47FA-9C6A-9E1E1982FCDE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LearnWords/CustomUI/CustomTextField.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "UpdateFloatingLabel()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "387D29D5-56E8-4D91-8A6F-38E2B4BB4905"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LearnWords/CustomUI/CustomTextField.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
-            landmarkName = "UpdateFloatingLabel()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "6D5DD670-B72E-4B7E-B2FE-AA4C7EA458B0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -894,8 +846,8 @@
             filePath = "LearnWords/CustomUI/CustomTextField.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "RemoveFloatingLabel()"
             landmarkType = "7">
          </BreakpointContent>
@@ -910,10 +862,10 @@
             filePath = "LearnWords/CustomUI/CustomTextField.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
-            landmarkName = "CustomTextField"
-            landmarkType = "3">
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "RemoveFloatingLabel()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -926,26 +878,10 @@
             filePath = "LearnWords/CustomUI/CustomTextField.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "text"
             landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9DED2553-547A-4A9C-8E01-D5EEA8A9D6B5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LearnWords/CustomUI/CustomTextField.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "UpdateFloatingLabel()"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -958,8 +894,8 @@
             filePath = "LearnWords/CustomUI/CustomTextField.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "CustomTextField"
             landmarkType = "3">
          </BreakpointContent>
@@ -1015,22 +951,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2FC052D6-279E-4684-9238-C68EA36FB0CF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LearnWords/CustomUI/CustomTextField.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
-            landmarkName = "UpdateFloatingLabel()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "DB486459-6994-46F3-91BF-22FD9B9A643B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -1038,8 +958,8 @@
             filePath = "LearnWords/CustomUI/CustomTextField.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "RemoveFloatingLabel()"
             landmarkType = "7">
             <Locations>
@@ -1086,8 +1006,8 @@
             filePath = "LearnWords/CustomUI/CustomTextField.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "AddFloatLabel()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1102,8 +1022,8 @@
             filePath = "LearnWords/CustomUI/CustomTextField.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "UpdateFloatingLabel()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1118,24 +1038,8 @@
             filePath = "LearnWords/CustomUI/CustomTextField.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
-            landmarkName = "UpdateFloatingLabel()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F4F6ED7C-8E94-4F3E-B77B-DCEDCEED98EE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LearnWords/CustomUI/CustomTextField.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "UpdateFloatingLabel()"
             landmarkType = "7">
          </BreakpointContent>
