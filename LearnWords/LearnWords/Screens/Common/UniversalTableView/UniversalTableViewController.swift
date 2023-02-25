@@ -82,7 +82,7 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
             guard let value = value else {
                 return
             }
-            self?.nameTextField.placeholder = value
+//            self?.nameTextField.placeholder = value
             self?.nameTextField._placeholder = value
             
         }).disposed(by: disposeBag)

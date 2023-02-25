@@ -66,10 +66,10 @@ class NewWordViewController: BaseViewController {
     }
     
     fileprivate func setupUI() {
-        targetTField.placeholder = "Settings.NewWord.TargetPlaceholder".localized()
-        pronounceTField.placeholder = "Settings.NewWord.PronouncePlaceholder".localized()
-        translateTField.placeholder = "Settings.NewWord.TranslatePlaceholder".localized()
-//        notesTView.placeholder = "Settings.NewWord.TargetPlaceholder".localized()
+        targetTField._placeholder = "Settings.NewWord.TargetPlaceholder".localized()
+        pronounceTField._placeholder = "Settings.NewWord.PronouncePlaceholder".localized()
+        translateTField._placeholder = "Settings.NewWord.TranslatePlaceholder".localized()
+//        notesTView._placeholder = "Settings.NewWord.TargetPlaceholder".localized()
         self.addBackBtn()
     }
 }

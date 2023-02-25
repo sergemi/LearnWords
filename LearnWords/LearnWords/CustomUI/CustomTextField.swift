@@ -8,7 +8,7 @@
 import UIKit
 
 class CustomTextField: UITextField {
-    var floatingLabel: UILabel!
+    var floatingLabel = UILabel(frame: CGRect.zero)
     var borderView: UIView!
     var border: CAShapeLayer? = nil
     var floatingLabelHeight: CGFloat = 14
@@ -17,7 +17,16 @@ class CustomTextField: UITextField {
     var forceUpdate = false
     
     @IBInspectable
-    var _placeholder: String?
+//    var _placeholder: String?
+    var _placeholder: String? {
+        didSet {
+            log.method()
+            forceUpdate = true
+            UpdateBorder()
+            UpdateFloatingLabel()
+            forceUpdate = false
+        }
+    }
     
     var _cornerRadius: CGFloat = 0
     
@@ -28,7 +37,7 @@ class CustomTextField: UITextField {
         }
         set {
             self._cornerRadius = newValue
-            updateBorder()
+            UpdateBorder()
         }
     }
     
@@ -46,20 +55,21 @@ class CustomTextField: UITextField {
     var borderColor: UIColor = UIColor(rgb: 0x6D6E70) {
         didSet {
             _borderColor = borderColor
-            updateBorder()
+            UpdateBorder()
         }
     }
 
     //
     override var text: String? {
         didSet {
+            log.method()
             forceUpdate = true
-            updateBorder()
-            addFloatingLabel()
+            UpdateBorder()
+            UpdateFloatingLabel()
             forceUpdate = false
         }
     }
-    //
+    
 //    @IBInspectable
 //    var floatingLabelBackground: UIColor = UIColor.white.withAlphaComponent(1) {
 //        didSet {
@@ -102,20 +112,21 @@ class CustomTextField: UITextField {
         // placeholder
         self._placeholder = (self._placeholder != nil) ? self._placeholder : placeholder
         placeholder = self._placeholder // Make sure the placeholder is shown
-        self.floatingLabel = UILabel(frame: CGRect.zero)
-        self.addTarget(self, action: #selector(self.addFloatingLabel), for: .editingDidBegin)
-        self.addTarget(self, action: #selector(self.removeFloatingLabel), for: .editingDidEnd)
+//        self.floatingLabel = UILabel(frame: CGRect.zero)
+        self.addTarget(self, action: #selector(self.UpdateFloatingLabel), for: .editingDidBegin)
+        self.addTarget(self, action: #selector(self.RemoveFloatingLabel), for: .editingDidEnd)
         
         setPaddingFor(left: 25, right: 25)
+        UpdateFloatingLabel()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        updateBorder()
+        UpdateBorder()
     }
     
-    func updateBorder() {
+    func UpdateBorder() {
         border?.removeFromSuperlayer()
         border = CAShapeLayer()
         guard let border = border else {
@@ -135,32 +146,64 @@ class CustomTextField: UITextField {
     }
     
     // Add a floating label to the view on becoming first responder
-    @objc func addFloatingLabel() {
-        if self.text == "" || forceUpdate {
+    @objc func UpdateFloatingLabel() {
+        if self.text == "" || self.text == nil || forceUpdate {
             if self._placeholder == nil {
                 self.floatingLabel.isHidden = true
             }
             else {
-                self.placeholder = ""
-                self.floatingLabel.textColor = floatingLabelColor
-                self.floatingLabel.font = floatingLabelFont
-                self.floatingLabel.text = " " + (self._placeholder ?? "") + " "
-    //            self.floatingLabel.layer.backgroundColor = UIColor.white.cgColor
-                self.floatingLabel.backgroundColor = UIColor.white
-                self.floatingLabel.translatesAutoresizingMaskIntoConstraints = false
-                self.floatingLabel.clipsToBounds = true
-                self.floatingLabel.frame = CGRect(x: 0, y: 0, width: floatingLabel.frame.width+4, height: floatingLabel.frame.height+2)
-                self.floatingLabel.textAlignment = .center
-                self.addSubview(self.floatingLabel)
-    //            self.layer.borderColor = self.borderColor.cgColor
+                AddFloatLabel()
+//                self.floatingLabel.isHidden = false
+//                self.placeholder = ""
+//                self.floatingLabel.textColor = floatingLabelColor
+//                self.floatingLabel.font = floatingLabelFont
+//                self.floatingLabel.text = " " + (self._placeholder ?? "") + " "
+//    //            self.floatingLabel.layer.backgroundColor = UIColor.white.cgColor
+//                self.floatingLabel.backgroundColor = UIColor.white
+//                self.floatingLabel.translatesAutoresizingMaskIntoConstraints = false
+//                self.floatingLabel.clipsToBounds = true
+//                self.floatingLabel.frame = CGRect(x: 0, y: 0, width: floatingLabel.frame.width+4, height: floatingLabel.frame.height+2)
+//                self.floatingLabel.textAlignment = .center
+//                self.floatingLabel.isHidden = false
+//                self.addSubview(self.floatingLabel)
+//    //            self.layer.borderColor = self.borderColor.cgColor
+//
+//                self.floatingLabel.bottomAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+//                self.floatingLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 14).isActive = true
 
-                self.floatingLabel.bottomAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-                self.floatingLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 14).isActive = true
-
-                self.placeholder = ""
+//                self.placeholder = ""
             }
         }
+        else {
+            AddFloatLabel()
+        }
         // Floating label may be stuck behind text input. we bring it forward as it was the last item added to the view heirachy
+//        guard let lastSubview = subviews.last else {
+//            return
+//        }
+//        self.bringSubviewToFront(lastSubview)
+//        self.setNeedsDisplay()
+    }
+    
+    fileprivate func AddFloatLabel() {
+        self.floatingLabel.isHidden = false
+        self.placeholder = ""
+        self.floatingLabel.textColor = floatingLabelColor
+        self.floatingLabel.font = floatingLabelFont
+        self.floatingLabel.text = " " + (self._placeholder ?? "") + " "
+//            self.floatingLabel.layer.backgroundColor = UIColor.white.cgColor
+        self.floatingLabel.backgroundColor = UIColor.white
+        self.floatingLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.floatingLabel.clipsToBounds = true
+        self.floatingLabel.frame = CGRect(x: 0, y: 0, width: floatingLabel.frame.width+4, height: floatingLabel.frame.height+2)
+        self.floatingLabel.textAlignment = .center
+        self.floatingLabel.isHidden = false
+        self.addSubview(self.floatingLabel)
+//            self.layer.borderColor = self.borderColor.cgColor
+
+        self.floatingLabel.bottomAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        self.floatingLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 14).isActive = true
+        
         guard let lastSubview = subviews.last else {
             return
         }
@@ -168,7 +211,7 @@ class CustomTextField: UITextField {
         self.setNeedsDisplay()
     }
     
-    @objc func removeFloatingLabel() {
+    @objc func RemoveFloatingLabel() {
         if self.text == "" {
             UIView.animate(withDuration: 0.13) { [weak self] in
                 guard let self = self else {
