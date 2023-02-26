@@ -9,21 +9,18 @@ import Foundation
 import UIKit
 
 class CustomTextView: UITextView {
-    var floatingLabel = UILabel(frame: CGRect.zero)
     var borderView: UIView!
+//    var floatingLabel = UILabel(frame: CGRect.zero) // todo
+    var floatingLabel: UILabel!
     var border: CAShapeLayer? = nil
     var floatingLabelHeight: CGFloat = 14
-    
-    var forceUpdate = false
     
     @IBInspectable
     var _placeholder: String? {
         didSet {
             log.method()
-            forceUpdate = true
-            UpdateBorder()
+//            UpdateBorder()
             UpdateFloatingLabel()
-            forceUpdate = false
         }
     }
     
@@ -37,6 +34,7 @@ class CustomTextView: UITextView {
         set {
             self._cornerRadius = newValue
             UpdateBorder()
+            UpdateFloatingLabel()
         }
     }
     
@@ -87,6 +85,8 @@ class CustomTextView: UITextView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
+        log.method()
+        
         floatingLabelColor = UIColor(rgb: 0xD0D2D3)
         _borderColor = floatingLabelColor
         
@@ -97,22 +97,23 @@ class CustomTextView: UITextView {
         self.addSubview(borderView)
         borderView.isUserInteractionEnabled = false
         textColor = UIColor(rgb: 0x6D6E70)
+        floatingLabel = UILabel(frame: CGRect.zero)
         
         // placeholder
-//        self.addTarget(self, action: #selector(self.UpdateFloatingLabel), for: .editingDidBegin)
-//        self.addTarget(self, action: #selector(self.RemoveFloatingLabel), for: .editingDidEnd)
         AddFloatLabel()
-        UpdateFloatingLabel()
+//        UpdateFloatingLabel()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        log.method()
         
         UpdateBorder()
         UpdateFloatingLabel()
     }
     
     func UpdateBorder() {
+        log.method()
         border?.removeFromSuperlayer()
         border = CAShapeLayer()
         guard let border = border else {
@@ -133,6 +134,7 @@ class CustomTextView: UITextView {
     
     // Add a floating label to the view on becoming first responder
     @objc func UpdateFloatingLabel() {
+        log.method()
         self.floatingLabel.text = " " + (self._placeholder ?? "") + " "
         self.floatingLabel.translatesAutoresizingMaskIntoConstraints = false
         self.floatingLabel.clipsToBounds = true
@@ -148,7 +150,7 @@ class CustomTextView: UITextView {
 //            return
 //        }
 //        self.bringSubviewToFront(lastSubview)
-        self.setNeedsDisplay()
+//        self.setNeedsDisplay()
     }
     
     fileprivate func AddFloatLabel() {
@@ -170,13 +172,12 @@ class CustomTextView: UITextView {
 //            self.layer.borderColor = self.borderColor.cgColor
 
         self.floatingLabel.bottomAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-//        self.floatingLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 14).isActive = true
         self.floatingLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 14).isActive = true
-        
-        
+        print("++")
     }
     
     @objc func RemoveFloatingLabel() {
+        log.method()
         self.floatingLabel.isHidden = true
 //        UIView.animate(withDuration: 0.13) { [weak self] in
 //            guard let self = self else {

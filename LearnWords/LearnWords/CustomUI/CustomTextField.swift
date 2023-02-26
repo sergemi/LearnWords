@@ -19,7 +19,6 @@ class CustomTextField: UITextField {
     @IBInspectable
     var _placeholder: String? {
         didSet {
-            log.method()
             forceUpdate = true
             UpdateBorder()
             UpdateFloatingLabel()
@@ -60,7 +59,6 @@ class CustomTextField: UITextField {
 
     override var text: String? {
         didSet {
-            log.method()
             forceUpdate = true
             UpdateBorder()
             UpdateFloatingLabel()
