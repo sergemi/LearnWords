@@ -11,8 +11,8 @@ import UIKit
 class CustomTextView: UITextView {
     var borderView: UIView!
 //    var floatingLabel = UILabel(frame: CGRect.zero) // todo
-    var floatingLabel: UILabel!
     var border: CAShapeLayer? = nil
+    var floatingLabel: UILabel!
     var floatingLabelHeight: CGFloat = 14
     
     @IBInspectable
@@ -110,6 +110,7 @@ class CustomTextView: UITextView {
         
         UpdateBorder()
         UpdateFloatingLabel()
+        self.setNeedsDisplay()
     }
     
     func UpdateBorder() {
@@ -136,10 +137,8 @@ class CustomTextView: UITextView {
     @objc func UpdateFloatingLabel() {
         log.method()
         self.floatingLabel.text = " " + (self._placeholder ?? "") + " "
-        self.floatingLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.floatingLabel.clipsToBounds = true
         
-        self.floatingLabel.frame = CGRect(x: 0, y: 0, width: floatingLabel.frame.width+4, height: floatingLabel.frame.height+2)
+//        self.floatingLabel.frame = CGRect(x: 0, y: 0, width: floatingLabel.frame.width+4, height: floatingLabel.frame.height+2)
         
         self.floatingLabel.isHidden = self._placeholder == "" || self._placeholder == nil
         
@@ -151,6 +150,7 @@ class CustomTextView: UITextView {
 //        }
 //        self.bringSubviewToFront(lastSubview)
 //        self.setNeedsDisplay()
+        print("!!!")
     }
     
     fileprivate func AddFloatLabel() {
@@ -160,19 +160,26 @@ class CustomTextView: UITextView {
         self.floatingLabel.font = floatingLabelFont
 //            self.floatingLabel.layer.backgroundColor = UIColor.white.cgColor
         self.floatingLabel.backgroundColor = UIColor.white
-        self.floatingLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.floatingLabel.clipsToBounds = true
+//        self.floatingLabel.translatesAutoresizingMaskIntoConstraints = false
+//        self.floatingLabel.clipsToBounds = true
+        self.floatingLabel.clipsToBounds = false
         
         self.floatingLabel.frame = CGRect(x: 0, y: 0, width: floatingLabel.frame.width+4, height: floatingLabel.frame.height+2)
         
         self.floatingLabel.backgroundColor = .green
         self.floatingLabel.textAlignment = .center
 //        self.floatingLabel.isHidden = false
+        self.floatingLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.floatingLabel.clipsToBounds = true
         self.addSubview(self.floatingLabel)
 //            self.layer.borderColor = self.borderColor.cgColor
 
-        self.floatingLabel.bottomAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-        self.floatingLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 14).isActive = true
+//        self.floatingLabel.bottomAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+//        self.floatingLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 14).isActive = true
+        let bottomConstr = self.floatingLabel.bottomAnchor.constraint(equalTo: self.topAnchor, constant: 10)
+        bottomConstr.isActive = true
+        let leftConstr = self.floatingLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 14)
+        leftConstr.isActive = true
         print("++")
     }
     
