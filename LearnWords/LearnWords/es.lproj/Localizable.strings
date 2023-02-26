@@ -47,6 +47,7 @@
 "Settings.AddModule.Title" = "Add module";
 "Settings.AddModule.saveModuleBtn" = "Add";
 "Settings.AddModule.name placeholder" = "Module Name";
+"Settings.AddModule.details placeholder" = "Details";
 "Settings.AddModule.tableHeader" = "Topics:";
 "Settings.AddModule.addTopicBtn" = "Add topic";
 "Settings.AddModule.DeleteTableLine.Title" = "Delete topic";
@@ -60,6 +61,7 @@
 "Settings.AddTopic.Title" = "Add topic";
 "Settings.AddTopic.saveModuleBtn" = "Add";
 "Settings.AddTopic.name placeholder" = "Topic Name";
+"Settings.AddTopic.details placeholder" = "Details";
 "Settings.AddTopic.tableHeader" = "Words:";
 "Settings.AddTopic.addTopicBtn" = "Add Word";
 "Settings.AddTopic.DeleteTableLine.Title" = "Delete word";

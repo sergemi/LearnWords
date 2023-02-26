@@ -101,7 +101,7 @@ class CustomTextView: UITextView {
         // placeholder
 //        self.addTarget(self, action: #selector(self.UpdateFloatingLabel), for: .editingDidBegin)
 //        self.addTarget(self, action: #selector(self.RemoveFloatingLabel), for: .editingDidEnd)
-        
+        AddFloatLabel()
         UpdateFloatingLabel()
     }
     
@@ -133,17 +133,22 @@ class CustomTextView: UITextView {
     
     // Add a floating label to the view on becoming first responder
     @objc func UpdateFloatingLabel() {
-        if self.text == "" || self.text == nil || forceUpdate {
-            if self._placeholder == nil {
-                self.floatingLabel.isHidden = true
-            }
-            else {
-                AddFloatLabel()
-            }
-        }
-        else {
-            AddFloatLabel()
-        }
+        self.floatingLabel.text = " " + (self._placeholder ?? "") + " "
+        self.floatingLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.floatingLabel.clipsToBounds = true
+        
+        self.floatingLabel.frame = CGRect(x: 0, y: 0, width: floatingLabel.frame.width+4, height: floatingLabel.frame.height+2)
+        
+        self.floatingLabel.isHidden = self._placeholder == "" || self._placeholder == nil
+        
+        // Floating label may be stuck behind text input. we bring it forward as it was the last item added to the view heirachy
+        
+        self.bringSubviewToFront(self.floatingLabel)
+//        guard let lastSubview = subviews.last else {
+//            return
+//        }
+//        self.bringSubviewToFront(lastSubview)
+        self.setNeedsDisplay()
     }
     
     fileprivate func AddFloatLabel() {
@@ -151,7 +156,6 @@ class CustomTextView: UITextView {
         self.floatingLabel.isHidden = false
         self.floatingLabel.textColor = floatingLabelColor
         self.floatingLabel.font = floatingLabelFont
-        self.floatingLabel.text = " " + (self._placeholder ?? "") + " "
 //            self.floatingLabel.layer.backgroundColor = UIColor.white.cgColor
         self.floatingLabel.backgroundColor = UIColor.white
         self.floatingLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -161,28 +165,25 @@ class CustomTextView: UITextView {
         
         self.floatingLabel.backgroundColor = .green
         self.floatingLabel.textAlignment = .center
-        self.floatingLabel.isHidden = false
+//        self.floatingLabel.isHidden = false
         self.addSubview(self.floatingLabel)
 //            self.layer.borderColor = self.borderColor.cgColor
 
         self.floatingLabel.bottomAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+//        self.floatingLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 14).isActive = true
         self.floatingLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 14).isActive = true
         
-        // Floating label may be stuck behind text input. we bring it forward as it was the last item added to the view heirachy
-        guard let lastSubview = subviews.last else {
-            return
-        }
-        self.bringSubviewToFront(lastSubview)
-        self.setNeedsDisplay()
+        
     }
     
     @objc func RemoveFloatingLabel() {
-        UIView.animate(withDuration: 0.13) { [weak self] in
-            guard let self = self else {
-                return
-            }
-            self.floatingLabel.removeFromSuperview()
-            self.setNeedsDisplay()
-        }
+        self.floatingLabel.isHidden = true
+//        UIView.animate(withDuration: 0.13) { [weak self] in
+//            guard let self = self else {
+//                return
+//            }
+//            self.floatingLabel.removeFromSuperview()
+//            self.setNeedsDisplay()
+//        }
     }
 }

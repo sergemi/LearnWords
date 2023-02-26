@@ -29,6 +29,7 @@ class SettingsAddModuleViewModel: UniversalTableViewModel {
         UpdateButtonsVisibility()
         
         namePlaceholder.accept("Settings.AddModule.name placeholder".localized())
+        detailsPlaceholder.accept("Settings.AddModule.details placeholder".localized())
         tableHeader.accept("Settings.AddModule.tableHeader".localized())
         name.accept(module.name)
         details.accept(module.details)

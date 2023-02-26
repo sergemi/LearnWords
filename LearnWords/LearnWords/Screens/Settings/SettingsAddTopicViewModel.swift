@@ -31,6 +31,7 @@ class SettingsAddTopicViewModel: UniversalTableViewModel {
         deleteLineAlertMessage = "Settings.AddTopic.DeleteTableLine.Message".localized()
         
         namePlaceholder.accept("Settings.AddTopic.name placeholder".localized())
+        detailsPlaceholder.accept("Settings.AddTopic.details placeholder".localized())
         tableHeader.accept("Settings.AddTopic.tableHeader".localized())
         name.accept(topic.name)
         details.accept(topic.details)

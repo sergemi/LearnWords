@@ -69,7 +69,7 @@ class NewWordViewController: BaseViewController {
         targetTField._placeholder = "Settings.NewWord.TargetPlaceholder".localized()
         pronounceTField._placeholder = "Settings.NewWord.PronouncePlaceholder".localized()
         translateTField._placeholder = "Settings.NewWord.TranslatePlaceholder".localized()
-//        notesTView._placeholder = "Settings.NewWord.TargetPlaceholder".localized()
+        notesTView._placeholder = "Settings.NewWord.TargetPlaceholder".localized()
         self.addBackBtn()
     }
 }

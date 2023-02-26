@@ -86,6 +86,14 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
             
         }).disposed(by: disposeBag)
         
+        _ = viewModel.detailsPlaceholder.subscribe(onNext: { [weak self] value in
+            guard let value = value else {
+                return
+            }
+            self?.descriptionTextView._placeholder = value
+            
+        }).disposed(by: disposeBag)
+        
         _ = viewModel.details.subscribe(onNext: {[weak self] value in
             self?.descriptionLbl.text = value
         }).disposed(by: disposeBag)
@@ -146,8 +154,6 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
         setupTableView()
         
         nameTextField.delegate = self
-
-        descriptionTextView._placeholder = "Placeholder" // todo: remove
     }
 
     // MARK: - UITableViewDataSource
