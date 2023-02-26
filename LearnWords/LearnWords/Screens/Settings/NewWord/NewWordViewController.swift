@@ -16,7 +16,7 @@ class NewWordViewController: BaseViewController {
     @IBOutlet weak var targetTField: CustomTextField!
     @IBOutlet weak var pronounceTField: CustomTextField!
     @IBOutlet weak var translateTField: CustomTextField!
-    @IBOutlet weak var notesTView: UITextView!
+    @IBOutlet weak var notesTView: CustomTextView!
     
     convenience init(viewModel: NewWordViewModel) {
         self.init(nibName: String(describing: "NewWordViewController"), bundle: nil)

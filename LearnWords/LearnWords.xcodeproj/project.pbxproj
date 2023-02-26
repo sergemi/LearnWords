@@ -68,6 +68,7 @@
 		8FF3E60029A7655D00D64A0D /* NewWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5FE29A7655D00D64A0D /* NewWordViewController.swift */; };
 		8FF3E60129A7655D00D64A0D /* NewWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF3E5FF29A7655D00D64A0D /* NewWordViewController.xib */; };
 		8FF3E60329A76DA300D64A0D /* NewWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E60229A76DA300D64A0D /* NewWordViewModel.swift */; };
+		8FF3E60529AAD0BD00D64A0D /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E60429AAD0BD00D64A0D /* CustomTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +144,7 @@
 		8FF3E5FE29A7655D00D64A0D /* NewWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordViewController.swift; sourceTree = "<group>"; };
 		8FF3E5FF29A7655D00D64A0D /* NewWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewWordViewController.xib; sourceTree = "<group>"; };
 		8FF3E60229A76DA300D64A0D /* NewWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordViewModel.swift; sourceTree = "<group>"; };
+		8FF3E60429AAD0BD00D64A0D /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		BDAF99E192F044DC42D5F440 /* Pods-LearnWords.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnWords.release.xcconfig"; path = "Target Support Files/Pods-LearnWords/Pods-LearnWords.release.xcconfig"; sourceTree = "<group>"; };
 		FD94A19289068F6A6A3AB6AE /* Pods_LearnWords.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LearnWords.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				8FF3E5E329A43C0400D64A0D /* CustomTextField.swift */,
+				8FF3E60429AAD0BD00D64A0D /* CustomTextView.swift */,
 				8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */,
 				8FF3E5D429A239AC00D64A0D /* UICheckbox.swift */,
 				8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */,
@@ -528,6 +531,7 @@
 				8FF3E5DA29A24FDD00D64A0D /* UniversalTableViewController.swift in Sources */,
 				8FF3E5E429A43C0400D64A0D /* CustomTextField.swift in Sources */,
 				8FF3E5F029A4DE6400D64A0D /* ModelLearnedWord.swift in Sources */,
+				8FF3E60529AAD0BD00D64A0D /* CustomTextView.swift in Sources */,
 				8FDA2A05299E4E8F00DD4003 /* BaseViewFromNib.swift in Sources */,
 				8F85B684299AC16C0097657D /* ViewController.swift in Sources */,
 				8FDA2A2D299FADB900DD4003 /* BaseLearnViewModel.swift in Sources */,

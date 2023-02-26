@@ -23,7 +23,7 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
     @IBOutlet weak var actionSelectedBtn: UIButton!
     
     @IBOutlet weak var nameTextField: CustomTextField!
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var descriptionTextView: CustomTextView!
     
     convenience init(viewModel: UniversalTableViewModel) {
         self.init(nibName: String(describing: "UniversalTableViewController"), bundle: nil)
@@ -82,7 +82,6 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
             guard let value = value else {
                 return
             }
-//            self?.nameTextField.placeholder = value
             self?.nameTextField._placeholder = value
             
         }).disposed(by: disposeBag)
@@ -147,8 +146,8 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
         setupTableView()
         
         nameTextField.delegate = self
-//        continueBtn.setTitle("Learn.BaseLearn.Continue".localized())
-//        newBtn.setTitle("Learn.BaseLearn.New".localized())
+
+        descriptionTextView._placeholder = "Placeholder" // todo: remove
     }
 
     // MARK: - UITableViewDataSource
@@ -174,12 +173,6 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
     // MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel?.selectRow(index: indexPath.row)
-    }
-    
-    // MARK: - UITextFieldDelegate
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -208,5 +201,11 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
         let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
 
         return swipeActions
+    }
+    
+    // MARK: - UITextFieldDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
