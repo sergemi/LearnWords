@@ -18,7 +18,6 @@ class CustomTextView: UITextView {
     @IBInspectable
     var _placeholder: String? {
         didSet {
-            log.method()
 //            UpdateBorder()
             UpdateFloatingLabel()
         }
@@ -56,16 +55,6 @@ class CustomTextView: UITextView {
         }
     }
     
-//    override var text: String? {
-//        didSet {
-//            log.method()
-//            forceUpdate = true
-//            UpdateBorder()
-//            UpdateFloatingLabel()
-//            forceUpdate = false
-//        }
-//    }
-    
     @IBInspectable
     var floatingLabelFont: UIFont = UIFont.systemFont(ofSize: 14) {
         didSet {
@@ -84,8 +73,6 @@ class CustomTextView: UITextView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        log.method()
         
         floatingLabelColor = UIColor(rgb: 0xD0D2D3)
         _borderColor = floatingLabelColor
@@ -106,7 +93,6 @@ class CustomTextView: UITextView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        log.method()
         
         UpdateBorder()
         UpdateFloatingLabel()
@@ -114,7 +100,6 @@ class CustomTextView: UITextView {
     }
     
     func UpdateBorder() {
-        log.method()
         border?.removeFromSuperlayer()
         border = CAShapeLayer()
         guard let border = border else {
@@ -135,63 +120,41 @@ class CustomTextView: UITextView {
     
     // Add a floating label to the view on becoming first responder
     @objc func UpdateFloatingLabel() {
-        log.method()
         self.floatingLabel.text = " " + (self._placeholder ?? "") + " "
-        
 //        self.floatingLabel.frame = CGRect(x: 0, y: 0, width: floatingLabel.frame.width+4, height: floatingLabel.frame.height+2)
         
         self.floatingLabel.isHidden = self._placeholder == "" || self._placeholder == nil
-        
-        // Floating label may be stuck behind text input. we bring it forward as it was the last item added to the view heirachy
-        
         self.bringSubviewToFront(self.floatingLabel)
-//        guard let lastSubview = subviews.last else {
-//            return
-//        }
-//        self.bringSubviewToFront(lastSubview)
-//        self.setNeedsDisplay()
-        print("!!!")
     }
     
     fileprivate func AddFloatLabel() {
-        log.method()
         self.floatingLabel.isHidden = false
         self.floatingLabel.textColor = floatingLabelColor
         self.floatingLabel.font = floatingLabelFont
 //            self.floatingLabel.layer.backgroundColor = UIColor.white.cgColor
         self.floatingLabel.backgroundColor = UIColor.white
-//        self.floatingLabel.translatesAutoresizingMaskIntoConstraints = false
-//        self.floatingLabel.clipsToBounds = true
-        self.floatingLabel.clipsToBounds = false
+        self.clipsToBounds = false
         
         self.floatingLabel.frame = CGRect(x: 0, y: 0, width: floatingLabel.frame.width+4, height: floatingLabel.frame.height+2)
         
-        self.floatingLabel.backgroundColor = .green
         self.floatingLabel.textAlignment = .center
-//        self.floatingLabel.isHidden = false
         self.floatingLabel.translatesAutoresizingMaskIntoConstraints = false
         self.floatingLabel.clipsToBounds = true
         self.addSubview(self.floatingLabel)
 //            self.layer.borderColor = self.borderColor.cgColor
 
-//        self.floatingLabel.bottomAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-//        self.floatingLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 14).isActive = true
-        let bottomConstr = self.floatingLabel.bottomAnchor.constraint(equalTo: self.topAnchor, constant: 10)
-        bottomConstr.isActive = true
-        let leftConstr = self.floatingLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 14)
-        leftConstr.isActive = true
-        print("++")
+        self.floatingLabel.bottomAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        self.floatingLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 14).isActive = true
     }
     
     @objc func RemoveFloatingLabel() {
-        log.method()
-        self.floatingLabel.isHidden = true
-//        UIView.animate(withDuration: 0.13) { [weak self] in
-//            guard let self = self else {
-//                return
-//            }
-//            self.floatingLabel.removeFromSuperview()
-//            self.setNeedsDisplay()
-//        }
+        UIView.animate(withDuration: 0.13) { [weak self] in
+            guard let self = self else {
+                return
+            }
+            self.floatingLabel.removeFromSuperview()
+            self.floatingLabel.isHidden = true
+            self.setNeedsDisplay()
+        }
     }
 }
