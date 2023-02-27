@@ -12,6 +12,7 @@ protocol LearnCoordinatorProtocol: AnyObject {
     func BaseLearn()
     func selectModule()
     func module(_ module: ModelModule)
+    func topic(_ topic: ModelTopic)
 }
 
 class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocol {
@@ -57,6 +58,13 @@ class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocol {
     
     func module(_ module: ModelModule) {
         let model = LearnModuleViewModel(module: module)
+        model.learnCoordinator = self
+        let vc =  UniversalTableViewController(viewModel: model)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func topic(_ topic: ModelTopic) {
+        let model = LearnTopicViewModel(topic: topic)
         model.learnCoordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)

@@ -69,6 +69,7 @@
 		8FF3E60129A7655D00D64A0D /* NewWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF3E5FF29A7655D00D64A0D /* NewWordViewController.xib */; };
 		8FF3E60329A76DA300D64A0D /* NewWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E60229A76DA300D64A0D /* NewWordViewModel.swift */; };
 		8FF3E60529AAD0BD00D64A0D /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E60429AAD0BD00D64A0D /* CustomTextView.swift */; };
+		8FF3E60729AD608500D64A0D /* LearnTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E60629AD608500D64A0D /* LearnTopicViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,6 +146,7 @@
 		8FF3E5FF29A7655D00D64A0D /* NewWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewWordViewController.xib; sourceTree = "<group>"; };
 		8FF3E60229A76DA300D64A0D /* NewWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordViewModel.swift; sourceTree = "<group>"; };
 		8FF3E60429AAD0BD00D64A0D /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
+		8FF3E60629AD608500D64A0D /* LearnTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTopicViewModel.swift; sourceTree = "<group>"; };
 		BDAF99E192F044DC42D5F440 /* Pods-LearnWords.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnWords.release.xcconfig"; path = "Target Support Files/Pods-LearnWords/Pods-LearnWords.release.xcconfig"; sourceTree = "<group>"; };
 		FD94A19289068F6A6A3AB6AE /* Pods_LearnWords.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LearnWords.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -320,6 +322,7 @@
 				8FDA2A2C299FADB900DD4003 /* LearnCoordinator.swift */,
 				8FF3E5F729A645B800D64A0D /* LearnModulesListViewModel.swift */,
 				8FF3E5F929A64E8600D64A0D /* LearnModuleViewModel.swift */,
+				8FF3E60629AD608500D64A0D /* LearnTopicViewModel.swift */,
 			);
 			path = Learn;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				8FDA29F9299E4DB500DD4003 /* Logger.swift in Sources */,
 				8FDA2A3D299FBDD600DD4003 /* String+localization.swift in Sources */,
 				8FF3E5E829A43DAE00D64A0D /* UITextField+ext.swift in Sources */,
+				8FF3E60729AD608500D64A0D /* LearnTopicViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

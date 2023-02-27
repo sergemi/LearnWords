@@ -39,6 +39,6 @@ class LearnModuleViewModel: UniversalTableViewModel {
     
     override func selectRow(index: Int) {
         let topic = topics[index]
-//        self.settingsCoordinator?.editTopic(module: module, topic: topic)
+        self.learnCoordinator?.topic(topic)
     }
 }

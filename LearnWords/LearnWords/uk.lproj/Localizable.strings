@@ -31,6 +31,9 @@
 // Module
 "Learn.Module.tableHeader" = "Topics:";
 
+// Topic
+"Learn.Topic.tableHeader" = "Words";
+
 
 
 //Settings coordinator
