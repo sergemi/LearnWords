@@ -22,8 +22,8 @@
 
 // Learn coordinator
 // BaseLearn
-"Learn.BaseLearn.Continue" = "Learn";
-"Learn.BaseLearn.Lern" = "Learn";
+"Learn.BaseLearn.Continue" = "Continue";
+"Learn.BaseLearn.New" = "Learn";
 
 // Modules list
 "Learn.ModulesList.Title" = "Select module";

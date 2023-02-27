@@ -126,7 +126,10 @@ class SettingsAddTopicViewModel: UniversalTableViewModel {
         words = Array(topic.words)
         
         let wordRows = words.map{
-            ModelTableViewCell(checkbox: .empty, title: $0.word?.target ?? "", showArrow: true)
+//            ModelTableViewCell(checkbox: .empty, title: $0.word?.target ?? "", showArrow: true)
+            ModelTableViewCell(checkbox: .empty,
+                               title: "\($0.word?.target ?? "") - \($0.word?.translate ?? "")",
+                               showArrow: true)
         }
         rows.accept(wordRows)
     }
