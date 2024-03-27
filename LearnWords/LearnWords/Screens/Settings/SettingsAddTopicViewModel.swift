@@ -91,14 +91,14 @@ class SettingsAddTopicViewModel: UniversalTableViewModel {
         }).disposed(by: disposeBag)
         
         _ = details.subscribe(onNext: { [weak self] value in
-            guard let self = self, let value = value else {
+            guard let self = self else {
                 return
             }
             self.haveRightBarBtn.accept(self.isAddBtnEnabled())
         }).disposed(by: disposeBag)
 
         _ = name.subscribe(onNext: { [weak self] value in
-            guard let self = self, let value = value else {
+            guard let self = self else {
                 return
             }
             self.haveRightBarBtn.accept(self.isAddBtnEnabled())
@@ -122,7 +122,7 @@ class SettingsAddTopicViewModel: UniversalTableViewModel {
     }
     
     override func reloadTableData(){
-        let realm = try! Realm()
+//        let realm = try! Realm()
         words = Array(topic.words)
         
         let wordRows = words.map{

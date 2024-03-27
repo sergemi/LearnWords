@@ -28,7 +28,7 @@ class LearnModuleViewModel: UniversalTableViewModel {
     }
     
     override func reloadTableData(){
-        let realm = try! Realm()
+//        let realm = try! Realm()
         topics = Array(module.topics)
         
         let topicsRows = topics.map{

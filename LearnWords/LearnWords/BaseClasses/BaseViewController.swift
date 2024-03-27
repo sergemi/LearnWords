@@ -71,7 +71,7 @@ class BaseViewController: UIViewController, ShowErrorProtocol {
 extension BaseViewController {
     func handleKeyboard(scrollView: UIScrollView, offset: CGFloat = 0.0) {
         keyboardObserver.willShow
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .subscribe { keyboardInfo in
                 guard let height = keyboardInfo.element?.frameEnd.height else {
                     return
@@ -88,7 +88,7 @@ extension BaseViewController {
             .disposed(by: disposeBag)
 
         keyboardObserver.willHide
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .subscribe { _ in
                 UIView.animate(withDuration: 0.25) {
                     scrollView.contentOffset = CGPoint.zero

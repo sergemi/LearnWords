@@ -28,7 +28,7 @@ class LearnTopicViewModel: UniversalTableViewModel {
     }
     
     override func reloadTableData(){
-        let realm = try! Realm()
+//        let realm = try! Realm()
         words = Array(topic.words)
         
         let wordsRows = words.map{

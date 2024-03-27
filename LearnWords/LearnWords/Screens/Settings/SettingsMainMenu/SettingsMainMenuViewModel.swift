@@ -19,7 +19,7 @@ class SettingsMainMenuViewModel: BaseViewModel {
     
     
     init() {
-        _ = localBaseBtnObserver.bind(onNext: { [weak self] _ in
+        _ = localBaseBtnObserver.bind(onNext: {_ in
 //            print("!localBaseBtnObserver!")
             let settingsURL = URL(string: UIApplication.openSettingsURLString)!
             UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
