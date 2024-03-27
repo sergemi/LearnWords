@@ -199,7 +199,8 @@ class CustomTextField: UITextField {
     
     func addViewPasswordButton() {
         self.button.setImage(UIImage(named: "ic_reveal"), for: .normal)
-        self.button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//        self.button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        self.button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
         self.button.frame = CGRect(x: 0, y: 16, width: 22, height: 16)
         self.button.clipsToBounds = true
         self.rightView = self.button
