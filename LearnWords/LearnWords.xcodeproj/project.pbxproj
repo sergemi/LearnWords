@@ -13,6 +13,7 @@
 		8F85B687299AC16C0097657D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F85B685299AC16C0097657D /* Main.storyboard */; };
 		8F85B689299AC16E0097657D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F85B688299AC16E0097657D /* Assets.xcassets */; };
 		8F85B68C299AC16E0097657D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F85B68A299AC16E0097657D /* LaunchScreen.storyboard */; };
+		8F8947F62BC00F2A0070E699 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F8947F52BC00F2A0070E699 /* GoogleService-Info.plist */; };
 		8FDA29ED299E4D9A00DD4003 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */; };
 		8FDA29EE299E4D9A00DD4003 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */; };
 		8FDA29F2299E4DA800DD4003 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29F0299E4DA700DD4003 /* Date+.swift */; };
@@ -80,6 +81,7 @@
 		8F85B688299AC16E0097657D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F85B68B299AC16E0097657D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F85B68D299AC16E0097657D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F8947F52BC00F2A0070E699 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		8FDA29F0299E4DA700DD4003 /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				8FDA29FB299E4E8F00DD4003 /* BaseClasses */,
 				8FDA29F4299E4DB500DD4003 /* Helpers */,
 				8F85B688299AC16E0097657D /* Assets.xcassets */,
+				8F8947F52BC00F2A0070E699 /* GoogleService-Info.plist */,
 				8FDA2A19299F7D7500DD4003 /* Localizable.strings */,
 				8F85B68A299AC16E0097657D /* LaunchScreen.storyboard */,
 				8F85B68D299AC16E0097657D /* Info.plist */,
@@ -456,6 +459,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F8947F62BC00F2A0070E699 /* GoogleService-Info.plist in Resources */,
 				8FDA2A32299FAEBE00DD4003 /* BaseLearnViewController.xib in Resources */,
 				8F85B68C299AC16E0097657D /* LaunchScreen.storyboard in Resources */,
 				8FDA2A0C299E567C00DD4003 /* SettingsMainMenuViewController.xib in Resources */,

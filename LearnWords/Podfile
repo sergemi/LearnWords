@@ -9,6 +9,9 @@ pod 'Alamofire'
 pod 'RxCocoa'
 pod 'RxSwift'
 pod 'RxOptional'
+pod 'FirebaseAuth'
+pod 'FirebaseFirestore'
+
 #pod 'RealmSwift', '~>10'
 pod 'RealmSwift'
 
