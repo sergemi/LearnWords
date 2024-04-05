@@ -192,22 +192,38 @@
 		8F85B67E299AC16C0097657D /* LearnWords */ = {
 			isa = PBXGroup;
 			children = (
+				8F8947F82BC0513A0070E699 /* Resources */,
+				8F8947F72BC050DF0070E699 /* Application */,
 				8FF3E5E029A375D300D64A0D /* Models */,
 				8FDA2A06299E555E00DD4003 /* Screens */,
-				8F85B67F299AC16C0097657D /* AppDelegate.swift */,
-				8F85B681299AC16C0097657D /* SceneDelegate.swift */,
 				8FDA29EA299E4D9A00DD4003 /* CustomUI */,
 				8FDA29EF299E4DA700DD4003 /* Extensions */,
-				8F85B685299AC16C0097657D /* Main.storyboard */,
 				8FDA29FB299E4E8F00DD4003 /* BaseClasses */,
 				8FDA29F4299E4DB500DD4003 /* Helpers */,
+			);
+			path = LearnWords;
+			sourceTree = "<group>";
+		};
+		8F8947F72BC050DF0070E699 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				8F85B67F299AC16C0097657D /* AppDelegate.swift */,
+				8F85B681299AC16C0097657D /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		8F8947F82BC0513A0070E699 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8F85B685299AC16C0097657D /* Main.storyboard */,
 				8F85B688299AC16E0097657D /* Assets.xcassets */,
 				8F8947F52BC00F2A0070E699 /* GoogleService-Info.plist */,
 				8FDA2A19299F7D7500DD4003 /* Localizable.strings */,
 				8F85B68A299AC16E0097657D /* LaunchScreen.storyboard */,
 				8F85B68D299AC16E0097657D /* Info.plist */,
 			);
-			path = LearnWords;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		8FDA29EA299E4D9A00DD4003 /* CustomUI */ = {
@@ -741,7 +757,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7C8K3NAH2H;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LearnWords/Info.plist;
+				INFOPLIST_FILE = LearnWords/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -770,7 +786,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7C8K3NAH2H;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LearnWords/Info.plist;
+				INFOPLIST_FILE = LearnWords/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
