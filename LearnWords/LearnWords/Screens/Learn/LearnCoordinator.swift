@@ -9,13 +9,13 @@
 import UIKit
 
 protocol LearnCoordinatorProtocol: AnyObject {
-    @discardableResult func BaseLearn() -> UIViewController?
-    @discardableResult func selectModule() -> UIViewController?
-    @discardableResult func module(_ module: ModelModule) -> UIViewController?
-    @discardableResult func topic(_ topic: ModelTopic) -> UIViewController?
+    func BaseLearn()
+    func selectModule()
+    func module(_ module: ModelModule)
+    func topic(_ topic: ModelTopic)
     
     
-    @discardableResult func test() -> UIViewController? // todo: remove
+    func test() // todo: remove
 }
 
 class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocol {
@@ -44,55 +44,51 @@ class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocol {
     }
     
     // MARK: - LearnCoordinatorProtocol
-    @discardableResult func BaseLearn() -> UIViewController? {
+    func BaseLearn() {
         log.method()
         
         let vc = BaseLearnViewController.loadFromNib()
         vc.learnCoordinator = self
 //        navigationController.setViewControllers([vc], animated: true)
         navigationController.pushViewController(vc, animated: true)
-        return vc
     }
     
-    @discardableResult func selectModule() -> UIViewController? {
+    func selectModule() {
         let model = LearnModulesListViewModel()
         model.learnCoordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
-        return vc
     }
     
-    @discardableResult func module(_ module: ModelModule) -> UIViewController? {
+    func module(_ module: ModelModule) {
         let model = LearnModuleViewModel(module: module)
         model.learnCoordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
-        return vc
     }
     
-    @discardableResult func topic(_ topic: ModelTopic) -> UIViewController? {
+    func topic(_ topic: ModelTopic) {
         let model = LearnTopicViewModel(topic: topic)
         model.learnCoordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
-        return vc
     }
     
-    @discardableResult func test() -> UIViewController? { // todo: remove
+    func test() { // todo: remove
         let settingsCoordinator = SettingsCoordinator(navigationController: self.navigationController)
-        return start(coordinator: settingsCoordinator)
+        start(coordinator: settingsCoordinator)
     }
  
     // MARK: - CoordinatorProtocol
     
-    @discardableResult func start() -> UIViewController? {
+    func start() {
         if started {
-            return nil // TODO: Check if coorrect
+            return // TODO: Check if coorrect
         }
         started = true
         log.method()
         
-        return BaseLearn()
+        BaseLearn()
     }
     
     func setAsRootViewController() {

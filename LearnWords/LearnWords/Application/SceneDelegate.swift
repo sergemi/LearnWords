@@ -11,7 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     var startCoordinator: CoordinatorProtocol? = nil
     
-    let navigationController = UINavigationController()
+    var navigationController = UINavigationController()
     
     func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
         guard let window = self.window else {

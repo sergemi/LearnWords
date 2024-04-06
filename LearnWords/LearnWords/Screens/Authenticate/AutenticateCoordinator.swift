@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AuthenticateProtocol: AnyObject {
-    @discardableResult func Login() -> UIViewController?
+    func Login()
 }
 
 class AuthenticateCoordinator: CoordinatorProtocol, AuthenticateProtocol {
@@ -38,24 +38,21 @@ class AuthenticateCoordinator: CoordinatorProtocol, AuthenticateProtocol {
     }
     
     // - MARK: AuthenticateProtocol
-    @discardableResult func Login() -> UIViewController? {
+    func Login() {
         let vc = LoginViewController.loadFromNib()
         vc.authenticateCoordinator = self
         navigationController.pushViewController(vc, animated: true)
         currentViewController = vc
-        
-        return vc
     }
     
     // - MARK: CoordinatorProtocol
     
-    @discardableResult func start() -> UIViewController? {
+    func start() {
         if started {
-            return nil // TODO: Check if coorrect
+            return // TODO: Check if coorrect
         }
         started = true
         log.method()
-        
-        return Login()
+        Login()
     }
 }
