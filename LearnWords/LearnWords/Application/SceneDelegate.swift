@@ -11,6 +11,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     var startCoordinator: CoordinatorProtocol? = nil
     
+    let navigationController = UINavigationController()
+    
     func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
         guard let window = self.window else {
             return
@@ -26,13 +28,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
+        window?.rootViewController = navigationController
         
+        /*
 //        startCoordinator = SettingsCoordinator()
 //        startCoordinator = StatCoordinator()
 //        startCoordinator = LearnCoordinator()
         startCoordinator = MainTabBarCoordinator()
         startCoordinator?.start()
         startCoordinator?.setAsRootViewController()
+         */
+        
+//        let coordinator = AuthenticateCoordinator(navigationController: navigationController, strongNC: false)
+//        let coordinator = SettingsCoordinator(navigationController: navigationController)
+        let coordinator = LearnCoordinator(navigationController: navigationController)
+        
+        coordinator.start()
+        startCoordinator = coordinator
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

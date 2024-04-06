@@ -9,7 +9,7 @@
 import UIKit
 
 protocol StatCoordinatorProtocol: AnyObject {
-    func BaseStat()
+    @discardableResult func BaseStat() -> UIViewController?
 }
 
 class StatCoordinator: CoordinatorProtocol, StatCoordinatorProtocol {
@@ -38,24 +38,26 @@ class StatCoordinator: CoordinatorProtocol, StatCoordinatorProtocol {
     }
     
     // MARK: - StatCoordinatorProtocol
-    func BaseStat() {
+    func BaseStat() -> UIViewController? {
         log.method()
         
         let vc = BaseStatViewController.loadFromNib()
         vc.statCoordinator = self
-        navigationController.setViewControllers([vc], animated: true)
+//        navigationController.setViewControllers([vc], animated: true)
+        navigationController.pushViewController(vc, animated: true)
+        return vc
     }
  
     // MARK: - CoordinatorProtocol
     
-    func start() {
+    @discardableResult func start() -> UIViewController? {
         if started {
-            return
+            return nil
         }
         started = true
         log.method()
         
-        BaseStat()
+        return BaseStat()
     }
     
     func setAsRootViewController() {

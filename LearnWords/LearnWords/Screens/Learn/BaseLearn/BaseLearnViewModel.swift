@@ -23,7 +23,11 @@ class BaseLearnViewModel: BaseViewModel {
     
     fileprivate func bind() {
         _ = newBtnObserver.bind(onNext: { [weak self] _ in
-            self?.learnCoordinator?.selectModule()
+            self?.learnCoordinator?.selectModule() //todo: return back
+        }).disposed(by: disposeBag)
+        
+        _ = continueBtnObserver.bind(onNext: { [ weak self] _ in
+            self?.learnCoordinator?.test()
         }).disposed(by: disposeBag)
     }
 }

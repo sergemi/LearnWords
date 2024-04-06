@@ -51,12 +51,12 @@ class MainTabBarCoordinator: NSObject, CoordinatorProtocol, UITabBarControllerDe
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(tabBarController)
     }
     
-    func start() {
+    @discardableResult func start() -> UIViewController? {
         log.method()
         
         tabBarController.delegate = self
         
-        setAsRootViewController() // sergemi_temp
+//        setAsRootViewController() // sergemi_temp
         let mySceneDelegate = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)
         mySceneDelegate!.startCoordinator = self
    
@@ -71,18 +71,16 @@ class MainTabBarCoordinator: NSObject, CoordinatorProtocol, UITabBarControllerDe
         }
         let navControllers = coordinators.map{$0.navigationController}
         tabBarController.viewControllers = navControllers
-        startSelectedCoordinator()
-        
-
+        return startSelectedCoordinator()
     }
     
-    fileprivate func startCoordinator(index: Int) {
-        coordinators[index].start()
+    fileprivate func startCoordinator(index: Int) -> UIViewController? {
+        return coordinators[index].start()
     }
     
-    fileprivate func startSelectedCoordinator() {
+    fileprivate func startSelectedCoordinator() -> UIViewController? {
         let index = tabBarController.selectedIndex
-        startCoordinator(index: index)
+        return startCoordinator(index: index)
     }
     
     // MARK: UITabBarControllerDelegate

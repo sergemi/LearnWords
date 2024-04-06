@@ -9,15 +9,15 @@
 import UIKit
 
 protocol SettingsCoordinatorProtocol: AnyObject {
-    func mainMenu()
+    @discardableResult func mainMenu() -> UIViewController?
     
-    func selectModule()
-    func addModule()
-    func editModule(_ module: ModelModule)
-    func addTopic(module: ModelModule)
-    func editTopic(module: ModelModule, topic: ModelTopic)
-    func newWord(topic: ModelTopic)
-    func editWord(topic: ModelTopic, learnedWord: ModelLearnedWord)
+    @discardableResult func selectModule() -> UIViewController?
+    @discardableResult func addModule() -> UIViewController?
+    @discardableResult func editModule(_ module: ModelModule) -> UIViewController?
+    @discardableResult func addTopic(module: ModelModule) -> UIViewController?
+    @discardableResult func editTopic(module: ModelModule, topic: ModelTopic) -> UIViewController?
+    @discardableResult func newWord(topic: ModelTopic) -> UIViewController?
+    @discardableResult func editWord(topic: ModelTopic, learnedWord: ModelLearnedWord) -> UIViewController?
 }
 
 class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocol {
@@ -46,73 +46,82 @@ class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocol {
     }
     
     // MARK: - SettingsCoordinatorProtocol
-    func mainMenu() {
+    @discardableResult func mainMenu() -> UIViewController? {
         log.method()
         
         let vc = SettingsMainMenuViewController.loadFromNib()
         vc.settingsCoordinator = self
-        navigationController.setViewControllers([vc], animated: true)
+//        navigationController.setViewControllers([vc], animated: true)
+        navigationController.pushViewController(vc, animated: true)
+        return vc
     }
     
-    func selectModule() {
+    @discardableResult func selectModule() -> UIViewController? {
         let model = SettingsModuleListViewModel()
         model.settingsCoordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
+        return vc
     }
     
-    func addModule() {
+    @discardableResult func addModule() -> UIViewController? {
         let model = SettingsAddModuleViewModel()
         model.settingsCoordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
+        return vc
     }
     
-    func editModule(_ module: ModelModule) {
+    @discardableResult func editModule(_ module: ModelModule) -> UIViewController? {
         let model = SettingsAddModuleViewModel(module: module)
         model.settingsCoordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
+        return vc
     }
     
-    func addTopic(module: ModelModule) {
+    @discardableResult func addTopic(module: ModelModule) -> UIViewController? {
         let model = SettingsAddTopicViewModel(module: module)
         model.settingsCoordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
+        return vc
     }
     
-    func editTopic(module: ModelModule, topic: ModelTopic) {
+    @discardableResult func editTopic(module: ModelModule, topic: ModelTopic) -> UIViewController? {
         let model = SettingsAddTopicViewModel(module: module, topic: topic)
         model.settingsCoordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
+        return vc
     }
     
-    func newWord(topic: ModelTopic) {
+    @discardableResult func newWord(topic: ModelTopic) -> UIViewController? {
         let model = NewWordViewModel(topic: topic)
         model.settingsCoordinator = self
         let vc =  NewWordViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
+        return vc
     }
     
-    func editWord(topic: ModelTopic, learnedWord: ModelLearnedWord) {
+    @discardableResult func editWord(topic: ModelTopic, learnedWord: ModelLearnedWord) -> UIViewController? {
         let model = NewWordViewModel(topic: topic, learnedWord: learnedWord)
         model.settingsCoordinator = self
         let vc =  NewWordViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
+        return vc
     }
  
     // MARK: - CoordinatorProtocol
     
-    func start() {
+    @discardableResult func start() -> UIViewController? {
         if started {
-            return
+            return nil
         }
         started = true
         log.method()
         
-        mainMenu()
+        return mainMenu()
     }
     
     func setAsRootViewController() {

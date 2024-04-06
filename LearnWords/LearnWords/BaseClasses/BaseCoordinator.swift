@@ -23,8 +23,8 @@ protocol CoordinatorProtocol: AnyObject {
     
 //    var id: Int {get}
     
-    func start()
-    func start(coordinator: CoordinatorProtocol)
+    @discardableResult func start() -> UIViewController?
+    @discardableResult func start(coordinator: CoordinatorProtocol) -> UIViewController?
     func returnToParrent()
     
     func setAsRootViewController()
@@ -66,11 +66,11 @@ extension CoordinatorProtocol {
         removeFromParent()
     }
     
-    func start(coordinator: CoordinatorProtocol) {
+    @discardableResult func start(coordinator: CoordinatorProtocol) -> UIViewController? {
         childCoordinators.append(coordinator)
         coordinator.parent = self
         coordinator.startViewController = self.currentViewController
-        coordinator.start()
+        return coordinator.start()
     }
     
     func removeCoordinator(_ coordinator: CoordinatorProtocol) {
