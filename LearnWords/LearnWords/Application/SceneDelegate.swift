@@ -41,7 +41,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 //        let coordinator = AuthenticateCoordinator(navigationController: navigationController, strongNC: false)
 //        let coordinator = SettingsCoordinator(navigationController: navigationController)
-        let coordinator = LearnCoordinator(navigationController: navigationController)
+        
+//        let coordinator = LearnCoordinator(navigationController: navigationController)
+        
+        let coordinator = MainTabBarCoordinator(navigationController: navigationController)
         
         coordinator.start()
         startCoordinator = coordinator

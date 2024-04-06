@@ -27,6 +27,10 @@ class MainTabBarCoordinator: NSObject, CoordinatorProtocol, UITabBarControllerDe
     fileprivate var coordinators: [CoordinatorProtocol] = []
     
     required init(navigationController: UINavigationController, strongNC:Bool = false) {
+        
+        // todo: check if it's work
+        navigationController.pushViewController(tabBarController, animated: true)
+        
         log.method()
         
 //        self.navigationController = navigationController
@@ -57,8 +61,8 @@ class MainTabBarCoordinator: NSObject, CoordinatorProtocol, UITabBarControllerDe
         tabBarController.delegate = self
         
 //        setAsRootViewController() // sergemi_temp
-        let mySceneDelegate = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)
-        mySceneDelegate!.startCoordinator = self
+//        let mySceneDelegate = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)
+//        mySceneDelegate!.startCoordinator = self
    
         for tab in model.tabs {
             let coordinator = model.getCoordinator(tab)
