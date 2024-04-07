@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import RxCocoa
-import RxSwift
 
 class MainTabBarCoordinator: NSObject, CoordinatorProtocol, UITabBarControllerDelegate {
     var childCoordinators: [CoordinatorProtocol] = []
