@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     var coordinator: CoordinatorProtocol? = nil
+    var authManager: AuthManager? = nil
     
     var navigationController = UINavigationController()
     
@@ -36,9 +37,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        coordinator = LearnCoordinator(navigationController: navigationController)
         
         coordinator = MainTabBarCoordinator(navigationController: navigationController)
-        
-        
         coordinator?.start()
+        
+        authManager = AuthManager(coordinator: coordinator)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

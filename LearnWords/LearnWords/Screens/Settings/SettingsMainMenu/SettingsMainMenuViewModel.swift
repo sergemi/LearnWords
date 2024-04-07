@@ -16,6 +16,7 @@ class SettingsMainMenuViewModel: BaseViewModel {
     
     let localBaseBtnObserver = PublishSubject<Void>()
     let editWordsBtnObserver = PublishSubject<Void>()
+    let logoutBtnObserver = PublishSubject<Void>()
     
     
     init() {
@@ -29,6 +30,11 @@ class SettingsMainMenuViewModel: BaseViewModel {
             print("!editWordsBtnObserver!")
 //            self?.settingsCoordinator?.selectModule()
             self?.settingsCoordinator?.editMaterial()
+        }).disposed(by: disposeBag)
+        
+        _ = logoutBtnObserver.bind(onNext: { _ in
+            print("!logoutBtnObserver!")
+            AuthManager.logOut()
         }).disposed(by: disposeBag)
     }
 }

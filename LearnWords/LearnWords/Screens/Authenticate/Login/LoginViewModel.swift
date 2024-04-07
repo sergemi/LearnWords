@@ -34,11 +34,18 @@ class LoginViewModel : BaseViewModel {
     
     fileprivate func bind() {
         _ = loginBtnObserver.bind(onNext: { [weak self] _ in
-            guard let self = self else {
+            guard let self = self,
+                  let email = self.email.value,
+                  let password = self.password.value
+            else {
                 return
             }
-            print("login: \(self.email.value ?? "")")
-            print("pswd: \(self.password.value ?? "")")
+//            print("login: \(self.email.value ?? "")")
+//            print("pswd: \(self.password.value ?? "")")
+            
+            
+            
+            AuthManager.login(email: email, password: password)
         }).disposed(by: disposeBag)
         
         _ = signUpBtnObserver.bind(onNext: { [weak self] _ in

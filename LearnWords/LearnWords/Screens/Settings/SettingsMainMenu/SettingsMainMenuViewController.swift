@@ -23,6 +23,7 @@ class SettingsMainMenuViewController: BaseViewController {
     
     @IBOutlet weak var setupSystemlBtn: UIButton!
     @IBOutlet weak var editWordsBtn: UIButton!
+    @IBOutlet weak var logoutBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +35,10 @@ class SettingsMainMenuViewController: BaseViewController {
         log.method()
         
         setupSystemlBtn.rx.tap.bind(to: model.localBaseBtnObserver).disposed(by: disposeBag)
+        
         editWordsBtn.rx.tap.bind(to: model.editWordsBtnObserver).disposed(by: disposeBag)
         
+        logoutBtn.rx.tap.bind(to: model.logoutBtnObserver).disposed(by: disposeBag)
     }
     
     func setupUI() {

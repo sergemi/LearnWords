@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsMainMenuViewController" customModule="LearnWords" customModuleProvider="target">
             <connections>
                 <outlet property="editWordsBtn" destination="Z6c-in-4dg" id="Z6C-ad-pzE"/>
+                <outlet property="logoutBtn" destination="IVV-O8-510" id="uic-9R-R90"/>
                 <outlet property="setupSystemlBtn" destination="twF-YX-XeG" id="28l-yN-5ki"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -30,13 +32,20 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="editWordsBtn"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVV-O8-510">
+                    <rect key="frame" x="160" y="653" width="73" height="35"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="logout"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="IVV-O8-510" firstAttribute="bottom" secondItem="Z6c-in-4dg" secondAttribute="top" constant="-20" id="Dvh-GZ-sae"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="twF-YX-XeG" secondAttribute="bottom" constant="20" id="IFm-ah-6zM"/>
                 <constraint firstItem="Z6c-in-4dg" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="YvN-0j-2gw"/>
                 <constraint firstItem="twF-YX-XeG" firstAttribute="top" secondItem="Z6c-in-4dg" secondAttribute="bottom" constant="20" id="gVF-oi-FWE"/>
+                <constraint firstItem="IVV-O8-510" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="qCl-Sb-7gU"/>
                 <constraint firstItem="twF-YX-XeG" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="vJB-8q-KrZ"/>
             </constraints>
             <point key="canvasLocation" x="21" y="20"/>

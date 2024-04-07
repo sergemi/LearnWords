@@ -6,9 +6,9 @@
 //
 
 import Foundation
-
 import RxSwift
 import RxCocoa
+import FirebaseAuth
 
 class SignUpViewModel : BaseViewModel {
     let disposeBag = DisposeBag()
@@ -18,7 +18,7 @@ class SignUpViewModel : BaseViewModel {
     
     let loginPlaceholder = BehaviorRelay<String?>(value: "E-mail".localized())
     let password1Placeholder = BehaviorRelay<String?>(value: "Password".localized())
-    let password2Placeholder = BehaviorRelay<String?>(value: "Re enter Password".localized())
+    let password2Placeholder = BehaviorRelay<String?>(value: "Confirm Password".localized())
     let signUpBtnCaption = BehaviorRelay<String?>(value: "Sign Up".localized())
     
     let signUpBtnObserver = PublishSubject<Void>()
@@ -32,10 +32,28 @@ class SignUpViewModel : BaseViewModel {
     
     fileprivate func bind() {
         _ = signUpBtnObserver.bind(onNext: { [weak self] _ in
-            guard let self = self else {
+            guard let self = self,
+                  let email = self.email.value,
+                  let password1 = self.password1.value,
+                  let password2 = self.password2.value
+            else {
+                print("Error: some field is empty")
                 return
             }
-            print("Sign up!!!")
+            if password1 != password2 {
+                print("Error: Passwords mismatch !")
+            }
+            Auth.auth().createUser(withEmail: email, password: password1) { _, error in
+              // 3
+              if error == nil {
+                  print("User created sucessfully!")
+                Auth.auth().signIn(withEmail: email, password: password1)
+              } else {
+                print("Error in createUser: \(error?.localizedDescription ?? "")")
+              }
+            }
+            
+            
         }).disposed(by: disposeBag)
     }
 }
