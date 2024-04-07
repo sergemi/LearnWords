@@ -29,7 +29,7 @@ class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocol {
     
     private var started = false
 
-    required init(navigationController: UINavigationController, strongNC:Bool = false) {
+    required init(navigationController: UINavigationController) {
         log.method()
         
         self.navigationController = navigationController

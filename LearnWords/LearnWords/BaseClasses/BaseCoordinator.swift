@@ -12,7 +12,7 @@ import UIKit
 
 protocol CoordinatorProtocol: AnyObject {
     init()
-    init(navigationController:UINavigationController, strongNC:Bool)
+    init(navigationController:UINavigationController)
     
     var currentViewController: UIViewController? {get}
     

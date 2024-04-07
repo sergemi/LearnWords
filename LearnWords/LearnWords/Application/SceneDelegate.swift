@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         window?.rootViewController = navigationController
         
-//        coordinator = AuthenticateCoordinator(navigationController: navigationController, strongNC: false)
+//        coordinator = AuthenticateCoordinator(navigationController: navigationController)
 //        coordinator = SettingsCoordinator(navigationController: navigationController)
         
 //        coordinator = LearnCoordinator(navigationController: navigationController)

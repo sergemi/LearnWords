@@ -23,7 +23,7 @@ class AuthenticateCoordinator: CoordinatorProtocol, AuthenticateProtocol {
     
     private var started = false
     
-    required init(navigationController: UINavigationController, strongNC: Bool) {
+    required init(navigationController: UINavigationController) {
         log.method()
         
         self.navigationController = navigationController

@@ -26,18 +26,13 @@ class MainTabBarCoordinator: NSObject, CoordinatorProtocol, UITabBarControllerDe
     
     fileprivate var coordinators: [CoordinatorProtocol] = []
     
-    required init(navigationController: UINavigationController, strongNC:Bool = false) {
-        
+    required init(navigationController: UINavigationController) {
         // todo: check if it's work
+        navigationController.setNavigationBarHidden(true, animated: true)
+        
         navigationController.pushViewController(tabBarController, animated: true)
         
-        log.method()
-        
-//        self.navigationController = navigationController
-//
-//        if strongNC {
-//            self.strongNavigationController = navigationController
-//        }
+        log.method()        
     }
     
     
