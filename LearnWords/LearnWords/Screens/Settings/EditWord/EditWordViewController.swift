@@ -1,5 +1,5 @@
 //
-//  NewWordViewController.swift
+//  EditWordViewController.swift
 //  LearnWords
 //
 //  Created by sergemi on 23.02.2023.
@@ -9,8 +9,8 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class NewWordViewController: BaseViewController {
-    var viewModel: NewWordViewModel? = nil
+class EditWordViewController: BaseViewController {
+    var viewModel: EditWordViewModel? = nil
     let rightBtn = UIBarButtonItem(title: "rightBtn", style: .plain, target: nil, action: nil)
     
     @IBOutlet weak var targetTField: CustomTextField!
@@ -18,8 +18,8 @@ class NewWordViewController: BaseViewController {
     @IBOutlet weak var translateTField: CustomTextField!
     @IBOutlet weak var notesTView: CustomTextView!
     
-    convenience init(viewModel: NewWordViewModel) {
-        self.init(nibName: String(describing: "NewWordViewController"), bundle: nil)
+    convenience init(viewModel: EditWordViewModel) {
+        self.init(nibName: String(describing: "EditWordViewController"), bundle: nil)
         self.viewModel = viewModel
     }
 
@@ -66,10 +66,10 @@ class NewWordViewController: BaseViewController {
     }
     
     fileprivate func setupUI() {
-        targetTField._placeholder = "Settings.NewWord.TargetPlaceholder".localized()
-        pronounceTField._placeholder = "Settings.NewWord.PronouncePlaceholder".localized()
-        translateTField._placeholder = "Settings.NewWord.TranslatePlaceholder".localized()
-        notesTView._placeholder = "Settings.NewWord.NotesPlaceholder".localized()
+        targetTField._placeholder = "Settings.EditWord.TargetPlaceholder".localized()
+        pronounceTField._placeholder = "Settings.EditWord.PronouncePlaceholder".localized()
+        translateTField._placeholder = "Settings.EditWord.TranslatePlaceholder".localized()
+        notesTView._placeholder = "Settings.EditWord.NotesPlaceholder".localized()
         self.addBackBtn()
     }
 }

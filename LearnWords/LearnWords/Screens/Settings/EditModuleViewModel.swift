@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class SettingsAddModuleViewModel: UniversalTableViewModel {
+class EditModuleViewModel: UniversalTableViewModel {
     var settingsCoordinator: SettingsCoordinatorProtocol? = nil
     
     var module: ModelModule

@@ -1,5 +1,5 @@
 //
-//  NewWordViewModel.swift
+//  EditWordViewModel.swift
 //  LearnWords
 //
 //  Created by sergemi on 23.02.2023.
@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 
-class NewWordViewModel: BaseViewModel {
+class EditWordViewModel: BaseViewModel {
     let disposeBag = DisposeBag()
     var settingsCoordinator: SettingsCoordinatorProtocol? = nil
     
@@ -106,12 +106,12 @@ class NewWordViewModel: BaseViewModel {
     
     func UpdateButtonsVisibility() {
         if isNew {
-            title.accept("Settings.NewWord.TitleNew".localized())
-            rightBarBtnCaption.accept("Settings.NewWord.RightBarBtnNew".localized())
+            title.accept("Settings.EditWord.TitleNew".localized())
+            rightBarBtnCaption.accept("Settings.EditWord.RightBarBtnNew".localized())
         }
         else {
-            title.accept("Settings.NewWord.TitleEdit".localized())
-            rightBarBtnCaption.accept("Settings.NewWord.RightBarBtnSave".localized())
+            title.accept("Settings.EditWord.TitleEdit".localized())
+            rightBarBtnCaption.accept("Settings.EditWord.RightBarBtnSave".localized())
         }
     }
     

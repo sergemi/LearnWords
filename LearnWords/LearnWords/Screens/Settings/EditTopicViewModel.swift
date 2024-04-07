@@ -1,5 +1,5 @@
 //
-//  SettingsAddTopicViewModel.swift
+//  EditTopicViewModel.swift
 //  LearnWords
 //
 //  Created by sergemi on 22.02.2023.
@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class SettingsAddTopicViewModel: UniversalTableViewModel {
+class EditTopicViewModel: UniversalTableViewModel {
     var settingsCoordinator: SettingsCoordinatorProtocol? = nil
 
     var module: ModelModule
@@ -87,7 +87,7 @@ class SettingsAddTopicViewModel: UniversalTableViewModel {
             guard let topic = self?.topic else {
                 return
             }
-            self?.settingsCoordinator?.newWord(topic: topic)
+            self?.settingsCoordinator?.EditWord(topic: topic)
         }).disposed(by: disposeBag)
         
         _ = details.subscribe(onNext: { [weak self] value in

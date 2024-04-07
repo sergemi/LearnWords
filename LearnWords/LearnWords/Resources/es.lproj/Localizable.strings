@@ -75,13 +75,13 @@
 "Settings.EditTopic.saveModuleBtn" = "Save";
 
 // New Word
-"Settings.NewWord.TitleNew" = "New word";
-"Settings.NewWord.TitleEdit" = "Edit word";
-"Settings.NewWord.RightBarBtnNew" = "Add";
-"Settings.NewWord.RightBarBtnSave" = "Save";
+"Settings.EditWord.TitleNew" = "New word";
+"Settings.EditWord.TitleEdit" = "Edit word";
+"Settings.EditWord.RightBarBtnNew" = "Add";
+"Settings.EditWord.RightBarBtnSave" = "Save";
 
-"Settings.NewWord.TargetPlaceholder" = "Target";
-"Settings.NewWord.PronouncePlaceholder" = "Pronounce";
-"Settings.NewWord.TranslatePlaceholder" = "Translate";
-"Settings.NewWord.NotesPlaceholder" = "Notes";
+"Settings.EditWord.TargetPlaceholder" = "Target";
+"Settings.EditWord.PronouncePlaceholder" = "Pronounce";
+"Settings.EditWord.TranslatePlaceholder" = "Translate";
+"Settings.EditWord.NotesPlaceholder" = "Notes";
 

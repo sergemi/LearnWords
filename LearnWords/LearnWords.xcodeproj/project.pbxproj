@@ -54,12 +54,12 @@
 		8FF3E5DA29A24FDD00D64A0D /* UniversalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5D829A24FDD00D64A0D /* UniversalTableViewController.swift */; };
 		8FF3E5DB29A24FDD00D64A0D /* UniversalTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF3E5D929A24FDD00D64A0D /* UniversalTableViewController.xib */; };
 		8FF3E5DD29A2521900D64A0D /* UniversalTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5DC29A2521900D64A0D /* UniversalTableViewModel.swift */; };
-		8FF3E5DF29A2633500D64A0D /* SettingsModuleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5DE29A2633500D64A0D /* SettingsModuleListViewModel.swift */; };
+		8FF3E5DF29A2633500D64A0D /* EditModuleListMiewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5DE29A2633500D64A0D /* EditModuleListMiewModel.swift */; };
 		8FF3E5E229A3773500D64A0D /* ModelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E129A3773500D64A0D /* ModelTableViewCell.swift */; };
 		8FF3E5E429A43C0400D64A0D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E329A43C0400D64A0D /* CustomTextField.swift */; };
 		8FF3E5E629A43CE400D64A0D /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E529A43CE400D64A0D /* UIColor+ext.swift */; };
 		8FF3E5E829A43DAE00D64A0D /* UITextField+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E729A43DAE00D64A0D /* UITextField+ext.swift */; };
-		8FF3E5EA29A4CC6200D64A0D /* SettingsAddModuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E929A4CC6200D64A0D /* SettingsAddModuleViewModel.swift */; };
+		8FF3E5EA29A4CC6200D64A0D /* EditModuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E929A4CC6200D64A0D /* EditModuleViewModel.swift */; };
 		8FF3E5EC29A4D9A100D64A0D /* ModelWordPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5EB29A4D9A100D64A0D /* ModelWordPair.swift */; };
 		8FF3E5EE29A4DB4F00D64A0D /* ModelExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5ED29A4DB4F00D64A0D /* ModelExercise.swift */; };
 		8FF3E5F029A4DE6400D64A0D /* ModelLearnedWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5EF29A4DE6400D64A0D /* ModelLearnedWord.swift */; };
@@ -68,10 +68,10 @@
 		8FF3E5F629A507AD00D64A0D /* RxHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5F529A507AD00D64A0D /* RxHelpers.swift */; };
 		8FF3E5F829A645B900D64A0D /* LearnModulesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5F729A645B800D64A0D /* LearnModulesListViewModel.swift */; };
 		8FF3E5FA29A64E8600D64A0D /* LearnModuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5F929A64E8600D64A0D /* LearnModuleViewModel.swift */; };
-		8FF3E5FC29A672BB00D64A0D /* SettingsAddTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5FB29A672BB00D64A0D /* SettingsAddTopicViewModel.swift */; };
-		8FF3E60029A7655D00D64A0D /* NewWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5FE29A7655D00D64A0D /* NewWordViewController.swift */; };
-		8FF3E60129A7655D00D64A0D /* NewWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF3E5FF29A7655D00D64A0D /* NewWordViewController.xib */; };
-		8FF3E60329A76DA300D64A0D /* NewWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E60229A76DA300D64A0D /* NewWordViewModel.swift */; };
+		8FF3E5FC29A672BB00D64A0D /* EditTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5FB29A672BB00D64A0D /* EditTopicViewModel.swift */; };
+		8FF3E60029A7655D00D64A0D /* EditWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5FE29A7655D00D64A0D /* EditWordViewController.swift */; };
+		8FF3E60129A7655D00D64A0D /* EditWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF3E5FF29A7655D00D64A0D /* EditWordViewController.xib */; };
+		8FF3E60329A76DA300D64A0D /* EditWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E60229A76DA300D64A0D /* EditWordViewModel.swift */; };
 		8FF3E60529AAD0BD00D64A0D /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E60429AAD0BD00D64A0D /* CustomTextView.swift */; };
 		8FF3E60729AD608500D64A0D /* LearnTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E60629AD608500D64A0D /* LearnTopicViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -135,12 +135,12 @@
 		8FF3E5D829A24FDD00D64A0D /* UniversalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalTableViewController.swift; sourceTree = "<group>"; };
 		8FF3E5D929A24FDD00D64A0D /* UniversalTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UniversalTableViewController.xib; sourceTree = "<group>"; };
 		8FF3E5DC29A2521900D64A0D /* UniversalTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalTableViewModel.swift; sourceTree = "<group>"; };
-		8FF3E5DE29A2633500D64A0D /* SettingsModuleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModuleListViewModel.swift; sourceTree = "<group>"; };
+		8FF3E5DE29A2633500D64A0D /* EditModuleListMiewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModuleListMiewModel.swift; sourceTree = "<group>"; };
 		8FF3E5E129A3773500D64A0D /* ModelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTableViewCell.swift; sourceTree = "<group>"; };
 		8FF3E5E329A43C0400D64A0D /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		8FF3E5E529A43CE400D64A0D /* UIColor+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
 		8FF3E5E729A43DAE00D64A0D /* UITextField+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+ext.swift"; sourceTree = "<group>"; };
-		8FF3E5E929A4CC6200D64A0D /* SettingsAddModuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAddModuleViewModel.swift; sourceTree = "<group>"; };
+		8FF3E5E929A4CC6200D64A0D /* EditModuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModuleViewModel.swift; sourceTree = "<group>"; };
 		8FF3E5EB29A4D9A100D64A0D /* ModelWordPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelWordPair.swift; sourceTree = "<group>"; };
 		8FF3E5ED29A4DB4F00D64A0D /* ModelExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelExercise.swift; sourceTree = "<group>"; };
 		8FF3E5EF29A4DE6400D64A0D /* ModelLearnedWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelLearnedWord.swift; sourceTree = "<group>"; };
@@ -149,10 +149,10 @@
 		8FF3E5F529A507AD00D64A0D /* RxHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxHelpers.swift; sourceTree = "<group>"; };
 		8FF3E5F729A645B800D64A0D /* LearnModulesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnModulesListViewModel.swift; sourceTree = "<group>"; };
 		8FF3E5F929A64E8600D64A0D /* LearnModuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnModuleViewModel.swift; sourceTree = "<group>"; };
-		8FF3E5FB29A672BB00D64A0D /* SettingsAddTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAddTopicViewModel.swift; sourceTree = "<group>"; };
-		8FF3E5FE29A7655D00D64A0D /* NewWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordViewController.swift; sourceTree = "<group>"; };
-		8FF3E5FF29A7655D00D64A0D /* NewWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewWordViewController.xib; sourceTree = "<group>"; };
-		8FF3E60229A76DA300D64A0D /* NewWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordViewModel.swift; sourceTree = "<group>"; };
+		8FF3E5FB29A672BB00D64A0D /* EditTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTopicViewModel.swift; sourceTree = "<group>"; };
+		8FF3E5FE29A7655D00D64A0D /* EditWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWordViewController.swift; sourceTree = "<group>"; };
+		8FF3E5FF29A7655D00D64A0D /* EditWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditWordViewController.xib; sourceTree = "<group>"; };
+		8FF3E60229A76DA300D64A0D /* EditWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWordViewModel.swift; sourceTree = "<group>"; };
 		8FF3E60429AAD0BD00D64A0D /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		8FF3E60629AD608500D64A0D /* LearnTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTopicViewModel.swift; sourceTree = "<group>"; };
 		BDAF99E192F044DC42D5F440 /* Pods-LearnWords.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnWords.release.xcconfig"; path = "Target Support Files/Pods-LearnWords/Pods-LearnWords.release.xcconfig"; sourceTree = "<group>"; };
@@ -320,12 +320,12 @@
 		8FDA2A07299E559B00DD4003 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				8FF3E5FD29A764F800D64A0D /* NewWord */,
+				8FF3E5FD29A764F800D64A0D /* EditWord */,
 				8FDA2A08299E55ED00DD4003 /* SettingsMainMenu */,
 				8FDA2A0F299E6C9400DD4003 /* SettingsCoordinator.swift */,
-				8FF3E5DE29A2633500D64A0D /* SettingsModuleListViewModel.swift */,
-				8FF3E5E929A4CC6200D64A0D /* SettingsAddModuleViewModel.swift */,
-				8FF3E5FB29A672BB00D64A0D /* SettingsAddTopicViewModel.swift */,
+				8FF3E5DE29A2633500D64A0D /* EditModuleListMiewModel.swift */,
+				8FF3E5E929A4CC6200D64A0D /* EditModuleViewModel.swift */,
+				8FF3E5FB29A672BB00D64A0D /* EditTopicViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -421,14 +421,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		8FF3E5FD29A764F800D64A0D /* NewWord */ = {
+		8FF3E5FD29A764F800D64A0D /* EditWord */ = {
 			isa = PBXGroup;
 			children = (
-				8FF3E5FE29A7655D00D64A0D /* NewWordViewController.swift */,
-				8FF3E60229A76DA300D64A0D /* NewWordViewModel.swift */,
-				8FF3E5FF29A7655D00D64A0D /* NewWordViewController.xib */,
+				8FF3E5FE29A7655D00D64A0D /* EditWordViewController.swift */,
+				8FF3E60229A76DA300D64A0D /* EditWordViewModel.swift */,
+				8FF3E5FF29A7655D00D64A0D /* EditWordViewController.xib */,
 			);
-			path = NewWord;
+			path = EditWord;
 			sourceTree = "<group>";
 		};
 		FB68A1162FE42147CDD3C76E /* Pods */ = {
@@ -511,7 +511,7 @@
 				8FDA2A17299F7D7500DD4003 /* Localizable.strings in Resources */,
 				8FF3E5D3299FE64D00D64A0D /* DataTableViewCell.xib in Resources */,
 				8FDA2A36299FB1BD00DD4003 /* BaseStatViewController.xib in Resources */,
-				8FF3E60129A7655D00D64A0D /* NewWordViewController.xib in Resources */,
+				8FF3E60129A7655D00D64A0D /* EditWordViewController.xib in Resources */,
 				8FDA2A03299E4E8F00DD4003 /* MainTabbarView.xib in Resources */,
 				8F85B687299AC16C0097657D /* Main.storyboard in Resources */,
 				8FF3E5DB29A24FDD00D64A0D /* UniversalTableViewController.xib in Resources */,
@@ -591,23 +591,23 @@
 				8FDA2A3B299FB74B00DD4003 /* MainTabBarCoordinator.swift in Sources */,
 				8FDA2A2E299FADBA00DD4003 /* LearnCoordinator.swift in Sources */,
 				8FDA29F8299E4DB500DD4003 /* KeyboardObserver.swift in Sources */,
-				8FF3E5DF29A2633500D64A0D /* SettingsModuleListViewModel.swift in Sources */,
+				8FF3E5DF29A2633500D64A0D /* EditModuleListMiewModel.swift in Sources */,
 				8FF3E5E629A43CE400D64A0D /* UIColor+ext.swift in Sources */,
 				8F85B680299AC16C0097657D /* AppDelegate.swift in Sources */,
 				8F8947FC2BC071390070E699 /* AutenticateCoordinator.swift in Sources */,
 				8FF3E5EC29A4D9A100D64A0D /* ModelWordPair.swift in Sources */,
 				8FDA2A0B299E567C00DD4003 /* SettingsMainMenuViewController.swift in Sources */,
 				8FDA2A10299E6C9400DD4003 /* SettingsCoordinator.swift in Sources */,
-				8FF3E5EA29A4CC6200D64A0D /* SettingsAddModuleViewModel.swift in Sources */,
+				8FF3E5EA29A4CC6200D64A0D /* EditModuleViewModel.swift in Sources */,
 				8FF3E5FA29A64E8600D64A0D /* LearnModuleViewModel.swift in Sources */,
 				8F8947FF2BC0721E0070E699 /* LoginViewController.swift in Sources */,
-				8FF3E5FC29A672BB00D64A0D /* SettingsAddTopicViewModel.swift in Sources */,
+				8FF3E5FC29A672BB00D64A0D /* EditTopicViewModel.swift in Sources */,
 				8FDA2A12299E7C4E00DD4003 /* UIViewController+ext.swift in Sources */,
-				8FF3E60029A7655D00D64A0D /* NewWordViewController.swift in Sources */,
+				8FF3E60029A7655D00D64A0D /* EditWordViewController.swift in Sources */,
 				8FF3E5F829A645B900D64A0D /* LearnModulesListViewModel.swift in Sources */,
 				8FF3E5E229A3773500D64A0D /* ModelTableViewCell.swift in Sources */,
 				8FDA2A01299E4E8F00DD4003 /* BaseViewController.swift in Sources */,
-				8FF3E60329A76DA300D64A0D /* NewWordViewModel.swift in Sources */,
+				8FF3E60329A76DA300D64A0D /* EditWordViewModel.swift in Sources */,
 				8FF3E5F629A507AD00D64A0D /* RxHelpers.swift in Sources */,
 				8FF3E5D2299FE64D00D64A0D /* DataTableViewCell.swift in Sources */,
 				8FDA2A04299E4E8F00DD4003 /* BaseCoordinator.swift in Sources */,
