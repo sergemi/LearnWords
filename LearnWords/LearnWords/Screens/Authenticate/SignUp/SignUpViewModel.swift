@@ -47,7 +47,16 @@ class SignUpViewModel : BaseViewModel {
               // 3
               if error == nil {
                   print("User created sucessfully!")
-                Auth.auth().signIn(withEmail: email, password: password1)
+//                Auth.auth().signIn(withEmail: email, password: password1)
+                  
+                  AuthManager.login(email: email, password: password1) { [weak self] result, error in
+                      if result != nil && error == nil {
+                          if let baseCoordinator = self?.authenticateCoordinator as? CoordinatorProtocol {
+                              baseCoordinator.returnToParrent()
+                          }
+                      }
+                  }
+                  
               } else {
                 print("Error in createUser: \(error?.localizedDescription ?? "")")
               }

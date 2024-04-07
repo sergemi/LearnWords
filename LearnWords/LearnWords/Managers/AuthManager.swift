@@ -31,8 +31,14 @@ class AuthManager {
         }
     }
     
-    class func login(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password)
+    typealias LoginCompletionBlock = (AuthDataResult?, Error?) -> Void
+    
+    class func login(email: String, password: String, withCompletion completion: LoginCompletionBlock? = nil) {
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            // FIRAuthDataResult?
+            // Error?
+            completion?(authResult, error)
+        }
     }
     
     class func logOut() {

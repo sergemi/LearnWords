@@ -40,12 +40,15 @@ class LoginViewModel : BaseViewModel {
             else {
                 return
             }
-//            print("login: \(self.email.value ?? "")")
-//            print("pswd: \(self.password.value ?? "")")
             
-            
-            
-            AuthManager.login(email: email, password: password)
+            //            AuthManager.login(email: email, password: password)
+            AuthManager.login(email: email, password: password) { [weak self] result, error in
+                if result != nil && error == nil {
+                    if let baseCoordinator = self?.authenticateCoordinator as? CoordinatorProtocol {
+                        baseCoordinator.returnToParrent()
+                    }
+                }
+            }
         }).disposed(by: disposeBag)
         
         _ = signUpBtnObserver.bind(onNext: { [weak self] _ in
