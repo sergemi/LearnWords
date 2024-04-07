@@ -58,8 +58,4 @@ class StatCoordinator: CoordinatorProtocol, StatCoordinatorProtocol {
         
         BaseStat()
     }
-    
-    func setAsRootViewController() {
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navigationController)
-    }
 }

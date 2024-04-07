@@ -27,23 +27,11 @@ protocol CoordinatorProtocol: AnyObject {
     func start(coordinator: CoordinatorProtocol)
     func returnToParrent()
     
-    func setAsRootViewController()
-    
 //    func removeCoordinator(_ coordinator: CoordinatorProtocol)
     
 }
 
 extension CoordinatorProtocol {
-    func setAsRootViewController() {
-        print("\(self).setAsRootViewController() not implemented")
-        fatalError()
-    }
-    
-//    func returnToParrent() {
-//        print("\(self).returnToParrent() not implemented")
-//        fatalError()
-//    }
-    
     func popToStartViewController () {
         log.method()
         

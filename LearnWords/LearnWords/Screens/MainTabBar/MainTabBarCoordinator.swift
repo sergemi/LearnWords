@@ -50,10 +50,10 @@ class MainTabBarCoordinator: NSObject, CoordinatorProtocol, UITabBarControllerDe
         log.method()
     }
     
-    func setAsRootViewController() {
-        log.method()
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(tabBarController)
-    }
+//    func setAsRootViewController() {
+//        log.method()
+//        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(tabBarController)
+//    }
     
     func start() {
         log.method()

@@ -90,8 +90,4 @@ class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocol {
         
         BaseLearn()
     }
-    
-    func setAsRootViewController() {
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navigationController)
-    }
 }

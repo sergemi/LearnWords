@@ -115,8 +115,4 @@ class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocol {
         
         mainMenu()
     }
-    
-    func setAsRootViewController() {
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navigationController)
-    }
 }

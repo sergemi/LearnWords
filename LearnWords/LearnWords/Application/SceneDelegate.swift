@@ -9,17 +9,17 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-    var startCoordinator: CoordinatorProtocol? = nil
+    var coordinator: CoordinatorProtocol? = nil
     
     var navigationController = UINavigationController()
     
-    func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
-        guard let window = self.window else {
-            return
-        }
-        
-        window.rootViewController = vc
-    }
+//    func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
+//        guard let window = self.window else {
+//            return
+//        }
+//        
+//        window.rootViewController = vc
+//    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -30,24 +30,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         window?.rootViewController = navigationController
         
-        /*
-//        startCoordinator = SettingsCoordinator()
-//        startCoordinator = StatCoordinator()
-//        startCoordinator = LearnCoordinator()
-        startCoordinator = MainTabBarCoordinator()
-        startCoordinator?.start()
-        startCoordinator?.setAsRootViewController()
-         */
+//        coordinator = AuthenticateCoordinator(navigationController: navigationController, strongNC: false)
+//        coordinator = SettingsCoordinator(navigationController: navigationController)
         
-//        let coordinator = AuthenticateCoordinator(navigationController: navigationController, strongNC: false)
-//        let coordinator = SettingsCoordinator(navigationController: navigationController)
+//        coordinator = LearnCoordinator(navigationController: navigationController)
         
-//        let coordinator = LearnCoordinator(navigationController: navigationController)
+        coordinator = MainTabBarCoordinator(navigationController: navigationController)
         
-        let coordinator = MainTabBarCoordinator(navigationController: navigationController)
         
-        coordinator.start()
-        startCoordinator = coordinator
+        coordinator?.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
