@@ -27,7 +27,8 @@ class SettingsMainMenuViewModel: BaseViewModel {
         
         _ = editWordsBtnObserver.bind(onNext: { [weak self] _ in
             print("!editWordsBtnObserver!")
-            self?.settingsCoordinator?.selectModule()
+//            self?.settingsCoordinator?.selectModule()
+            self?.settingsCoordinator?.editMaterial()
         }).disposed(by: disposeBag)
     }
 }

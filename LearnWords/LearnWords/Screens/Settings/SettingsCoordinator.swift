@@ -10,14 +10,7 @@ import UIKit
 
 protocol SettingsCoordinatorProtocol: AnyObject {
     func mainMenu()
-    
-    func selectModule()
-    func addModule()
-    func editModule(_ module: ModelModule)
-    func addTopic(module: ModelModule)
-    func editTopic(module: ModelModule, topic: ModelTopic)
-    func EditWord(topic: ModelTopic)
-    func editWord(topic: ModelTopic, learnedWord: ModelLearnedWord)
+    func editMaterial()
 }
 
 class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocol {
@@ -51,57 +44,11 @@ class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocol {
         
         let vc = SettingsMainMenuViewController.loadFromNib()
         vc.settingsCoordinator = self
-//        navigationController.setViewControllers([vc], animated: true)
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func selectModule() {
-        let model = EditModuleListMiewModel()
-        model.settingsCoordinator = self
-        let vc =  UniversalTableViewController(viewModel: model)
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func addModule() {
-        let model = EditModuleViewModel()
-        model.settingsCoordinator = self
-        let vc =  UniversalTableViewController(viewModel: model)
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func editModule(_ module: ModelModule) {
-        let model = EditModuleViewModel(module: module)
-        model.settingsCoordinator = self
-        let vc =  UniversalTableViewController(viewModel: model)
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func addTopic(module: ModelModule) {
-        let model = EditTopicViewModel(module: module)
-        model.settingsCoordinator = self
-        let vc =  UniversalTableViewController(viewModel: model)
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func editTopic(module: ModelModule, topic: ModelTopic) {
-        let model = EditTopicViewModel(module: module, topic: topic)
-        model.settingsCoordinator = self
-        let vc =  UniversalTableViewController(viewModel: model)
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func EditWord(topic: ModelTopic) {
-        let model = EditWordViewModel(topic: topic)
-        model.settingsCoordinator = self
-        let vc =  EditWordViewController(viewModel: model)
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func editWord(topic: ModelTopic, learnedWord: ModelLearnedWord) {
-        let model = EditWordViewModel(topic: topic, learnedWord: learnedWord)
-        model.settingsCoordinator = self
-        let vc =  EditWordViewController(viewModel: model)
-        navigationController.pushViewController(vc, animated: true)
+    func editMaterial() {
+        start(coordinator: EditMaterialCoordinator(navigationController: navigationController))
     }
  
     // MARK: - CoordinatorProtocol

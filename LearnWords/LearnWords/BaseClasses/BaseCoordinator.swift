@@ -68,7 +68,7 @@ extension CoordinatorProtocol {
         for curCoordinator in childCoordinators.reversed() {
             if coordinator === curCoordinator {
                 childCoordinators.remove(at: index)
-                break
+                break // todo: or return ?
             }
             index = index-1
         }

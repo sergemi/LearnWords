@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class EditModuleListMiewModel: UniversalTableViewModel {
-    var settingsCoordinator: SettingsCoordinatorProtocol? = nil
+    var coordinator: EditMaterialCoordinatorProtocol? = nil
     var modules: [ModelModule] = []
     
     override init() {
@@ -48,7 +48,7 @@ class EditModuleListMiewModel: UniversalTableViewModel {
             guard let self = self else {
                 return
             }
-            self.settingsCoordinator?.addModule()
+            self.coordinator?.addModule()
         }).disposed(by: disposeBag)
     }
     
@@ -65,7 +65,7 @@ class EditModuleListMiewModel: UniversalTableViewModel {
     
     override func selectRow(index: Int) {
         let module = modules[index]
-        self.settingsCoordinator?.editModule(module)
+        self.coordinator?.editModule(module)
     }
     
     override func deleteRow(index: Int) {

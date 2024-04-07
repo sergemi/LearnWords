@@ -12,7 +12,7 @@ import RealmSwift
 
 class EditWordViewModel: BaseViewModel {
     let disposeBag = DisposeBag()
-    var settingsCoordinator: SettingsCoordinatorProtocol? = nil
+    var coordinator: EditMaterialCoordinatorProtocol? = nil
     
     var isNew = true
     var topic: ModelTopic

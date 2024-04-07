@@ -1,81 +1,80 @@
 //
-//  EditTopicViewModel.swift
+//  SettingsAddModule.swift
 //  LearnWords
 //
-//  Created by sergemi on 22.02.2023.
+//  Created by sergemi on 21.02.2023.
 //
 
 import Foundation
 import RealmSwift
 
-class EditTopicViewModel: UniversalTableViewModel {
-    var settingsCoordinator: SettingsCoordinatorProtocol? = nil
-
+class EditModuleViewModel: UniversalTableViewModel {
+    var coordinator: EditMaterialCoordinatorProtocol? = nil
+    
     var module: ModelModule
-    var topic: ModelTopic
     var isNew = true
     var isCanAdd = true
     
-    var words: [ModelLearnedWord] = []
+    var topics: [ModelTopic] = []
     
-    init(module: ModelModule, topic: ModelTopic, isNew: Bool = false) {
+    init(module: ModelModule, isNew: Bool = false) {
         self.module = module
-        self.topic = topic
         self.isNew = isNew
         
         super.init()
         
+        deleteLineAlertTitle = "Settings.AddModule.DeleteTableLine.Title".localized()
+        deleteLineAlertMessage = "Settings.AddModule.DeleteTableLine.Message".localized()
+        
         UpdateButtonsVisibility()
         
-        deleteLineAlertTitle = "Settings.AddTopic.DeleteTableLine.Title".localized()
-        deleteLineAlertMessage = "Settings.AddTopic.DeleteTableLine.Message".localized()
-        
-        namePlaceholder.accept("Settings.AddTopic.name placeholder".localized())
-        detailsPlaceholder.accept("Settings.AddTopic.details placeholder".localized())
-        tableHeader.accept("Settings.AddTopic.tableHeader".localized())
-        name.accept(topic.name)
-        details.accept(topic.details)
+        namePlaceholder.accept("Settings.AddModule.name placeholder".localized())
+        detailsPlaceholder.accept("Settings.AddModule.details placeholder".localized())
+        tableHeader.accept("Settings.AddModule.tableHeader".localized())
+        name.accept(module.name)
+        details.accept(module.details)
         
         canEdit.accept(true)
 //        canAdd.accept(true)
         canSelect.accept(true)
         canDeleteRows.accept(true)
+//        haveRightBarBtn.accept(true)
         
         bind()
     }
     
     func UpdateButtonsVisibility() {
         if isNew {
-            title.accept("Settings.AddTopic.Title".localized())
-            rightBarBtnCaption.accept("Settings.AddTopic.saveModuleBtn".localized())
+            title.accept("Settings.AddModule.Title".localized())
+            rightBarBtnCaption.accept("Settings.AddModule.saveModuleBtn".localized())
             canAdd.accept(false)
         }
         else {
-            title.accept("Settings.EditTopic.Title".localized())
-            rightBarBtnCaption.accept("Settings.EditTopic.saveModuleBtn".localized())
+            title.accept("Settings.EditModule.Title".localized())
+            rightBarBtnCaption.accept("Settings.EditModule.saveModuleBtn".localized())
             canAdd.accept(isCanAdd)
         }
     }
     
-    convenience init(module: ModelModule) {
-        self.init(module: module, topic: ModelTopic(), isNew: true)
+    convenience override init() {
+        self.init(module: ModelModule(), isNew: true)
     }
-    
+        
     fileprivate func bind() {
         _ = rightBtnObserver.bind(onNext: { [weak self] _ in
             guard let self = self else {
                 return
             }
-            print("++ Save topic ++")
+            print("++ Save Module ++")
             print("name: \(String(describing: (self.name.value) ?? ""))")
             print("details: \(String(describing: (self.details.value) ?? ""))")
             
             let realm = try! Realm()
             try! realm.write {
-                self.topic.name = self.name.value ?? ""
-                self.topic.details = self.details.value ?? ""
+                self.module.name = self.name.value ?? ""
+                self.module.details = self.details.value ?? ""
                 if self.isNew {
-                    self.module.topics.append(self.topic)
+                    realm.add(self.module)
                 }
                 self.isNew = false
                 self.UpdateButtonsVisibility()
@@ -84,10 +83,10 @@ class EditTopicViewModel: UniversalTableViewModel {
         }).disposed(by: disposeBag)
         
         _ = addBtnObserver.bind(onNext: { [weak self] _ in
-            guard let topic = self?.topic else {
+            guard let module = self?.module else {
                 return
             }
-            self?.settingsCoordinator?.EditWord(topic: topic)
+            self?.coordinator?.addTopic(module: module)
         }).disposed(by: disposeBag)
         
         _ = details.subscribe(onNext: { [weak self] value in
@@ -117,32 +116,31 @@ class EditTopicViewModel: UniversalTableViewModel {
             return true
         }
         else {
-            return topic.name != newName || topic.details != newDetails
+            return module.name != newName || module.details != newDetails
         }
     }
     
     override func reloadTableData(){
 //        let realm = try! Realm()
-        words = Array(topic.words)
+        topics = Array(module.topics)
         
-        let wordRows = words.map{
-//            ModelTableViewCell(checkbox: .empty, title: $0.word?.target ?? "", showArrow: true)
-            ModelTableViewCell(checkbox: .empty,
-                               title: "\($0.word?.target ?? "") - \($0.word?.translate ?? "")",
-                               showArrow: true)
+        let topicsRows = topics.map{
+            ModelTableViewCell(checkbox: .empty, title: $0.name, showArrow: true)
         }
-        rows.accept(wordRows)
+        rows.accept(topicsRows)
     }
     
     override func selectRow(index: Int) {
-        let word = words[index]
-        self.settingsCoordinator?.editWord(topic: topic, learnedWord: word)
+        let topic = topics[index]
+        self.coordinator?.editTopic(module: module, topic: topic)
     }
     
     override func deleteRow(index: Int) {
+        log.method()
+    
         let realm = try! Realm()
         try! realm.write {
-            topic.words.remove(at: index)
+            module.topics.remove(at: index)
         }
         reloadTableData()
     }
