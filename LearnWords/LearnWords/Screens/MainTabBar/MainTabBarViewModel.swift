@@ -66,7 +66,8 @@ class MainTabBarViewModel: BaseViewModel {
 
         case .stat:
 //            return StatCoordinator()
-            return EditMaterialCoordinator()
+//            return EditMaterialCoordinator()
+            return AuthenticateCoordinator()
 
         case .settings:
             return SettingsCoordinator()

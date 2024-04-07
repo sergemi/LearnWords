@@ -19,6 +19,9 @@
 		8F8948002BC0721E0070E699 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F8947FE2BC0721E0070E699 /* LoginViewController.xib */; };
 		8F8948022BC07B5C0070E699 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948012BC07B5C0070E699 /* LoginViewModel.swift */; };
 		8F8948052BC2D0AE0070E699 /* EditMaterialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948042BC2D0AE0070E699 /* EditMaterialCoordinator.swift */; };
+		8F89480A2BC30DE00070E699 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948082BC30DE00070E699 /* SignUpViewController.swift */; };
+		8F89480B2BC30DE00070E699 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F8948092BC30DE00070E699 /* SignUpViewController.xib */; };
+		8F89480D2BC30DFA0070E699 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89480C2BC30DFA0070E699 /* SignUpViewModel.swift */; };
 		8FDA29ED299E4D9A00DD4003 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */; };
 		8FDA29EE299E4D9A00DD4003 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */; };
 		8FDA29F2299E4DA800DD4003 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29F0299E4DA700DD4003 /* Date+.swift */; };
@@ -92,6 +95,9 @@
 		8F8947FE2BC0721E0070E699 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		8F8948012BC07B5C0070E699 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8F8948042BC2D0AE0070E699 /* EditMaterialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMaterialCoordinator.swift; sourceTree = "<group>"; };
+		8F8948082BC30DE00070E699 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		8F8948092BC30DE00070E699 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		8F89480C2BC30DFA0070E699 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		8FDA29F0299E4DA700DD4003 /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
@@ -239,6 +245,7 @@
 		8F8947F92BC0543D0070E699 /* Authenticate */ = {
 			isa = PBXGroup;
 			children = (
+				8F8948072BC30DC80070E699 /* SignUp */,
 				8F8947FA2BC0549E0070E699 /* Login */,
 				8F8947FB2BC071390070E699 /* AutenticateCoordinator.swift */,
 			);
@@ -265,6 +272,16 @@
 				8FF3E5FB29A672BB00D64A0D /* EditTopicViewModel.swift */,
 			);
 			path = EditMaterial;
+			sourceTree = "<group>";
+		};
+		8F8948072BC30DC80070E699 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				8F8948082BC30DE00070E699 /* SignUpViewController.swift */,
+				8F89480C2BC30DFA0070E699 /* SignUpViewModel.swift */,
+				8F8948092BC30DE00070E699 /* SignUpViewController.xib */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		8FDA29EA299E4D9A00DD4003 /* CustomUI */ = {
@@ -524,6 +541,7 @@
 				8FDA2A36299FB1BD00DD4003 /* BaseStatViewController.xib in Resources */,
 				8FF3E60129A7655D00D64A0D /* EditWordViewController.xib in Resources */,
 				8FDA2A03299E4E8F00DD4003 /* MainTabbarView.xib in Resources */,
+				8F89480B2BC30DE00070E699 /* SignUpViewController.xib in Resources */,
 				8F85B687299AC16C0097657D /* Main.storyboard in Resources */,
 				8FF3E5DB29A24FDD00D64A0D /* UniversalTableViewController.xib in Resources */,
 				8F8948002BC0721E0070E699 /* LoginViewController.xib in Resources */,
@@ -586,6 +604,7 @@
 				8FF3E5F429A4FBAB00D64A0D /* ModelModule.swift in Sources */,
 				8FDA2A02299E4E8F00DD4003 /* BaseViewModel.swift in Sources */,
 				8FDA29F3299E4DA800DD4003 /* UIView+ext.swift in Sources */,
+				8F89480A2BC30DE00070E699 /* SignUpViewController.swift in Sources */,
 				8FF3E5D529A239AC00D64A0D /* UICheckbox.swift in Sources */,
 				8FDA2A28299FADAA00DD4003 /* BaseStatViewModel.swift in Sources */,
 				8F8948022BC07B5C0070E699 /* LoginViewModel.swift in Sources */,
@@ -621,6 +640,7 @@
 				8FDA2A01299E4E8F00DD4003 /* BaseViewController.swift in Sources */,
 				8FF3E60329A76DA300D64A0D /* EditWordViewModel.swift in Sources */,
 				8FF3E5F629A507AD00D64A0D /* RxHelpers.swift in Sources */,
+				8F89480D2BC30DFA0070E699 /* SignUpViewModel.swift in Sources */,
 				8FF3E5D2299FE64D00D64A0D /* DataTableViewCell.swift in Sources */,
 				8FDA2A04299E4E8F00DD4003 /* BaseCoordinator.swift in Sources */,
 				8FDA29F2299E4DA800DD4003 /* Date+.swift in Sources */,

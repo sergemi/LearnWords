@@ -8,7 +8,8 @@
 import UIKit
 
 protocol AuthenticateProtocol: AnyObject {
-    func Login()
+    func login()
+    func signUp()
 }
 
 class AuthenticateCoordinator: CoordinatorProtocol, AuthenticateProtocol {
@@ -38,8 +39,15 @@ class AuthenticateCoordinator: CoordinatorProtocol, AuthenticateProtocol {
     }
     
     // - MARK: AuthenticateProtocol
-    func Login() {
+    func login() {
         let vc = LoginViewController.loadFromNib()
+        vc.authenticateCoordinator = self
+        navigationController.pushViewController(vc, animated: true)
+        currentViewController = vc
+    }
+    
+    func signUp() {
+        let vc = SignUpViewController.loadFromNib()
         vc.authenticateCoordinator = self
         navigationController.pushViewController(vc, animated: true)
         currentViewController = vc
@@ -53,6 +61,6 @@ class AuthenticateCoordinator: CoordinatorProtocol, AuthenticateProtocol {
         }
         started = true
         log.method()
-        Login()
+        login()
     }
 }

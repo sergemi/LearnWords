@@ -11,6 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="LearnWords" customModuleProvider="target">
             <connections>
+                <outlet property="loginBtn" destination="K92-Aj-d2C" id="tYZ-0X-GRf"/>
+                <outlet property="loginTF" destination="zW2-XM-mC9" id="0vc-1R-62I"/>
+                <outlet property="passwordTF" destination="gET-DR-1Hf" id="I0q-Fg-MOe"/>
+                <outlet property="signUpBtn" destination="J3C-5R-JiH" id="hFp-eJ-Tik"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,25 +23,49 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuk-OV-qOo">
-                    <rect key="frame" x="150.66666666666666" y="119" width="92" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zW2-XM-mC9" userLabel="loginTF" customClass="CustomTextField" customModule="LearnWords" customModuleProvider="target">
+                    <rect key="frame" x="20" y="79" width="353" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gET-DR-1Hf" userLabel="passwordTF" customClass="CustomTextField" customModule="LearnWords" customModuleProvider="target">
+                    <rect key="frame" x="20" y="133" width="353" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K92-Aj-d2C" userLabel="loginBtn">
+                    <rect key="frame" x="20" y="187" width="353" height="35"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Login"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3C-5R-JiH" userLabel="signUpBtn">
+                    <rect key="frame" x="20" y="242" width="353" height="35"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="signUp"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemGreenColor"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="iuk-OV-qOo" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="8Rr-cd-dfv"/>
-                <constraint firstItem="iuk-OV-qOo" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="ca1-yV-2fa"/>
+                <constraint firstItem="J3C-5R-JiH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="4Rg-n4-VXo"/>
+                <constraint firstItem="zW2-XM-mC9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="4nR-sS-UuX"/>
+                <constraint firstItem="zW2-XM-mC9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="7gE-Qy-nKS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="J3C-5R-JiH" secondAttribute="trailing" constant="20" id="BCj-R2-Arv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="K92-Aj-d2C" secondAttribute="trailing" constant="20" id="TR6-Bf-oOh"/>
+                <constraint firstItem="K92-Aj-d2C" firstAttribute="top" secondItem="gET-DR-1Hf" secondAttribute="bottom" constant="20" id="dIR-VG-vmQ"/>
+                <constraint firstItem="gET-DR-1Hf" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-20" id="e14-qS-ZV0"/>
+                <constraint firstItem="gET-DR-1Hf" firstAttribute="top" secondItem="zW2-XM-mC9" secondAttribute="bottom" constant="20" id="qnF-A8-A7Q"/>
+                <constraint firstItem="J3C-5R-JiH" firstAttribute="top" secondItem="K92-Aj-d2C" secondAttribute="bottom" constant="20" id="wcb-rk-eJI"/>
+                <constraint firstItem="zW2-XM-mC9" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-20" id="wti-mF-4ep"/>
+                <constraint firstItem="K92-Aj-d2C" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="yKY-gI-e3v"/>
+                <constraint firstItem="gET-DR-1Hf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="yoO-yd-m9g"/>
             </constraints>
             <point key="canvasLocation" x="6" y="0.0"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
