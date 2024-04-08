@@ -13,6 +13,7 @@ import FirebaseAuth
 class SignUpViewModel : BaseViewModel {
     let disposeBag = DisposeBag()
     weak var authenticateCoordinator: AuthenticateProtocol?
+    weak var showErrorDelegate: ShowErrorProtocol? = nil
     
     let title = BehaviorRelay<String?>(value: "Sign up".localized())
     
@@ -37,32 +38,37 @@ class SignUpViewModel : BaseViewModel {
                   let password1 = self.password1.value,
                   let password2 = self.password2.value
             else {
-                print("Error: some field is empty")
+                self?.showErrorDelegate?.errorAllert("Some field is empty")
                 return
             }
             if password1 != password2 {
-                print("Error: Passwords mismatch !")
+                self.showErrorDelegate?.errorAllert("Passwords mismatch")
+                return
             }
-            Auth.auth().createUser(withEmail: email, password: password1) { _, error in
-              // 3
-              if error == nil {
-                  print("User created sucessfully!")
-//                Auth.auth().signIn(withEmail: email, password: password1)
-                  
-                  AuthManager.login(email: email, password: password1) { [weak self] result, error in
-                      if result != nil && error == nil {
-                          if let baseCoordinator = self?.authenticateCoordinator as? CoordinatorProtocol {
-                              baseCoordinator.returnToParrent()
-                          }
-                      }
-                  }
-                  
-              } else {
-                print("Error in createUser: \(error?.localizedDescription ?? "")")
-              }
+            else if (password1.count < 6 || password2.count < 6) {
+                self.showErrorDelegate?.errorAllert("Password must be at last 6 symbols")
+                return
             }
-            
-            
+            else {
+                Auth.auth().createUser(withEmail: email, password: password1) { _, error in
+                    // 3
+                    if error == nil {
+                        AuthManager.login(email: email, password: password1) { [weak self] result, error in
+                            if result != nil && error == nil {
+                                if let baseCoordinator = self?.authenticateCoordinator as? CoordinatorProtocol {
+                                    baseCoordinator.returnToParrent()
+                                }
+                            }
+                        }
+                        
+                    } else {
+                        guard let error = error else {
+                            return
+                        }
+                        self.showErrorDelegate?.errorAlert(error)
+                    }
+                }
+            }
         }).disposed(by: disposeBag)
     }
 }

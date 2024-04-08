@@ -24,11 +24,14 @@ class LoginViewController: BaseViewController {
         }
     }
 
+    // MARK: - UIViewController Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.showErrorDelegate = self
+        navigationItem.hidesBackButton = true
     }
-
 
     
     // MARK: - BaseViewController

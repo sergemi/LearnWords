@@ -14,14 +14,26 @@ protocol BasePopupDelegate: AnyObject {
     func closePopup()
 }
 
-protocol ShowErrorProtocol {
+protocol ShowErrorProtocol: AnyObject {
+    typealias ErrorCompletion = () -> Void
+    
     func showError(_ message: String, controlls: [UIControl]?)
     func hideErrors()
+    func errorAllert(_ message: String, completion: ErrorCompletion?)
+    func errorAlert(_ error: Error, completion: ErrorCompletion?)
 }
 
 extension ShowErrorProtocol {
     func showError(_ message: String) {
         showError(message, controlls: [])
+    }
+    
+    func errorAllert(_ message: String) {
+        errorAllert(message, completion: nil)
+    }
+    
+    func errorAlert(_ error: Error) {
+        errorAlert(error, completion: nil)
     }
 }
 
@@ -30,7 +42,7 @@ class BaseViewController: UIViewController, ShowErrorProtocol {
     let keyboardObserver = KeyboardObserver()
     
     var popupVC: PopupViewController? = nil
-    // MARK: - Lifecycle
+    // MARK: - UIViewController Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +59,7 @@ class BaseViewController: UIViewController, ShowErrorProtocol {
         fatalError("This method should be overriden in the child of the BaseViewController")
     }
     
+    // MARK: - ShowErrorProtocol
     func showError(_ message: String, controlls: [UIControl]? = nil) {
         print("Error: \(message)")
     }
@@ -56,6 +69,23 @@ class BaseViewController: UIViewController, ShowErrorProtocol {
     }
     
     func hideErrors() {}
+    
+    func errorAllert(_ message: String, completion: ErrorCompletion? = nil) {
+        
+        showAlert(title: "Error", message: message)
+    }
+    func errorAlert(_ error: Error, completion: ErrorCompletion? = nil) {
+        let msg = error.localizedDescription ?? "Unknown error"
+        errorAllert(msg, completion: completion)
+    }
+    
+//    func errorAllert(_ message: String, completion: ErrorCompletion? = nil) {
+//        print("!!!")
+//    }
+//
+//    func errorAlert(_ error: Error, completion: ErrorCompletion? = nil) {
+//        print("!!!")
+//    }
     
     func startActivity() {
     }
