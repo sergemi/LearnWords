@@ -50,22 +50,15 @@ class SignUpViewModel : BaseViewModel {
                 return
             }
             else {
-                Auth.auth().createUser(withEmail: email, password: password1) { _, error in
-                    // 3
-                    if error == nil {
-                        AuthManager.login(email: email, password: password1) { [weak self] result, error in
-                            if result != nil && error == nil {
-                                if let baseCoordinator = self?.authenticateCoordinator as? CoordinatorProtocol {
-                                    baseCoordinator.returnToParrent()
-                                }
-                            }
+                AuthManager.createUserAndLogin(email: email, password: password1) {[weak self] result, error in
+                    if let error = error {
+                        self?.showErrorDelegate?.errorAlert(error)
+                        return
+                    }
+                    if result != nil {
+                        if let baseCoordinator = self?.authenticateCoordinator as? CoordinatorProtocol {
+                            baseCoordinator.returnToParrent()
                         }
-                        
-                    } else {
-                        guard let error = error else {
-                            return
-                        }
-                        self.showErrorDelegate?.errorAlert(error)
                     }
                 }
             }
