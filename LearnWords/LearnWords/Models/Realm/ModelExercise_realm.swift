@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-enum exerciseType: Int, PersistableEnum {
+enum exerciseType_realm: Int, PersistableEnum {
     case choseTranslate = 0
     case choseTranslateInverse
     case writeTranslate
@@ -17,9 +17,9 @@ enum exerciseType: Int, PersistableEnum {
     case swapLettersTranslateInverse
 }
 
-class ModelExercise: EmbeddedObject {
+class ModelExercise_realm: EmbeddedObject {
     @Persisted var id: ObjectId
-    @Persisted var type: exerciseType = .choseTranslate
+    @Persisted var type: exerciseType_realm = .choseTranslate
     @Persisted var maxScore: Int = 5
     @Persisted var correct: Int = 0
     @Persisted var incorrect: Int = 0

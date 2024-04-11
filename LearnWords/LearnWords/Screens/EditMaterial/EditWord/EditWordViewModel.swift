@@ -15,8 +15,8 @@ class EditWordViewModel: BaseViewModel {
     var coordinator: EditMaterialCoordinatorProtocol? = nil
     
     var isNew = true
-    var topic: ModelTopic
-    var learnedWord: ModelLearnedWord
+    var topic: ModelTopic_realm
+    var learnedWord: ModelLearnedWord_realm
     
     let title = BehaviorRelay<String?>(value: "")
     let rightBarBtnCaption = BehaviorRelay<String?>(value: "Add")
@@ -28,7 +28,7 @@ class EditWordViewModel: BaseViewModel {
     let translate = BehaviorRelay<String?>(value: "")
     let notes = BehaviorRelay<String?>(value: "")
     
-    init(topic: ModelTopic, learnedWord: ModelLearnedWord, isNew: Bool = false) {
+    init(topic: ModelTopic_realm, learnedWord: ModelLearnedWord_realm, isNew: Bool = false) {
         self.topic = topic
         self.learnedWord = learnedWord
         self.isNew = isNew
@@ -44,8 +44,8 @@ class EditWordViewModel: BaseViewModel {
         }
     }
     
-    convenience init(topic: ModelTopic) {
-        self.init(topic: topic, learnedWord: ModelLearnedWord(), isNew: true)
+    convenience init(topic: ModelTopic_realm) {
+        self.init(topic: topic, learnedWord: ModelLearnedWord_realm(), isNew: true)
     }
     
     fileprivate func bind() {
@@ -60,7 +60,7 @@ class EditWordViewModel: BaseViewModel {
             let realm = try! Realm()
             try! realm.write {
                 if self.learnedWord.word == nil {
-                    self.learnedWord.word = ModelWordPair()
+                    self.learnedWord.word = ModelWordPair_realm()
                 }
                 self.learnedWord.word?.target = self.target.value ?? ""
                 self.learnedWord.word?.pronounce = self.pronounce.value ?? ""

@@ -11,10 +11,10 @@ import RealmSwift
 class LearnModuleViewModel: UniversalTableViewModel {
     var learnCoordinator: LearnCoordinatorProtocol? = nil
     
-    var module: ModelModule
-    var topics: [ModelTopic] = []
+    var module: ModelModule_realm
+    var topics: [ModelTopic_realm] = []
     
-    init(module: ModelModule) {
+    init(module: ModelModule_realm) {
         self.module = module
         super.init()
         

@@ -24,7 +24,15 @@
 		8F89480D2BC30DFA0070E699 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89480C2BC30DFA0070E699 /* SignUpViewModel.swift */; };
 		8F8948102BC328490070E699 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89480F2BC328490070E699 /* AuthManager.swift */; };
 		8F8948182BC69E5E0070E699 /* CoordinatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948172BC69E5E0070E699 /* CoordinatorsTests.swift */; };
-		8F89485E2BC81AA40070E699 /* ModelWordPair2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89485D2BC81AA40070E699 /* ModelWordPair2.swift */; };
+		8F89485E2BC81AA40070E699 /* WordPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89485D2BC81AA40070E699 /* WordPair.swift */; };
+		8F8948602BC832D60070E699 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89485F2BC832D60070E699 /* Exercise.swift */; };
+		8F8948622BC8393B0070E699 /* LearnedWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948612BC8393B0070E699 /* LearnedWord.swift */; };
+		8F8948642BC83BED0070E699 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948632BC83BED0070E699 /* Topic.swift */; };
+		8F8948662BC83DE80070E699 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948652BC83DE80070E699 /* Module.swift */; };
+		8F8948682BC847E60070E699 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948672BC847E60070E699 /* DataManager.swift */; };
+		8F89486B2BC858690070E699 /* MockDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89486A2BC858690070E699 /* MockDataManager.swift */; };
+		8F89486D2BC858FC0070E699 /* MockAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89486C2BC858FC0070E699 /* MockAuthManager.swift */; };
+		8F89486F2BC862ED0070E699 /* DataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89486E2BC862ED0070E699 /* DataManagerTests.swift */; };
 		8FDA29ED299E4D9A00DD4003 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */; };
 		8FDA29EE299E4D9A00DD4003 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */; };
 		8FDA29F2299E4DA800DD4003 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29F0299E4DA700DD4003 /* Date+.swift */; };
@@ -67,11 +75,11 @@
 		8FF3E5E629A43CE400D64A0D /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E529A43CE400D64A0D /* UIColor+ext.swift */; };
 		8FF3E5E829A43DAE00D64A0D /* UITextField+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E729A43DAE00D64A0D /* UITextField+ext.swift */; };
 		8FF3E5EA29A4CC6200D64A0D /* EditModuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E929A4CC6200D64A0D /* EditModuleViewModel.swift */; };
-		8FF3E5EC29A4D9A100D64A0D /* ModelWordPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5EB29A4D9A100D64A0D /* ModelWordPair.swift */; };
-		8FF3E5EE29A4DB4F00D64A0D /* ModelExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5ED29A4DB4F00D64A0D /* ModelExercise.swift */; };
-		8FF3E5F029A4DE6400D64A0D /* ModelLearnedWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5EF29A4DE6400D64A0D /* ModelLearnedWord.swift */; };
-		8FF3E5F229A4F97700D64A0D /* ModelTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5F129A4F97700D64A0D /* ModelTopic.swift */; };
-		8FF3E5F429A4FBAB00D64A0D /* ModelModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5F329A4FBAB00D64A0D /* ModelModule.swift */; };
+		8FF3E5EC29A4D9A100D64A0D /* ModelWordPair_realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5EB29A4D9A100D64A0D /* ModelWordPair_realm.swift */; };
+		8FF3E5EE29A4DB4F00D64A0D /* ModelExercise_realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5ED29A4DB4F00D64A0D /* ModelExercise_realm.swift */; };
+		8FF3E5F029A4DE6400D64A0D /* ModelLearnedWord_realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5EF29A4DE6400D64A0D /* ModelLearnedWord_realm.swift */; };
+		8FF3E5F229A4F97700D64A0D /* ModelTopic_realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5F129A4F97700D64A0D /* ModelTopic_realm.swift */; };
+		8FF3E5F429A4FBAB00D64A0D /* ModelModule_realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5F329A4FBAB00D64A0D /* ModelModule_realm.swift */; };
 		8FF3E5F629A507AD00D64A0D /* RxHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5F529A507AD00D64A0D /* RxHelpers.swift */; };
 		8FF3E5F829A645B900D64A0D /* LearnModulesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5F729A645B800D64A0D /* LearnModulesListViewModel.swift */; };
 		8FF3E5FA29A64E8600D64A0D /* LearnModuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5F929A64E8600D64A0D /* LearnModuleViewModel.swift */; };
@@ -114,7 +122,15 @@
 		8F89480F2BC328490070E699 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		8F8948152BC69E5E0070E699 /* LearnWordsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LearnWordsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F8948172BC69E5E0070E699 /* CoordinatorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorsTests.swift; sourceTree = "<group>"; };
-		8F89485D2BC81AA40070E699 /* ModelWordPair2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelWordPair2.swift; sourceTree = "<group>"; };
+		8F89485D2BC81AA40070E699 /* WordPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPair.swift; sourceTree = "<group>"; };
+		8F89485F2BC832D60070E699 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		8F8948612BC8393B0070E699 /* LearnedWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnedWord.swift; sourceTree = "<group>"; };
+		8F8948632BC83BED0070E699 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		8F8948652BC83DE80070E699 /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
+		8F8948672BC847E60070E699 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		8F89486A2BC858690070E699 /* MockDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataManager.swift; sourceTree = "<group>"; };
+		8F89486C2BC858FC0070E699 /* MockAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthManager.swift; sourceTree = "<group>"; };
+		8F89486E2BC862ED0070E699 /* DataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerTests.swift; sourceTree = "<group>"; };
 		8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		8FDA29F0299E4DA700DD4003 /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
@@ -166,11 +182,11 @@
 		8FF3E5E529A43CE400D64A0D /* UIColor+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
 		8FF3E5E729A43DAE00D64A0D /* UITextField+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+ext.swift"; sourceTree = "<group>"; };
 		8FF3E5E929A4CC6200D64A0D /* EditModuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModuleViewModel.swift; sourceTree = "<group>"; };
-		8FF3E5EB29A4D9A100D64A0D /* ModelWordPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelWordPair.swift; sourceTree = "<group>"; };
-		8FF3E5ED29A4DB4F00D64A0D /* ModelExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelExercise.swift; sourceTree = "<group>"; };
-		8FF3E5EF29A4DE6400D64A0D /* ModelLearnedWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelLearnedWord.swift; sourceTree = "<group>"; };
-		8FF3E5F129A4F97700D64A0D /* ModelTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTopic.swift; sourceTree = "<group>"; };
-		8FF3E5F329A4FBAB00D64A0D /* ModelModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelModule.swift; sourceTree = "<group>"; };
+		8FF3E5EB29A4D9A100D64A0D /* ModelWordPair_realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelWordPair_realm.swift; sourceTree = "<group>"; };
+		8FF3E5ED29A4DB4F00D64A0D /* ModelExercise_realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelExercise_realm.swift; sourceTree = "<group>"; };
+		8FF3E5EF29A4DE6400D64A0D /* ModelLearnedWord_realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelLearnedWord_realm.swift; sourceTree = "<group>"; };
+		8FF3E5F129A4F97700D64A0D /* ModelTopic_realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTopic_realm.swift; sourceTree = "<group>"; };
+		8FF3E5F329A4FBAB00D64A0D /* ModelModule_realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelModule_realm.swift; sourceTree = "<group>"; };
 		8FF3E5F529A507AD00D64A0D /* RxHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxHelpers.swift; sourceTree = "<group>"; };
 		8FF3E5F729A645B800D64A0D /* LearnModulesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnModulesListViewModel.swift; sourceTree = "<group>"; };
 		8FF3E5F929A64E8600D64A0D /* LearnModuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnModuleViewModel.swift; sourceTree = "<group>"; };
@@ -315,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				8F89480F2BC328490070E699 /* AuthManager.swift */,
+				8F8948672BC847E60070E699 /* DataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -322,7 +339,9 @@
 		8F8948162BC69E5E0070E699 /* LearnWordsTests */ = {
 			isa = PBXGroup;
 			children = (
+				8F8948692BC8583F0070E699 /* Mocks */,
 				8F8948172BC69E5E0070E699 /* CoordinatorsTests.swift */,
+				8F89486E2BC862ED0070E699 /* DataManagerTests.swift */,
 			);
 			path = LearnWordsTests;
 			sourceTree = "<group>";
@@ -338,13 +357,22 @@
 		8F89485C2BC819830070E699 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				8FF3E5EF29A4DE6400D64A0D /* ModelLearnedWord.swift */,
-				8FF3E5ED29A4DB4F00D64A0D /* ModelExercise.swift */,
-				8FF3E5F129A4F97700D64A0D /* ModelTopic.swift */,
-				8FF3E5F329A4FBAB00D64A0D /* ModelModule.swift */,
-				8FF3E5EB29A4D9A100D64A0D /* ModelWordPair.swift */,
+				8FF3E5EF29A4DE6400D64A0D /* ModelLearnedWord_realm.swift */,
+				8FF3E5ED29A4DB4F00D64A0D /* ModelExercise_realm.swift */,
+				8FF3E5F129A4F97700D64A0D /* ModelTopic_realm.swift */,
+				8FF3E5F329A4FBAB00D64A0D /* ModelModule_realm.swift */,
+				8FF3E5EB29A4D9A100D64A0D /* ModelWordPair_realm.swift */,
 			);
 			path = Realm;
+			sourceTree = "<group>";
+		};
+		8F8948692BC8583F0070E699 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8F89486A2BC858690070E699 /* MockDataManager.swift */,
+				8F89486C2BC858FC0070E699 /* MockAuthManager.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		8FDA29EA299E4D9A00DD4003 /* CustomUI */ = {
@@ -504,7 +532,11 @@
 			children = (
 				8F89485C2BC819830070E699 /* Realm */,
 				8F89485B2BC803E20070E699 /* UI */,
-				8F89485D2BC81AA40070E699 /* ModelWordPair2.swift */,
+				8F89485D2BC81AA40070E699 /* WordPair.swift */,
+				8F8948632BC83BED0070E699 /* Topic.swift */,
+				8F8948652BC83DE80070E699 /* Module.swift */,
+				8F8948612BC8393B0070E699 /* LearnedWord.swift */,
+				8F89485F2BC832D60070E699 /* Exercise.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -689,11 +721,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FDA2A0E299E569400DD4003 /* SettingsMainMenuViewModel.swift in Sources */,
+				8F8948642BC83BED0070E699 /* Topic.swift in Sources */,
 				8F8948102BC328490070E699 /* AuthManager.swift in Sources */,
-				8F89485E2BC81AA40070E699 /* ModelWordPair2.swift in Sources */,
+				8F89485E2BC81AA40070E699 /* WordPair.swift in Sources */,
 				8FDA29FA299E4DB500DD4003 /* DateFormatter.swift in Sources */,
 				8FDA2A26299FAD9500DD4003 /* StatCoordinator.swift in Sources */,
-				8FF3E5F429A4FBAB00D64A0D /* ModelModule.swift in Sources */,
+				8F8948662BC83DE80070E699 /* Module.swift in Sources */,
+				8FF3E5F429A4FBAB00D64A0D /* ModelModule_realm.swift in Sources */,
 				8FDA2A02299E4E8F00DD4003 /* BaseViewModel.swift in Sources */,
 				8FDA29F3299E4DA800DD4003 /* UIView+ext.swift in Sources */,
 				8F89480A2BC30DE00070E699 /* SignUpViewController.swift in Sources */,
@@ -701,23 +735,26 @@
 				8FDA2A28299FADAA00DD4003 /* BaseStatViewModel.swift in Sources */,
 				8F8948022BC07B5C0070E699 /* LoginViewModel.swift in Sources */,
 				8FF3E5DA29A24FDD00D64A0D /* UniversalTableViewController.swift in Sources */,
+				8F8948602BC832D60070E699 /* Exercise.swift in Sources */,
 				8FF3E5E429A43C0400D64A0D /* CustomTextField.swift in Sources */,
-				8FF3E5F029A4DE6400D64A0D /* ModelLearnedWord.swift in Sources */,
+				8F8948682BC847E60070E699 /* DataManager.swift in Sources */,
+				8FF3E5F029A4DE6400D64A0D /* ModelLearnedWord_realm.swift in Sources */,
 				8FF3E60529AAD0BD00D64A0D /* CustomTextView.swift in Sources */,
 				8FDA2A05299E4E8F00DD4003 /* BaseViewFromNib.swift in Sources */,
 				8FDA2A2D299FADB900DD4003 /* BaseLearnViewModel.swift in Sources */,
-				8FF3E5F229A4F97700D64A0D /* ModelTopic.swift in Sources */,
+				8FF3E5F229A4F97700D64A0D /* ModelTopic_realm.swift in Sources */,
 				8FF3E5DD29A2521900D64A0D /* UniversalTableViewModel.swift in Sources */,
 				8FDA2A3A299FB74B00DD4003 /* MainTabBarViewModel.swift in Sources */,
 				8FF3E5CF299FC67E00D64A0D /* UIButton+ext.swift in Sources */,
 				8FDA2A3B299FB74B00DD4003 /* MainTabBarCoordinator.swift in Sources */,
 				8FDA2A2E299FADBA00DD4003 /* LearnCoordinator.swift in Sources */,
 				8FDA29F8299E4DB500DD4003 /* KeyboardObserver.swift in Sources */,
+				8F8948622BC8393B0070E699 /* LearnedWord.swift in Sources */,
 				8FF3E5DF29A2633500D64A0D /* EditModuleListMiewModel.swift in Sources */,
 				8FF3E5E629A43CE400D64A0D /* UIColor+ext.swift in Sources */,
 				8F85B680299AC16C0097657D /* AppDelegate.swift in Sources */,
 				8F8947FC2BC071390070E699 /* AutenticateCoordinator.swift in Sources */,
-				8FF3E5EC29A4D9A100D64A0D /* ModelWordPair.swift in Sources */,
+				8FF3E5EC29A4D9A100D64A0D /* ModelWordPair_realm.swift in Sources */,
 				8FDA2A0B299E567C00DD4003 /* SettingsMainMenuViewController.swift in Sources */,
 				8FDA2A10299E6C9400DD4003 /* SettingsCoordinator.swift in Sources */,
 				8FF3E5EA29A4CC6200D64A0D /* EditModuleViewModel.swift in Sources */,
@@ -740,7 +777,7 @@
 				8F85B682299AC16C0097657D /* SceneDelegate.swift in Sources */,
 				8FDA29EE299E4D9A00DD4003 /* PopupViewController.swift in Sources */,
 				8FDA2A31299FAEBE00DD4003 /* BaseLearnViewController.swift in Sources */,
-				8FF3E5EE29A4DB4F00D64A0D /* ModelExercise.swift in Sources */,
+				8FF3E5EE29A4DB4F00D64A0D /* ModelExercise_realm.swift in Sources */,
 				8FDA29F9299E4DB500DD4003 /* Logger.swift in Sources */,
 				8FDA2A3D299FBDD600DD4003 /* String+localization.swift in Sources */,
 				8FF3E5E829A43DAE00D64A0D /* UITextField+ext.swift in Sources */,
@@ -753,6 +790,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F8948182BC69E5E0070E699 /* CoordinatorsTests.swift in Sources */,
+				8F89486F2BC862ED0070E699 /* DataManagerTests.swift in Sources */,
+				8F89486D2BC858FC0070E699 /* MockAuthManager.swift in Sources */,
+				8F89486B2BC858690070E699 /* MockDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,10 +11,10 @@ import RealmSwift
 class LearnTopicViewModel: UniversalTableViewModel {
     var learnCoordinator: LearnCoordinatorProtocol? = nil
     
-    var topic: ModelTopic
-    var words: [ModelLearnedWord] = []
+    var topic: ModelTopic_realm
+    var words: [ModelLearnedWord_realm] = []
     
-    init(topic: ModelTopic) {
+    init(topic: ModelTopic_realm) {
         self.topic = topic
         super.init()
         

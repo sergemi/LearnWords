@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-protocol AuthProtocol{
+protocol AuthProtocol {
     static var userId: String?  {get}
     
     static func logOut()

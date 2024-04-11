@@ -11,13 +11,13 @@ import RealmSwift
 class EditModuleViewModel: UniversalTableViewModel {
     var coordinator: EditMaterialCoordinatorProtocol? = nil
     
-    var module: ModelModule
+    var module: ModelModule_realm
     var isNew = true
     var isCanAdd = true
     
-    var topics: [ModelTopic] = []
+    var topics: [ModelTopic_realm] = []
     
-    init(module: ModelModule, isNew: Bool = false) {
+    init(module: ModelModule_realm, isNew: Bool = false) {
         self.module = module
         self.isNew = isNew
         
@@ -57,7 +57,7 @@ class EditModuleViewModel: UniversalTableViewModel {
     }
     
     convenience override init() {
-        self.init(module: ModelModule(), isNew: true)
+        self.init(module: ModelModule_realm(), isNew: true)
     }
         
     fileprivate func bind() {

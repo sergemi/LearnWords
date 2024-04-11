@@ -10,11 +10,11 @@ import UIKit
 protocol EditMaterialCoordinatorProtocol: AnyObject {
     func selectModule()
     func addModule()
-    func editModule(_ module: ModelModule)
-    func addTopic(module: ModelModule)
-    func editTopic(module: ModelModule, topic: ModelTopic)
-    func EditWord(topic: ModelTopic)
-    func editWord(topic: ModelTopic, learnedWord: ModelLearnedWord)
+    func editModule(_ module: ModelModule_realm)
+    func addTopic(module: ModelModule_realm)
+    func editTopic(module: ModelModule_realm, topic: ModelTopic_realm)
+    func EditWord(topic: ModelTopic_realm)
+    func editWord(topic: ModelTopic_realm, learnedWord: ModelLearnedWord_realm)
 }
 
 class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProtocol {
@@ -69,35 +69,35 @@ class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProto
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func editModule(_ module: ModelModule) {
+    func editModule(_ module: ModelModule_realm) {
         let model = EditModuleViewModel(module: module)
         model.coordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func addTopic(module: ModelModule) {
+    func addTopic(module: ModelModule_realm) {
         let model = EditTopicViewModel(module: module)
         model.coordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func editTopic(module: ModelModule, topic: ModelTopic) {
+    func editTopic(module: ModelModule_realm, topic: ModelTopic_realm) {
         let model = EditTopicViewModel(module: module, topic: topic)
         model.coordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func EditWord(topic: ModelTopic) {
+    func EditWord(topic: ModelTopic_realm) {
         let model = EditWordViewModel(topic: topic)
         model.coordinator = self
         let vc =  EditWordViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func editWord(topic: ModelTopic, learnedWord: ModelLearnedWord) {
+    func editWord(topic: ModelTopic_realm, learnedWord: ModelLearnedWord_realm) {
         let model = EditWordViewModel(topic: topic, learnedWord: learnedWord)
         model.coordinator = self
         let vc =  EditWordViewController(viewModel: model)

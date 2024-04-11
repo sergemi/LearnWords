@@ -11,14 +11,14 @@ import RealmSwift
 class EditTopicViewModel: UniversalTableViewModel {
     var coordinator: EditMaterialCoordinatorProtocol? = nil
 
-    var module: ModelModule
-    var topic: ModelTopic
+    var module: ModelModule_realm
+    var topic: ModelTopic_realm
     var isNew = true
     var isCanAdd = true
     
-    var words: [ModelLearnedWord] = []
+    var words: [ModelLearnedWord_realm] = []
     
-    init(module: ModelModule, topic: ModelTopic, isNew: Bool = false) {
+    init(module: ModelModule_realm, topic: ModelTopic_realm, isNew: Bool = false) {
         self.module = module
         self.topic = topic
         self.isNew = isNew
@@ -57,8 +57,8 @@ class EditTopicViewModel: UniversalTableViewModel {
         }
     }
     
-    convenience init(module: ModelModule) {
-        self.init(module: module, topic: ModelTopic(), isNew: true)
+    convenience init(module: ModelModule_realm) {
+        self.init(module: module, topic: ModelTopic_realm(), isNew: true)
     }
     
     fileprivate func bind() {

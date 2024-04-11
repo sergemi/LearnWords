@@ -11,8 +11,8 @@ import UIKit
 protocol LearnCoordinatorProtocol: AnyObject {
     func BaseLearn()
     func selectModule()
-    func module(_ module: ModelModule)
-    func topic(_ topic: ModelTopic)
+    func module(_ module: ModelModule_realm)
+    func topic(_ topic: ModelTopic_realm)
     
     
     func test() // todo: remove
@@ -60,14 +60,14 @@ class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocol {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func module(_ module: ModelModule) {
+    func module(_ module: ModelModule_realm) {
         let model = LearnModuleViewModel(module: module)
         model.learnCoordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func topic(_ topic: ModelTopic) {
+    func topic(_ topic: ModelTopic_realm) {
         let model = LearnTopicViewModel(topic: topic)
         model.learnCoordinator = self
         let vc =  UniversalTableViewController(viewModel: model)

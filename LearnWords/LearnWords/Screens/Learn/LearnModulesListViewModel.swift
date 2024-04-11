@@ -10,7 +10,7 @@ import RealmSwift
 
 class LearnModulesListViewModel: UniversalTableViewModel {
     var learnCoordinator: LearnCoordinatorProtocol? = nil
-    var modules: [ModelModule] = []
+    var modules: [ModelModule_realm] = []
     
     override init() {
         log.method()
@@ -23,7 +23,7 @@ class LearnModulesListViewModel: UniversalTableViewModel {
     
     override func reloadTableData(){
         let realm = try! Realm()
-        modules = Array(realm.objects(ModelModule.self))
+        modules = Array(realm.objects(ModelModule_realm.self))
         
         let modulesRows = modules.map{
             ModelTableViewCell(checkbox: .hiden, title: $0.name, showArrow: true)
