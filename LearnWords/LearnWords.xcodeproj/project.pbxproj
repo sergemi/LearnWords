@@ -24,6 +24,7 @@
 		8F89480D2BC30DFA0070E699 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89480C2BC30DFA0070E699 /* SignUpViewModel.swift */; };
 		8F8948102BC328490070E699 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89480F2BC328490070E699 /* AuthManager.swift */; };
 		8F8948182BC69E5E0070E699 /* CoordinatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948172BC69E5E0070E699 /* CoordinatorsTests.swift */; };
+		8F89485E2BC81AA40070E699 /* ModelWordPair2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89485D2BC81AA40070E699 /* ModelWordPair2.swift */; };
 		8FDA29ED299E4D9A00DD4003 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */; };
 		8FDA29EE299E4D9A00DD4003 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */; };
 		8FDA29F2299E4DA800DD4003 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29F0299E4DA700DD4003 /* Date+.swift */; };
@@ -113,6 +114,7 @@
 		8F89480F2BC328490070E699 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		8F8948152BC69E5E0070E699 /* LearnWordsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LearnWordsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F8948172BC69E5E0070E699 /* CoordinatorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorsTests.swift; sourceTree = "<group>"; };
+		8F89485D2BC81AA40070E699 /* ModelWordPair2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelWordPair2.swift; sourceTree = "<group>"; };
 		8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		8FDA29F0299E4DA700DD4003 /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
@@ -325,6 +327,26 @@
 			path = LearnWordsTests;
 			sourceTree = "<group>";
 		};
+		8F89485B2BC803E20070E699 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8FF3E5E129A3773500D64A0D /* ModelTableViewCell.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		8F89485C2BC819830070E699 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				8FF3E5EF29A4DE6400D64A0D /* ModelLearnedWord.swift */,
+				8FF3E5ED29A4DB4F00D64A0D /* ModelExercise.swift */,
+				8FF3E5F129A4F97700D64A0D /* ModelTopic.swift */,
+				8FF3E5F329A4FBAB00D64A0D /* ModelModule.swift */,
+				8FF3E5EB29A4D9A100D64A0D /* ModelWordPair.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		8FDA29EA299E4D9A00DD4003 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,12 +502,9 @@
 		8FF3E5E029A375D300D64A0D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8FF3E5E129A3773500D64A0D /* ModelTableViewCell.swift */,
-				8FF3E5EF29A4DE6400D64A0D /* ModelLearnedWord.swift */,
-				8FF3E5ED29A4DB4F00D64A0D /* ModelExercise.swift */,
-				8FF3E5F129A4F97700D64A0D /* ModelTopic.swift */,
-				8FF3E5F329A4FBAB00D64A0D /* ModelModule.swift */,
-				8FF3E5EB29A4D9A100D64A0D /* ModelWordPair.swift */,
+				8F89485C2BC819830070E699 /* Realm */,
+				8F89485B2BC803E20070E699 /* UI */,
+				8F89485D2BC81AA40070E699 /* ModelWordPair2.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -671,6 +690,7 @@
 			files = (
 				8FDA2A0E299E569400DD4003 /* SettingsMainMenuViewModel.swift in Sources */,
 				8F8948102BC328490070E699 /* AuthManager.swift in Sources */,
+				8F89485E2BC81AA40070E699 /* ModelWordPair2.swift in Sources */,
 				8FDA29FA299E4DB500DD4003 /* DateFormatter.swift in Sources */,
 				8FDA2A26299FAD9500DD4003 /* StatCoordinator.swift in Sources */,
 				8FF3E5F429A4FBAB00D64A0D /* ModelModule.swift in Sources */,
