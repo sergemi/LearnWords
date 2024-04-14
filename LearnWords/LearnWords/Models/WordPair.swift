@@ -1,5 +1,5 @@
 //
-//  WordPair_realm.swift
+//  WordPair.swift
 //  LearnWords
 //
 //  Created by sergemi on 11.04.2024.

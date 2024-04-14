@@ -1,5 +1,5 @@
 //
-//  EditModuleListMiewModel.swift
+//  EditModuleListViewModel.swift
 //  LearnWords
 //
 //  Created by sergemi on 19.02.2023.
@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class EditModuleListMiewModel: UniversalTableViewModel {
+class EditModuleListViewModel: UniversalTableViewModel {
     var coordinator: EditMaterialCoordinatorProtocol? = nil
     var modules: [ModelModule_realm] = []
     
@@ -24,7 +24,7 @@ class EditModuleListMiewModel: UniversalTableViewModel {
         
 //        namePlaceholder.accept("Module Name")
         
-//        details.accept("EditModuleListMiewModel details\n test test test\ntest")
+//        details.accept("EditModuleListViewModel details\n test test test\ntest")
 //        details.accept(nil)
 //        tableHeader.accept(nil)
         rightBarBtnCaption.accept("Settings.ModulesList.addBtn".localized())

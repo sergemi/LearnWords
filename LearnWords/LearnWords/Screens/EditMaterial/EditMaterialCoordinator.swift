@@ -56,7 +56,7 @@ class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProto
     
     // - MARK: EditMaterialCoordinatorProtocol
     func selectModule() {
-        let model = EditModuleListMiewModel()
+        let model = EditModuleListViewModel()
         model.coordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)

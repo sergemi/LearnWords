@@ -33,6 +33,7 @@
 		8F89486B2BC858690070E699 /* MockDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89486A2BC858690070E699 /* MockDataManager.swift */; };
 		8F89486D2BC858FC0070E699 /* MockAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89486C2BC858FC0070E699 /* MockAuthManager.swift */; };
 		8F89486F2BC862ED0070E699 /* DataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89486E2BC862ED0070E699 /* DataManagerTests.swift */; };
+		8F8948722BCC311B0070E699 /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948712BCC311B0070E699 /* RealmDataManager.swift */; };
 		8FDA29ED299E4D9A00DD4003 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */; };
 		8FDA29EE299E4D9A00DD4003 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */; };
 		8FDA29F2299E4DA800DD4003 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29F0299E4DA700DD4003 /* Date+.swift */; };
@@ -69,7 +70,7 @@
 		8FF3E5DA29A24FDD00D64A0D /* UniversalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5D829A24FDD00D64A0D /* UniversalTableViewController.swift */; };
 		8FF3E5DB29A24FDD00D64A0D /* UniversalTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF3E5D929A24FDD00D64A0D /* UniversalTableViewController.xib */; };
 		8FF3E5DD29A2521900D64A0D /* UniversalTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5DC29A2521900D64A0D /* UniversalTableViewModel.swift */; };
-		8FF3E5DF29A2633500D64A0D /* EditModuleListMiewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5DE29A2633500D64A0D /* EditModuleListMiewModel.swift */; };
+		8FF3E5DF29A2633500D64A0D /* EditModuleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5DE29A2633500D64A0D /* EditModuleListViewModel.swift */; };
 		8FF3E5E229A3773500D64A0D /* ModelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E129A3773500D64A0D /* ModelTableViewCell.swift */; };
 		8FF3E5E429A43C0400D64A0D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E329A43C0400D64A0D /* CustomTextField.swift */; };
 		8FF3E5E629A43CE400D64A0D /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E5E529A43CE400D64A0D /* UIColor+ext.swift */; };
@@ -131,6 +132,7 @@
 		8F89486A2BC858690070E699 /* MockDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataManager.swift; sourceTree = "<group>"; };
 		8F89486C2BC858FC0070E699 /* MockAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthManager.swift; sourceTree = "<group>"; };
 		8F89486E2BC862ED0070E699 /* DataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerTests.swift; sourceTree = "<group>"; };
+		8F8948712BCC311B0070E699 /* RealmDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
 		8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		8FDA29F0299E4DA700DD4003 /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
@@ -176,7 +178,7 @@
 		8FF3E5D829A24FDD00D64A0D /* UniversalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalTableViewController.swift; sourceTree = "<group>"; };
 		8FF3E5D929A24FDD00D64A0D /* UniversalTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UniversalTableViewController.xib; sourceTree = "<group>"; };
 		8FF3E5DC29A2521900D64A0D /* UniversalTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalTableViewModel.swift; sourceTree = "<group>"; };
-		8FF3E5DE29A2633500D64A0D /* EditModuleListMiewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModuleListMiewModel.swift; sourceTree = "<group>"; };
+		8FF3E5DE29A2633500D64A0D /* EditModuleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModuleListViewModel.swift; sourceTree = "<group>"; };
 		8FF3E5E129A3773500D64A0D /* ModelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTableViewCell.swift; sourceTree = "<group>"; };
 		8FF3E5E329A43C0400D64A0D /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		8FF3E5E529A43CE400D64A0D /* UIColor+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
@@ -308,11 +310,11 @@
 		8F8948032BC2CC130070E699 /* EditMaterial */ = {
 			isa = PBXGroup;
 			children = (
+				8F8948752BCC34DA0070E699 /* EditTopic */,
+				8F8948742BCC34C10070E699 /* EditModule */,
+				8F8948732BCC34A50070E699 /* EditModuleList */,
 				8FF3E5FD29A764F800D64A0D /* EditWord */,
 				8F8948042BC2D0AE0070E699 /* EditMaterialCoordinator.swift */,
-				8FF3E5DE29A2633500D64A0D /* EditModuleListMiewModel.swift */,
-				8FF3E5E929A4CC6200D64A0D /* EditModuleViewModel.swift */,
-				8FF3E5FB29A672BB00D64A0D /* EditTopicViewModel.swift */,
 			);
 			path = EditMaterial;
 			sourceTree = "<group>";
@@ -330,6 +332,7 @@
 		8F89480E2BC328300070E699 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				8F8948702BCC30DA0070E699 /* Realm */,
 				8F89480F2BC328490070E699 /* AuthManager.swift */,
 				8F8948672BC847E60070E699 /* DataManager.swift */,
 			);
@@ -373,6 +376,38 @@
 				8F89486C2BC858FC0070E699 /* MockAuthManager.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		8F8948702BCC30DA0070E699 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				8F8948712BCC311B0070E699 /* RealmDataManager.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		8F8948732BCC34A50070E699 /* EditModuleList */ = {
+			isa = PBXGroup;
+			children = (
+				8FF3E5DE29A2633500D64A0D /* EditModuleListViewModel.swift */,
+			);
+			path = EditModuleList;
+			sourceTree = "<group>";
+		};
+		8F8948742BCC34C10070E699 /* EditModule */ = {
+			isa = PBXGroup;
+			children = (
+				8FF3E5E929A4CC6200D64A0D /* EditModuleViewModel.swift */,
+			);
+			path = EditModule;
+			sourceTree = "<group>";
+		};
+		8F8948752BCC34DA0070E699 /* EditTopic */ = {
+			isa = PBXGroup;
+			children = (
+				8FF3E5FB29A672BB00D64A0D /* EditTopicViewModel.swift */,
+			);
+			path = EditTopic;
 			sourceTree = "<group>";
 		};
 		8FDA29EA299E4D9A00DD4003 /* CustomUI */ = {
@@ -750,7 +785,7 @@
 				8FDA2A2E299FADBA00DD4003 /* LearnCoordinator.swift in Sources */,
 				8FDA29F8299E4DB500DD4003 /* KeyboardObserver.swift in Sources */,
 				8F8948622BC8393B0070E699 /* LearnedWord.swift in Sources */,
-				8FF3E5DF29A2633500D64A0D /* EditModuleListMiewModel.swift in Sources */,
+				8FF3E5DF29A2633500D64A0D /* EditModuleListViewModel.swift in Sources */,
 				8FF3E5E629A43CE400D64A0D /* UIColor+ext.swift in Sources */,
 				8F85B680299AC16C0097657D /* AppDelegate.swift in Sources */,
 				8F8947FC2BC071390070E699 /* AutenticateCoordinator.swift in Sources */,
@@ -773,6 +808,7 @@
 				8FF3E5D2299FE64D00D64A0D /* DataTableViewCell.swift in Sources */,
 				8FDA2A04299E4E8F00DD4003 /* BaseCoordinator.swift in Sources */,
 				8FDA29F2299E4DA800DD4003 /* Date+.swift in Sources */,
+				8F8948722BCC311B0070E699 /* RealmDataManager.swift in Sources */,
 				8FDA2A35299FB1BD00DD4003 /* BaseStatViewController.swift in Sources */,
 				8F85B682299AC16C0097657D /* SceneDelegate.swift in Sources */,
 				8FDA29EE299E4D9A00DD4003 /* PopupViewController.swift in Sources */,
