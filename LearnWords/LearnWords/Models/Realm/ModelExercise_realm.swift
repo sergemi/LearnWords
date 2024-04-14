@@ -18,7 +18,8 @@ enum exerciseType_realm: Int, PersistableEnum {
 }
 
 class ModelExercise_realm: EmbeddedObject {
-    @Persisted var id: ObjectId
+//    @Persisted var id: ObjectId
+    @Persisted var id: String
     @Persisted var type: exerciseType_realm = .choseTranslate
     @Persisted var maxScore: Int = 5
     @Persisted var correct: Int = 0

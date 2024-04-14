@@ -9,7 +9,8 @@ import Foundation
 import RealmSwift
 
 class ModelModule_realm: Object {
-    @Persisted(primaryKey: true) var id: ObjectId
+//    @Persisted(primaryKey: true) var id: ObjectId
+    @Persisted(primaryKey: true) var id: String
     @Persisted var name: String = ""
     @Persisted var details: String = ""
     @Persisted var topics: List<ModelTopic_realm>
