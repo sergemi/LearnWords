@@ -12,9 +12,14 @@ class EditModuleListViewModel: UniversalTableViewModel {
     var coordinator: EditMaterialCoordinatorProtocol? = nil
     var modules: [ModelModule_realm] = []
     
-    override init() {
+    let dataManager: DataManager
+    
+    init(dataManager: DataManager) {
         log.method()
+        
+        self.dataManager = dataManager
         super.init()
+        
         bind()
         
         deleteLineAlertTitle = "Settings.ModulesList.DeleteTableLine.Title".localized()
@@ -22,25 +27,9 @@ class EditModuleListViewModel: UniversalTableViewModel {
         
         title.accept("Settings.ModulesList.Title".localized())
         
-//        namePlaceholder.accept("Module Name")
-        
-//        details.accept("EditModuleListViewModel details\n test test test\ntest")
-//        details.accept(nil)
-//        tableHeader.accept(nil)
-        rightBarBtnCaption.accept("Settings.ModulesList.addBtn".localized())
-//        tableHeader.accept("Header")
-//        hasActionAllBtn.accept(true)
         haveRightBarBtn.accept(true)
         canDeleteRows.accept(true)
         canSelect.accept(true)
-        
-//        let testRows: [ModelTableViewCell] = [
-//            ModelTableViewCell(checkbox: .hiden, title: "title one", showArrow: true),
-//            ModelTableViewCell(checkbox: .empty, title: "title two", percent: 20, showArrow: true),
-//            ModelTableViewCell(checkbox: .checked, title: "title three", showArrow: true),
-//            ModelTableViewCell(checkbox: .hiden, title: "title four", showArrow: true)
-//        ]
-//        rows.accept(testRows)
     }
     
     fileprivate func bind() {

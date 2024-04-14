@@ -17,13 +17,21 @@ struct Module {
     var author: String // author id
     var isPublic: Bool
     
-    init(name: String, details: String, topics: [Topic], author: String, isPublic: Bool) {
-        id = UUID().uuidString
-        
+    init(id: String, name: String, details: String, topics: [Topic], author: String, isPublic: Bool) {
+        self.id = id
         self.name = name
         self.details = details
         self.topics = topics
         self.author = author
         self.isPublic = isPublic
+    }
+    
+    init(name: String, details: String, topics: [Topic], author: String, isPublic: Bool) {
+        self.init(id: UUID().uuidString,
+                  name: name,
+                  details: details,
+                  topics: topics,
+                  author: author,
+                  isPublic: isPublic)
     }
 }

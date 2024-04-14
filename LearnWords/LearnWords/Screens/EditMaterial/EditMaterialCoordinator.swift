@@ -30,10 +30,14 @@ class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProto
     
     private var started = false
     
+    
+    let dataManager: DataManager!
+    
     required init(navigationController: UINavigationController) {
         log.method()
         
         self.navigationController = navigationController
+        dataManager = RealmDataManager()
     }
     
     required init() {
@@ -42,6 +46,8 @@ class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProto
         let nc = UINavigationController()
         self.strongNavigationController = nc
         self.navigationController = nc
+        
+        dataManager = RealmDataManager()
     }
     
     // - MARK: CoordinatorProtocol
@@ -56,7 +62,7 @@ class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProto
     
     // - MARK: EditMaterialCoordinatorProtocol
     func selectModule() {
-        let model = EditModuleListViewModel()
+        let model = EditModuleListViewModel(dataManager: dataManager)
         model.coordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)

@@ -24,9 +24,15 @@ struct Exercise {
     var correct: Int = 0
     var incorrect: Int = 0
     
-    init(type: exerciseType, maxScore: Int) {
-        self.id = UUID().uuidString
+    init(id: String, type: exerciseType, maxScore: Int) {
+        self.id = id
         self.type = type
         self.maxScore = maxScore
+    }
+    
+    init(type: exerciseType, maxScore: Int) {
+        self.init(id: UUID().uuidString,
+                  type: type,
+                  maxScore: maxScore)
     }
 }
