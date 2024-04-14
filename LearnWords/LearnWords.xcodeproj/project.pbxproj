@@ -23,7 +23,7 @@
 		8F89480B2BC30DE00070E699 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F8948092BC30DE00070E699 /* SignUpViewController.xib */; };
 		8F89480D2BC30DFA0070E699 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89480C2BC30DFA0070E699 /* SignUpViewModel.swift */; };
 		8F8948102BC328490070E699 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89480F2BC328490070E699 /* AuthManager.swift */; };
-		8F8948182BC69E5E0070E699 /* CoordinatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948172BC69E5E0070E699 /* CoordinatorsTests.swift */; };
+		8F8948182BC69E5E0070E699 /* UIButtonExtTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948172BC69E5E0070E699 /* UIButtonExtTest.swift */; };
 		8F89485E2BC81AA40070E699 /* WordPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89485D2BC81AA40070E699 /* WordPair.swift */; };
 		8F8948602BC832D60070E699 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89485F2BC832D60070E699 /* Exercise.swift */; };
 		8F8948622BC8393B0070E699 /* LearnedWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948612BC8393B0070E699 /* LearnedWord.swift */; };
@@ -121,7 +121,7 @@
 		8F89480C2BC30DFA0070E699 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		8F89480F2BC328490070E699 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		8F8948152BC69E5E0070E699 /* LearnWordsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LearnWordsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F8948172BC69E5E0070E699 /* CoordinatorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorsTests.swift; sourceTree = "<group>"; };
+		8F8948172BC69E5E0070E699 /* UIButtonExtTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtTest.swift; sourceTree = "<group>"; };
 		8F89485D2BC81AA40070E699 /* WordPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPair.swift; sourceTree = "<group>"; };
 		8F89485F2BC832D60070E699 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		8F8948612BC8393B0070E699 /* LearnedWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnedWord.swift; sourceTree = "<group>"; };
@@ -340,7 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				8F8948692BC8583F0070E699 /* Mocks */,
-				8F8948172BC69E5E0070E699 /* CoordinatorsTests.swift */,
+				8F8948172BC69E5E0070E699 /* UIButtonExtTest.swift */,
 				8F89486E2BC862ED0070E699 /* DataManagerTests.swift */,
 			);
 			path = LearnWordsTests;
@@ -789,7 +789,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F8948182BC69E5E0070E699 /* CoordinatorsTests.swift in Sources */,
+				8F8948182BC69E5E0070E699 /* UIButtonExtTest.swift in Sources */,
 				8F89486F2BC862ED0070E699 /* DataManagerTests.swift in Sources */,
 				8F89486D2BC858FC0070E699 /* MockAuthManager.swift in Sources */,
 				8F89486B2BC858690070E699 /* MockDataManager.swift in Sources */,
