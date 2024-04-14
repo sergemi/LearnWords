@@ -34,6 +34,7 @@
 		8F89486D2BC858FC0070E699 /* MockAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89486C2BC858FC0070E699 /* MockAuthManager.swift */; };
 		8F89486F2BC862ED0070E699 /* DataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89486E2BC862ED0070E699 /* DataManagerTests.swift */; };
 		8F8948722BCC311B0070E699 /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948712BCC311B0070E699 /* RealmDataManager.swift */; };
+		8F8948792BCC7FDE0070E699 /* ModelsRealmConverting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948782BCC7FDE0070E699 /* ModelsRealmConverting.swift */; };
 		8FDA29ED299E4D9A00DD4003 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */; };
 		8FDA29EE299E4D9A00DD4003 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */; };
 		8FDA29F2299E4DA800DD4003 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29F0299E4DA700DD4003 /* Date+.swift */; };
@@ -133,6 +134,7 @@
 		8F89486C2BC858FC0070E699 /* MockAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthManager.swift; sourceTree = "<group>"; };
 		8F89486E2BC862ED0070E699 /* DataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerTests.swift; sourceTree = "<group>"; };
 		8F8948712BCC311B0070E699 /* RealmDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
+		8F8948782BCC7FDE0070E699 /* ModelsRealmConverting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsRealmConverting.swift; sourceTree = "<group>"; };
 		8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		8FDA29F0299E4DA700DD4003 /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				8F8948692BC8583F0070E699 /* Mocks */,
 				8F8948172BC69E5E0070E699 /* UIButtonExtTest.swift */,
 				8F89486E2BC862ED0070E699 /* DataManagerTests.swift */,
+				8F8948782BCC7FDE0070E699 /* ModelsRealmConverting.swift */,
 			);
 			path = LearnWordsTests;
 			sourceTree = "<group>";
@@ -828,6 +831,7 @@
 				8F8948182BC69E5E0070E699 /* UIButtonExtTest.swift in Sources */,
 				8F89486F2BC862ED0070E699 /* DataManagerTests.swift in Sources */,
 				8F89486D2BC858FC0070E699 /* MockAuthManager.swift in Sources */,
+				8F8948792BCC7FDE0070E699 /* ModelsRealmConverting.swift in Sources */,
 				8F89486B2BC858690070E699 /* MockDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

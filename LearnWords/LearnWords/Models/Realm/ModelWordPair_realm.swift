@@ -9,7 +9,6 @@ import Foundation
 import RealmSwift
 
 class ModelWordPair_realm: Object {
-//    @Persisted(primaryKey: true) var id: ObjectId
     @Persisted(primaryKey: true) var id: String
     
     @Persisted var target: String = ""

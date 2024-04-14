@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum exerciseType: String {
+enum ExerciseType: String {
     case choseTranslate
     case choseTranslateInverse
     case writeTranslate
@@ -19,20 +19,22 @@ enum exerciseType: String {
 struct Exercise {
     let id: String
     
-    var type: exerciseType
+    var type: ExerciseType
     var maxScore: Int
     var correct: Int = 0
     var incorrect: Int = 0
     
-    init(id: String, type: exerciseType, maxScore: Int) {
+    init(id: String, type: ExerciseType, maxScore: Int) {
         self.id = id
         self.type = type
         self.maxScore = maxScore
     }
     
-    init(type: exerciseType, maxScore: Int) {
+    init(type: ExerciseType, maxScore: Int) {
         self.init(id: UUID().uuidString,
                   type: type,
                   maxScore: maxScore)
     }
 }
+
+extension Exercise: Equatable {}

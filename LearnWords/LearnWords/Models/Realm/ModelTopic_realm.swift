@@ -9,7 +9,6 @@ import Foundation
 import RealmSwift
 
 class ModelTopic_realm: Object {
-//    @Persisted(primaryKey: true) var id: ObjectId
     @Persisted(primaryKey: true) var id: String
     @Persisted var name: String = ""
     @Persisted var details: String = ""
