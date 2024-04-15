@@ -24,24 +24,26 @@ class ModelWordPair_realm: Object {
 }
 
 extension ModelWordPair_realm {
-    convenience init(model: WordPair) {
+    convenience init(wordPair: WordPair) {
         self.init()
         
-        self.id = model.id
-        self.target = model.target
-        self.translate = model.translate
-        self.pronounce = model.pronounce
-        self.notes = model.notes
+        self.id = wordPair.id
+        self.target = wordPair.target
+        self.translate = wordPair.translate
+        self.pronounce = wordPair.pronounce
+        self.notes = wordPair.notes
     }
     
-    var model: WordPair {
+    var wordPair: WordPair {
         get {
-            let model = WordPair(target: target,
-                     translate: translate,
-                     pronounce: pronounce,
-                     notes: notes)
+            let newWordPair = WordPair(
+                id: id,
+                target: target,
+                translate: translate,
+                pronounce: pronounce,
+                notes: notes)
             
-            return model
+            return newWordPair
         }
     }
 }

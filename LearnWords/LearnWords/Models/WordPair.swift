@@ -31,3 +31,5 @@ struct WordPair {
                   notes: notes)
     }
 }
+
+extension WordPair: Equatable {}

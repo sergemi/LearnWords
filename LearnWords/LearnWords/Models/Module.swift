@@ -35,3 +35,5 @@ struct Module {
                   isPublic: isPublic)
     }
 }
+
+extension Module: Equatable {}

@@ -15,3 +15,41 @@ class ModelTopic_realm: Object {
     @Persisted var words: List<ModelLearnedWord_realm>
     @Persisted var availablesExercises: List<ModelExercise_realm>
 }
+
+extension ModelTopic_realm {
+    convenience init(topic: Topic) {
+        self.init()
+        id = topic.id
+        name = topic.name
+        details = topic.details
+        
+        let wordsArray = topic.words.map{ModelLearnedWord_realm(learnedWord: $0)}
+        words.append(objectsIn: wordsArray)
+        
+        let exercisesArray = topic.exercises.map{ModelExercise_realm(exercise: $0)}
+        availablesExercises.append(objectsIn: exercisesArray)
+    }
+    
+    var topic: Topic {
+        var newWords = [LearnedWord]()
+        for realmWord in words {
+            let word = realmWord.learnedWord
+            newWords.append(word)
+        }
+
+        var newExercises = [Exercise]()
+        for realmExercise in availablesExercises {
+            let exercise = realmExercise.exercise
+            newExercises.append(exercise)
+        }
+        
+        var newTopic = Topic(id: id,
+                             name: name,
+                             details: details,
+                             words: newWords,
+                             exercises: newExercises
+        )
+        
+        return newTopic
+    }
+}

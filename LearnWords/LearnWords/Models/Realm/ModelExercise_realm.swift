@@ -18,11 +18,11 @@ enum ExerciseType_realm: String, PersistableEnum {
 }
 
 extension ExerciseType_realm {
-    init(model: ExerciseType) {
-        self.init(rawValue: model.rawValue)!
+    init(exerciseType: ExerciseType) {
+        self.init(rawValue: exerciseType.rawValue)!
     }
     
-    var model: ExerciseType {
+    var exerciseType: ExerciseType {
         return ExerciseType(rawValue: self.rawValue)!
     }
 }
@@ -36,22 +36,22 @@ class ModelExercise_realm: EmbeddedObject {
 }
 
 extension ModelExercise_realm {
-    convenience init(model: Exercise) {
+    convenience init(exercise: Exercise) {
         self.init()
-        self.id = model.id
-        self.type = ExerciseType_realm(model: model.type)
-        self.maxScore = model.maxScore
-        self.correct = model.correct
-        self.incorrect = model.incorrect
+        self.id = exercise.id
+        self.type = ExerciseType_realm(exerciseType: exercise.type)
+        self.maxScore = exercise.maxScore
+        self.correct = exercise.correct
+        self.incorrect = exercise.incorrect
     }
     
-    var model: Exercise {
-        var newModel = Exercise(id: self.id,
-                                type: self.type.model,
+    var exercise: Exercise {
+        var newExercise = Exercise(id: self.id,
+                                type: self.type.exerciseType,
                                 maxScore: self.maxScore)
-        newModel.correct = self.correct
-        newModel.incorrect = self.incorrect
+        newExercise.correct = self.correct
+        newExercise.incorrect = self.incorrect
         
-        return newModel
+        return newExercise
     }
 }

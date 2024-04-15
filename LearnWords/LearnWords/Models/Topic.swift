@@ -31,3 +31,5 @@ struct Topic {
                   exercises: exercises)
     }
 }
+
+extension Topic: Equatable {}

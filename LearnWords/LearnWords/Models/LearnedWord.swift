@@ -25,3 +25,5 @@ struct LearnedWord {
                   exercises: exercises)
     }
 }
+
+extension LearnedWord: Equatable {}
