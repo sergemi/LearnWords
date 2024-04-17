@@ -61,7 +61,7 @@ class EditModuleListViewModel: UniversalTableViewModel {
     
     override func selectRow(index: Int) {
         let module = modules[index]
-//        self.coordinator?.editModule(module) // TODO
+        self.coordinator?.editModule(module)
     }
     
     override func deleteRow(index: Int) {

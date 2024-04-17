@@ -78,7 +78,17 @@ class EditModuleViewModel: UniversalTableViewModel {
             print("details: \(String(describing: (self.details.value) ?? ""))")
             
             //TODO
-            _ = dataManager.updateModule(module)
+            self.module.name = self.name.value ?? ""
+            self.module.details = self.details.value ?? ""
+            if self.isNew {
+                _ = dataManager.addModule(self.module)
+            }
+            else {
+                _ = dataManager.updateModule(self.module)
+            }
+            self.isNew = false
+            self.UpdateButtonsVisibility()
+            self.haveRightBarBtn.accept(self.isAddBtnEnabled())
             
 //            let realm = try! Realm()
 //            try! realm.write {
