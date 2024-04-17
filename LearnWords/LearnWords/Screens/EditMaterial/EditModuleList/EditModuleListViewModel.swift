@@ -13,7 +13,7 @@ class EditModuleListViewModel: UniversalTableViewModel {
 //    var modules: [ModelModule_realm] = []
     var modules: [Module] = []
     
-    let dataManager: DataManager
+    let dataManager: DataManager!
     
     init(dataManager: DataManager) {
         log.method()
@@ -49,7 +49,9 @@ class EditModuleListViewModel: UniversalTableViewModel {
 //        let modulesRows = modules.map{
 //            ModelTableViewCell(checkbox: .empty, title: $0.name, showArrow: true)
 //        }
-        let modulesRows = dataManager.modules.map{
+        modules = dataManager.modules
+        
+        let modulesRows = modules.map{
             ModelTableViewCell(checkbox: .empty,
                                title: $0.name,
                                showArrow: true
@@ -66,7 +68,12 @@ class EditModuleListViewModel: UniversalTableViewModel {
     
     override func deleteRow(index: Int) {
         log.method()
-        // TODO
+        let module = modules[index]
+        if dataManager.deleteModule(module) == nil {
+            print("error deleting module")
+            return
+        }
+        
 //        let moduleToDelete = modules[index]
 //        let realm = try! Realm()
 //        try! realm.write {

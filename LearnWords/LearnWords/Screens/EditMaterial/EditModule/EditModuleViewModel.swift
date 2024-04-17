@@ -10,7 +10,7 @@ import RealmSwift
 
 class EditModuleViewModel: UniversalTableViewModel {
     var coordinator: EditMaterialCoordinatorProtocol? = nil
-    let dataManager: DataManager
+    let dataManager: DataManager!
     
     var module: Module
     var isNew = true
