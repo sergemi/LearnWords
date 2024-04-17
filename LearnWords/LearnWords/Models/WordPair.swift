@@ -30,6 +30,10 @@ struct WordPair {
                   pronounce: pronounce,
                   notes: notes)
     }
+    
+    init() {
+        self.init(target: "", translate: "", pronounce: "", notes: "")
+    }
 }
 
 extension WordPair: Equatable {}

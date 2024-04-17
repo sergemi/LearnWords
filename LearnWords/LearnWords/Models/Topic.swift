@@ -30,6 +30,10 @@ struct Topic {
                   words: words,
                   exercises: exercises)
     }
+    
+    init() {
+        self.init(name: "", details: "", words: [], exercises: [])
+    }
 }
 
 extension Topic: Equatable {}

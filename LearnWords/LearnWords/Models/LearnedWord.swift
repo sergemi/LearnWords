@@ -24,6 +24,10 @@ struct LearnedWord {
                   word: word,
                   exercises: exercises)
     }
+    
+    init() {
+        self.init(word: WordPair(), exercises: [])
+    }
 }
 
 extension LearnedWord: Equatable {}

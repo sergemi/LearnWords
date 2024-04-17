@@ -35,6 +35,10 @@ struct Exercise {
                   type: type,
                   maxScore: maxScore)
     }
+    
+    init() {
+        self.init(type: .choseTranslate, maxScore: 0)
+    }
 }
 
 extension Exercise: Equatable {}

@@ -34,6 +34,10 @@ struct Module {
                   author: author,
                   isPublic: isPublic)
     }
+    
+    init() {
+        self.init(name: "", details: "", topics: [], author: "", isPublic: false)
+    }
 }
 
 extension Module: Equatable {}
