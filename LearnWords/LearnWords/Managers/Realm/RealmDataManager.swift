@@ -12,10 +12,13 @@ class RealmDataManager: DataManager {
     var modules: [Module] = []
     
     func module(id: String) -> Module? {
-        return nil // TODO: implement
+        let result = modules.first(where: {$0.id == id})
+        return result
     }
     
     func addModule(_ module: Module) -> Module? {
+        let module = Module(name: "aaa", details: "bbb", topics: [], author: AuthManager.userId ?? "guest", isPublic: true)
+        modules.append(module)
         return nil // TODO: implement
     }
     

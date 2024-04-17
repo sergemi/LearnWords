@@ -10,14 +10,16 @@ import RealmSwift
 
 class EditModuleViewModel: UniversalTableViewModel {
     var coordinator: EditMaterialCoordinatorProtocol? = nil
+    let dataManager: DataManager
     
-    var module: ModelModule_realm
+    var module: Module
     var isNew = true
     var isCanAdd = true
     
-    var topics: [ModelTopic_realm] = []
+    var topics: [Topic] = []
     
-    init(module: ModelModule_realm, isNew: Bool = false) {
+    init(dataManager: DataManager, module: Module, isNew: Bool = false) {
+        self.dataManager = dataManager
         self.module = module
         self.isNew = isNew
         
@@ -43,6 +45,16 @@ class EditModuleViewModel: UniversalTableViewModel {
         bind()
     }
     
+    convenience init(dataManager: DataManager) {
+        self.init(dataManager: dataManager,
+                  module: Module(name: "",
+                                 details: "",
+                                 topics: [],
+                                 author: AuthManager.userId ?? "guest",
+                                 isPublic: false),
+                  isNew: true)
+    }
+    
     func UpdateButtonsVisibility() {
         if isNew {
             title.accept("Settings.AddModule.Title".localized())
@@ -55,10 +67,6 @@ class EditModuleViewModel: UniversalTableViewModel {
             canAdd.accept(isCanAdd)
         }
     }
-    
-    convenience override init() {
-        self.init(module: ModelModule_realm(), isNew: true)
-    }
         
     fileprivate func bind() {
         _ = rightBtnObserver.bind(onNext: { [weak self] _ in
@@ -69,17 +77,20 @@ class EditModuleViewModel: UniversalTableViewModel {
             print("name: \(String(describing: (self.name.value) ?? ""))")
             print("details: \(String(describing: (self.details.value) ?? ""))")
             
-            let realm = try! Realm()
-            try! realm.write {
-                self.module.name = self.name.value ?? ""
-                self.module.details = self.details.value ?? ""
-                if self.isNew {
-                    realm.add(self.module)
-                }
-                self.isNew = false
-                self.UpdateButtonsVisibility()
-                self.haveRightBarBtn.accept(self.isAddBtnEnabled())
-            }
+            //TODO
+            _ = dataManager.updateModule(module)
+            
+//            let realm = try! Realm()
+//            try! realm.write {
+//                self.module.name = self.name.value ?? ""
+//                self.module.details = self.details.value ?? ""
+//                if self.isNew {
+//                    realm.add(self.module)
+//                }
+//                self.isNew = false
+//                self.UpdateButtonsVisibility()
+//                self.haveRightBarBtn.accept(self.isAddBtnEnabled())
+//            }
         }).disposed(by: disposeBag)
         
         _ = addBtnObserver.bind(onNext: { [weak self] _ in

@@ -9,20 +9,16 @@ import XCTest
 @testable import LearnWords
 
 final class DataManagerTests: XCTestCase {
-    var authManager: AuthProtocol!
     var dataManager: DataManager!
 
     override func setUpWithError() throws {
         let mockAuthManager = MockAuthManager()
         MockAuthManager.userId = "mocUser1@gmail.com"
-//        MockAuthManager.users["test@gmail.com"] = MockAuthManager.MockUser(email: "test@gmail.com", password: "qwerty")
-        authManager = mockAuthManager
         
-        dataManager = MockDataManager(authManager: authManager!)
+        dataManager = MockDataManager()
     }
 
     override func tearDownWithError() throws {
-        authManager = nil
         dataManager = nil
     }
 

@@ -10,11 +10,11 @@ import UIKit
 protocol EditMaterialCoordinatorProtocol: AnyObject {
     func selectModule()
     func addModule()
-    func editModule(_ module: ModelModule_realm)
-    func addTopic(module: ModelModule_realm)
-    func editTopic(module: ModelModule_realm, topic: ModelTopic_realm)
-    func EditWord(topic: ModelTopic_realm)
-    func editWord(topic: ModelTopic_realm, learnedWord: ModelLearnedWord_realm)
+    func editModule(_ module: Module)
+    func addTopic(module: Module)
+    func editTopic(module: Module, topic: Topic)
+    func EditWord(topic: Topic)
+    func editWord(topic: Topic, learnedWord: LearnedWord)
 }
 
 class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProtocol {
@@ -37,7 +37,8 @@ class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProto
         log.method()
         
         self.navigationController = navigationController
-        dataManager = RealmDataManager()
+//        dataManager = RealmDataManager()
+        dataManager = MockDataManager()
     }
     
     required init() {
@@ -47,7 +48,8 @@ class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProto
         self.strongNavigationController = nc
         self.navigationController = nc
         
-        dataManager = RealmDataManager()
+//        dataManager = RealmDataManager()
+        dataManager = MockDataManager()
     }
     
     // - MARK: CoordinatorProtocol
@@ -69,41 +71,41 @@ class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProto
     }
     
     func addModule() {
-        let model = EditModuleViewModel()
+        let model = EditModuleViewModel(dataManager: dataManager)
         model.coordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func editModule(_ module: ModelModule_realm) {
-        let model = EditModuleViewModel(module: module)
+    func editModule(_ module: Module) {
+        let model = EditModuleViewModel(dataManager: dataManager, module: module)
         model.coordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func addTopic(module: ModelModule_realm) {
+    func addTopic(module: Module) {
         let model = EditTopicViewModel(module: module)
         model.coordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func editTopic(module: ModelModule_realm, topic: ModelTopic_realm) {
+    func editTopic(module: Module, topic: Topic) {
         let model = EditTopicViewModel(module: module, topic: topic)
         model.coordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func EditWord(topic: ModelTopic_realm) {
+    func EditWord(topic: Topic) {
         let model = EditWordViewModel(topic: topic)
         model.coordinator = self
         let vc =  EditWordViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func editWord(topic: ModelTopic_realm, learnedWord: ModelLearnedWord_realm) {
+    func editWord(topic: Topic, learnedWord: LearnedWord) {
         let model = EditWordViewModel(topic: topic, learnedWord: learnedWord)
         model.coordinator = self
         let vc =  EditWordViewController(viewModel: model)

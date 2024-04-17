@@ -11,14 +11,14 @@ import RealmSwift
 class EditTopicViewModel: UniversalTableViewModel {
     var coordinator: EditMaterialCoordinatorProtocol? = nil
 
-    var module: ModelModule_realm
-    var topic: ModelTopic_realm
+    var module: Module
+    var topic: Topic
     var isNew = true
     var isCanAdd = true
     
-    var words: [ModelLearnedWord_realm] = []
+    var words: [LearnedWord] = []
     
-    init(module: ModelModule_realm, topic: ModelTopic_realm, isNew: Bool = false) {
+    init(module: Module, topic: Topic, isNew: Bool = false) {
         self.module = module
         self.topic = topic
         self.isNew = isNew
@@ -57,8 +57,13 @@ class EditTopicViewModel: UniversalTableViewModel {
         }
     }
     
-    convenience init(module: ModelModule_realm) {
-        self.init(module: module, topic: ModelTopic_realm(), isNew: true)
+    convenience init(module: Module) {
+        self.init(module: module,
+                  topic: Topic(name: "",
+                               details: "",
+                               words: [],
+                               exercises: [])
+                  )
     }
     
     fileprivate func bind() {
@@ -128,7 +133,7 @@ class EditTopicViewModel: UniversalTableViewModel {
         let wordRows = words.map{
 //            ModelTableViewCell(checkbox: .empty, title: $0.word?.target ?? "", showArrow: true)
             ModelTableViewCell(checkbox: .empty,
-                               title: "\($0.word?.target ?? "") - \($0.word?.translate ?? "")",
+                               title: "\($0.word.target) - \($0.word.translate)",
                                showArrow: true)
         }
         rows.accept(wordRows)

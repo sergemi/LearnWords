@@ -15,8 +15,8 @@ class EditWordViewModel: BaseViewModel {
     var coordinator: EditMaterialCoordinatorProtocol? = nil
     
     var isNew = true
-    var topic: ModelTopic_realm
-    var learnedWord: ModelLearnedWord_realm
+    var topic: Topic
+    var learnedWord: LearnedWord
     
     let title = BehaviorRelay<String?>(value: "")
     let rightBarBtnCaption = BehaviorRelay<String?>(value: "Add")
@@ -28,7 +28,7 @@ class EditWordViewModel: BaseViewModel {
     let translate = BehaviorRelay<String?>(value: "")
     let notes = BehaviorRelay<String?>(value: "")
     
-    init(topic: ModelTopic_realm, learnedWord: ModelLearnedWord_realm, isNew: Bool = false) {
+    init(topic: Topic, learnedWord: LearnedWord, isNew: Bool = false) {
         self.topic = topic
         self.learnedWord = learnedWord
         self.isNew = isNew
@@ -36,16 +36,21 @@ class EditWordViewModel: BaseViewModel {
         bind()
         UpdateButtonsVisibility()
         
-        if let word = learnedWord.word {
-            target.accept(word.target)
-            pronounce.accept(word.pronounce)
-            translate.accept(word.translate)
-            notes.accept(word.notes)
-        }
+        let wordPair = learnedWord.word
+        target.accept(wordPair.target)
+        pronounce.accept(wordPair.pronounce)
+        translate.accept(wordPair.translate)
+        notes.accept(wordPair.notes)
     }
     
-    convenience init(topic: ModelTopic_realm) {
-        self.init(topic: topic, learnedWord: ModelLearnedWord_realm(), isNew: true)
+    convenience init(topic: Topic) {
+        self.init(topic: topic,
+                  learnedWord: LearnedWord(word: WordPair(target: "",
+                                                          translate: "",
+                                                          pronounce: "",
+                                                          notes: ""),
+                                           exercises: []),
+                  isNew: true)
     }
     
     fileprivate func bind() {
@@ -57,22 +62,23 @@ class EditWordViewModel: BaseViewModel {
             print("target: \(String(describing: (self.target.value) ?? ""))")
             print("translate: \(String(describing: (self.translate.value) ?? ""))")
             
-            let realm = try! Realm()
-            try! realm.write {
-                if self.learnedWord.word == nil {
-                    self.learnedWord.word = ModelWordPair_realm()
-                }
-                self.learnedWord.word?.target = self.target.value ?? ""
-                self.learnedWord.word?.pronounce = self.pronounce.value ?? ""
-                self.learnedWord.word?.notes = self.notes.value ?? ""
-                self.learnedWord.word?.translate = self.translate.value ?? ""
-                if self.isNew {
-                    self.topic.words.append(self.learnedWord)
-                }
-                self.isNew = false
-                self.UpdateButtonsVisibility()
-                self.haveRightBarBtn.accept(self.isRightBtnEnabled())
-            }
+            //TODO:
+//            let realm = try! Realm()
+//            try! realm.write {
+//                if self.learnedWord.word == nil {
+//                    self.learnedWord.word = ModelWordPair_realm()
+//                }
+//                self.learnedWord.word?.target = self.target.value ?? ""
+//                self.learnedWord.word?.pronounce = self.pronounce.value ?? ""
+//                self.learnedWord.word?.notes = self.notes.value ?? ""
+//                self.learnedWord.word?.translate = self.translate.value ?? ""
+//                if self.isNew {
+//                    self.topic.words.append(self.learnedWord)
+//                }
+//                self.isNew = false
+//                self.UpdateButtonsVisibility()
+//                self.haveRightBarBtn.accept(self.isRightBtnEnabled())
+//            }
         }).disposed(by: disposeBag)
         
         _ = target.subscribe(onNext: { [weak self] value in
@@ -127,9 +133,7 @@ class EditWordViewModel: BaseViewModel {
             return true
         }
         else {
-            guard let word = learnedWord.word else {
-                return false
-            }
+            let word = learnedWord.word
             return word.target != targetVal || word.translate != translateVal || word.pronounce != pronounce.value || word.notes != notes.value
         }
     }

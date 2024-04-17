@@ -11,12 +11,6 @@ import Foundation
 class MockDataManager: DataManager {
     var modules: [LearnWords.Module] = []
     
-    var authManager: AuthProtocol
-    
-    init(authManager: AuthProtocol) {
-        self.authManager = authManager
-    }
-    
     // MARK - DataManager
     func module(id: String) -> LearnWords.Module? {
         let module = modules.first{$0.id == id}

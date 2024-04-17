@@ -30,11 +30,11 @@
 		8F8948642BC83BED0070E699 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948632BC83BED0070E699 /* Topic.swift */; };
 		8F8948662BC83DE80070E699 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948652BC83DE80070E699 /* Module.swift */; };
 		8F8948682BC847E60070E699 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948672BC847E60070E699 /* DataManager.swift */; };
-		8F89486B2BC858690070E699 /* MockDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89486A2BC858690070E699 /* MockDataManager.swift */; };
 		8F89486D2BC858FC0070E699 /* MockAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89486C2BC858FC0070E699 /* MockAuthManager.swift */; };
 		8F89486F2BC862ED0070E699 /* DataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89486E2BC862ED0070E699 /* DataManagerTests.swift */; };
 		8F8948722BCC311B0070E699 /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948712BCC311B0070E699 /* RealmDataManager.swift */; };
 		8F8948792BCC7FDE0070E699 /* ModelsRealmConverting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948782BCC7FDE0070E699 /* ModelsRealmConverting.swift */; };
+		8F89487A2BCD91760070E699 /* MockDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89486A2BC858690070E699 /* MockDataManager.swift */; };
 		8FDA29ED299E4D9A00DD4003 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */; };
 		8FDA29EE299E4D9A00DD4003 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */; };
 		8FDA29F2299E4DA800DD4003 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29F0299E4DA700DD4003 /* Date+.swift */; };
@@ -805,6 +805,7 @@
 				8FF3E5F829A645B900D64A0D /* LearnModulesListViewModel.swift in Sources */,
 				8FF3E5E229A3773500D64A0D /* ModelTableViewCell.swift in Sources */,
 				8FDA2A01299E4E8F00DD4003 /* BaseViewController.swift in Sources */,
+				8F89487A2BCD91760070E699 /* MockDataManager.swift in Sources */,
 				8FF3E60329A76DA300D64A0D /* EditWordViewModel.swift in Sources */,
 				8FF3E5F629A507AD00D64A0D /* RxHelpers.swift in Sources */,
 				8F89480D2BC30DFA0070E699 /* SignUpViewModel.swift in Sources */,
@@ -832,7 +833,6 @@
 				8F89486F2BC862ED0070E699 /* DataManagerTests.swift in Sources */,
 				8F89486D2BC858FC0070E699 /* MockAuthManager.swift in Sources */,
 				8F8948792BCC7FDE0070E699 /* ModelsRealmConverting.swift in Sources */,
-				8F89486B2BC858690070E699 /* MockDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

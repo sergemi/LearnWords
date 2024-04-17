@@ -10,7 +10,8 @@ import RealmSwift
 
 class EditModuleListViewModel: UniversalTableViewModel {
     var coordinator: EditMaterialCoordinatorProtocol? = nil
-    var modules: [ModelModule_realm] = []
+//    var modules: [ModelModule_realm] = []
+    var modules: [Module] = []
     
     let dataManager: DataManager
     
@@ -42,29 +43,35 @@ class EditModuleListViewModel: UniversalTableViewModel {
     }
     
     override func reloadTableData(){
-        let realm = try! Realm()
-        modules = Array(realm.objects(ModelModule_realm.self))
-        
-        let modulesRows = modules.map{
-//            ModelTableViewCell(checkbox: .hiden, title: $0.name, showArrow: true)
-            ModelTableViewCell(checkbox: .empty, title: $0.name, showArrow: true)
+//        let realm = try! Realm()
+//        modules = Array(realm.objects(ModelModule_realm.self))
+//        
+//        let modulesRows = modules.map{
+//            ModelTableViewCell(checkbox: .empty, title: $0.name, showArrow: true)
+//        }
+        let modulesRows = dataManager.modules.map{
+            ModelTableViewCell(checkbox: .empty,
+                               title: $0.name,
+                               showArrow: true
+            )
         }
+        
         rows.accept(modulesRows)
     }
     
     override func selectRow(index: Int) {
         let module = modules[index]
-        self.coordinator?.editModule(module)
+//        self.coordinator?.editModule(module) // TODO
     }
     
     override func deleteRow(index: Int) {
         log.method()
-        
-        let moduleToDelete = modules[index]
-        let realm = try! Realm()
-        try! realm.write {
-            realm.delete(moduleToDelete)
-        }
+        // TODO
+//        let moduleToDelete = modules[index]
+//        let realm = try! Realm()
+//        try! realm.write {
+//            realm.delete(moduleToDelete)
+//        }
         reloadTableData()
     }
 }
