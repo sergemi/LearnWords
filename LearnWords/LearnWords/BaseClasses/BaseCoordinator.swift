@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 protocol CoordinatorProtocol: AnyObject {
-    init()
-    init(navigationController:UINavigationController)
+//    init()
+//    init(navigationController:UINavigationController)
     
     var currentViewController: UIViewController? {get}
     

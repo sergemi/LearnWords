@@ -33,12 +33,11 @@ class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProto
     
     let dataManager: DataManager!
     
-    required init(navigationController: UINavigationController) {
+    required init(navigationController: UINavigationController, dataManager: DataManager) {
         log.method()
         
         self.navigationController = navigationController
-//        dataManager = RealmDataManager()
-        dataManager = MockDataManager()
+        self.dataManager = dataManager
     }
     
     required init() {
@@ -48,7 +47,6 @@ class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProto
         self.strongNavigationController = nc
         self.navigationController = nc
         
-//        dataManager = RealmDataManager()
         dataManager = MockDataManager()
     }
     

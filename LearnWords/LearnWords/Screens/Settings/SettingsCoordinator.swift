@@ -48,7 +48,9 @@ class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocol {
     }
     
     func editMaterial() {
-        start(coordinator: EditMaterialCoordinator(navigationController: navigationController))
+        let editMaterialCoordinator = EditMaterialCoordinator(navigationController: navigationController,
+                                                              dataManager: MockDataManager())
+        start(coordinator: editMaterialCoordinator)
     }
  
     // MARK: - CoordinatorProtocol
