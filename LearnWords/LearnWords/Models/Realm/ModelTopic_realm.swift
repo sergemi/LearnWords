@@ -13,7 +13,7 @@ class ModelTopic_realm: Object {
     @Persisted var name: String = ""
     @Persisted var details: String = ""
     @Persisted var words: List<ModelLearnedWord_realm>
-    @Persisted var availablesExercises: List<ModelExercise_realm>
+    @Persisted var availablesExercises: List<ExerciseType_realm>
 }
 
 extension ModelTopic_realm {
@@ -26,7 +26,7 @@ extension ModelTopic_realm {
         let wordsArray = topic.words.map{ModelLearnedWord_realm(learnedWord: $0)}
         words.append(objectsIn: wordsArray)
         
-        let exercisesArray = topic.exercises.map{ModelExercise_realm(exercise: $0)}
+        let exercisesArray = topic.exercises.map{ExerciseType_realm(exerciseType: $0)}
         availablesExercises.append(objectsIn: exercisesArray)
     }
     
@@ -37,9 +37,9 @@ extension ModelTopic_realm {
             newWords.append(word)
         }
 
-        var newExercises = [Exercise]()
+        var newExercises = [ExerciseType]()
         for realmExercise in availablesExercises {
-            let exercise = realmExercise.exercise
+            let exercise = realmExercise.exerciseType
             newExercises.append(exercise)
         }
         

@@ -13,9 +13,9 @@ struct Topic {
     var name: String
     var details: String
     var words: [LearnedWord]
-    var exercises: [Exercise]
+    var exercises: [ExerciseType]
     
-    init(id: String, name: String, details: String, words: [LearnedWord], exercises: [Exercise]) {
+    init(id: String, name: String, details: String, words: [LearnedWord], exercises: [ExerciseType]) {
         self.id = id
         self.name = name
         self.details = details
@@ -23,7 +23,7 @@ struct Topic {
         self.exercises = exercises
     }
     
-    init (name: String, details: String, words: [LearnedWord], exercises: [Exercise]) {
+    init (name: String, details: String, words: [LearnedWord], exercises: [ExerciseType]) {
         self.init(id: UUID().uuidString,
                   name: name,
                   details: details,

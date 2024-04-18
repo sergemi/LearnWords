@@ -89,12 +89,10 @@ final class ModelsRealmConverting: XCTestCase {
         ]
         let mLearnedWord = LearnedWord(word: word, exercises: exercises)
         
-        let exercise = Exercise(type: .choseTranslate, maxScore: 10)
-        
         let mTopic = Topic(name: "eee",
                           details: "fff",
                           words: [mLearnedWord],
-                          exercises: [exercise])
+                           exercises: [.choseTranslate])
         // When
         let rTopic = ModelTopic_realm(topic: mTopic)
         let mTopic2 = rTopic.topic
@@ -111,12 +109,10 @@ final class ModelsRealmConverting: XCTestCase {
         ]
         let mLearnedWord = LearnedWord(word: word, exercises: exercises)
         
-        let exercise = Exercise(type: .choseTranslate, maxScore: 10)
-        
         let mTopic = Topic(name: "eee",
                           details: "fff",
                           words: [mLearnedWord],
-                          exercises: [exercise])
+                           exercises: [.choseTranslate])
         
         let mModule = Module(name: "ggg",
                              details: "hhh",
