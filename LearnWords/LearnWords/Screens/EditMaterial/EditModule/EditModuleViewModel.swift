@@ -165,7 +165,8 @@ class EditModuleViewModel: UniversalTableViewModel {
         log.method()
         let topic = topics[index]
         
-        dataManager.deleteTopic(moduleId: module.id, topic: topic)
+        _ = dataManager.deleteTopic(moduleId: module.id, topic: topic)
+        //TODO: show error
     
 //        let realm = try! Realm()
 //        try! realm.write {

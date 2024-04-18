@@ -108,7 +108,7 @@ class EditTopicViewModel: UniversalTableViewModel {
             guard let topic = self?.topic else {
                 return
             }
-            self?.coordinator?.EditWord(topic: topic)
+            self?.coordinator?.editWord(topic: topic)
         }).disposed(by: disposeBag)
         
         _ = details.subscribe(onNext: { [weak self] value in
@@ -144,6 +144,11 @@ class EditTopicViewModel: UniversalTableViewModel {
     
     override func reloadTableData(){
 //        let realm = try! Realm()
+        
+        guard let updatedTopic = dataManager.topic(id: topic.id) else {
+            return
+        }
+        topic = updatedTopic
         words = Array(topic.words)
         
         let wordRows = words.map{
@@ -161,10 +166,13 @@ class EditTopicViewModel: UniversalTableViewModel {
     }
     
     override func deleteRow(index: Int) {
-        let realm = try! Realm()
-        try! realm.write {
-            topic.words.remove(at: index)
-        }
+        let word = words[index]
+        _ = dataManager.deleteWord(topicId: topic.id, word: word)
+        //TODO: show error
+//        let realm = try! Realm()
+//        try! realm.write {
+//            topic.words.remove(at: index)
+//        }
         reloadTableData()
     }
 }

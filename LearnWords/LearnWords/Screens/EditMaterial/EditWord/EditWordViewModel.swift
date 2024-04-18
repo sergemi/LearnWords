@@ -13,6 +13,7 @@ import RealmSwift
 class EditWordViewModel: BaseViewModel {
     let disposeBag = DisposeBag()
     var coordinator: EditMaterialCoordinatorProtocol? = nil
+    let dataManager: DataManager!
     
     var isNew = true
     var topic: Topic
@@ -28,7 +29,8 @@ class EditWordViewModel: BaseViewModel {
     let translate = BehaviorRelay<String?>(value: "")
     let notes = BehaviorRelay<String?>(value: "")
     
-    init(topic: Topic, learnedWord: LearnedWord, isNew: Bool = false) {
+    init(dataManager: DataManager, topic: Topic, learnedWord: LearnedWord, isNew: Bool = false) {
+        self.dataManager = dataManager
         self.topic = topic
         self.learnedWord = learnedWord
         self.isNew = isNew
@@ -43,8 +45,8 @@ class EditWordViewModel: BaseViewModel {
         notes.accept(wordPair.notes)
     }
     
-    convenience init(topic: Topic) {
-        self.init(topic: topic,
+    convenience init(dataManager: DataManager, topic: Topic) {
+        self.init(dataManager: dataManager, topic: topic,
                   learnedWord: LearnedWord(word: WordPair(target: "",
                                                           translate: "",
                                                           pronounce: "",
@@ -61,6 +63,23 @@ class EditWordViewModel: BaseViewModel {
             print("++ Save word ++")
             print("target: \(String(describing: (self.target.value) ?? ""))")
             print("translate: \(String(describing: (self.translate.value) ?? ""))")
+            self.learnedWord.word.target = self.target.value ?? ""
+            self.learnedWord.word.pronounce = self.pronounce.value ?? ""
+            self.learnedWord.word.notes = self.notes.value ?? ""
+            self.learnedWord.word.translate = self.translate.value ?? ""
+            if self.isNew {
+                let res = self.dataManager.addWord(topicId: self.topic.id, word: self.learnedWord)
+                // TODO: show error
+                print(res)
+            }
+            else {
+                let res = self.dataManager.updateWord(topicId: self.topic.id, word: self.learnedWord)
+                // TODO: show error
+                print(res)
+            }
+            self.isNew = false
+            self.UpdateButtonsVisibility()
+            self.haveRightBarBtn.accept(self.isRightBtnEnabled())
             
             //TODO:
 //            let realm = try! Realm()

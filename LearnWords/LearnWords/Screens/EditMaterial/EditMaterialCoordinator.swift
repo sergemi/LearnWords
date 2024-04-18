@@ -13,7 +13,7 @@ protocol EditMaterialCoordinatorProtocol: AnyObject {
     func editModule(_ module: Module)
     func addTopic(module: Module)
     func editTopic(module: Module, topic: Topic)
-    func EditWord(topic: Topic)
+    func editWord(topic: Topic)
     func editWord(topic: Topic, learnedWord: LearnedWord)
 }
 
@@ -96,15 +96,15 @@ class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProto
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func EditWord(topic: Topic) {
-        let model = EditWordViewModel(topic: topic)
+    func editWord(topic: Topic) {
+        let model = EditWordViewModel(dataManager: dataManager, topic: topic)
         model.coordinator = self
         let vc =  EditWordViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
     func editWord(topic: Topic, learnedWord: LearnedWord) {
-        let model = EditWordViewModel(topic: topic, learnedWord: learnedWord)
+        let model = EditWordViewModel(dataManager: dataManager, topic: topic, learnedWord: learnedWord)
         model.coordinator = self
         let vc =  EditWordViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
