@@ -143,6 +143,11 @@ class EditModuleViewModel: UniversalTableViewModel {
     
     override func reloadTableData(){
 //        let realm = try! Realm()
+        guard let updatedModule = dataManager.module(id: module.id) else {
+            return
+        }
+        
+        module = updatedModule
         topics = Array(module.topics)
         
         let topicsRows = topics.map{
@@ -158,11 +163,14 @@ class EditModuleViewModel: UniversalTableViewModel {
     
     override func deleteRow(index: Int) {
         log.method()
+        let topic = topics[index]
+        
+        dataManager.deleteTopic(moduleId: module.id, topic: topic)
     
-        let realm = try! Realm()
-        try! realm.write {
-            module.topics.remove(at: index)
-        }
+//        let realm = try! Realm()
+//        try! realm.write {
+//            module.topics.remove(at: index)
+//        }
         reloadTableData()
     }
 }

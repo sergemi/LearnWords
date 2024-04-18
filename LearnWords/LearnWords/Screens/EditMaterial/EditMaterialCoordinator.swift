@@ -83,14 +83,14 @@ class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProto
     }
     
     func addTopic(module: Module) {
-        let model = EditTopicViewModel(module: module)
+        let model = EditTopicViewModel(dataManager: dataManager, module: module)
         model.coordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
     func editTopic(module: Module, topic: Topic) {
-        let model = EditTopicViewModel(module: module, topic: topic)
+        let model = EditTopicViewModel(dataManager: dataManager, module: module, topic: topic)
         model.coordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
