@@ -49,7 +49,7 @@ class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocol {
     
     func editMaterial() {
         let editMaterialCoordinator = EditMaterialCoordinator(navigationController: navigationController,
-                                                              dataManager: MockDataManager())
+                                                              dataManager: MockDataManager.instance)
         start(coordinator: editMaterialCoordinator)
     }
  

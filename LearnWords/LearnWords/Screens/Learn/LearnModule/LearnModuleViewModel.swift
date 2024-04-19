@@ -6,15 +6,17 @@
 //
 
 import Foundation
-import RealmSwift
+//import RealmSwift
 
 class LearnModuleViewModel: UniversalTableViewModel {
     var learnCoordinator: LearnCoordinatorProtocol? = nil
+    let dataManager: DataManager!
     
-    var module: ModelModule_realm
-    var topics: [ModelTopic_realm] = []
+    var module: Module
+    var topics: [Topic] = []
     
-    init(module: ModelModule_realm) {
+    init(dataManager: DataManager, module: Module) {
+        self.dataManager = dataManager
         self.module = module
         super.init()
         

@@ -11,8 +11,8 @@ import UIKit
 protocol LearnCoordinatorProtocol: AnyObject {
     func BaseLearn()
     func selectModule()
-    func module(_ module: ModelModule_realm)
-    func topic(_ topic: ModelTopic_realm)
+    func module(_ module: Module)
+    func topic(_ topic: Topic)
     
     
     func test() // todo: remove
@@ -28,11 +28,14 @@ class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocol {
     var startViewController: UIViewController? = nil
     
     private var started = false
+    
+    let dataManager: DataManager!
 
-    required init(navigationController: UINavigationController) {
+    required init(navigationController: UINavigationController, dataManager: DataManager) {
         log.method()
         
         self.navigationController = navigationController
+        self.dataManager = dataManager
     }
     
     required init() {
@@ -41,6 +44,7 @@ class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocol {
         let nc = UINavigationController()
         self.strongNavigationController = nc
         self.navigationController = nc
+        self.dataManager = MockDataManager.instance
     }
     
     // MARK: - LearnCoordinatorProtocol
@@ -54,21 +58,21 @@ class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocol {
     }
     
     func selectModule() {
-        let model = LearnModulesListViewModel()
+        let model = LearnModulesListViewModel(dataManager: dataManager)
         model.learnCoordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func module(_ module: ModelModule_realm) {
-        let model = LearnModuleViewModel(module: module)
+    func module(_ module: Module) {
+        let model = LearnModuleViewModel(dataManager: dataManager, module: module)
         model.learnCoordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func topic(_ topic: ModelTopic_realm) {
-        let model = LearnTopicViewModel(topic: topic)
+    func topic(_ topic: Topic) {
+        let model = LearnTopicViewModel(dataManager: dataManager, topic: topic)
         model.learnCoordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)

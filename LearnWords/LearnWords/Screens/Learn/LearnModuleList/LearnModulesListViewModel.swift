@@ -6,14 +6,16 @@
 //
 
 import Foundation
-import RealmSwift
+//import RealmSwift
 
 class LearnModulesListViewModel: UniversalTableViewModel {
     var learnCoordinator: LearnCoordinatorProtocol? = nil
-    var modules: [ModelModule_realm] = []
+    let dataManager: DataManager!
+    var modules: [Module] = []
     
-    override init() {
+    init(dataManager: DataManager) {
         log.method()
+        self.dataManager = dataManager
         super.init()
         
         title.accept("Learn.ModulesList.Title".localized())
@@ -22,8 +24,9 @@ class LearnModulesListViewModel: UniversalTableViewModel {
     }
     
     override func reloadTableData(){
-        let realm = try! Realm()
-        modules = Array(realm.objects(ModelModule_realm.self))
+//        let realm = try! Realm()
+//        modules = Array(realm.objects(ModelModule_realm.self))
+        modules = dataManager.modules
         
         let modulesRows = modules.map{
             ModelTableViewCell(checkbox: .hiden, title: $0.name, showArrow: true)

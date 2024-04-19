@@ -413,6 +413,30 @@
 			path = EditTopic;
 			sourceTree = "<group>";
 		};
+		8F89487B2BD26CCB0070E699 /* LearnModuleList */ = {
+			isa = PBXGroup;
+			children = (
+				8FF3E5F729A645B800D64A0D /* LearnModulesListViewModel.swift */,
+			);
+			path = LearnModuleList;
+			sourceTree = "<group>";
+		};
+		8F89487C2BD26CF90070E699 /* LearnModule */ = {
+			isa = PBXGroup;
+			children = (
+				8FF3E5F929A64E8600D64A0D /* LearnModuleViewModel.swift */,
+			);
+			path = LearnModule;
+			sourceTree = "<group>";
+		};
+		8F89487D2BD26D0E0070E699 /* LearnTopic */ = {
+			isa = PBXGroup;
+			children = (
+				8FF3E60629AD608500D64A0D /* LearnTopicViewModel.swift */,
+			);
+			path = LearnTopic;
+			sourceTree = "<group>";
+		};
 		8FDA29EA299E4D9A00DD4003 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,11 +543,11 @@
 		8FDA2A29299FADB900DD4003 /* Learn */ = {
 			isa = PBXGroup;
 			children = (
+				8F89487D2BD26D0E0070E699 /* LearnTopic */,
+				8F89487C2BD26CF90070E699 /* LearnModule */,
+				8F89487B2BD26CCB0070E699 /* LearnModuleList */,
 				8FDA2A2A299FADB900DD4003 /* BaseLearn */,
 				8FDA2A2C299FADB900DD4003 /* LearnCoordinator.swift */,
-				8FF3E5F729A645B800D64A0D /* LearnModulesListViewModel.swift */,
-				8FF3E5F929A64E8600D64A0D /* LearnModuleViewModel.swift */,
-				8FF3E60629AD608500D64A0D /* LearnTopicViewModel.swift */,
 			);
 			path = Learn;
 			sourceTree = "<group>";

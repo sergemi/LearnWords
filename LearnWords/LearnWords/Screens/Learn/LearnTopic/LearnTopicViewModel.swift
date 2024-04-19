@@ -6,15 +6,17 @@
 //
 
 import Foundation
-import RealmSwift
+//import RealmSwift
 
 class LearnTopicViewModel: UniversalTableViewModel {
     var learnCoordinator: LearnCoordinatorProtocol? = nil
+    let dataManager: DataManager!
     
-    var topic: ModelTopic_realm
-    var words: [ModelLearnedWord_realm] = []
+    var topic: Topic
+    var words: [LearnedWord] = []
     
-    init(topic: ModelTopic_realm) {
+    init(dataManager: DataManager, topic: Topic) {
+        self.dataManager = dataManager
         self.topic = topic
         super.init()
         
@@ -33,7 +35,7 @@ class LearnTopicViewModel: UniversalTableViewModel {
         
         let wordsRows = words.map{
             ModelTableViewCell(checkbox: .checked,
-                               title: "\($0.word?.target ?? "") - \($0.word?.translate ?? "")",
+                               title: "\($0.word.target) - \($0.word.translate)",
                                percent: 0,
                                showArrow: true)
         }

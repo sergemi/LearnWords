@@ -30,7 +30,6 @@ class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProto
     
     private var started = false
     
-    
     let dataManager: DataManager!
     
     required init(navigationController: UINavigationController, dataManager: DataManager) {
@@ -47,7 +46,7 @@ class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProto
         self.strongNavigationController = nc
         self.navigationController = nc
         
-        dataManager = MockDataManager()
+        dataManager = MockDataManager.instance
     }
     
     // - MARK: CoordinatorProtocol

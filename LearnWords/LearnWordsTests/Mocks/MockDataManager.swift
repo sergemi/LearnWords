@@ -6,9 +6,15 @@
 //
 
 import Foundation
-@testable import LearnWords
+//@testable import LearnWords
 
 class MockDataManager: DataManager {
+    static let instance = MockDataManager()
+    
+    private init() {
+        
+    }
+    
     var modules: [LearnWords.Module] = []
     
     // MARK - DataManager
