@@ -11,6 +11,10 @@ import RealmSwift
 class RealmDataManager: DataManager {
     var modules: [Module] = []
     
+    func reset() {
+        //TODO: implement
+    }
+    
     func module(id: String) -> Module? {
         let result = modules.first(where: {$0.id == id})
         return result

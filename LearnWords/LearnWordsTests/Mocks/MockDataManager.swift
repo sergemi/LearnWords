@@ -11,13 +11,17 @@ import Foundation
 class MockDataManager: DataManager {
     static let instance = MockDataManager()
     
+    var modules: [LearnWords.Module] = []
+    
     private init() {
         
     }
     
-    var modules: [LearnWords.Module] = []
-    
     // MARK - DataManager
+    func reset() {
+        modules = []
+    }
+    
     func module(id: String) -> LearnWords.Module? {
         let module = modules.first{$0.id == id}
         return module

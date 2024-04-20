@@ -10,6 +10,8 @@ import Foundation
 protocol DataManager {
     var modules: [Module] {get}
     
+    func reset() // delete all data. empty manager as result
+    
     func module(id: String) -> Module? // nil if not found
     func addModule(_ module: Module) -> Module? // nil if fail
     func updateModule(_ module: Module) -> Module? // nil if fail

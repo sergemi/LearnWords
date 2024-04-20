@@ -15,7 +15,8 @@ final class DataManagerTests: XCTestCase {
         let mockAuthManager = MockAuthManager()
         MockAuthManager.userId = "mocUser1@gmail.com"
         
-        dataManager = MockDataManager()
+        dataManager = MockDataManager.instance
+        dataManager.reset()
     }
 
     override func tearDownWithError() throws {
