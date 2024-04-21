@@ -67,7 +67,11 @@ class RealmDataManager: DataManager {
     func updateModule(_ module: Module) -> Module? {
         do {
             let realm = try Realm()
-            guard let moduleRealm = realm.object(ofType: ModelModule_realm.self, forPrimaryKey: module.id) else {
+//            guard let moduleRealm = realm.object(ofType: ModelModule_realm.self, forPrimaryKey: module.id) else {
+//                return nil
+//            }
+            
+            guard let moduleRealm = getRealmObject(realm: realm, objectType: ModelModule_realm.self, id: module.id) else {
                 return nil
             }
             
@@ -118,7 +122,10 @@ class RealmDataManager: DataManager {
         let topicRealm = ModelTopic_realm(topic: topic)
         do {
             let realm = try Realm()
-            guard let moduleRealm = realm.object(ofType: ModelModule_realm.self, forPrimaryKey: moduleId) else {
+//            guard let moduleRealm = realm.object(ofType: ModelModule_realm.self, forPrimaryKey: moduleId) else {
+//                return nil
+//            }
+            guard let moduleRealm = getRealmObject(realm: realm, objectType: ModelModule_realm.self, id: moduleId) else {
                 return nil
             }
             

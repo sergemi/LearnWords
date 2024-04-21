@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RealmSwift
 
 class EditTopicViewModel: UniversalTableViewModel {
     var coordinator: EditMaterialCoordinatorProtocol? = nil

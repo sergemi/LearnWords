@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import RealmSwift
+//import RealmSwift
 
 class EditWordViewModel: BaseViewModel {
     let disposeBag = DisposeBag()

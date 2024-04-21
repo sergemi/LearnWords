@@ -8,15 +8,13 @@
 import Foundation
 import RealmSwift
 
-class ModelWordPair_realm: Object {
-    @Persisted(primaryKey: true) var id: String
-    
+class ModelWordPair_realm: RealmObjectWidthId {
     @Persisted var target: String = ""
     @Persisted var translate: String = ""
     @Persisted var pronounce: String = ""
     @Persisted var notes: String = ""
     
-    override init() {
+    required init() {
         super.init()
         
         id = UUID().uuidString

@@ -6,11 +6,9 @@
 //
 
 import Foundation
-import RealmSwift
 
 class EditModuleListViewModel: UniversalTableViewModel {
     var coordinator: EditMaterialCoordinatorProtocol? = nil
-//    var modules: [ModelModule_realm] = []
     var modules: [Module] = []
     
     let dataManager: DataManager!

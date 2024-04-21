@@ -8,8 +8,7 @@
 import Foundation
 import RealmSwift
 
-class ModelTopic_realm: Object {
-    @Persisted(primaryKey: true) var id: String
+class ModelTopic_realm: RealmObjectWidthId {
     @Persisted var name: String = ""
     @Persisted var details: String = ""
     @Persisted var words: List<ModelLearnedWord_realm>
@@ -43,7 +42,7 @@ extension ModelTopic_realm {
             newExercises.append(exercise)
         }
         
-        var newTopic = Topic(id: id,
+        let newTopic = Topic(id: id,
                              name: name,
                              details: details,
                              words: newWords,

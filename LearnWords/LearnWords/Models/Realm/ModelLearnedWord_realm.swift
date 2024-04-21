@@ -8,8 +8,7 @@
 import Foundation
 import RealmSwift
 
-class ModelLearnedWord_realm: Object {
-    @Persisted(primaryKey: true) var id: String
+class ModelLearnedWord_realm: RealmObjectWidthId {
     @Persisted var word: ModelWordPair_realm?
     @Persisted var exercises: List<ModelExercise_realm>
 }

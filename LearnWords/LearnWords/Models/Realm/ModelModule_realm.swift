@@ -8,8 +8,7 @@
 import Foundation
 import RealmSwift
 
-class ModelModule_realm: Object {
-    @Persisted(primaryKey: true) var id: String
+class ModelModule_realm: RealmObjectWidthId {
     @Persisted var name: String = ""
     @Persisted var details: String = ""
     @Persisted var topics: List<ModelTopic_realm>
@@ -25,7 +24,26 @@ extension ModelModule_realm {
         isPublic = module.isPublic
         
         topics.removeAll()
-        let topicsArray = module.topics.map{ModelTopic_realm(topic: $0)}
+//        let topicsArray = module.topics.map{ModelTopic_realm(topic: $0)}
+        var topicsArray : [ModelTopic_realm] = []
+        do {
+            let realm = try Realm()
+            
+            for topic in module.topics {
+                var realmTopic = getRealmObject(realm: realm,
+                                                   objectType: ModelTopic_realm.self,
+                                                   id: topic.id)
+                if realmTopic == nil {
+                    realmTopic = ModelTopic_realm(topic: topic)
+                }
+                topicsArray.append(realmTopic!)
+            }
+            
+        } catch let error as NSError {
+            print("Realm error: \(error.localizedDescription)")
+            return
+        }
+        
         topics.append(objectsIn: topicsArray)
     }
     
@@ -42,7 +60,7 @@ extension ModelModule_realm {
             newTopics.append(newTopic)
         }
         
-        var newModule = Module(id: id,
+        let newModule = Module(id: id,
                                name: name,
                                details: details,
                                topics: newTopics,

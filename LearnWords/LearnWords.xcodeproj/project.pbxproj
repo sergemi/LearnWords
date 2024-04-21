@@ -35,6 +35,8 @@
 		8F8948722BCC311B0070E699 /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948712BCC311B0070E699 /* RealmDataManager.swift */; };
 		8F8948792BCC7FDE0070E699 /* ModelsRealmConverting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948782BCC7FDE0070E699 /* ModelsRealmConverting.swift */; };
 		8F89487A2BCD91760070E699 /* MockDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89486A2BC858690070E699 /* MockDataManager.swift */; };
+		8F89487F2BD53A6A0070E699 /* RealmHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89487E2BD53A6A0070E699 /* RealmHelpers.swift */; };
+		8F8948822BD5A87A0070E699 /* RealmObjectWidthId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948812BD5A87A0070E699 /* RealmObjectWidthId.swift */; };
 		8FDA29ED299E4D9A00DD4003 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */; };
 		8FDA29EE299E4D9A00DD4003 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */; };
 		8FDA29F2299E4DA800DD4003 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29F0299E4DA700DD4003 /* Date+.swift */; };
@@ -135,6 +137,8 @@
 		8F89486E2BC862ED0070E699 /* DataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerTests.swift; sourceTree = "<group>"; };
 		8F8948712BCC311B0070E699 /* RealmDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
 		8F8948782BCC7FDE0070E699 /* ModelsRealmConverting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsRealmConverting.swift; sourceTree = "<group>"; };
+		8F89487E2BD53A6A0070E699 /* RealmHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelpers.swift; sourceTree = "<group>"; };
+		8F8948812BD5A87A0070E699 /* RealmObjectWidthId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObjectWidthId.swift; sourceTree = "<group>"; };
 		8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		8FDA29F0299E4DA700DD4003 /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
@@ -437,6 +441,22 @@
 			path = LearnTopic;
 			sourceTree = "<group>";
 		};
+		8F8948802BD5A8560070E699 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				8F8948812BD5A87A0070E699 /* RealmObjectWidthId.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		8F8948832BD5A8B20070E699 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				8F89487E2BD53A6A0070E699 /* RealmHelpers.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		8FDA29EA299E4D9A00DD4003 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,6 +488,7 @@
 		8FDA29F4299E4DB500DD4003 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8F8948832BD5A8B20070E699 /* Realm */,
 				8FDA29F5299E4DB500DD4003 /* KeyboardObserver.swift */,
 				8FF3E5F529A507AD00D64A0D /* RxHelpers.swift */,
 				8FDA29F6299E4DB500DD4003 /* Logger.swift */,
@@ -479,6 +500,7 @@
 		8FDA29FB299E4E8F00DD4003 /* BaseClasses */ = {
 			isa = PBXGroup;
 			children = (
+				8F8948802BD5A8560070E699 /* Realm */,
 				8FDA29FC299E4E8F00DD4003 /* BaseViewController.swift */,
 				8FDA29FD299E4E8F00DD4003 /* BaseViewModel.swift */,
 				8FDA29FE299E4E8F00DD4003 /* MainTabbarView.xib */,
@@ -817,6 +839,7 @@
 				8F85B680299AC16C0097657D /* AppDelegate.swift in Sources */,
 				8F8947FC2BC071390070E699 /* AutenticateCoordinator.swift in Sources */,
 				8FF3E5EC29A4D9A100D64A0D /* ModelWordPair_realm.swift in Sources */,
+				8F89487F2BD53A6A0070E699 /* RealmHelpers.swift in Sources */,
 				8FDA2A0B299E567C00DD4003 /* SettingsMainMenuViewController.swift in Sources */,
 				8FDA2A10299E6C9400DD4003 /* SettingsCoordinator.swift in Sources */,
 				8FF3E5EA29A4CC6200D64A0D /* EditModuleViewModel.swift in Sources */,
@@ -845,6 +868,7 @@
 				8FDA29F9299E4DB500DD4003 /* Logger.swift in Sources */,
 				8FDA2A3D299FBDD600DD4003 /* String+localization.swift in Sources */,
 				8FF3E5E829A43DAE00D64A0D /* UITextField+ext.swift in Sources */,
+				8F8948822BD5A87A0070E699 /* RealmObjectWidthId.swift in Sources */,
 				8FF3E60729AD608500D64A0D /* LearnTopicViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
