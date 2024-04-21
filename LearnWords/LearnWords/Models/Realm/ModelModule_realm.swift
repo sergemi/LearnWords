@@ -18,16 +18,21 @@ class ModelModule_realm: Object {
 }
 
 extension ModelModule_realm {
-    convenience init(module: Module) {
-        self.init()
-        id = module.id
+    func updateFrom(_ module: Module) {
         name = module.name
         details = module.details
         author = module.author
         isPublic = module.isPublic
         
+        topics.removeAll()
         let topicsArray = module.topics.map{ModelTopic_realm(topic: $0)}
         topics.append(objectsIn: topicsArray)
+    }
+    
+    convenience init(module: Module) {
+        self.init()
+        id = module.id
+        updateFrom(module)
     }
     
     var module: Module {

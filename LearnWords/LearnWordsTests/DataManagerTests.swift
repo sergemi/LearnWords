@@ -15,7 +15,8 @@ final class DataManagerTests: XCTestCase {
         let mockAuthManager = MockAuthManager()
         MockAuthManager.userId = "mocUser1@gmail.com"
         
-        dataManager = MockDataManager.instance
+//        dataManager = MockDataManager.instance
+        dataManager = RealmDataManager()
         dataManager.reset()
     }
 

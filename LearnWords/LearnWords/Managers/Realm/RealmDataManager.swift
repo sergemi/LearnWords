@@ -9,29 +9,93 @@ import Foundation
 import RealmSwift
 
 class RealmDataManager: DataManager {
-    var modules: [Module] = []
+    var modules: [Module] {
+        let realm = try! Realm()
+        let realmModules = realm.objects(ModelModule_realm.self)
+        
+        return realmModules.map{$0.module}
+        
+    }
     
     func reset() {
-        //TODO: implement
+        do {
+            let realm = try Realm()
+            
+            try realm.write {
+                realm.delete(realm.objects(ModelLearnedWord_realm.self))
+                realm.delete(realm.objects(ModelTopic_realm.self))
+                realm.delete(realm.objects(ModelModule_realm.self))
+                realm.delete(realm.objects(ModelWordPair_realm.self))
+            }
+        } catch let error as NSError {
+            print("Realm error: \(error.localizedDescription)")
+        }
     }
     
     func module(id: String) -> Module? {
-        let result = modules.first(where: {$0.id == id})
-        return result
+        do {
+            let realm = try Realm()
+            
+            guard let moduleRealm = realm.object(ofType: ModelModule_realm.self, forPrimaryKey: id) else {
+                return nil
+            }
+            return moduleRealm.module
+        } catch let error as NSError {
+            print("Realm error: \(error.localizedDescription)")
+        }
+        
+        return nil
     }
     
     func addModule(_ module: Module) -> Module? {
-        let module = Module(name: "aaa", details: "bbb", topics: [], author: AuthManager.userId ?? "guest", isPublic: true)
-        modules.append(module)
-        return nil // TODO: implement
+        let realmModule = ModelModule_realm(module: module)
+        
+        do {
+            let realm = try Realm()
+            
+            try realm.write {
+                realm.add(realmModule)
+            }
+            
+        } catch let error as NSError {
+            print("Realm error: \(error.localizedDescription)")
+        }
+            
+        return module
     }
     
     func updateModule(_ module: Module) -> Module? {
-        return nil // TODO: implement
+        do {
+            let realm = try Realm()
+            guard let moduleRealm = realm.object(ofType: ModelModule_realm.self, forPrimaryKey: module.id) else {
+                return nil
+            }
+            
+            try realm.write {
+                moduleRealm.updateFrom(module)
+            }
+        } catch let error as NSError {
+            print("Realm error: \(error.localizedDescription)")
+        }
+        
+        return module // TODO: implement
     }
     
     func deleteModule(_ module: Module) -> Module? {
-        return nil // TODO: implement
+        do {
+            let realm = try Realm()
+            
+            guard let moduleRealm = realm.object(ofType: ModelModule_realm.self, forPrimaryKey: module.id) else {
+                return nil
+            }
+            
+            try realm.write {
+                realm.delete(moduleRealm)
+            }
+        } catch let error as NSError {
+            print("Realm error: \(error.localizedDescription)")
+        }
+        return module
     }
     
     func topic(id: String) -> Topic? {
