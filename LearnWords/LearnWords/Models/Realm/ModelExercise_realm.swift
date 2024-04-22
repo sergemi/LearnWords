@@ -36,13 +36,18 @@ class ModelExercise_realm: EmbeddedObject {
 }
 
 extension ModelExercise_realm {
-    convenience init(exercise: Exercise) {
-        self.init()
-        self.id = exercise.id
+    func updateFrom(exercise: Exercise) {
         self.type = ExerciseType_realm(exerciseType: exercise.type)
         self.maxScore = exercise.maxScore
         self.correct = exercise.correct
         self.incorrect = exercise.incorrect
+    }
+    
+    convenience init(exercise: Exercise) {
+        self.init()
+        
+        self.id = exercise.id
+        updateFrom(exercise: exercise)
     }
     
     var exercise: Exercise {

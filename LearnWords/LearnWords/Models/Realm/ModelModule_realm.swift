@@ -24,7 +24,6 @@ extension ModelModule_realm {
         isPublic = module.isPublic
         
         topics.removeAll()
-//        let topicsArray = module.topics.map{ModelTopic_realm(topic: $0)}
         var topicsArray : [ModelTopic_realm] = []
         do {
             let realm = try Realm()

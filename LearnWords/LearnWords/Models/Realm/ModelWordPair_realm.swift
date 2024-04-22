@@ -22,14 +22,18 @@ class ModelWordPair_realm: RealmObjectWidthId {
 }
 
 extension ModelWordPair_realm {
-    convenience init(wordPair: WordPair) {
-        self.init()
-        
-        self.id = wordPair.id
+    func updateFrom(wordPair: WordPair) {
         self.target = wordPair.target
         self.translate = wordPair.translate
         self.pronounce = wordPair.pronounce
         self.notes = wordPair.notes
+    }
+    
+    convenience init(wordPair: WordPair) {
+        self.init()
+        
+        self.id = wordPair.id
+        updateFrom(wordPair: wordPair)
     }
     
     var wordPair: WordPair {

@@ -122,9 +122,6 @@ class RealmDataManager: DataManager {
         let topicRealm = ModelTopic_realm(topic: topic)
         do {
             let realm = try Realm()
-//            guard let moduleRealm = realm.object(ofType: ModelModule_realm.self, forPrimaryKey: moduleId) else {
-//                return nil
-//            }
             guard let moduleRealm = getRealmObject(realm: realm, objectType: ModelModule_realm.self, id: moduleId) else {
                 return nil
             }
@@ -159,7 +156,7 @@ class RealmDataManager: DataManager {
             print("Realm error: \(error.localizedDescription)")
             return nil
         }
-        return nil // TODO: implement
+        return nil
     }
     
     func deleteTopic(moduleId: String, topic: Topic) -> Module? {
@@ -173,7 +170,7 @@ class RealmDataManager: DataManager {
                 return nil
             }
             
-            guard var realmTopic = moduleRealm.topics.first(where: {$0.id == topic.id}) else {
+            guard let realmTopic = moduleRealm.topics.first(where: {$0.id == topic.id}) else {
                 return nil
             }
             
@@ -181,55 +178,102 @@ class RealmDataManager: DataManager {
                 moduleRealm.topics.remove(at: index)
                 realm.delete(realmTopic)
             }
-//            try realm.write {
-//                realm.delete(realmTopic)
-//            }
+            return moduleRealm.module
             
         } catch let error as NSError {
             print("Realm error: \(error.localizedDescription)")
             return nil
         }
-        return nil // TODO: implement
     }
     
     func learnedWord(id: String) -> LearnedWord? {
         do {
             let realm = try Realm()
+            
+            guard let word = realm.object(ofType: ModelLearnedWord_realm.self, forPrimaryKey: id) else {
+                return nil
+            }
+            return word.learnedWord
         } catch let error as NSError {
             print("Realm error: \(error.localizedDescription)")
             return nil
         }
-        return nil // TODO: implement
     }
     
     func addWord(topicId: String, word: LearnedWord) -> Topic? {
         do {
             let realm = try Realm()
+            
+            let realmLearnWord = ModelLearnedWord_realm(learnedWord: word)
+            
+            guard let realmTopic = getRealmObject(realm: realm,
+                                                  objectType: ModelTopic_realm.self,
+                                                  id: topicId) else {
+                return nil
+            }
+            try realm.write {
+                realmTopic.words.append(realmLearnWord)
+            }
+            return realmTopic.topic
+            
         } catch let error as NSError {
             print("Realm error: \(error.localizedDescription)")
             return nil
         }
-        return nil // TODO: implement
     }
     
     func updateWord(topicId: String, word: LearnedWord) -> Topic? {
         do {
             let realm = try Realm()
+            
+            guard let realmTopic = getRealmObject(realm: realm,
+                                                  objectType: ModelTopic_realm.self,
+                                                  id: topicId) else {
+                return nil
+            }
+            
+            guard let realmWord = getRealmObject(realm: realm,
+                                                 objectType: ModelLearnedWord_realm.self,
+                                                 id: word.id) else {
+                return nil
+            }
+            
+            try realm.write {
+                realmWord.updateFrom(word)
+            }
+            return realmTopic.topic
+            
         } catch let error as NSError {
             print("Realm error: \(error.localizedDescription)")
             return nil
         }
-        return nil // TODO: implement
     }
     
     func deleteWord(topicId: String, word: LearnedWord) -> Topic? {
         do {
             let realm = try Realm()
+            
+            guard let realmTopic = getRealmObject(realm: realm,
+                                                  objectType: ModelTopic_realm.self,
+                                                  id: topicId) else {
+                return nil
+            }
+            
+            guard let index = realmTopic.words.firstIndex(where: {$0.id == word.id}) else {
+                return nil
+            }
+            
+            let realmLearningWord = realmTopic.words[index]
+            
+            try realm.write {
+                realmTopic.words.remove(at: index)
+                realm.delete(realmLearningWord)
+            }
+            return realmTopic.topic
         } catch let error as NSError {
             print("Realm error: \(error.localizedDescription)")
             return nil
         }
-        return nil // TODO: implement
     }
     
     func word(id: String) -> WordPair? {

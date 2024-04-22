@@ -14,14 +14,36 @@ class ModelLearnedWord_realm: RealmObjectWidthId {
 }
 
 extension ModelLearnedWord_realm {
+    func updateFrom(_ learnedWord: LearnedWord) {
+        do {
+            let realm = try Realm()
+            
+            var wordPair = getRealmObject(realm: realm,
+                                                objectType: ModelWordPair_realm.self,
+                                                id: learnedWord.word.id)
+            if wordPair != nil {
+                wordPair?.updateFrom(wordPair: learnedWord.word)
+            }
+            else {
+                wordPair = ModelWordPair_realm(wordPair: learnedWord.word)
+            }
+            word = wordPair
+            
+            exercises.removeAll()
+            let exercisesArray = learnedWord.exercises.compactMap{ModelExercise_realm(exercise: $0)}
+            
+            exercises.append(objectsIn: exercisesArray)
+                
+        } catch let error as NSError {
+            print("Realm error: \(error.localizedDescription)")
+            return
+        }
+    }
+    
     convenience init( learnedWord: LearnedWord) {
         self.init()
         id = learnedWord.id
-        word = ModelWordPair_realm(wordPair: learnedWord.word)
-        
-        let exercisesArray = learnedWord.exercises.compactMap{ModelExercise_realm(exercise: $0)}
-        
-        exercises.append(objectsIn: exercisesArray)
+        updateFrom(learnedWord)
     }
     
     var learnedWord: LearnedWord {

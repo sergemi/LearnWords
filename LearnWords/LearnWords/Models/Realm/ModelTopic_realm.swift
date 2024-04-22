@@ -49,15 +49,6 @@ extension ModelTopic_realm {
         self.init()
         id = topic.id
         updateFrom(topic: topic)
-        
-//        name = topic.name
-//        details = topic.details
-        
-//        let wordsArray = topic.words.map{ModelLearnedWord_realm(learnedWord: $0)}
-//        words.append(objectsIn: wordsArray)
-//        
-//        let exercisesArray = topic.exercises.map{ExerciseType_realm(exerciseType: $0)}
-//        availablesExercises.append(objectsIn: exercisesArray)
     }
     
     var topic: Topic {
