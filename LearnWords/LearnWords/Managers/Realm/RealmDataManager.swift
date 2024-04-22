@@ -142,6 +142,19 @@ class RealmDataManager: DataManager {
     func updateTopic(moduleId: String, topic: Topic) -> Module? {
         do {
             let realm = try Realm()
+            
+            guard let moduleRealm = getRealmObject(realm: realm, objectType: ModelModule_realm.self, id: moduleId) else {
+                return nil
+            }
+            
+            guard let realmTopic = moduleRealm.topics.first(where: {$0.id == topic.id}) else {
+                return nil
+            }
+            
+            try realm.write {
+                realmTopic.updateFrom(topic: topic)
+            }
+            
         } catch let error as NSError {
             print("Realm error: \(error.localizedDescription)")
             return nil
@@ -152,6 +165,26 @@ class RealmDataManager: DataManager {
     func deleteTopic(moduleId: String, topic: Topic) -> Module? {
         do {
             let realm = try Realm()
+            guard let moduleRealm = realm.object(ofType: ModelModule_realm.self, forPrimaryKey: moduleId) else {
+                return nil
+            }
+            
+            guard let index = moduleRealm.topics.firstIndex(where: {$0.id == topic.id}) else {
+                return nil
+            }
+            
+            guard var realmTopic = moduleRealm.topics.first(where: {$0.id == topic.id}) else {
+                return nil
+            }
+            
+            try realm.write {
+                moduleRealm.topics.remove(at: index)
+                realm.delete(realmTopic)
+            }
+//            try realm.write {
+//                realm.delete(realmTopic)
+//            }
+            
         } catch let error as NSError {
             print("Realm error: \(error.localizedDescription)")
             return nil

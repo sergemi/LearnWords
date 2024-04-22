@@ -76,7 +76,6 @@ class EditModuleViewModel: UniversalTableViewModel {
             print("name: \(String(describing: (self.name.value) ?? ""))")
             print("details: \(String(describing: (self.details.value) ?? ""))")
             
-            //TODO
             self.module.name = self.name.value ?? ""
             self.module.details = self.details.value ?? ""
             if self.isNew {

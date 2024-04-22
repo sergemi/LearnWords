@@ -16,17 +16,48 @@ class ModelTopic_realm: RealmObjectWidthId {
 }
 
 extension ModelTopic_realm {
-    convenience init(topic: Topic) {
-        self.init()
-        id = topic.id
+    func updateFrom(topic: Topic) {
         name = topic.name
         details = topic.details
         
-        let wordsArray = topic.words.map{ModelLearnedWord_realm(learnedWord: $0)}
-        words.append(objectsIn: wordsArray)
+        words.removeAll()
+        var wordsArray: [ModelLearnedWord_realm] = []
         
+        do {
+            let realm = try Realm()
+            
+            for word in topic.words {
+                var realmWord = getRealmObject(realm: realm,
+                                               objectType: ModelLearnedWord_realm.self,
+                                               id: word.id)
+                if realmWord == nil {
+                    realmWord = ModelLearnedWord_realm(learnedWord: word)
+                }
+                wordsArray.append(realmWord!)
+            }
+        } catch let error as NSError {
+            print("Realm error: \(error.localizedDescription)")
+            return
+        }
+        
+        availablesExercises.removeAll()
         let exercisesArray = topic.exercises.map{ExerciseType_realm(exerciseType: $0)}
         availablesExercises.append(objectsIn: exercisesArray)
+    }
+    
+    convenience init(topic: Topic) {
+        self.init()
+        id = topic.id
+        updateFrom(topic: topic)
+        
+//        name = topic.name
+//        details = topic.details
+        
+//        let wordsArray = topic.words.map{ModelLearnedWord_realm(learnedWord: $0)}
+//        words.append(objectsIn: wordsArray)
+//        
+//        let exercisesArray = topic.exercises.map{ExerciseType_realm(exerciseType: $0)}
+//        availablesExercises.append(objectsIn: exercisesArray)
     }
     
     var topic: Topic {
