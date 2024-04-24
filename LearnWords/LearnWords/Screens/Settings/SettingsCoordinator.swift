@@ -48,8 +48,6 @@ class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocol {
     }
     
     func editMaterial() {
-//        let dataManager = MockDataManager.instance
-//        let dataManager = RealmDataManager()
         let dataManager = Config.instance.dataManager
         let editMaterialCoordinator = EditMaterialCoordinator(navigationController: navigationController,
                                                               dataManager: dataManager
