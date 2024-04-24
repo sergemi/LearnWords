@@ -9,6 +9,12 @@ import Foundation
 import RealmSwift
 
 class RealmDataManager: DataManager {
+    let realm: Realm
+    
+    init(realm: Realm) {
+        self.realm = realm
+    }
+    
     var modules: [Module] {
         let realm = try! Realm()
         let realmModules = realm.objects(ModelModule_realm.self)
@@ -151,7 +157,7 @@ class RealmDataManager: DataManager {
             try realm.write {
                 realmTopic.updateFrom(topic: topic)
             }
-            
+            return moduleRealm.module
         } catch let error as NSError {
             print("Realm error: \(error.localizedDescription)")
             return nil
@@ -283,17 +289,27 @@ class RealmDataManager: DataManager {
             print("Realm error: \(error.localizedDescription)")
             return nil
         }
-        return nil // TODO: implement
+        guard let word = realm.object(ofType: ModelWordPair_realm.self, forPrimaryKey: id) else {
+            return nil
+        }
+        return word.wordPair
     }
     
     func updateWord(learnedWordId: String, word: WordPair) -> LearnedWord? {
         do {
             let realm = try Realm()
+            
+            guard let realmLearnedWord = realm.object(ofType: ModelLearnedWord_realm.self, forPrimaryKey: learnedWordId) else {
+                return nil
+            }
+            try realm.write {
+                realmLearnedWord.word?.updateFrom(wordPair: word)
+            }
+            return realmLearnedWord.learnedWord
         } catch let error as NSError {
             print("Realm error: \(error.localizedDescription)")
             return nil
         }
-        return nil // TODO: implement
     }
     
     

@@ -37,6 +37,7 @@
 		8F89487A2BCD91760070E699 /* MockDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89486A2BC858690070E699 /* MockDataManager.swift */; };
 		8F89487F2BD53A6A0070E699 /* RealmHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89487E2BD53A6A0070E699 /* RealmHelpers.swift */; };
 		8F8948822BD5A87A0070E699 /* RealmObjectWidthId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948812BD5A87A0070E699 /* RealmObjectWidthId.swift */; };
+		8F8948852BD795530070E699 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948842BD795530070E699 /* Config.swift */; };
 		8FDA29ED299E4D9A00DD4003 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */; };
 		8FDA29EE299E4D9A00DD4003 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */; };
 		8FDA29F2299E4DA800DD4003 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29F0299E4DA700DD4003 /* Date+.swift */; };
@@ -139,6 +140,7 @@
 		8F8948782BCC7FDE0070E699 /* ModelsRealmConverting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsRealmConverting.swift; sourceTree = "<group>"; };
 		8F89487E2BD53A6A0070E699 /* RealmHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelpers.swift; sourceTree = "<group>"; };
 		8F8948812BD5A87A0070E699 /* RealmObjectWidthId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObjectWidthId.swift; sourceTree = "<group>"; };
+		8F8948842BD795530070E699 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		8FDA29F0299E4DA700DD4003 /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				8F8948702BCC30DA0070E699 /* Realm */,
 				8F89480F2BC328490070E699 /* AuthManager.swift */,
 				8F8948672BC847E60070E699 /* DataManager.swift */,
+				8F8948842BD795530070E699 /* Config.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -843,6 +846,7 @@
 				8FDA2A0B299E567C00DD4003 /* SettingsMainMenuViewController.swift in Sources */,
 				8FDA2A10299E6C9400DD4003 /* SettingsCoordinator.swift in Sources */,
 				8FF3E5EA29A4CC6200D64A0D /* EditModuleViewModel.swift in Sources */,
+				8F8948852BD795530070E699 /* Config.swift in Sources */,
 				8FF3E5FA29A64E8600D64A0D /* LearnModuleViewModel.swift in Sources */,
 				8F8947FF2BC0721E0070E699 /* LoginViewController.swift in Sources */,
 				8F8948052BC2D0AE0070E699 /* EditMaterialCoordinator.swift in Sources */,

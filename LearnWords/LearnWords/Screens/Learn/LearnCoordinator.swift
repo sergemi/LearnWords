@@ -44,7 +44,8 @@ class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocol {
         let nc = UINavigationController()
         self.strongNavigationController = nc
         self.navigationController = nc
-        self.dataManager = MockDataManager.instance
+//        self.dataManager = MockDataManager.instance
+        self.dataManager = Config.instance.dataManager
     }
     
     // MARK: - LearnCoordinatorProtocol

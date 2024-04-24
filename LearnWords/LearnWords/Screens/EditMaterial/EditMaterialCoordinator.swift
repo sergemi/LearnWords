@@ -47,7 +47,7 @@ class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProto
         self.navigationController = nc
         
 //        dataManager = MockDataManager.instance
-        dataManager = RealmDataManager()
+        dataManager = Config.instance.dataManager
     }
     
     // - MARK: CoordinatorProtocol

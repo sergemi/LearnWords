@@ -35,6 +35,7 @@ extension ModelTopic_realm {
                 }
                 wordsArray.append(realmWord!)
             }
+            words.append(objectsIn: wordsArray)
         } catch let error as NSError {
             print("Realm error: \(error.localizedDescription)")
             return

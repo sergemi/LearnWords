@@ -16,7 +16,12 @@ final class DataManagerTests: XCTestCase {
         MockAuthManager.userId = "mocUser1@gmail.com"
         
 //        dataManager = MockDataManager.instance
-        dataManager = RealmDataManager()
+//        dataManager = RealmDataManager()
+        
+        Config.instance.mode = .unitTests
+        Config.instance.dataBaseType = .realm
+        dataManager = Config.instance.dataManager
+        
         dataManager.reset()
     }
 

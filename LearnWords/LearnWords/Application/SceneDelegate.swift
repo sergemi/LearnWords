@@ -11,7 +11,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     var coordinator: CoordinatorProtocol? = nil
     var authManager: AuthManager? = nil
-    
     var navigationController = UINavigationController()
     
 //    func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
@@ -23,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
+        Config.instance.dataBaseType = .realm
 //        guard let _ = (scene as? UIWindowScene) else { return }
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
