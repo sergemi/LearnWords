@@ -21,21 +21,18 @@ class SettingsMainMenuViewModel: BaseViewModel {
     
     init() {
         _ = localBaseBtnObserver.bind(onNext: {_ in
-//            print("!localBaseBtnObserver!")
             let settingsURL = URL(string: UIApplication.openSettingsURLString)!
             UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
         }).disposed(by: disposeBag)
         
         _ = editWordsBtnObserver.bind(onNext: { [weak self] _ in
             print("!editWordsBtnObserver!")
-//            self?.settingsCoordinator?.selectModule()
             self?.settingsCoordinator?.editMaterial()
         }).disposed(by: disposeBag)
         
         _ = logoutBtnObserver.bind(onNext: { _ in
             print("!logoutBtnObserver!")
             
-//            AuthManager.logOut()
             DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(5)) {                     AuthManager.logOut()
             }
             
