@@ -87,18 +87,6 @@ class EditModuleViewModel: UniversalTableViewModel {
             self.isNew = false
             self.UpdateButtonsVisibility()
             self.haveRightBarBtn.accept(self.isAddBtnEnabled())
-            
-//            let realm = try! Realm()
-//            try! realm.write {
-//                self.module.name = self.name.value ?? ""
-//                self.module.details = self.details.value ?? ""
-//                if self.isNew {
-//                    realm.add(self.module)
-//                }
-//                self.isNew = false
-//                self.UpdateButtonsVisibility()
-//                self.haveRightBarBtn.accept(self.isAddBtnEnabled())
-//            }
         }).disposed(by: disposeBag)
         
         _ = addBtnObserver.bind(onNext: { [weak self] _ in
@@ -140,7 +128,6 @@ class EditModuleViewModel: UniversalTableViewModel {
     }
     
     override func reloadTableData(){
-//        let realm = try! Realm()
         guard let updatedModule = dataManager.module(id: module.id) else {
             return
         }
@@ -165,11 +152,6 @@ class EditModuleViewModel: UniversalTableViewModel {
         
         _ = dataManager.deleteTopic(moduleId: module.id, topic: topic)
         //TODO: show error
-    
-//        let realm = try! Realm()
-//        try! realm.write {
-//            module.topics.remove(at: index)
-//        }
         reloadTableData()
     }
 }

@@ -89,18 +89,6 @@ class EditTopicViewModel: UniversalTableViewModel {
             self.isNew = false
             self.UpdateButtonsVisibility()
             self.haveRightBarBtn.accept(self.isAddBtnEnabled())
-            
-//            let realm = try! Realm()
-//            try! realm.write {
-//                self.topic.name = self.name.value ?? ""
-//                self.topic.details = self.details.value ?? ""
-//                if self.isNew {
-//                    self.module.topics.append(self.topic)
-//                }
-//                self.isNew = false
-//                self.UpdateButtonsVisibility()
-//                self.haveRightBarBtn.accept(self.isAddBtnEnabled())
-//            }
         }).disposed(by: disposeBag)
         
         _ = addBtnObserver.bind(onNext: { [weak self] _ in
@@ -142,8 +130,6 @@ class EditTopicViewModel: UniversalTableViewModel {
     }
     
     override func reloadTableData(){
-//        let realm = try! Realm()
-        
         guard let updatedTopic = dataManager.topic(id: topic.id) else {
             return
         }
@@ -151,7 +137,6 @@ class EditTopicViewModel: UniversalTableViewModel {
         words = Array(topic.words)
         
         let wordRows = words.map{
-//            ModelTableViewCell(checkbox: .empty, title: $0.word?.target ?? "", showArrow: true)
             ModelTableViewCell(checkbox: .empty,
                                title: "\($0.word.target) - \($0.word.translate)",
                                showArrow: true)
@@ -168,10 +153,6 @@ class EditTopicViewModel: UniversalTableViewModel {
         let word = words[index]
         _ = dataManager.deleteWord(topicId: topic.id, word: word)
         //TODO: show error
-//        let realm = try! Realm()
-//        try! realm.write {
-//            topic.words.remove(at: index)
-//        }
         reloadTableData()
     }
 }

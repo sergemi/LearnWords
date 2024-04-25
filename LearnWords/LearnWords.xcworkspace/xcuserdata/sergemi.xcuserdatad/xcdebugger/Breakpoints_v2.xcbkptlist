@@ -1399,22 +1399,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B8A8923D-7AC6-4764-B2DD-7C18DE1BD4A0"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "bind()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "450596F5-5BBF-4E9D-8A42-1FA5C23DF55A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1470,8 +1454,8 @@
             filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "reloadTableData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1486,8 +1470,8 @@
             filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "reloadTableData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1502,8 +1486,8 @@
             filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "reloadTableData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1550,8 +1534,8 @@
             filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "reloadTableData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1745,22 +1729,6 @@
             startingLineNumber = "71"
             endingLineNumber = "71"
             landmarkName = "updateModule(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7987B73D-6831-4861-B370-E37611A9C949"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LearnWords/Screens/EditMaterial/EditModuleList/EditModuleListViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "reloadTableData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

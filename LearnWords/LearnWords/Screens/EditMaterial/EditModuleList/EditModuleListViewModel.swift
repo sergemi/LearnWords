@@ -41,12 +41,6 @@ class EditModuleListViewModel: UniversalTableViewModel {
     }
     
     override func reloadTableData(){
-//        let realm = try! Realm()
-//        modules = Array(realm.objects(ModelModule_realm.self))
-//        
-//        let modulesRows = modules.map{
-//            ModelTableViewCell(checkbox: .empty, title: $0.name, showArrow: true)
-//        }
         modules = dataManager.modules
         
         let modulesRows = modules.map{
@@ -70,13 +64,7 @@ class EditModuleListViewModel: UniversalTableViewModel {
         if dataManager.deleteModule(module) == nil {
             print("error deleting module")
             return
-        }
-        
-//        let moduleToDelete = modules[index]
-//        let realm = try! Realm()
-//        try! realm.write {
-//            realm.delete(moduleToDelete)
-//        }
+        }        
         reloadTableData()
     }
 }

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-//import RealmSwift
 
 class LearnModulesListViewModel: UniversalTableViewModel {
     var learnCoordinator: LearnCoordinatorProtocol? = nil
@@ -24,8 +23,6 @@ class LearnModulesListViewModel: UniversalTableViewModel {
     }
     
     override func reloadTableData(){
-//        let realm = try! Realm()
-//        modules = Array(realm.objects(ModelModule_realm.self))
         modules = dataManager.modules
         
         let modulesRows = modules.map{
