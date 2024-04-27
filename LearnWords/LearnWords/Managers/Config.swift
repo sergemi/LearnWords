@@ -32,6 +32,8 @@ class Config {
     
     private let realmFileNameRelease = "default"
     private let realmFileNameUnitTests = "UnitTests"
+    private let firebaseFileNameRelease = "default"
+    private let firebaseFileNameUnitTests = "UnitTests"
     
     lazy var realm: Realm = {
         let fileName = mode == .release ? realmFileNameRelease : realmFileNameUnitTests
@@ -45,6 +47,9 @@ class Config {
     
     lazy var dataManager: DataManager = {
         switch (dataBaseType) {
+        case .firebase:
+            return FirebaseDataManager(basePaht: firebaseBasePath)
+            
         case .realm:
             return RealmDataManager(realm: realm)
          
@@ -53,4 +58,14 @@ class Config {
             return MockDataManager.instance
         }
     }()
+    
+    var firebaseBasePath:String {
+        switch(mode) {
+        case .release:
+            return firebaseFileNameRelease
+            
+        case .unitTests:
+            return firebaseFileNameUnitTests
+        }
+    }
 }

@@ -23,7 +23,7 @@ class LearnModulesListViewModel: UniversalTableViewModel {
     }
     
     override func reloadTableData(){
-        modules = dataManager.modules
+        modules = []//dataManager.modules // todo: sergemi
         
         let modulesRows = modules.map{
             ModelTableViewCell(checkbox: .hiden, title: $0.name, showArrow: true)

@@ -38,6 +38,7 @@
 		8F89487F2BD53A6A0070E699 /* RealmHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89487E2BD53A6A0070E699 /* RealmHelpers.swift */; };
 		8F8948822BD5A87A0070E699 /* RealmObjectWidthId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948812BD5A87A0070E699 /* RealmObjectWidthId.swift */; };
 		8F8948852BD795530070E699 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948842BD795530070E699 /* Config.swift */; };
+		8F8948872BDAAB150070E699 /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948862BDAAB150070E699 /* FirebaseDataManager.swift */; };
 		8FDA29ED299E4D9A00DD4003 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */; };
 		8FDA29EE299E4D9A00DD4003 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */; };
 		8FDA29F2299E4DA800DD4003 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29F0299E4DA700DD4003 /* Date+.swift */; };
@@ -141,6 +142,7 @@
 		8F89487E2BD53A6A0070E699 /* RealmHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelpers.swift; sourceTree = "<group>"; };
 		8F8948812BD5A87A0070E699 /* RealmObjectWidthId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObjectWidthId.swift; sourceTree = "<group>"; };
 		8F8948842BD795530070E699 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		8F8948862BDAAB150070E699 /* FirebaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
 		8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		8FDA29F0299E4DA700DD4003 /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				8F8948702BCC30DA0070E699 /* Realm */,
 				8F89480F2BC328490070E699 /* AuthManager.swift */,
 				8F8948672BC847E60070E699 /* DataManager.swift */,
+				8F8948862BDAAB150070E699 /* FirebaseDataManager.swift */,
 				8F8948842BD795530070E699 /* Config.swift */,
 			);
 			path = Managers;
@@ -809,6 +812,7 @@
 			files = (
 				8FDA2A0E299E569400DD4003 /* SettingsMainMenuViewModel.swift in Sources */,
 				8F8948642BC83BED0070E699 /* Topic.swift in Sources */,
+				8F8948872BDAAB150070E699 /* FirebaseDataManager.swift in Sources */,
 				8F8948102BC328490070E699 /* AuthManager.swift in Sources */,
 				8F89485E2BC81AA40070E699 /* WordPair.swift in Sources */,
 				8FDA29FA299E4DB500DD4003 /* DateFormatter.swift in Sources */,
