@@ -134,14 +134,15 @@ class EditTopicViewModel: UniversalTableViewModel {
             return
         }
         topic = updatedTopic
-        words = Array(topic.words)
+        // TODO
+//        words = Array(topic.words)
         
-        let wordRows = words.map{
-            ModelTableViewCell(checkbox: .empty,
-                               title: "\($0.word.target) - \($0.word.translate)",
-                               showArrow: true)
-        }
-        rows.accept(wordRows)
+//        let wordRows = words.map{
+//            ModelTableViewCell(checkbox: .empty,
+//                               title: "\($0.word.target) - \($0.word.translate)",
+//                               showArrow: true)
+//        }
+//        rows.accept(wordRows)
     }
     
     override func selectRow(index: Int) {

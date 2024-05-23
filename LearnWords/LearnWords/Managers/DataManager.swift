@@ -7,8 +7,14 @@
 
 import Foundation
 
+//import RxSwift
+//import RxCocoa
+
 protocol DataManager {
-    var modules: [Module] {get}
+//    var modules: [Module] {get}
+//    var modules: [ModulePreload] {get}
+//    var modules: BehaviorRelay<[ModulePreload]> {get}
+    var modules: [ModulePreload] { get async }
     
     func reset() // delete all data. empty manager as result
     

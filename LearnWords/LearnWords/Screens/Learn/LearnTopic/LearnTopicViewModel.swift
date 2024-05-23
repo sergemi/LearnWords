@@ -29,14 +29,16 @@ class LearnTopicViewModel: UniversalTableViewModel {
     }
     
     override func reloadTableData(){
-        words = Array(topic.words)
-        
-        let wordsRows = words.map{
-            ModelTableViewCell(checkbox: .checked,
-                               title: "\($0.word.target) - \($0.word.translate)",
-                               percent: 0,
-                               showArrow: true)
-        }
-        rows.accept(wordsRows)
+        // TODO
+        words = []
+        //words = Array(topic.words)
+//        
+//        let wordsRows = words.map{
+//            ModelTableViewCell(checkbox: .checked,
+//                               title: "\($0.word.target) - \($0.word.translate)",
+//                               percent: 0,
+//                               showArrow: true)
+//        }
+//        rows.accept(wordsRows)
     }
 }

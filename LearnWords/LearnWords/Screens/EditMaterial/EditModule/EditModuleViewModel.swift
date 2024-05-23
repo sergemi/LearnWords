@@ -133,7 +133,8 @@ class EditModuleViewModel: UniversalTableViewModel {
         }
         
         module = updatedModule
-        topics = Array(module.topics)
+        // TODO
+//        topics = Array(module.topics)
         
         let topicsRows = topics.map{
             ModelTableViewCell(checkbox: .empty, title: $0.name, showArrow: true)

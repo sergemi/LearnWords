@@ -37,6 +37,7 @@ struct Exercise {
     }
     
     init() {
+        print("TODO: Exercise better init by concrete type")
         self.init(type: .choseTranslate, maxScore: 0)
     }
 }

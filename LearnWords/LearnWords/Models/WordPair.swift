@@ -32,6 +32,7 @@ struct WordPair {
     }
     
     init() {
+        print("TODO: WordPair better init by concrete type")
         self.init(target: "", translate: "", pronounce: "", notes: "")
     }
 }

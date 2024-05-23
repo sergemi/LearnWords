@@ -29,7 +29,8 @@ class LearnModuleViewModel: UniversalTableViewModel {
     }
     
     override func reloadTableData(){
-        topics = Array(module.topics)
+        // TODO
+//        topics = Array(module.topics)
         
         let topicsRows = topics.map{
             ModelTableViewCell(checkbox: .empty, title: $0.name, showArrow: true)

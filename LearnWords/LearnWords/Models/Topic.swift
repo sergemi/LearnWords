@@ -15,6 +15,7 @@ struct Topic {
     var words: [LearnedWord]
     var exercises: [ExerciseType]
     
+//    init(id: String, name: String, details: String, words: [LearnedWord], exercises: [ExerciseType]) {
     init(id: String, name: String, details: String, words: [LearnedWord], exercises: [ExerciseType]) {
         self.id = id
         self.name = name
@@ -23,6 +24,7 @@ struct Topic {
         self.exercises = exercises
     }
     
+//    init (name: String, details: String, words: [LearnedWord], exercises: [ExerciseType]) {
     init (name: String, details: String, words: [LearnedWord], exercises: [ExerciseType]) {
         self.init(id: UUID().uuidString,
                   name: name,

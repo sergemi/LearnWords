@@ -11,7 +11,19 @@ import Foundation
 class MockDataManager: DataManager {
     static let instance = MockDataManager()
     
-    var modules: [LearnWords.Module] = []
+//    var modules: [LearnWords.Module] = []
+    
+    private var storedModulesPreload: [ModulePreload] = []
+    private var storedModules: [Module] = []
+    
+    var modules: [ModulePreload] {
+            get async {
+                // Асинхронная операция, например, загрузка данных
+                // В данном случае просто задержка для имитации асинхронной работы
+                try? await Task.sleep(nanoseconds: 1_000_000_000) // 1 секунда задержки
+                return storedModulesPreload
+            }
+        }
     
     private init() {
         
@@ -19,53 +31,62 @@ class MockDataManager: DataManager {
     
     // MARK - DataManager
     func reset() {
-        modules = []
+        storedModulesPreload = []
+        storedModules = []
     }
     
     func module(id: String) -> LearnWords.Module? {
-        let module = modules.first{$0.id == id}
-        return module
+        return nil // TODO:
+//        let module = modules.first{$0.id == id}
+//        return module
     }
     
     func addModule(_ module: LearnWords.Module) -> LearnWords.Module? {
-        modules.append(module)
-        return module
+        return nil // TODO:
+        
+//        modules.append(module)
+//        return module
     }
     
     func updateModule(_ module: Module) -> LearnWords.Module? {
-        guard let index = modules.firstIndex(where: {$0.id == module.id}) else {
-            return nil
-        }
-        
-        modules[index] = module
-        return modules[index]
+        return nil // TODO:
+//        guard let index = modules.firstIndex(where: {$0.id == module.id}) else {
+//            return nil
+//        }
+//        
+//        modules[index] = module
+//        return modules[index]
     }
     
     func deleteModule(_ module: Module) -> LearnWords.Module? {
-        guard let index = modules.firstIndex(where: {$0.id == module.id}) else {
-            return nil
-        }
-        return modules.remove(at: index)
+        return nil // TODO:
+//        guard let index = modules.firstIndex(where: {$0.id == module.id}) else {
+//            return nil
+//        }
+//        return modules.remove(at: index)
     }
     
     // topics
     func topic(id: String) -> Topic? {
-        for module in modules {
-            if let topic = module.topics.first(where: {$0.id == id}) {
-                return topic
-            }
-        }
+        return nil // TODO:
         
-        return nil
+//        for module in modules {
+//            if let topic = module.topics.first(where: {$0.id == id}) {
+//                return topic
+//            }
+//        }
+//        
+//        return nil
     }
     
     fileprivate func topic(id: String) -> (Topic, Module)? {
-        for module in modules {
-            if let topic = module.topics.first(where: {$0.id == id}) {
-                return (topic, module)
-            }
-        }
-        return nil
+        return nil // TODO:
+//        for module in modules {
+//            if let topic = module.topics.first(where: {$0.id == id}) {
+//                return (topic, module)
+//            }
+//        }
+//        return nil
     }
     
     func addTopic(moduleId: String, topic: Topic) -> Module? {
@@ -111,16 +132,17 @@ class MockDataManager: DataManager {
     // LearnedWords
     
     func learnedWord(id: String) -> LearnedWord? {
-        for module in modules {
-            for topic in module.topics {
-                guard let word = topic.words.first(where: {$0.id == id}) else {
-                    break
-                }
-                return word
-            }
-        }
-        
-        return nil
+        return nil // TODO:
+//        for module in modules {
+//            for topic in module.topics {
+//                guard let word = topic.words.first(where: {$0.id == id}) else {
+//                    break
+//                }
+//                return word
+//            }
+//        }
+//        
+//        return nil
     }
     
     func addWord(topicId: String, word: LearnedWord) -> Topic? {
@@ -167,36 +189,38 @@ class MockDataManager: DataManager {
     //WordPair
     
     func word(id: String) -> WordPair? {
-        for module in modules {
-            for topic in module.topics {
-                for learnedWord in topic.words {
-                    if learnedWord.word.id == id {
-                        return learnedWord.word
-                    }
-                }
-            }
-        }
-        
-        return nil
+        return nil // TODO:
+//        for module in modules {
+//            for topic in module.topics {
+//                for learnedWord in topic.words {
+//                    if learnedWord.word.id == id {
+//                        return learnedWord.word
+//                    }
+//                }
+//            }
+//        }
+//        
+//        return nil
     }
     
     func updateWord(learnedWordId: String, word: WordPair) -> LearnedWord? {
-        for module in modules {
-            for topic in module.topics {
-                for learnedWord in topic.words {
-                    if learnedWord.id == learnedWordId {
-                        var workWord = learnedWord
-                        workWord.word = word
-                        if( updateWord(topicId: topic.id, word: workWord) != nil ) {
-                            return learnedWord
-                        }
-                        else {
-                            return nil
-                        }
-                    }
-                }
-            }
-        }
-        return nil
+        return nil // TODO:
+//        for module in modules {
+//            for topic in module.topics {
+//                for learnedWord in topic.words {
+//                    if learnedWord.id == learnedWordId {
+//                        var workWord = learnedWord
+//                        workWord.word = word
+//                        if( updateWord(topicId: topic.id, word: workWord) != nil ) {
+//                            return learnedWord
+//                        }
+//                        else {
+//                            return nil
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        return nil
     }
 }

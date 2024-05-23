@@ -15,24 +15,25 @@ class ModelLearnedWord_realm: RealmObjectWidthId {
 
 extension ModelLearnedWord_realm {
     func updateFrom(_ learnedWord: LearnedWord) {
+        //TODO
         do {
-            let realm = try Realm()
-            
-            var wordPair = getRealmObject(realm: realm,
-                                                objectType: ModelWordPair_realm.self,
-                                                id: learnedWord.word.id)
-            if wordPair != nil {
-                wordPair?.updateFrom(wordPair: learnedWord.word)
-            }
-            else {
-                wordPair = ModelWordPair_realm(wordPair: learnedWord.word)
-            }
-            word = wordPair
-            
-            exercises.removeAll()
-            let exercisesArray = learnedWord.exercises.compactMap{ModelExercise_realm(exercise: $0)}
-            
-            exercises.append(objectsIn: exercisesArray)
+//            let realm = try Realm()
+//            
+//            var wordPair = getRealmObject(realm: realm,
+//                                                objectType: ModelWordPair_realm.self,
+//                                                id: learnedWord.word.id)
+//            if wordPair != nil {
+//                wordPair?.updateFrom(wordPair: learnedWord.word)
+//            }
+//            else {
+//                wordPair = ModelWordPair_realm(wordPair: learnedWord.word)
+//            }
+//            word = wordPair
+//            
+//            exercises.removeAll()
+//            let exercisesArray = learnedWord.exercises.compactMap{ModelExercise_realm(exercise: $0)}
+//            
+//            exercises.append(objectsIn: exercisesArray)
                 
         } catch let error as NSError {
             print("Realm error: \(error.localizedDescription)")
@@ -47,6 +48,7 @@ extension ModelLearnedWord_realm {
     }
     
     var learnedWord: LearnedWord {
+//        return LearnedWord(wordPairId: "abc", exerciseId: []) // todo
         var exercisesArray = [Exercise]()
         for exerciseRealm in exercises {
             let exercise = exerciseRealm.exercise

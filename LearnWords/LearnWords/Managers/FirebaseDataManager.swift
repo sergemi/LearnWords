@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseDatabase
 
-
+/*
 class FirebaseDataManager: DataManager {
     private let baseRef: DatabaseReference
     
@@ -22,9 +22,11 @@ class FirebaseDataManager: DataManager {
     }
     
     // MARK: - DataManager
-    var modules: [Module] {
-        let itemsRef = baseRef.child(dbKeys.modules)
-        return []
+    var modules: [ModulePreload] {
+        return [] // TODO
+        
+//        let itemsRef = baseRef.child(dbKeys.modules)
+//        return []
     }
     
     func reset() {
@@ -103,3 +105,4 @@ class FirebaseDataManager: DataManager {
     
     
 }
+*/

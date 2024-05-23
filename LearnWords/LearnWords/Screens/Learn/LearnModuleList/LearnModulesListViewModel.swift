@@ -22,13 +22,14 @@ class LearnModulesListViewModel: UniversalTableViewModel {
         canSelect.accept(true)
     }
     
-    override func reloadTableData(){
-        modules = []//dataManager.modules // todo: sergemi
-        
-        let modulesRows = modules.map{
-            ModelTableViewCell(checkbox: .hiden, title: $0.name, showArrow: true)
-        }
-        rows.accept(modulesRows)
+    override func reloadTableData() {
+        return // TODO:
+//        modules = dataManager.modules
+//        
+//        let modulesRows = modules.map{
+//            ModelTableViewCell(checkbox: .hiden, title: $0.name, showArrow: true)
+//        }
+//        rows.accept(modulesRows)
     }
     
     override func selectRow(index: Int) {

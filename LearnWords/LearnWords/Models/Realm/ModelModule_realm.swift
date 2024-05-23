@@ -18,32 +18,33 @@ class ModelModule_realm: RealmObjectWidthId {
 
 extension ModelModule_realm {
     func updateFrom(_ module: Module) {
-        name = module.name
-        details = module.details
-        author = module.author
-        isPublic = module.isPublic
-        
-        topics.removeAll()
-        var topicsArray : [ModelTopic_realm] = []
-        do {
-            let realm = try Realm()
-            
-            for topic in module.topics {
-                var realmTopic = getRealmObject(realm: realm,
-                                                   objectType: ModelTopic_realm.self,
-                                                   id: topic.id)
-                if realmTopic == nil {
-                    realmTopic = ModelTopic_realm(topic: topic)
-                }
-                topicsArray.append(realmTopic!)
-            }
-            
-        } catch let error as NSError {
-            print("Realm error: \(error.localizedDescription)")
-            return
-        }
-        
-        topics.append(objectsIn: topicsArray)
+        // TODO
+//        name = module.name
+//        details = module.details
+//        author = module.author
+//        isPublic = module.isPublic
+//        
+//        topics.removeAll()
+//        var topicsArray : [ModelTopic_realm] = []
+//        do {
+//            let realm = try Realm()
+//            
+//            for topic in module.topics {
+//                var realmTopic = getRealmObject(realm: realm,
+//                                                   objectType: ModelTopic_realm.self,
+//                                                   id: topic.id)
+//                if realmTopic == nil {
+//                    realmTopic = ModelTopic_realm(topic: topic)
+//                }
+//                topicsArray.append(realmTopic!)
+//            }
+//            
+//        } catch let error as NSError {
+//            print("Realm error: \(error.localizedDescription)")
+//            return
+//        }
+//        
+//        topics.append(objectsIn: topicsArray)
     }
     
     convenience init(module: Module) {
@@ -53,19 +54,22 @@ extension ModelModule_realm {
     }
     
     var module: Module {
-        var newTopics = [Topic]()
-        for topic in topics {
-            let newTopic = topic.topic
-            newTopics.append(newTopic)
-        }
+        // TODO
+        return Module()
         
-        let newModule = Module(id: id,
-                               name: name,
-                               details: details,
-                               topics: newTopics,
-                               author: author,
-                               isPublic: isPublic)
-        
-        return newModule
+//        var newTopics = [Topic]()
+//        for topic in topics {
+//            let newTopic = topic.topic
+//            newTopics.append(newTopic)
+//        }
+//        
+//        let newModule = Module(id: id,
+//                               name: name,
+//                               details: details,
+//                               topics: newTopics,
+//                               author: author,
+//                               isPublic: isPublic)
+//        
+//        return newModule
     }
 }

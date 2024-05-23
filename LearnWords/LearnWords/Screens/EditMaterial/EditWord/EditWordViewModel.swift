@@ -16,7 +16,7 @@ class EditWordViewModel: BaseViewModel {
     
     var isNew = true
     var topic: Topic
-    var learnedWord: LearnedWord
+    var learnedWord: LearnedWord?
     
     let title = BehaviorRelay<String?>(value: "")
     let rightBarBtnCaption = BehaviorRelay<String?>(value: "Add")
@@ -28,7 +28,7 @@ class EditWordViewModel: BaseViewModel {
     let translate = BehaviorRelay<String?>(value: "")
     let notes = BehaviorRelay<String?>(value: "")
     
-    init(dataManager: DataManager, topic: Topic, learnedWord: LearnedWord, isNew: Bool = false) {
+    init(dataManager: DataManager, topic: Topic, learnedWord: LearnedWord? = nil, isNew: Bool = true) {
         self.dataManager = dataManager
         self.topic = topic
         self.learnedWord = learnedWord
@@ -37,6 +37,15 @@ class EditWordViewModel: BaseViewModel {
         bind()
         UpdateButtonsVisibility()
         
+        if let learnedWord = learnedWord {
+            updateUiFrom(learnedWord: learnedWord)
+        }
+        else {
+            self.learnedWord = LearnedWord()
+        }
+    }
+    
+    private func updateUiFrom(learnedWord: LearnedWord) {
         let wordPair = learnedWord.word
         target.accept(wordPair.target)
         pronounce.accept(wordPair.pronounce)
@@ -44,35 +53,43 @@ class EditWordViewModel: BaseViewModel {
         notes.accept(wordPair.notes)
     }
     
-    convenience init(dataManager: DataManager, topic: Topic) {
-        self.init(dataManager: dataManager, topic: topic,
-                  learnedWord: LearnedWord(word: WordPair(target: "",
-                                                          translate: "",
-                                                          pronounce: "",
-                                                          notes: ""),
-                                           exercises: []),
-                  isNew: true)
+    private func updateLearnedWordFromUi() {
+        learnedWord?.word.target = self.target.value ?? ""
+        learnedWord?.word.pronounce = self.pronounce.value ?? ""
+        learnedWord?.word.notes = self.notes.value ?? ""
+        learnedWord?.word.translate = self.translate.value ?? ""
     }
+    
+//    convenience init(dataManager: DataManager, topic: Topic) {
+//        
+//        self.init(dataManager: dataManager, topic: topic,
+//                  learnedWord:
+//                    LearnedWord(word: WordPair(target: "",
+//                                                          translate: "",
+//                                                          pronounce: "",
+//                                                          notes: "")
+//                                ,
+//                                           exercises: []),
+//                  isNew: true)
+//    }
     
     fileprivate func bind() {
         _ = rightBtnObserver.bind(onNext: { [weak self] _ in
-            guard let self = self else {
+            guard let self = self, let learnedWord = self.learnedWord else {
                 return
             }
             print("++ Save word ++")
             print("target: \(String(describing: (self.target.value) ?? ""))")
             print("translate: \(String(describing: (self.translate.value) ?? ""))")
-            self.learnedWord.word.target = self.target.value ?? ""
-            self.learnedWord.word.pronounce = self.pronounce.value ?? ""
-            self.learnedWord.word.notes = self.notes.value ?? ""
-            self.learnedWord.word.translate = self.translate.value ?? ""
+        
+            updateLearnedWordFromUi()
             if self.isNew {
-                let res = self.dataManager.addWord(topicId: self.topic.id, word: self.learnedWord)
+                let res = self.dataManager.addWord(topicId: self.topic.id, word: learnedWord)
                 // TODO: show error
                 print(res)
             }
             else {
-                let res = self.dataManager.updateWord(topicId: self.topic.id, word: self.learnedWord)
+                let res = self.dataManager.updateWord(topicId: self.topic.id, word: learnedWord)
                 // TODO: show error
                 print(res)
             }
@@ -135,7 +152,9 @@ class EditWordViewModel: BaseViewModel {
             return true
         }
         else {
-            let word = learnedWord.word
+            guard let word = learnedWord?.word else {
+                return false
+            }
             return word.target != targetVal || word.translate != translateVal || word.pronounce != pronounce.value || word.notes != notes.value
         }
     }

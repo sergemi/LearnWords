@@ -41,16 +41,17 @@ class EditModuleListViewModel: UniversalTableViewModel {
     }
     
     override func reloadTableData(){
-        modules = dataManager.modules
-        
-        let modulesRows = modules.map{
-            ModelTableViewCell(checkbox: .empty,
-                               title: $0.name,
-                               showArrow: true
-            )
-        }
-        
-        rows.accept(modulesRows)
+        return // TODO:
+//        modules = dataManager.modules
+//        
+//        let modulesRows = modules.map{
+//            ModelTableViewCell(checkbox: .empty,
+//                               title: $0.name,
+//                               showArrow: true
+//            )
+//        }
+//        
+//        rows.accept(modulesRows)
     }
     
     override func selectRow(index: Int) {

@@ -39,6 +39,8 @@
 		8F8948822BD5A87A0070E699 /* RealmObjectWidthId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948812BD5A87A0070E699 /* RealmObjectWidthId.swift */; };
 		8F8948852BD795530070E699 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948842BD795530070E699 /* Config.swift */; };
 		8F8948872BDAAB150070E699 /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948862BDAAB150070E699 /* FirebaseDataManager.swift */; };
+		8F8948892BDE79CC0070E699 /* TopicPreload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8948882BDE79CC0070E699 /* TopicPreload.swift */; };
+		8F89488B2BDE8D070070E699 /* ModulePreload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89488A2BDE8D070070E699 /* ModulePreload.swift */; };
 		8FDA29ED299E4D9A00DD4003 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */; };
 		8FDA29EE299E4D9A00DD4003 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */; };
 		8FDA29F2299E4DA800DD4003 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA29F0299E4DA700DD4003 /* Date+.swift */; };
@@ -143,6 +145,8 @@
 		8F8948812BD5A87A0070E699 /* RealmObjectWidthId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObjectWidthId.swift; sourceTree = "<group>"; };
 		8F8948842BD795530070E699 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		8F8948862BDAAB150070E699 /* FirebaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
+		8F8948882BDE79CC0070E699 /* TopicPreload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicPreload.swift; sourceTree = "<group>"; };
+		8F89488A2BDE8D070070E699 /* ModulePreload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulePreload.swift; sourceTree = "<group>"; };
 		8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		8FDA29F0299E4DA700DD4003 /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
@@ -624,6 +628,8 @@
 				8F89485B2BC803E20070E699 /* UI */,
 				8F89485D2BC81AA40070E699 /* WordPair.swift */,
 				8F8948632BC83BED0070E699 /* Topic.swift */,
+				8F8948882BDE79CC0070E699 /* TopicPreload.swift */,
+				8F89488A2BDE8D070070E699 /* ModulePreload.swift */,
 				8F8948652BC83DE80070E699 /* Module.swift */,
 				8F8948612BC8393B0070E699 /* LearnedWord.swift */,
 				8F89485F2BC832D60070E699 /* Exercise.swift */,
@@ -811,6 +817,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FDA2A0E299E569400DD4003 /* SettingsMainMenuViewModel.swift in Sources */,
+				8F89488B2BDE8D070070E699 /* ModulePreload.swift in Sources */,
 				8F8948642BC83BED0070E699 /* Topic.swift in Sources */,
 				8F8948872BDAAB150070E699 /* FirebaseDataManager.swift in Sources */,
 				8F8948102BC328490070E699 /* AuthManager.swift in Sources */,
@@ -829,6 +836,7 @@
 				8F8948602BC832D60070E699 /* Exercise.swift in Sources */,
 				8FF3E5E429A43C0400D64A0D /* CustomTextField.swift in Sources */,
 				8F8948682BC847E60070E699 /* DataManager.swift in Sources */,
+				8F8948892BDE79CC0070E699 /* TopicPreload.swift in Sources */,
 				8FF3E5F029A4DE6400D64A0D /* ModelLearnedWord_realm.swift in Sources */,
 				8FF3E60529AAD0BD00D64A0D /* CustomTextView.swift in Sources */,
 				8FDA2A05299E4E8F00DD4003 /* BaseViewFromNib.swift in Sources */,
