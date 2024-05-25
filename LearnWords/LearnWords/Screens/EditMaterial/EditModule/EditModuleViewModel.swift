@@ -72,21 +72,53 @@ class EditModuleViewModel: UniversalTableViewModel {
             guard let self = self else {
                 return
             }
-            print("++ Save Module ++")
+            print("++ Saving Module ++")
             print("name: \(String(describing: (self.name.value) ?? ""))")
             print("details: \(String(describing: (self.details.value) ?? ""))")
             
             self.module.name = self.name.value ?? ""
             self.module.details = self.details.value ?? ""
-            if self.isNew {
-                _ = dataManager.addModule(self.module)
+            
+            //
+            Task {
+                do {
+                    if self.isNew {
+                        try await self.dataManager.addModule(self.module)
+                        
+                        self.isNew = false
+                        DispatchQueue.main.async {
+                            self.UpdateButtonsVisibility()
+                            self.haveRightBarBtn.accept(self.isAddBtnEnabled())
+                        }
+                    }
+                    else {
+                        try await self.dataManager.updateModule(self.module)
+                        
+                        self.isNew = false
+                        DispatchQueue.main.async {
+                            self.UpdateButtonsVisibility()
+                            self.haveRightBarBtn.accept(self.isAddBtnEnabled())
+                        }
+                    }
+                } catch {
+                    if let error = error as? LocalizedError {
+                        print(error.localizedDescription)
+                    } else {
+                        print("An unexpected error occurred: \(error)")
+                    }
+                }
             }
-            else {
-                _ = dataManager.updateModule(self.module)
-            }
-            self.isNew = false
-            self.UpdateButtonsVisibility()
-            self.haveRightBarBtn.accept(self.isAddBtnEnabled())
+            //
+//            if self.isNew {
+//                _ = dataManager.addModule(self.module)
+//            }
+//            else {
+//                _ = dataManager.updateModule(self.module)
+//            }
+            //
+//            self.isNew = false
+//            self.UpdateButtonsVisibility()
+//            self.haveRightBarBtn.accept(self.isAddBtnEnabled())
         }).disposed(by: disposeBag)
         
         _ = addBtnObserver.bind(onNext: { [weak self] _ in
@@ -128,6 +160,8 @@ class EditModuleViewModel: UniversalTableViewModel {
     }
     
     override func reloadTableData(){
+        //todo
+        /*
         guard let updatedModule = dataManager.module(id: module.id) else {
             return
         }
@@ -140,6 +174,7 @@ class EditModuleViewModel: UniversalTableViewModel {
             ModelTableViewCell(checkbox: .empty, title: $0.name, showArrow: true)
         }
         rows.accept(topicsRows)
+         */
     }
     
     override func selectRow(index: Int) {

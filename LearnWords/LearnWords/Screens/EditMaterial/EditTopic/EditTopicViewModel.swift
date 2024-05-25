@@ -130,10 +130,10 @@ class EditTopicViewModel: UniversalTableViewModel {
     }
     
     override func reloadTableData(){
-        guard let updatedTopic = dataManager.topic(id: topic.id) else {
-            return
-        }
-        topic = updatedTopic
+//        guard let updatedTopic = dataManager.topic(id: topic.id) else {
+//            return
+//        }
+//        topic = updatedTopic
         // TODO
 //        words = Array(topic.words)
         

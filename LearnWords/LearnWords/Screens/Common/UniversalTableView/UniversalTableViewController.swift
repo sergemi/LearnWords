@@ -121,7 +121,9 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
         }).disposed(by: disposeBag)
         
         _ = viewModel.rows.subscribe(onNext: {[weak self] value in
-            self?.tableView.reloadData()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }).disposed(by: disposeBag)
         
         _ = viewModel.haveRightBarBtn.subscribe(onNext: { [weak self] value in

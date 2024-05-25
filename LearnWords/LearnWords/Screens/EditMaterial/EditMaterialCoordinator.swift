@@ -10,7 +10,7 @@ import UIKit
 protocol EditMaterialCoordinatorProtocol: AnyObject {
     func selectModule()
     func addModule()
-    func editModule(_ module: Module)
+    func editModule(_ id: String)
     func addTopic(module: Module)
     func editTopic(module: Module, topic: Topic)
     func editWord(topic: Topic)
@@ -75,11 +75,28 @@ class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProto
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func editModule(_ module: Module) {
-        let model = EditModuleViewModel(dataManager: dataManager, module: module)
-        model.coordinator = self
-        let vc =  UniversalTableViewController(viewModel: model)
-        navigationController.pushViewController(vc, animated: true)
+    func editModule(_ id: String) {
+        Task {
+            do {
+                let module = try await dataManager.module(id: id)
+                let model = EditModuleViewModel(dataManager: dataManager, module: module)
+                model.coordinator = self
+                let vc =  await UniversalTableViewController(viewModel: model)
+                await navigationController.pushViewController(vc, animated: true)
+                
+            } catch {
+                if let error = error as? LocalizedError {
+                    print(error.localizedDescription)
+                } else {
+                    print("An unexpected error occurred: \(error)")
+                }
+            }
+        }
+        
+//        let model = EditModuleViewModel(dataManager: dataManager, module: module)
+//        model.coordinator = self
+//        let vc =  UniversalTableViewController(viewModel: model)
+//        navigationController.pushViewController(vc, animated: true)
     }
     
     func addTopic(module: Module) {

@@ -42,5 +42,3 @@ struct ModulePreload {
         self.init(name: "", details: "", topicsIds: [], author: "", isPublic: false)
     }
 }
-
-extension ModulePreload: Equatable {}

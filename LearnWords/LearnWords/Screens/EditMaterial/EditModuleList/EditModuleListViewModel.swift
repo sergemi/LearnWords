@@ -9,7 +9,7 @@ import Foundation
 
 class EditModuleListViewModel: UniversalTableViewModel {
     var coordinator: EditMaterialCoordinatorProtocol? = nil
-    var modules: [Module] = []
+    var modules: [ModulePreload] = []
     
     let dataManager: DataManager!
     
@@ -41,7 +41,28 @@ class EditModuleListViewModel: UniversalTableViewModel {
     }
     
     override func reloadTableData(){
-        return // TODO:
+        log.method()
+        Task {
+            do {
+                modules = try await dataManager.modules
+                let modulesRows = modules.map{
+                    ModelTableViewCell(checkbox: .empty,
+                                       title: $0.name,
+                                       showArrow: true
+                    )
+                }
+                
+                rows.accept(modulesRows)
+            } catch {
+                if let error = error as? LocalizedError {
+                    print(error.localizedDescription)
+                } else {
+                    print("An unexpected error occurred: \(error)")
+                }
+                
+            }
+        }
+        
 //        modules = dataManager.modules
 //        
 //        let modulesRows = modules.map{
@@ -56,16 +77,22 @@ class EditModuleListViewModel: UniversalTableViewModel {
     
     override func selectRow(index: Int) {
         let module = modules[index]
-        self.coordinator?.editModule(module)
+        self.coordinator?.editModule(module.id)
     }
     
     override func deleteRow(index: Int) {
-        log.method()
-        let module = modules[index]
-        if dataManager.deleteModule(module) == nil {
-            print("error deleting module")
-            return
-        }        
-        reloadTableData()
+        Task {
+            do {
+                let module = modules[index]
+                try await dataManager.deleteModule(id: module.id)
+                reloadTableData()
+            } catch {
+                if let error = error as? LocalizedError {
+                    print(error.localizedDescription)
+                } else {
+                    print("An unexpected error occurred: \(error)")
+                }
+            }
+        }
     }
 }

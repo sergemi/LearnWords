@@ -42,3 +42,24 @@ struct Module {
 }
 
 extension Module: Equatable {}
+
+extension Module {
+    var modulePreload: ModulePreload {
+        let topicIds = topics.map { $0.id }
+        return ModulePreload(id: id,
+                             name: name,
+                             details: details,
+                             topicsIds: topicIds,
+                             author: author,
+                             isPublic: isPublic)
+    }
+    
+    init(modulePreload: ModulePreload, topics: [Topic]) {
+        self.init(id: modulePreload.id,
+                  name: modulePreload.name,
+                  details: modulePreload.details,
+                  topics: topics,
+                  author: modulePreload.author,
+                  isPublic: modulePreload.isPublic)
+    }
+}
