@@ -17,7 +17,7 @@ protocol EditMaterialCoordinatorProtocol: AnyObject {
     func editWord(topic: Topic, learnedWord: LearnedWord)
 }
 
-class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProtocol {
+final class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProtocol {
     
     var childCoordinators: [CoordinatorProtocol] = []
     
@@ -76,27 +76,27 @@ class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinatorProto
     }
     
     func editModule(_ id: String) {
-        Task {
-            do {
-                let module = try await dataManager.module(id: id)
-                let model = EditModuleViewModel(dataManager: dataManager, module: module)
-                model.coordinator = self
-                let vc =  await UniversalTableViewController(viewModel: model)
-                await navigationController.pushViewController(vc, animated: true)
-                
-            } catch {
-                if let error = error as? LocalizedError {
-                    print(error.localizedDescription)
-                } else {
-                    print("An unexpected error occurred: \(error)")
-                }
-            }
-        }
+        let model = EditModuleViewModel(dataManager: dataManager, moduleId: id)
+        model.coordinator = self
+        let vc = UniversalTableViewController(viewModel: model)
+        navigationController.pushViewController(vc, animated: true)
         
-//        let model = EditModuleViewModel(dataManager: dataManager, module: module)
-//        model.coordinator = self
-//        let vc =  UniversalTableViewController(viewModel: model)
-//        navigationController.pushViewController(vc, animated: true)
+//        Task {
+//            do {
+//                let module = try await dataManager.module(id: id)
+//                let model = EditModuleViewModel(dataManager: dataManager, module: module)
+//                model.coordinator = self
+//                let vc =  await UniversalTableViewController(viewModel: model)
+//                await navigationController.pushViewController(vc, animated: true)
+//                
+//            } catch {
+//                if let error = error as? LocalizedError {
+//                    print(error.localizedDescription)
+//                } else {
+//                    print("An unexpected error occurred: \(error)")
+//                }
+//            }
+//        }
     }
     
     func addTopic(module: Module) {

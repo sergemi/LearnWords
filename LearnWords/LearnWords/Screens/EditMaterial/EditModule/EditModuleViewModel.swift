@@ -7,19 +7,18 @@
 
 import Foundation
 
-class EditModuleViewModel: UniversalTableViewModel {
+final class EditModuleViewModel: UniversalTableViewModel {
     var coordinator: EditMaterialCoordinatorProtocol? = nil
-    let dataManager: DataManager!
+    private let dataManager: DataManager!
     
-    var module: Module
-    var isNew = true
-    var isCanAdd = true
+    private var moduleId: String?
+    private var module: Module?
+    private var isNew = true
+    private var isCanAdd = true
     
-//    var topics: [TopicPreload] = []
-    
-    init(dataManager: DataManager, module: Module, isNew: Bool = false) {
+    init(dataManager: DataManager, moduleId: String, isNew: Bool = false) {
         self.dataManager = dataManager
-        self.module = module
+        self.moduleId = moduleId
         self.isNew = isNew
         
         super.init()
@@ -32,26 +31,29 @@ class EditModuleViewModel: UniversalTableViewModel {
         namePlaceholder.accept("Settings.AddModule.name placeholder".localized())
         detailsPlaceholder.accept("Settings.AddModule.details placeholder".localized())
         tableHeader.accept("Settings.AddModule.tableHeader".localized())
-        name.accept(module.name)
-        details.accept(module.details)
+        
+//        name.accept(module.name)
+//        details.accept(module.details)
         
         canEdit.accept(true)
-//        canAdd.accept(true)
         canSelect.accept(true)
         canDeleteRows.accept(true)
-//        haveRightBarBtn.accept(true)
         
         bind()
     }
     
     convenience init(dataManager: DataManager) {
+        let newModule = Module(name: "",
+                               details: "",
+                               topics: [],
+                               author: AuthManager.userId ?? "guest",
+                               isPublic: false)
+        
         self.init(dataManager: dataManager,
-                  module: Module(name: "",
-                                 details: "",
-                                 topics: [],
-                                 author: AuthManager.userId ?? "guest",
-                                 isPublic: false),
+                  moduleId: newModule.id,
                   isNew: true)
+        
+        module = newModule
     }
     
     func UpdateButtonsVisibility() {
@@ -76,14 +78,18 @@ class EditModuleViewModel: UniversalTableViewModel {
             print("name: \(String(describing: (self.name.value) ?? ""))")
             print("details: \(String(describing: (self.details.value) ?? ""))")
             
-            self.module.name = self.name.value ?? ""
-            self.module.details = self.details.value ?? ""
+            self.module?.name = self.name.value ?? ""
+            self.module?.details = self.details.value ?? ""
+            
+            if self.module == nil {
+                return
+            }
             
             //
             Task {
                 do {
                     if self.isNew {
-                        try await self.dataManager.addModule(self.module)
+                        try await self.dataManager.addModule(self.module!)
                         
                         self.isNew = false
                         DispatchQueue.main.async {
@@ -92,7 +98,7 @@ class EditModuleViewModel: UniversalTableViewModel {
                         }
                     }
                     else {
-                        try await self.dataManager.updateModule(self.module)
+                        try await self.dataManager.updateModule(self.module!)
                         
                         self.isNew = false
                         DispatchQueue.main.async {
@@ -145,32 +151,48 @@ class EditModuleViewModel: UniversalTableViewModel {
             return true
         }
         else {
-            return module.name != newName || module.details != newDetails
+            return module?.name != newName || module?.details != newDetails
         }
     }
     
     override func reloadData(){
-        
-        
         log.method() // todo
-//        Task {
-//            do {
-//                module = try await dataManager.module(id: module.id) // todo: is it still need?
-//                topics = module.topics
-//                
-//                let topicsRows = topics.map{
-//                    ModelTableViewCell(checkbox: .empty, title: $0.name, showArrow: true)
-//                }
-//                rows.accept(topicsRows)
-//            }
-//            catch {
-//                if let error = error as? LocalizedError {
-//                    print(error.localizedDescription)
-//                } else {
-//                    print("An unexpected error occurred: \(error)")
-//                }
-//            }
-//        }
+//        name.accept(module.name)
+//        details.accept(module.details)
+        if isNew {
+            return
+        }
+        guard let moduleId = moduleId else {
+            return
+        }
+        
+        Task { [weak self] in
+            guard let self = self else {
+                return
+            }
+            do {
+                self.module = try await dataManager.module(id: moduleId) // todo: is it still need?
+                guard let module = self.module else {
+                    return
+                }
+                
+                let topicsRows = module.topics.map{
+                    ModelTableViewCell(checkbox: .empty, title: $0.name, showArrow: true)
+                }
+                DispatchQueue.main.async { [weak self] in
+                    self?.name.accept(module.name)
+                    self?.details.accept(module.details)
+                    self?.rows.accept(topicsRows)
+                }
+            }
+            catch {
+                if let error = error as? LocalizedError {
+                    print(error.localizedDescription)
+                } else {
+                    print("An unexpected error occurred: \(error)")
+                }
+            }
+        }
         
         //todo
         /*
