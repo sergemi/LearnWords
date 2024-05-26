@@ -14,8 +14,8 @@ actor MockDataManager: DataManager {
     
 //    var modules: [LearnWords.Module] = []
     
-    private var storedModulesPreload: [ModulePreload] = []
-    private var storedTopicsPreload: [TopicPreload] = []
+    private var storedModules: [Module] = []
+    private var storedTopics: [Topic] = []
     
     var modules: [ModulePreload] {
             get async throws {
@@ -23,7 +23,9 @@ actor MockDataManager: DataManager {
                 
 //                try? await Task.sleep(nanoseconds: 1_000_000_000) // 1 секунда задержки
 //                return storedModulesPreload
-                return [] // todo
+                let modulesPreload = storedModules.map{$0.modulePreload}
+                
+                return modulesPreload // todo
             }
         }
     
@@ -33,40 +35,38 @@ actor MockDataManager: DataManager {
     
     // MARK - DataManager
     func reset() async throws {
-        storedModulesPreload = []
+        storedModules = []
+        storedTopics = []
     }
     
     func module(id: String) async throws -> Module {
         log.method() // TODO
         
-//        guard let preloadModule = storedModulesPreload.first(where: { $0.id == id }) else {
-//            throw DataManagerError.moduleNotFound
-//        }
+        guard let module = storedModules.first(where: { $0.id == id }) else {
+            throw DataManagerError.moduleNotFound
+        }
 //        let topics = [Topic]() // todo
-//        
-//        return Module(modulePreload: preloadModule, topics: topics)
-        return Module() // todo
+        
+        return module
     }
     
     func addModule(_ module: Module) async throws {
-        log.method() // TODO
-//        storedModulesPreload.append(module.modulePreload)
+        storedModules.append(module)
     }
     
     func updateModule(_ module: Module) async throws {
         log.method() // TODO
-//        guard let index = storedModulesPreload.firstIndex(where: {$0.id == module.id}) else {
-//            throw DataManagerError.moduleNotFound
-//        }
-//        storedModulesPreload[index] = module.modulePreload
+        guard let index = storedModules.firstIndex(where: {$0.id == module.id}) else {
+            throw DataManagerError.moduleNotFound
+        }
+        storedModules[index] = module
     }
     
     func deleteModule(id: String) async throws {
-        log.method() // TODO
-//        guard let moduleIndex = storedModulesPreload.firstIndex(where: {$0.id == id}) else {
-//            throw DataManagerError.updateDataError
-//        }
-//        storedModulesPreload.remove(at: moduleIndex)
+        guard let moduleIndex = storedModules.firstIndex(where: {$0.id == id}) else {
+            throw DataManagerError.updateDataError
+        }
+        storedModules.remove(at: moduleIndex)
     }
     
     // topics
