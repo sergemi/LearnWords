@@ -8,19 +8,22 @@
 import Foundation
 //@testable import LearnWords
 
-class MockDataManager: DataManager {
-//actor MockDataManager: DataManager {
+//class MockDataManager: DataManager {
+actor MockDataManager: DataManager {
     static let instance = MockDataManager()
     
 //    var modules: [LearnWords.Module] = []
     
     private var storedModulesPreload: [ModulePreload] = []
-    private var soredTopicsPreload: [TopicPreload] = []
+    private var storedTopicsPreload: [TopicPreload] = []
     
     var modules: [ModulePreload] {
             get async throws {
+                log.method() // TODO
+                
 //                try? await Task.sleep(nanoseconds: 1_000_000_000) // 1 секунда задержки
-                return storedModulesPreload
+//                return storedModulesPreload
+                return [] // todo
             }
         }
     
@@ -34,47 +37,48 @@ class MockDataManager: DataManager {
     }
     
     func module(id: String) async throws -> Module {
-        guard let preloadModule = storedModulesPreload.first(where: { $0.id == id }) else {
-            throw DataManagerError.moduleNotFound
-        }
-        let topics = [Topic]() // todo
+        log.method() // TODO
         
-        return Module(modulePreload: preloadModule, topics: topics)
+//        guard let preloadModule = storedModulesPreload.first(where: { $0.id == id }) else {
+//            throw DataManagerError.moduleNotFound
+//        }
+//        let topics = [Topic]() // todo
+//        
+//        return Module(modulePreload: preloadModule, topics: topics)
+        return Module() // todo
     }
     
     func addModule(_ module: Module) async throws {
-        storedModulesPreload.append(module.modulePreload)
+        log.method() // TODO
+//        storedModulesPreload.append(module.modulePreload)
     }
     
     func updateModule(_ module: Module) async throws {
-        guard let index = storedModulesPreload.firstIndex(where: {$0.id == module.id}) else {
-            throw DataManagerError.moduleNotFound
-        }
-        storedModulesPreload[index] = module.modulePreload
-        
-//        guard let index = modules.firstIndex(where: {$0.id == module.id}) else {
-//            return nil
+        log.method() // TODO
+//        guard let index = storedModulesPreload.firstIndex(where: {$0.id == module.id}) else {
+//            throw DataManagerError.moduleNotFound
 //        }
-//        
-//        modules[index] = module
-//        return modules[index]
+//        storedModulesPreload[index] = module.modulePreload
     }
     
     func deleteModule(id: String) async throws {
-        guard let moduleIndex = storedModulesPreload.firstIndex(where: {$0.id == id}) else {
-            throw DataManagerError.updateDataError
-        }
-        storedModulesPreload.remove(at: moduleIndex)
+        log.method() // TODO
+//        guard let moduleIndex = storedModulesPreload.firstIndex(where: {$0.id == id}) else {
+//            throw DataManagerError.updateDataError
+//        }
+//        storedModulesPreload.remove(at: moduleIndex)
     }
     
     // topics
     func topic(id: String) async throws -> Topic {
-        guard let preloadTopic = soredTopicsPreload.first(where: {$0.id == id}) else {
-            throw DataManagerError.topicNotFound
-        }
-        
-        let words = [LearnedWord]() // todo
-        return Topic(topicPreload: preloadTopic, words: words)
+        log.method() // TODO
+        return Topic() // todo
+//        guard let preloadTopic = storedTopicsPreload.first(where: {$0.id == id}) else {
+//            throw DataManagerError.topicNotFound
+//        }
+//        
+//        let words = [LearnedWord]() // todo
+//        return Topic(topicPreload: preloadTopic, words: words)
         
 //        for module in modules {
 //            if let topic = module.topics.first(where: {$0.id == id}) {
@@ -85,6 +89,7 @@ class MockDataManager: DataManager {
 //        return nil
     }
     
+    /*
     fileprivate func topic(id: String) -> (Topic, Module)? {
         return nil // TODO:
 //        for module in modules {
@@ -94,9 +99,20 @@ class MockDataManager: DataManager {
 //        }
 //        return nil
     }
+     */
     
-    func addTopic(moduleId: String, topic: Topic) -> Module? {
-        return nil // TODO
+    func addTopic(moduleId: String, topic: Topic) async throws {
+        log.method() // TODO
+        
+        // storedModulesPreload
+        /*
+        var module = try await module(id: moduleId)
+        module.topics.append(topic)
+        try await updateModule(module)
+//        storedTopicsPreload.append(topic) // todo
+        
+        log.method()
+        
 //        guard var module = module(id: moduleId) else {
 //            return nil
 //        }
@@ -105,10 +121,12 @@ class MockDataManager: DataManager {
 //        _ = updateModule(module)
 //        
 //        return module
+         */
     }
     
-    func updateTopic(moduleId: String, topic: Topic) -> Module? {
-        return nil // TODO
+    func updateTopic(moduleId: String, topic: Topic) async throws {
+        log.method() // TODO
+        
 //        guard var module = module(id: moduleId) else {
 //            return nil
 //        }
@@ -122,8 +140,9 @@ class MockDataManager: DataManager {
 //        
 //        return module
     }
-    func deleteTopic(moduleId: String, topic: Topic) -> Module? {
-        return nil // TODO
+    func deleteTopic(moduleId: String, topic: Topic) async throws {
+        log.method() // TODO
+        
 //        guard var module = module(id: moduleId) else {
 //            return nil
 //        }
@@ -140,8 +159,10 @@ class MockDataManager: DataManager {
     
     // LearnedWords
     
-    func learnedWord(id: String) -> LearnedWord? {
-        return nil // TODO:
+    func learnedWord(id: String) async throws -> LearnedWord {
+        log.method() // TODO
+        return LearnedWord()
+        
 //        for module in modules {
 //            for topic in module.topics {
 //                guard let word = topic.words.first(where: {$0.id == id}) else {
@@ -154,51 +175,59 @@ class MockDataManager: DataManager {
 //        return nil
     }
     
-    func addWord(topicId: String, word: LearnedWord) -> Topic? {
-        guard var (topic, module) = topic(id: topicId) else {
-            return nil
-        }
+    func addWord(topicId: String, word: LearnedWord) async throws {
+        log.method() // TODO
         
-        topic.words.append(word)
-        _ = updateTopic(moduleId: module.id, topic: topic)
-        
-        return topic
+//        guard var (topic, module) = topic(id: topicId) else {
+//            return nil
+//        }
+//        
+//        topic.words.append(word)
+//        _ = updateTopic(moduleId: module.id, topic: topic)
+//        
+//        return topic
     }
     
-    func updateWord(topicId: String, word: LearnedWord) -> Topic? {
-        guard var (topic, module) = topic(id: topicId) else {
-            return nil
-        }
+    func updateWord(topicId: String, word: LearnedWord) async throws {
+        log.method() // TODO
         
-        guard let index = topic.words.firstIndex(where: {$0.id == word.id}) else {
-            return nil
-        }
-        topic.words[index] = word
-        
-        _ = updateTopic(moduleId: module.id, topic: topic)
-        
-        return topic
+//        guard var (topic, module) = topic(id: topicId) else {
+//            return nil
+//        }
+//        
+//        guard let index = topic.words.firstIndex(where: {$0.id == word.id}) else {
+//            return nil
+//        }
+//        topic.words[index] = word
+//        
+//        _ = updateTopic(moduleId: module.id, topic: topic)
+//        
+//        return topic
     }
     
-    func deleteWord(topicId: String, word: LearnedWord) -> Topic? {
-        guard var (topic, module) = topic(id: topicId) else {
-            return nil
-        }
+    func deleteWord(topicId: String, word: LearnedWord) async throws {
+        log.method() // TODO
         
-        guard let index = topic.words.firstIndex(where: {$0.id == word.id}) else {
-            return nil
-        }
-        topic.words.remove(at: index)
-        
-        _ = updateTopic(moduleId: module.id, topic: topic)
-        
-        return topic
+//        guard var (topic, module) = topic(id: topicId) else {
+//            return nil
+//        }
+//        
+//        guard let index = topic.words.firstIndex(where: {$0.id == word.id}) else {
+//            return nil
+//        }
+//        topic.words.remove(at: index)
+//        
+//        _ = updateTopic(moduleId: module.id, topic: topic)
+//        
+//        return topic
     }
     
     //WordPair
     
-    func word(id: String) -> WordPair? {
-        return nil // TODO:
+    func word(id: String) async throws -> WordPair {
+        log.method() // TODO
+        return WordPair()
+        
 //        for module in modules {
 //            for topic in module.topics {
 //                for learnedWord in topic.words {
@@ -212,8 +241,9 @@ class MockDataManager: DataManager {
 //        return nil
     }
     
-    func updateWord(learnedWordId: String, word: WordPair) -> LearnedWord? {
-        return nil // TODO:
+    func updateWord(learnedWordId: String, word: WordPair) async throws {
+        log.method() // TODO
+        
 //        for module in modules {
 //            for topic in module.topics {
 //                for learnedWord in topic.words {

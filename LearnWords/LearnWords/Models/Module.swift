@@ -12,12 +12,12 @@ struct Module {
     
     var name: String
     var details: String
-    var topics: [Topic]
+    var topics: [TopicPreload]
     var author: String // author id
     var isPublic: Bool
     
 //    init(id: String, name: String, details: String, topics: [Topic], author: String, isPublic: Bool) {
-    init(id: String, name: String, details: String, topics: [Topic], author: String, isPublic: Bool) {
+    init(id: String, name: String, details: String, topics: [TopicPreload], author: String, isPublic: Bool) {
         self.id = id
         self.name = name
         self.details = details
@@ -27,7 +27,7 @@ struct Module {
     }
     
 //    init(name: String, details: String, topics: [Topic], author: String, isPublic: Bool) {
-    init(name: String, details: String, topics: [Topic], author: String, isPublic: Bool) {
+    init(name: String, details: String, topics: [TopicPreload], author: String, isPublic: Bool) {
         self.init(id: UUID().uuidString,
                   name: name,
                   details: details,
@@ -48,18 +48,7 @@ extension Module {
         let topicIds = topics.map { $0.id }
         return ModulePreload(id: id,
                              name: name,
-                             details: details,
-                             topicsIds: topicIds,
                              author: author,
                              isPublic: isPublic)
-    }
-    
-    init(modulePreload: ModulePreload, topics: [Topic]) {
-        self.init(id: modulePreload.id,
-                  name: modulePreload.name,
-                  details: modulePreload.details,
-                  topics: topics,
-                  author: modulePreload.author,
-                  isPublic: modulePreload.isPublic)
     }
 }

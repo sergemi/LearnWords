@@ -40,19 +40,7 @@ extension Topic: Equatable {}
 
 extension Topic {
     var topicPreload:TopicPreload {
-        let wordIds = words.map { $0.id }
         return TopicPreload(id: id,
-                            name: name,
-                            details: details,
-                            wordsIds: wordIds,
-                            exercises: exercises)
-    }
-    
-    init (topicPreload: TopicPreload, words: [LearnedWord]) {
-        self.init(id: topicPreload.id,
-                  name: topicPreload.name,
-                  details: topicPreload.details,
-                  words: words,
-                  exercises: topicPreload.exercises)
+                            name: name)
     }
 }

@@ -29,17 +29,17 @@ protocol DataManager {
 //    var topics: [Topic] {get}
 //    
     func topic(id: String) async throws -> Topic
-    func addTopic(moduleId: String, topic: Topic) -> Module? // nil if fail
-    func updateTopic(moduleId: String, topic: Topic) -> Module? // nil if fail
-    func deleteTopic(moduleId: String, topic: Topic) -> Module? // nil if fail
+    func addTopic(moduleId: String, topic: Topic) async throws
+    func updateTopic(moduleId: String, topic: Topic) async throws // TODO: delete moduleId ?
+    func deleteTopic(moduleId: String, topic: Topic) async throws
     
-    func learnedWord(id: String) -> LearnedWord?
-    func addWord(topicId: String, word: LearnedWord) -> Topic?
-    func updateWord(topicId: String, word: LearnedWord) -> Topic?
-    func deleteWord(topicId: String, word: LearnedWord) -> Topic?
+    func learnedWord(id: String) async throws -> LearnedWord
+    func addWord(topicId: String, word: LearnedWord) async throws
+    func updateWord(topicId: String, word: LearnedWord) async throws
+    func deleteWord(topicId: String, word: LearnedWord) async throws
     
-    func word(id: String) -> WordPair?
-    func updateWord(learnedWordId: String, word: WordPair) -> LearnedWord?
+    func word(id: String) async throws -> WordPair
+    func updateWord(learnedWordId: String, word: WordPair) async throws
     
     func reset() async throws // delete all data. empty manager as result
 }

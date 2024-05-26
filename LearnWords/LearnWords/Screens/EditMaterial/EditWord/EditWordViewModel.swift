@@ -75,29 +75,30 @@ class EditWordViewModel: BaseViewModel {
     
     fileprivate func bind() {
         _ = rightBtnObserver.bind(onNext: { [weak self] _ in
-            guard let self = self, let learnedWord = self.learnedWord else {
-                return
-            }
-            print("++ Save word ++")
-            print("target: \(String(describing: (self.target.value) ?? ""))")
-            print("translate: \(String(describing: (self.translate.value) ?? ""))")
-        
-            updateLearnedWordFromUi()
-            if self.isNew {
-                let res = self.dataManager.addWord(topicId: self.topic.id, word: learnedWord)
-                // TODO: show error
-                print(res)
-            }
-            else {
-                let res = self.dataManager.updateWord(topicId: self.topic.id, word: learnedWord)
-                // TODO: show error
-                print(res)
-            }
-            self.isNew = false
-            self.UpdateButtonsVisibility()
-            self.haveRightBarBtn.accept(self.isRightBtnEnabled())
+            log.method() // todo
             
-            //TODO:
+//            guard let self = self, let learnedWord = self.learnedWord else {
+//                return
+//            }
+//            print("++ Save word ++")
+//            print("target: \(String(describing: (self.target.value) ?? ""))")
+//            print("translate: \(String(describing: (self.translate.value) ?? ""))")
+//        
+//            updateLearnedWordFromUi()
+//            if self.isNew {
+//                let res = self.dataManager.addWord(topicId: self.topic.id, word: learnedWord)
+//                // TODO: show error
+//                print(res)
+//            }
+//            else {
+//                let res = self.dataManager.updateWord(topicId: self.topic.id, word: learnedWord)
+//                // TODO: show error
+//                print(res)
+//            }
+//            self.isNew = false
+//            self.UpdateButtonsVisibility()
+//            self.haveRightBarBtn.accept(self.isRightBtnEnabled())
+            
         }).disposed(by: disposeBag)
         
         _ = target.subscribe(onNext: { [weak self] value in

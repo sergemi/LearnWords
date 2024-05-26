@@ -100,7 +100,8 @@ class EditModuleViewModel: UniversalTableViewModel {
                             self.haveRightBarBtn.accept(self.isAddBtnEnabled())
                         }
                     }
-                } catch {
+                }
+                catch {
                     if let error = error as? LocalizedError {
                         print(error.localizedDescription)
                     } else {
@@ -108,17 +109,6 @@ class EditModuleViewModel: UniversalTableViewModel {
                     }
                 }
             }
-            //
-//            if self.isNew {
-//                _ = dataManager.addModule(self.module)
-//            }
-//            else {
-//                _ = dataManager.updateModule(self.module)
-//            }
-            //
-//            self.isNew = false
-//            self.UpdateButtonsVisibility()
-//            self.haveRightBarBtn.accept(self.isAddBtnEnabled())
         }).disposed(by: disposeBag)
         
         _ = addBtnObserver.bind(onNext: { [weak self] _ in
@@ -160,6 +150,26 @@ class EditModuleViewModel: UniversalTableViewModel {
     }
     
     override func reloadTableData(){
+        log.method() // todo
+//        Task {
+//            do {
+//                module = try await dataManager.module(id: module.id) // todo: is it still need?
+//                topics = module.topics
+//                
+//                let topicsRows = topics.map{
+//                    ModelTableViewCell(checkbox: .empty, title: $0.name, showArrow: true)
+//                }
+//                rows.accept(topicsRows)
+//            }
+//            catch {
+//                if let error = error as? LocalizedError {
+//                    print(error.localizedDescription)
+//                } else {
+//                    print("An unexpected error occurred: \(error)")
+//                }
+//            }
+//        }
+        
         //todo
         /*
         guard let updatedModule = dataManager.module(id: module.id) else {
@@ -183,10 +193,10 @@ class EditModuleViewModel: UniversalTableViewModel {
     }
     
     override func deleteRow(index: Int) {
-        log.method()
-        let topic = topics[index]
-        
-        _ = dataManager.deleteTopic(moduleId: module.id, topic: topic)
+        log.method() // todo
+//        let topic = topics[index]
+//        
+//        _ = dataManager.deleteTopic(moduleId: module.id, topic: topic)
         //TODO: show error
         reloadTableData()
     }

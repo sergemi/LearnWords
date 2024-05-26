@@ -77,18 +77,43 @@ class EditTopicViewModel: UniversalTableViewModel {
             
             self.topic.name = self.name.value ?? ""
             self.topic.details = self.details.value ?? ""
-            if isNew {
-                let res = self.dataManager.addTopic(moduleId: self.module.id, topic: self.topic)
-                // TODO: show error
-                print(res)
-            } else {
-                let res = self.dataManager.updateTopic(moduleId: self.module.id, topic: self.topic)
-                // TODO: show error
-                print(res)
+            Task {
+                do {
+                    if self.isNew {
+                        try await self.dataManager.addTopic(moduleId: self.module.id, topic: self.topic)
+                        self.isNew = false
+                        DispatchQueue.main.async {
+                            self.UpdateButtonsVisibility()
+                            self.haveRightBarBtn.accept(self.isAddBtnEnabled())
+                        }
+                        //                    let res = self.dataManager.addTopic(moduleId: self.module.id, topic: self.topic)
+                        //                    // TODO: show error
+                        //                    print(res)
+                    } else {
+                        //                    let res = self.dataManager.updateTopic(moduleId: self.module.id, topic: self.topic)
+                        //                    // TODO: show error
+                        //                    print(res)
+                        
+                        try await self.dataManager.updateTopic(moduleId: self.module.id, topic: self.topic)
+                        self.isNew = false
+                        DispatchQueue.main.async {
+                            self.UpdateButtonsVisibility()
+                            self.haveRightBarBtn.accept(self.isAddBtnEnabled())
+                        }
+                    }
+                    //                self.isNew = false
+                    //                self.UpdateButtonsVisibility()
+                    //                self.haveRightBarBtn.accept(self.isAddBtnEnabled())
+                    
+                }
+                catch {
+                    if let error = error as? LocalizedError {
+                        print(error.localizedDescription)
+                    } else {
+                        print("An unexpected error occurred: \(error)")
+                    }
+                }
             }
-            self.isNew = false
-            self.UpdateButtonsVisibility()
-            self.haveRightBarBtn.accept(self.isAddBtnEnabled())
         }).disposed(by: disposeBag)
         
         _ = addBtnObserver.bind(onNext: { [weak self] _ in
@@ -151,8 +176,9 @@ class EditTopicViewModel: UniversalTableViewModel {
     }
     
     override func deleteRow(index: Int) {
-        let word = words[index]
-        _ = dataManager.deleteWord(topicId: topic.id, word: word)
+        log.method() // todo
+//        let word = words[index]
+//        _ = dataManager.deleteWord(topicId: topic.id, word: word)
         //TODO: show error
         reloadTableData()
     }
