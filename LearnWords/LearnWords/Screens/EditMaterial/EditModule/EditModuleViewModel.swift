@@ -212,17 +212,33 @@ final class EditModuleViewModel: UniversalTableViewModel {
     }
     
     override func selectRow(index: Int) {
+        guard let topicId = module?.topics[index].id else {
+            return
+        }
         log.method() // todo
 //        let topic = topics[index]
 //        self.coordinator?.editTopic(module: module, topic: topic)
     }
     
     override func deleteRow(index: Int) {
-        log.method() // todo
-//        let topic = topics[index]
-//        
-//        _ = dataManager.deleteTopic(moduleId: module.id, topic: topic)
-        //TODO: show error
-        reloadData()
+        guard let topicId = module?.topics[index].id, let moduleId = module?.id else {
+            return
+        }
+        Task { [weak self] in
+            guard let self = self else {
+                return
+            }
+            do {
+                try await self.dataManager.deleteTopic(moduleId: moduleId, topicId: topicId)
+                self.reloadData() // todo: add update only table
+            }
+            catch {
+                if let error = error as? LocalizedError {
+                    print(error.localizedDescription)
+                } else {
+                    print("An unexpected error occurred: \(error)")
+                }
+            }
+        }        
     }
 }

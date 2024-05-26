@@ -120,21 +120,14 @@ final actor MockDataManager: DataManager {
 //        
 //        return module
     }
-    func deleteTopic(moduleId: String, topic: Topic) async throws {
+    func deleteTopic(moduleId: String, topicId: String) async throws {
         log.method() // TODO
         
-//        guard var module = module(id: moduleId) else {
-//            return nil
-//        }
-//        
-//        guard let topicIndex = module.topics.firstIndex(where: {$0.id == topic.id}) else {
-//            return nil
-//        }
-//        
-//        module.topics.remove(at: topicIndex)
-//        _ = updateModule(module)
-//        
-//        return module
+        var module = try await module(id: moduleId)
+        module.topics.removeAll(where: {$0.id == topicId})
+        try await updateModule(module)
+        
+        topics.removeAll(where: {$0.id == topicId})
     }
     
     // LearnedWords

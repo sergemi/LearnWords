@@ -31,7 +31,7 @@ protocol DataManager {
     func topic(id: String) async throws -> Topic
     func addTopic(moduleId: String, topic: Topic) async throws
     func updateTopic(moduleId: String, topic: Topic) async throws // TODO: delete moduleId ?
-    func deleteTopic(moduleId: String, topic: Topic) async throws
+    func deleteTopic(moduleId: String, topicId: String) async throws
     
     func learnedWord(id: String) async throws -> LearnedWord
     func addWord(topicId: String, word: LearnedWord) async throws
