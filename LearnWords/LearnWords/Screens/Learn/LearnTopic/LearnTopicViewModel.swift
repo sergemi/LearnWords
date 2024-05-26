@@ -28,7 +28,7 @@ class LearnTopicViewModel: UniversalTableViewModel {
         canSelect.accept(true)
     }
     
-    override func reloadTableData(){
+    override func reloadData(){
         // TODO
         words = []
         //words = Array(topic.words)

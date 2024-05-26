@@ -28,7 +28,7 @@ class LearnModuleViewModel: UniversalTableViewModel {
         canSelect.accept(true)
     }
     
-    override func reloadTableData(){
+    override func reloadData(){
         // TODO
 //        topics = Array(module.topics)
         

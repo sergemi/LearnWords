@@ -43,7 +43,7 @@ class UniversalTableViewModel: BaseViewModel {
     var deleteLineAlertYesTitle = "Yes".localized()
     var deleteLineAlertNoTitle = "No".localized()
     
-    func reloadTableData () {
+    func reloadData () {
         log.method()
     }
     

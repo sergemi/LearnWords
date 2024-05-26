@@ -154,7 +154,7 @@ class EditTopicViewModel: UniversalTableViewModel {
         }
     }
     
-    override func reloadTableData(){
+    override func reloadData(){
 //        guard let updatedTopic = dataManager.topic(id: topic.id) else {
 //            return
 //        }
@@ -180,6 +180,6 @@ class EditTopicViewModel: UniversalTableViewModel {
 //        let word = words[index]
 //        _ = dataManager.deleteWord(topicId: topic.id, word: word)
         //TODO: show error
-        reloadTableData()
+        reloadData()
     }
 }

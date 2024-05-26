@@ -15,7 +15,7 @@ class EditModuleViewModel: UniversalTableViewModel {
     var isNew = true
     var isCanAdd = true
     
-    var topics: [Topic] = []
+//    var topics: [TopicPreload] = []
     
     init(dataManager: DataManager, module: Module, isNew: Bool = false) {
         self.dataManager = dataManager
@@ -149,7 +149,9 @@ class EditModuleViewModel: UniversalTableViewModel {
         }
     }
     
-    override func reloadTableData(){
+    override func reloadData(){
+        
+        
         log.method() // todo
 //        Task {
 //            do {
@@ -188,8 +190,9 @@ class EditModuleViewModel: UniversalTableViewModel {
     }
     
     override func selectRow(index: Int) {
-        let topic = topics[index]
-        self.coordinator?.editTopic(module: module, topic: topic)
+        log.method() // todo
+//        let topic = topics[index]
+//        self.coordinator?.editTopic(module: module, topic: topic)
     }
     
     override func deleteRow(index: Int) {
@@ -198,6 +201,6 @@ class EditModuleViewModel: UniversalTableViewModel {
 //        
 //        _ = dataManager.deleteTopic(moduleId: module.id, topic: topic)
         //TODO: show error
-        reloadTableData()
+        reloadData()
     }
 }

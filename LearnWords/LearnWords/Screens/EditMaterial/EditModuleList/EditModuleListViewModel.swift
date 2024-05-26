@@ -7,11 +7,10 @@
 
 import Foundation
 
-class EditModuleListViewModel: UniversalTableViewModel {
+final class EditModuleListViewModel: UniversalTableViewModel {
     var coordinator: EditMaterialCoordinatorProtocol? = nil
-    var modules: [ModulePreload] = []
-    
-    let dataManager: DataManager!
+    private var modules: [ModulePreload] = []
+    private let dataManager: DataManager!
     
     init(dataManager: DataManager) {
         log.method()
@@ -40,7 +39,7 @@ class EditModuleListViewModel: UniversalTableViewModel {
         }).disposed(by: disposeBag)
     }
     
-    override func reloadTableData(){
+    override func reloadData(){
         log.method()
         Task {
             do {
@@ -63,8 +62,8 @@ class EditModuleListViewModel: UniversalTableViewModel {
             }
         }
         
-//        modules = dataManager.modules
-//        
+//        fmodules
+//
 //        let modulesRows = modules.map{
 //            ModelTableViewCell(checkbox: .empty,
 //                               title: $0.name,
@@ -85,7 +84,7 @@ class EditModuleListViewModel: UniversalTableViewModel {
             do {
                 let module = modules[index]
                 try await dataManager.deleteModule(id: module.id)
-                reloadTableData()
+                reloadData()
             } catch {
                 if let error = error as? LocalizedError {
                     print(error.localizedDescription)

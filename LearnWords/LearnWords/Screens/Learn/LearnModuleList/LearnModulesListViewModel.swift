@@ -22,7 +22,7 @@ class LearnModulesListViewModel: UniversalTableViewModel {
         canSelect.accept(true)
     }
     
-    override func reloadTableData() {
+    override func reloadData() {
         return // TODO:
 //        modules = dataManager.modules
 //        

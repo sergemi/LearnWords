@@ -9,34 +9,29 @@ import Foundation
 //@testable import LearnWords
 
 //class MockDataManager: DataManager {
-actor MockDataManager: DataManager {
+final actor MockDataManager: DataManager {
     static let instance = MockDataManager()
+    private init() {
+    }
     
 //    var modules: [LearnWords.Module] = []
     
     private var storedModules: [Module] = []
-    private var storedTopics: [Topic] = []
+    private var topics: [Topic] = []
     
     var modules: [ModulePreload] {
             get async throws {
-                log.method() // TODO
-                
 //                try? await Task.sleep(nanoseconds: 1_000_000_000) // 1 секунда задержки
 //                return storedModulesPreload
                 let modulesPreload = storedModules.map{$0.modulePreload}
-                
-                return modulesPreload // todo
+                return modulesPreload
             }
         }
-    
-    private init() {
-        
-    }
     
     // MARK - DataManager
     func reset() async throws {
         storedModules = []
-        storedTopics = []
+        topics = []
     }
     
     func module(id: String) async throws -> Module {
@@ -73,7 +68,7 @@ actor MockDataManager: DataManager {
     func topic(id: String) async throws -> Topic {
         log.method() // TODO
         return Topic() // todo
-//        guard let preloadTopic = storedTopicsPreload.first(where: {$0.id == id}) else {
+//        guard let preloadTopic = topicsPreload.first(where: {$0.id == id}) else {
 //            throw DataManagerError.topicNotFound
 //        }
 //        
@@ -102,26 +97,11 @@ actor MockDataManager: DataManager {
      */
     
     func addTopic(moduleId: String, topic: Topic) async throws {
-        log.method() // TODO
-        
-        // storedModulesPreload
-        /*
         var module = try await module(id: moduleId)
-        module.topics.append(topic)
+        module.topics.append(topic.topicPreload)
         try await updateModule(module)
-//        storedTopicsPreload.append(topic) // todo
         
-        log.method()
-        
-//        guard var module = module(id: moduleId) else {
-//            return nil
-//        }
-//        
-//        module.topics.append(topic)
-//        _ = updateModule(module)
-//        
-//        return module
-         */
+        topics.append(topic)
     }
     
     func updateTopic(moduleId: String, topic: Topic) async throws {

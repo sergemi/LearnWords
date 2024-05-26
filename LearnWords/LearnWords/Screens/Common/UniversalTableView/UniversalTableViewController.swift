@@ -39,7 +39,8 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        viewModel?.reloadTableData()
+//        viewModel?.reloadTableData()
+        viewModel?.reloadData()
     }
     
     fileprivate func setupTableView() {
