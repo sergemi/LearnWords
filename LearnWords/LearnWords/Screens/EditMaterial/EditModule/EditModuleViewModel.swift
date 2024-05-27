@@ -31,10 +31,7 @@ final class EditModuleViewModel: UniversalTableViewModel {
         namePlaceholder.accept("Settings.AddModule.name placeholder".localized())
         detailsPlaceholder.accept("Settings.AddModule.details placeholder".localized())
         tableHeader.accept("Settings.AddModule.tableHeader".localized())
-        
-//        name.accept(module.name)
-//        details.accept(module.details)
-        
+                
         canEdit.accept(true)
         canSelect.accept(true)
         canDeleteRows.accept(true)
@@ -85,7 +82,6 @@ final class EditModuleViewModel: UniversalTableViewModel {
                 return
             }
             
-            //
             Task { [weak self] in
                 guard let self = self else {
                     return
@@ -159,9 +155,6 @@ final class EditModuleViewModel: UniversalTableViewModel {
     }
     
     override func reloadData(){
-        log.method() // todo
-//        name.accept(module.name)
-//        details.accept(module.details)
         if isNew {
             return
         }
@@ -196,22 +189,6 @@ final class EditModuleViewModel: UniversalTableViewModel {
                 }
             }
         }
-        
-        //todo
-        /*
-        guard let updatedModule = dataManager.module(id: module.id) else {
-            return
-        }
-        
-        module = updatedModule
-        // TODO
-//        topics = Array(module.topics)
-        
-        let topicsRows = topics.map{
-            ModelTableViewCell(checkbox: .empty, title: $0.name, showArrow: true)
-        }
-        rows.accept(topicsRows)
-         */
     }
     
     override func selectRow(index: Int) {

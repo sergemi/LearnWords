@@ -36,10 +36,6 @@ final class EditTopicViewModel: UniversalTableViewModel {
         detailsPlaceholder.accept("Settings.AddTopic.details placeholder".localized())
         tableHeader.accept("Settings.AddTopic.tableHeader".localized())
         
-        //todo
-//        name.accept(topic.name)
-//        details.accept(topic.details)
-        
         canEdit.accept(true)
         canSelect.accept(true)
         canDeleteRows.accept(true)
