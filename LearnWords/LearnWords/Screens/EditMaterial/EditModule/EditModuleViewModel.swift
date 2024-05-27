@@ -86,7 +86,10 @@ final class EditModuleViewModel: UniversalTableViewModel {
             }
             
             //
-            Task {
+            Task { [weak self] in
+                guard let self = self else {
+                    return
+                }
                 do {
                     if self.isNew {
                         try await self.dataManager.addModule(self.module!)
@@ -121,7 +124,7 @@ final class EditModuleViewModel: UniversalTableViewModel {
             guard let module = self?.module else {
                 return
             }
-            self?.coordinator?.addTopic(module: module)
+            self?.coordinator?.addTopic(moduleId: module.id)
         }).disposed(by: disposeBag)
         
         _ = details.subscribe(onNext: { [weak self] value in
@@ -212,12 +215,10 @@ final class EditModuleViewModel: UniversalTableViewModel {
     }
     
     override func selectRow(index: Int) {
-        guard let topicId = module?.topics[index].id else {
+        guard let moduleId = moduleId, let topicId = module?.topics[index].id else {
             return
         }
-        log.method() // todo
-//        let topic = topics[index]
-//        self.coordinator?.editTopic(module: module, topic: topic)
+        self.coordinator?.editTopic(moduleId: moduleId, topicId: topicId)
     }
     
     override func deleteRow(index: Int) {
@@ -239,6 +240,6 @@ final class EditModuleViewModel: UniversalTableViewModel {
                     print("An unexpected error occurred: \(error)")
                 }
             }
-        }        
+        }
     }
 }

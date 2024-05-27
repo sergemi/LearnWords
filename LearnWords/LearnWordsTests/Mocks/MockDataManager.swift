@@ -66,22 +66,10 @@ final actor MockDataManager: DataManager {
     
     // topics
     func topic(id: String) async throws -> Topic {
-        log.method() // TODO
-        return Topic() // todo
-//        guard let preloadTopic = topicsPreload.first(where: {$0.id == id}) else {
-//            throw DataManagerError.topicNotFound
-//        }
-//        
-//        let words = [LearnedWord]() // todo
-//        return Topic(topicPreload: preloadTopic, words: words)
-        
-//        for module in modules {
-//            if let topic = module.topics.first(where: {$0.id == id}) {
-//                return topic
-//            }
-//        }
-//        
-//        return nil
+        guard let topic = topics.first(where: {$0.id == id}) else {
+            throw DataManagerError.topicNotFound
+        }
+        return topic
     }
     
     /*
@@ -107,19 +95,20 @@ final actor MockDataManager: DataManager {
     func updateTopic(moduleId: String, topic: Topic) async throws {
         log.method() // TODO
         
-//        guard var module = module(id: moduleId) else {
-//            return nil
-//        }
-//        
-//        guard let topicIndex = module.topics.firstIndex(where: {$0.id == topic.id}) else {
-//            return nil
-//        }
-//        
-//        module.topics[topicIndex] = topic
-//        _ = updateModule(module)
-//        
-//        return module
+        guard let index = topics.firstIndex(where: {$0.id == topic.id}) else {
+            throw DataManagerError.topicNotFound
+        }
+        topics[index] = topic
+        
+        // update in a module
+        var module = try await module(id: moduleId)
+        guard let moduleTopicIndex = module.topics.firstIndex(where: {$0.id == topic.id}) else {
+            throw DataManagerError.updateDataError
+        }
+        module.topics[moduleTopicIndex] = topic.topicPreload
+        try await updateModule(module)
     }
+    
     func deleteTopic(moduleId: String, topicId: String) async throws {
         log.method() // TODO
         

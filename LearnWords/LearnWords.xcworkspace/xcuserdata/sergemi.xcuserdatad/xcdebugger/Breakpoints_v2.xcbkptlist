@@ -1246,8 +1246,8 @@
             filePath = "LearnWordsTests/Mocks/MockDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "updateTopic(moduleId:topic:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1374,9 +1374,9 @@
             filePath = "LearnWords/Screens/EditMaterial/EditTopic/EditTopicViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "init(dataManager:module:topic:isNew:)"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "init(dataManager:moduleId:topicId:isNew:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1390,8 +1390,8 @@
             filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "reloadData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1406,8 +1406,8 @@
             filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "reloadData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1422,8 +1422,8 @@
             filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "reloadData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1431,15 +1431,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EDD92853-AC19-443E-9637-F286B41E467B"
+            uuid = "C23C910B-8336-4BB0-ACEA-5D66031FFD56"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LearnWords/Screens/EditMaterial/EditTopic/EditTopicViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "bind()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1447,7 +1447,23 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C23C910B-8336-4BB0-ACEA-5D66031FFD56"
+            uuid = "9DFD5690-6B88-4F9B-9D5B-376DDB7A17A0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "reloadData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5B888AC1-05B3-480E-8A3D-C8913A754E61"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1463,38 +1479,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9DFD5690-6B88-4F9B-9D5B-376DDB7A17A0"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "reloadData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5B888AC1-05B3-480E-8A3D-C8913A754E61"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LearnWords/Screens/EditMaterial/EditTopic/EditTopicViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "bind()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "E3BF72DA-D755-4E29-B781-D06E04BD7174"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1502,9 +1486,9 @@
             filePath = "LearnWords/Screens/EditMaterial/EditTopic/EditTopicViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "init(dataManager:module:topic:isNew:)"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "init(dataManager:moduleId:topicId:isNew:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1518,9 +1502,9 @@
             filePath = "LearnWords/Screens/EditMaterial/EditTopic/EditTopicViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "init(dataManager:module:)"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "init(dataManager:moduleId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1918,8 +1902,8 @@
             filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "bind()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1934,8 +1918,8 @@
             filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "bind()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1950,8 +1934,8 @@
             filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "bind()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1966,8 +1950,8 @@
             filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "bind()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2030,8 +2014,8 @@
             filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "bind()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2046,8 +2030,8 @@
             filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "bind()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2062,8 +2046,8 @@
             filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "bind()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2126,8 +2110,8 @@
             filePath = "LearnWordsTests/Mocks/MockDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "updateTopic(moduleId:topic:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2142,25 +2126,9 @@
             filePath = "LearnWords/Screens/EditMaterial/EditMaterialCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "addTopic(module:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AE019530-74D1-45DD-A7FF-FF7D64342D2A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
-            landmarkName = "selectRow(index:)"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "addTopic(moduleId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2174,8 +2142,8 @@
             filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "reloadData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2238,8 +2206,8 @@
             filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "reloadData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2254,8 +2222,8 @@
             filePath = "LearnWords/Screens/EditMaterial/EditModule/EditModuleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
             landmarkName = "deleteRow(index:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2270,9 +2238,73 @@
             filePath = "LearnWordsTests/Mocks/MockDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "deleteTopic(moduleId:topicId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1047B339-CE68-471D-A224-EA9F15FAB746"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LearnWords/Screens/EditMaterial/EditTopic/EditTopicViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "reloadData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ABC0B612-5CBB-41F6-8348-2B3C44E5E14E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LearnWords/Screens/EditMaterial/EditTopic/EditTopicViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "reloadData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5FE5C88D-FBC5-4477-BB2A-804D64011B59"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LearnWords/Screens/EditMaterial/EditTopic/EditTopicViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "reloadData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E85D87E2-08E1-4E4A-B453-71AFE19E5F5C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LearnWords/Screens/EditMaterial/EditTopic/EditTopicViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "reloadData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

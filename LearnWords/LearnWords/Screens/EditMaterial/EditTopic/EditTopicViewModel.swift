@@ -7,21 +7,22 @@
 
 import Foundation
 
-class EditTopicViewModel: UniversalTableViewModel {
+final class EditTopicViewModel: UniversalTableViewModel {
     var coordinator: EditMaterialCoordinatorProtocol? = nil
-    let dataManager: DataManager!
+    private let dataManager: DataManager!
 
-    var module: Module
-    var topic: Topic
+    private let moduleId: String
+    private var topicId: String?
+    private var topic: Topic?
     var isNew = true
     var isCanAdd = true
     
     var words: [LearnedWord] = []
     
-    init(dataManager: DataManager, module: Module, topic: Topic, isNew: Bool = false) {
+    init(dataManager: DataManager, moduleId: String, topicId: String, isNew: Bool = false) {
         self.dataManager = dataManager
-        self.module = module
-        self.topic = topic
+        self.moduleId = moduleId
+        self.topicId = topicId
         self.isNew = isNew
         
         super.init()
@@ -34,23 +35,30 @@ class EditTopicViewModel: UniversalTableViewModel {
         namePlaceholder.accept("Settings.AddTopic.name placeholder".localized())
         detailsPlaceholder.accept("Settings.AddTopic.details placeholder".localized())
         tableHeader.accept("Settings.AddTopic.tableHeader".localized())
-        name.accept(topic.name)
-        details.accept(topic.details)
+        
+        //todo
+//        name.accept(topic.name)
+//        details.accept(topic.details)
         
         canEdit.accept(true)
-//        canAdd.accept(true)
         canSelect.accept(true)
         canDeleteRows.accept(true)
         
         bind()
     }
     
-    convenience init(dataManager: DataManager, module: Module) {
+    convenience init(dataManager: DataManager, moduleId: String) {
+        let newTopic = Topic(name: "",
+                             details: "",
+                             words: [],
+                             exercises: [])
+        
         self.init(dataManager: dataManager,
-                  module: module,
-                  topic: Topic(),
+                  moduleId: moduleId,
+                  topicId: newTopic.id,
                   isNew: true
                   )
+        topic = newTopic
     }
     
     func UpdateButtonsVisibility() {
@@ -75,26 +83,28 @@ class EditTopicViewModel: UniversalTableViewModel {
             print("name: \(String(describing: (self.name.value) ?? ""))")
             print("details: \(String(describing: (self.details.value) ?? ""))")
             
-            self.topic.name = self.name.value ?? ""
-            self.topic.details = self.details.value ?? ""
+            self.topic?.name = self.name.value ?? ""
+            self.topic?.details = self.details.value ?? ""
+            
+            if self.topic == nil {
+                return
+            }
+            
             Task {
                 do {
                     if self.isNew {
-                        try await self.dataManager.addTopic(moduleId: self.module.id, topic: self.topic)
+                        try await self.dataManager.addTopic(moduleId: self.moduleId, topic: self.topic!)
                         self.isNew = false
                         DispatchQueue.main.async {
                             self.UpdateButtonsVisibility()
                             self.haveRightBarBtn.accept(self.isAddBtnEnabled())
                         }
-                        //                    let res = self.dataManager.addTopic(moduleId: self.module.id, topic: self.topic)
-                        //                    // TODO: show error
-                        //                    print(res)
                     } else {
                         //                    let res = self.dataManager.updateTopic(moduleId: self.module.id, topic: self.topic)
                         //                    // TODO: show error
                         //                    print(res)
                         
-                        try await self.dataManager.updateTopic(moduleId: self.module.id, topic: self.topic)
+                        try await self.dataManager.updateTopic(moduleId: self.moduleId, topic: self.topic!)
                         self.isNew = false
                         DispatchQueue.main.async {
                             self.UpdateButtonsVisibility()
@@ -150,11 +160,49 @@ class EditTopicViewModel: UniversalTableViewModel {
             return true
         }
         else {
-            return topic.name != newName || topic.details != newDetails
+            return topic?.name != newName || topic?.details != newDetails
         }
     }
     
     override func reloadData(){
+        log.method()
+        if isNew {
+            return
+        }
+        guard let topicId = topicId else {
+            return
+        }
+        
+        Task { [weak self] in
+            guard let self = self else {
+                return
+            }
+            do {
+                self.topic = try await dataManager.topic(id: topicId)
+                guard let topic = self.topic else {
+                    return
+                }
+                
+                let wordRows = topic.words.map{
+                    ModelTableViewCell(checkbox: .empty,
+                                       title: "\($0.word.target) - \($0.word.translate)",
+                                       showArrow: true)
+                }
+                DispatchQueue.main.async { [weak self] in
+                    self?.name.accept(topic.name)
+                    self?.details.accept(topic.details)
+                    self?.rows.accept(wordRows)
+                }
+            }
+            catch {
+                if let error = error as? LocalizedError {
+                    print(error.localizedDescription)
+                } else {
+                    print("An unexpected error occurred: \(error)")
+                }
+            }
+        }
+        
 //        guard let updatedTopic = dataManager.topic(id: topic.id) else {
 //            return
 //        }
@@ -172,7 +220,8 @@ class EditTopicViewModel: UniversalTableViewModel {
     
     override func selectRow(index: Int) {
         let word = words[index]
-        self.coordinator?.editWord(topic: topic, learnedWord: word)
+        //todo
+//        self.coordinator?.editWord(topic: topic, learnedWord: word)
     }
     
     override func deleteRow(index: Int) {

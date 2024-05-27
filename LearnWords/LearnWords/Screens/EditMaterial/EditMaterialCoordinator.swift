@@ -11,8 +11,8 @@ protocol EditMaterialCoordinatorProtocol: AnyObject {
     func selectModule()
     func addModule()
     func editModule(_ id: String)
-    func addTopic(module: Module)
-    func editTopic(module: Module, topic: Topic)
+    func addTopic(moduleId: String)
+    func editTopic(moduleId: String, topicId: String)
     func editWord(topic: Topic)
     func editWord(topic: Topic, learnedWord: LearnedWord)
 }
@@ -80,34 +80,17 @@ final class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinato
         model.coordinator = self
         let vc = UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
-        
-//        Task {
-//            do {
-//                let module = try await dataManager.module(id: id)
-//                let model = EditModuleViewModel(dataManager: dataManager, module: module)
-//                model.coordinator = self
-//                let vc =  await UniversalTableViewController(viewModel: model)
-//                await navigationController.pushViewController(vc, animated: true)
-//                
-//            } catch {
-//                if let error = error as? LocalizedError {
-//                    print(error.localizedDescription)
-//                } else {
-//                    print("An unexpected error occurred: \(error)")
-//                }
-//            }
-//        }
     }
     
-    func addTopic(module: Module) {
-        let model = EditTopicViewModel(dataManager: dataManager, module: module)
+    func addTopic(moduleId: String) {
+        let model = EditTopicViewModel(dataManager: dataManager, moduleId: moduleId)
         model.coordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func editTopic(module: Module, topic: Topic) {
-        let model = EditTopicViewModel(dataManager: dataManager, module: module, topic: topic)
+    func editTopic(moduleId: String, topicId: String) {
+        let model = EditTopicViewModel(dataManager: dataManager, moduleId: moduleId, topicId: topicId)
         model.coordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
