@@ -9,13 +9,13 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class EditWordViewModel: BaseViewModel {
+final class EditWordViewModel: BaseViewModel {
     let disposeBag = DisposeBag()
     var coordinator: EditMaterialCoordinatorProtocol? = nil
-    let dataManager: DataManager!
+    private let dataManager: DataManager!
     
     var isNew = true
-    var topic: Topic
+    private let topicId: String
     var learnedWord: LearnedWord?
     
     let title = BehaviorRelay<String?>(value: "")
@@ -28,11 +28,11 @@ class EditWordViewModel: BaseViewModel {
     let translate = BehaviorRelay<String?>(value: "")
     let notes = BehaviorRelay<String?>(value: "")
     
-    init(dataManager: DataManager, topic: Topic, learnedWord: LearnedWord? = nil, isNew: Bool = true) {
+    init(dataManager: DataManager, topicId: String, learnedWord: LearnedWord? = nil) {
         self.dataManager = dataManager
-        self.topic = topic
+        self.topicId = topicId
         self.learnedWord = learnedWord
-        self.isNew = isNew
+        self.isNew = learnedWord == nil
         
         bind()
         UpdateButtonsVisibility()

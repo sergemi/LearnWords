@@ -107,10 +107,6 @@ final class EditTopicViewModel: UniversalTableViewModel {
                             self.haveRightBarBtn.accept(self.isAddBtnEnabled())
                         }
                     }
-                    //                self.isNew = false
-                    //                self.UpdateButtonsVisibility()
-                    //                self.haveRightBarBtn.accept(self.isAddBtnEnabled())
-                    
                 }
                 catch {
                     if let error = error as? LocalizedError {
@@ -126,7 +122,7 @@ final class EditTopicViewModel: UniversalTableViewModel {
             guard let topic = self?.topic else {
                 return
             }
-            self?.coordinator?.editWord(topic: topic)
+            self?.coordinator?.addWord(topicId: topic.id)
         }).disposed(by: disposeBag)
         
         _ = details.subscribe(onNext: { [weak self] value in

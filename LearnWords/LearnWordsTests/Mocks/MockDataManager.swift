@@ -8,7 +8,6 @@
 import Foundation
 //@testable import LearnWords
 
-//class MockDataManager: DataManager {
 final actor MockDataManager: DataManager {
     static let instance = MockDataManager()
     private init() {
