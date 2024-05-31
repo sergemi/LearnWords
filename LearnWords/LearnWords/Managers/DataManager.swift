@@ -14,6 +14,8 @@ enum DataManagerError: Error, LocalizedError {
     case unknownError
     case moduleNotFound
     case topicNotFound
+    case learnedWordNotFound
+    case wordPairNotFound
     case updateDataError
 }
 
@@ -38,8 +40,12 @@ protocol DataManager {
     func updateWord(topicId: String, word: LearnedWord) async throws
     func deleteWord(topicId: String, word: LearnedWord) async throws
     
+    // WordPair
     func word(id: String) async throws -> WordPair
-    func updateWord(learnedWordId: String, word: WordPair) async throws
+//    func addWord(learnedWordId: String, word: WordPair) async throws
+//    func updateWord(learnedWordId: String, word: WordPair) async throws
+    func addWord(_ word: WordPair) async throws
+    func updateWord(_ word: WordPair) async throws
     
     func reset() async throws // delete all data. empty manager as result
 }

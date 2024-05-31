@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class EditWordViewController: BaseViewController {
+final class EditWordViewController: BaseViewController {
     var viewModel: EditWordViewModel? = nil
     let rightBtn = UIBarButtonItem(title: "rightBtn", style: .plain, target: nil, action: nil)
     

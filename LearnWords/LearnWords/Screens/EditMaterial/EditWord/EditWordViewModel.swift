@@ -77,14 +77,48 @@ final class EditWordViewModel: BaseViewModel {
         _ = rightBtnObserver.bind(onNext: { [weak self] _ in
             log.method() // todo
             
-//            guard let self = self, let learnedWord = self.learnedWord else {
-//                return
-//            }
-//            print("++ Save word ++")
-//            print("target: \(String(describing: (self.target.value) ?? ""))")
-//            print("translate: \(String(describing: (self.translate.value) ?? ""))")
-//        
-//            updateLearnedWordFromUi()
+            guard let self = self, let learnedWord = self.learnedWord else {
+                return
+            }
+            print("++ Save word ++")
+            print("target: \(String(describing: (self.target.value) ?? ""))")
+            print("translate: \(String(describing: (self.translate.value) ?? ""))")
+        
+            updateLearnedWordFromUi()
+            
+            Task { [weak self] in
+                guard let self = self, let learnedWord = self.learnedWord else {
+                    return
+                }
+                do {
+                    if self.isNew {
+                        try await self.dataManager.addWord(topicId: self.topicId,
+                                                           word: learnedWord)
+                        self.isNew = false
+                        DispatchQueue.main.async {
+                            self.UpdateButtonsVisibility()
+                            self.haveRightBarBtn.accept(self.isRightBtnEnabled())
+                        }
+                    }
+                    else {
+                        try await self.dataManager.updateWord(topicId: self.topicId,
+                                                              word: learnedWord)
+                        self.isNew = false
+                        DispatchQueue.main.async {
+                            self.UpdateButtonsVisibility()
+                            self.haveRightBarBtn.accept(self.isRightBtnEnabled())
+                        }
+                    }
+                }
+                catch {
+                    if let error = error as? LocalizedError {
+                        print(error.localizedDescription)
+                    } else {
+                        print("An unexpected error occurred: \(error)")
+                    }
+                }
+            }
+            
 //            if self.isNew {
 //                let res = self.dataManager.addWord(topicId: self.topic.id, word: learnedWord)
 //                // TODO: show error

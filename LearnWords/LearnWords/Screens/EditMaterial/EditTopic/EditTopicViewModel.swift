@@ -86,7 +86,10 @@ final class EditTopicViewModel: UniversalTableViewModel {
                 return
             }
             
-            Task {
+            Task { [weak self] in
+                guard let self = self else {
+                    return
+                }
                 do {
                     if self.isNew {
                         try await self.dataManager.addTopic(moduleId: self.moduleId, topic: self.topic!)
@@ -95,11 +98,8 @@ final class EditTopicViewModel: UniversalTableViewModel {
                             self.UpdateButtonsVisibility()
                             self.haveRightBarBtn.accept(self.isAddBtnEnabled())
                         }
-                    } else {
-                        //                    let res = self.dataManager.updateTopic(moduleId: self.module.id, topic: self.topic)
-                        //                    // TODO: show error
-                        //                    print(res)
-                        
+                    } 
+                    else {
                         try await self.dataManager.updateTopic(moduleId: self.moduleId, topic: self.topic!)
                         self.isNew = false
                         DispatchQueue.main.async {
@@ -194,20 +194,6 @@ final class EditTopicViewModel: UniversalTableViewModel {
                 }
             }
         }
-        
-//        guard let updatedTopic = dataManager.topic(id: topic.id) else {
-//            return
-//        }
-//        topic = updatedTopic
-        // TODO
-//        words = Array(topic.words)
-        
-//        let wordRows = words.map{
-//            ModelTableViewCell(checkbox: .empty,
-//                               title: "\($0.word.target) - \($0.word.translate)",
-//                               showArrow: true)
-//        }
-//        rows.accept(wordRows)
     }
     
     override func selectRow(index: Int) {
