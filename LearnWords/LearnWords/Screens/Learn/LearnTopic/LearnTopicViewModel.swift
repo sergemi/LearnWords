@@ -9,21 +9,23 @@ import Foundation
 
 class LearnTopicViewModel: UniversalTableViewModel {
     var learnCoordinator: LearnCoordinatorProtocol? = nil
-    let dataManager: DataManager!
+    private let dataManager: DataManager!
     
-    var topic: Topic
+    private var topicId: String
+    var topic: Topic?
     var words: [LearnedWord] = []
     
-    init(dataManager: DataManager, topic: Topic) {
+    init(dataManager: DataManager, topicId: String) {
         self.dataManager = dataManager
-        self.topic = topic
+        self.topicId = topicId
         super.init()
         
-        title.accept(self.topic.name)
         tableHeader.accept("Learn.Topic.tableHeader".localized())
         
-        name.accept(topic.name)
-        details.accept(topic.details)
+        // todo
+//        title.accept(self.topic.name)
+//        name.accept(topic.name)
+//        details.accept(topic.details)
         
         canSelect.accept(true)
     }

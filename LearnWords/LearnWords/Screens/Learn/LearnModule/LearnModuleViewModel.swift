@@ -9,21 +9,23 @@ import Foundation
 
 class LearnModuleViewModel: UniversalTableViewModel {
     var learnCoordinator: LearnCoordinatorProtocol? = nil
-    let dataManager: DataManager!
+    private let dataManager: DataManager!
     
-    var module: Module
+    var moduleId: String
+    var module: Module?
     var topics: [Topic] = []
     
-    init(dataManager: DataManager, module: Module) {
+    init(dataManager: DataManager, moduleId: String) {
         self.dataManager = dataManager
-        self.module = module
+        self.moduleId = moduleId
         super.init()
         
-        title.accept(self.module.name)
         tableHeader.accept("Learn.Module.tableHeader".localized())
         
-        name.accept(module.name)
-        details.accept(module.details)
+        // todo
+//        title.accept(self.module.name)
+//        name.accept(module.name)
+//        details.accept(module.details)
         
         canSelect.accept(true)
     }
@@ -39,7 +41,8 @@ class LearnModuleViewModel: UniversalTableViewModel {
     }
     
     override func selectRow(index: Int) {
-        let topic = topics[index]
-        self.learnCoordinator?.topic(topic)
+        // todo
+//        let topic = topics[index]
+//        self.learnCoordinator?.topic(topic)
     }
 }

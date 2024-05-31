@@ -9,8 +9,8 @@ import Foundation
 
 final class EditModuleListViewModel: UniversalTableViewModel {
     var coordinator: EditMaterialCoordinatorProtocol? = nil
-    private var modules: [ModulePreload] = []
     private let dataManager: DataManager!
+    private var modules: [ModulePreload] = []
     
     init(dataManager: DataManager) {
         log.method()
@@ -61,17 +61,6 @@ final class EditModuleListViewModel: UniversalTableViewModel {
                 
             }
         }
-        
-//        fmodules
-//
-//        let modulesRows = modules.map{
-//            ModelTableViewCell(checkbox: .empty,
-//                               title: $0.name,
-//                               showArrow: true
-//            )
-//        }
-//        
-//        rows.accept(modulesRows)
     }
     
     override func selectRow(index: Int) {

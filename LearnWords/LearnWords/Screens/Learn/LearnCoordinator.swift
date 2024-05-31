@@ -11,14 +11,17 @@ import UIKit
 protocol LearnCoordinatorProtocol: AnyObject {
     func BaseLearn()
     func selectModule()
-    func module(_ module: Module)
-    func topic(_ topic: Topic)
+//    func module(_ module: Module)
+//    func topic(_ topic: Topic)
+    func module(_ id: String)
+    func topic(_ id: String)
+
     
     
     func test() // todo: remove
 }
 
-class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocol {
+final class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocol {
     var currentViewController: UIViewController?
     
     var childCoordinators: [CoordinatorProtocol] = []
@@ -65,15 +68,17 @@ class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocol {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func module(_ module: Module) {
-        let model = LearnModuleViewModel(dataManager: dataManager, module: module)
+//    func module(_ module: Module) {
+    func module(_ id: String) {
+        let model = LearnModuleViewModel(dataManager: dataManager, moduleId: id)
         model.learnCoordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func topic(_ topic: Topic) {
-        let model = LearnTopicViewModel(dataManager: dataManager, topic: topic)
+//    func topic(_ topic: Topic) {
+    func topic(_ id: String) {
+        let model = LearnTopicViewModel(dataManager: dataManager, topicId: id)
         model.learnCoordinator = self
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
