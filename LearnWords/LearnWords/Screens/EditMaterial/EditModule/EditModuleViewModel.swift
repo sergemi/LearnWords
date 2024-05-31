@@ -207,7 +207,7 @@ final class EditModuleViewModel: UniversalTableViewModel {
                 return
             }
             do {
-                try await self.dataManager.deleteTopic(moduleId: moduleId, topicId: topicId)
+                try await self.dataManager.deleteTopic(id: topicId, moduleId: moduleId)
                 self.reloadData() // todo: add update only table
             }
             catch {

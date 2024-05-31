@@ -92,8 +92,7 @@ final class EditWordViewModel: BaseViewModel {
                 }
                 do {
                     if self.isNew {
-                        try await self.dataManager.addWord(topicId: self.topicId,
-                                                           word: learnedWord)
+                        try await self.dataManager.addWord(learnedWord, topicId: self.topicId)
                         self.isNew = false
                         DispatchQueue.main.async {
                             self.UpdateButtonsVisibility()
@@ -101,8 +100,7 @@ final class EditWordViewModel: BaseViewModel {
                         }
                     }
                     else {
-                        try await self.dataManager.updateWord(topicId: self.topicId,
-                                                              word: learnedWord)
+                        try await self.dataManager.updateWord(learnedWord, topicId: self.topicId)
                         self.isNew = false
                         DispatchQueue.main.async {
                             self.UpdateButtonsVisibility()

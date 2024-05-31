@@ -17,8 +17,6 @@ final class EditTopicViewModel: UniversalTableViewModel {
     var isNew = true
     var isCanAdd = true
     
-    var words: [LearnedWord] = []
-    
     init(dataManager: DataManager, moduleId: String, topicId: String, isNew: Bool = false) {
         self.dataManager = dataManager
         self.moduleId = moduleId
@@ -91,8 +89,8 @@ final class EditTopicViewModel: UniversalTableViewModel {
                     return
                 }
                 do {
-                    if self.isNew {
-                        try await self.dataManager.addTopic(moduleId: self.moduleId, topic: self.topic!)
+                    if self.isNew { // todo: try remove !
+                        try await self.dataManager.addTopic(self.topic!, moduleId: self.moduleId)
                         self.isNew = false
                         DispatchQueue.main.async {
                             self.UpdateButtonsVisibility()
@@ -100,7 +98,7 @@ final class EditTopicViewModel: UniversalTableViewModel {
                         }
                     } 
                     else {
-                        try await self.dataManager.updateTopic(moduleId: self.moduleId, topic: self.topic!)
+                        try await self.dataManager.updateTopic(self.topic!, moduleId: self.moduleId)
                         self.isNew = false
                         DispatchQueue.main.async {
                             self.UpdateButtonsVisibility()
@@ -197,16 +195,37 @@ final class EditTopicViewModel: UniversalTableViewModel {
     }
     
     override func selectRow(index: Int) {
-        let word = words[index]
-        //todo
-//        self.coordinator?.editWord(topic: topic, learnedWord: word)
+        guard let topic = topic else {
+            return
+        }
+        let word = topic.words[index]
+        self.coordinator?.editWord(topicId: topic.id, learnedWord: word)
     }
     
     override func deleteRow(index: Int) {
-        log.method() // todo
-//        let word = words[index]
-//        _ = dataManager.deleteWord(topicId: topic.id, word: word)
-        //TODO: show error
-        reloadData()
+        guard let topic = topic else {
+            return
+        }
+        let word = topic.words[index]
+        
+        Task { [weak self] in
+            guard let self = self else {
+                return
+            }
+            do {
+                try await self.dataManager.deleteWord(word, topicId: topic.id)
+                self.reloadData() // todo: add update only table
+            }
+            catch {
+                if let error = error as? LocalizedError {
+                    print(error.localizedDescription)
+                } else {
+                    print("An unexpected error occurred: \(error)")
+                }
+            }
+        }
+        
+//        self.coordinator?.editWord(topicId: topic.id, learnedWord: word)
+//        reloadData()
     }
 }

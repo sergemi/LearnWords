@@ -85,15 +85,19 @@ final actor MockDataManager: DataManager {
     }
      */
     
-    func addTopic(moduleId: String, topic: Topic) async throws {
+    func addTopic(_ topic: Topic, moduleId: String?) async throws {
+        topics.append(topic)
+        
+        // update in module if needed
+        guard let moduleId = moduleId else {
+            return
+        }
         var module = try await module(id: moduleId)
         module.topics.append(topic.topicPreload)
         try await updateModule(module)
-        
-        topics.append(topic)
     }
     
-    func updateTopic(moduleId: String, topic: Topic) async throws {
+    func updateTopic(_ topic: Topic, moduleId: String?) async throws {
         log.method() // TODO
         
         guard let index = topics.firstIndex(where: {$0.id == topic.id}) else {
@@ -101,7 +105,10 @@ final actor MockDataManager: DataManager {
         }
         topics[index] = topic
         
-        // update in a module
+        // update in module if needed
+        guard let moduleId = moduleId else {
+            return
+        }
         var module = try await module(id: moduleId)
         guard let moduleTopicIndex = module.topics.firstIndex(where: {$0.id == topic.id}) else {
             throw DataManagerError.updateDataError
@@ -110,14 +117,18 @@ final actor MockDataManager: DataManager {
         try await updateModule(module)
     }
     
-    func deleteTopic(moduleId: String, topicId: String) async throws {
+    func deleteTopic(id: String, moduleId: String?) async throws {
         log.method() // TODO
         
-        var module = try await module(id: moduleId)
-        module.topics.removeAll(where: {$0.id == topicId})
-        try await updateModule(module)
+        topics.removeAll(where: {$0.id == id})
         
-        topics.removeAll(where: {$0.id == topicId})
+        // update in module if needed
+        guard let moduleId = moduleId else {
+            return
+        }
+        var module = try await module(id: moduleId)
+        module.topics.removeAll(where: {$0.id == id})
+        try await updateModule(module)
     }
     
     // LearnedWords
@@ -141,7 +152,7 @@ final actor MockDataManager: DataManager {
 //        return nil
     }
     
-    func addWord(topicId: String, word: LearnedWord) async throws {
+    func addWord(_ word: LearnedWord, topicId: String?) async throws {
         log.method() // TODO
         
         // add WordPair if it not already presented
@@ -151,13 +162,14 @@ final actor MockDataManager: DataManager {
         catch(DataManagerError.wordPairNotFound) {
             try await addWord(word.word)
         }
-        
         learnedWords.append(word)
-        
+        // add to topic if need
+        guard let topicId = topicId else {
+            return
+        }
         var topic = try await topic(id: topicId)
         topic.words.append(word)
-//        updatet
-        // todo: unfinished
+        try await updateTopic(topic, moduleId: nil)
         
         
 //        guard var (topic, module) = topic(id: topicId) else {
@@ -170,8 +182,24 @@ final actor MockDataManager: DataManager {
 //        return topic
     }
     
-    func updateWord(topicId: String, word: LearnedWord) async throws {
+    func updateWord(_ word: LearnedWord, topicId: String?) async throws {
         log.method() // TODO
+        
+        guard let index = learnedWords.firstIndex(where: {$0.id == word.id}) else {
+            throw DataManagerError.learnedWordNotFound
+        }
+        learnedWords[index] = word
+        
+        // update in topic if need
+        guard let topicId = topicId else {
+            return
+        }
+        var topic = try await topic(id: topicId)
+        guard let index = topic.words.firstIndex(where: {$0.id == word.id}) else {
+            throw DataManagerError.updateDataError
+        }
+        topic.words[index] = word
+        try await updateTopic(topic, moduleId: nil)
         
 //        guard var (topic, module) = topic(id: topicId) else {
 //            return nil
@@ -187,8 +215,24 @@ final actor MockDataManager: DataManager {
 //        return topic
     }
     
-    func deleteWord(topicId: String, word: LearnedWord) async throws {
+    func deleteWord(_ word: LearnedWord, topicId: String?) async throws {
         log.method() // TODO
+        
+        guard let index = learnedWords.firstIndex(where: {$0.id == word.id}) else {
+            throw DataManagerError.learnedWordNotFound
+        }
+        learnedWords.remove(at: index)
+        
+        // update in topic if need
+        guard let topicId = topicId else {
+            return
+        }
+        var topic = try await topic(id: topicId)
+        guard let index = topic.words.firstIndex(where: {$0.id == word.id}) else {
+            throw DataManagerError.updateDataError
+        }
+        topic.words.remove(at: index)
+        try await updateTopic(topic, moduleId: nil)
         
 //        guard var (topic, module) = topic(id: topicId) else {
 //            return nil

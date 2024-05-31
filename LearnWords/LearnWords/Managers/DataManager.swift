@@ -31,14 +31,14 @@ protocol DataManager {
 //    var topics: [Topic] {get}
 //    
     func topic(id: String) async throws -> Topic
-    func addTopic(moduleId: String, topic: Topic) async throws
-    func updateTopic(moduleId: String, topic: Topic) async throws // TODO: delete moduleId ?
-    func deleteTopic(moduleId: String, topicId: String) async throws
+    func addTopic(_ topic: Topic, moduleId: String?) async throws
+    func updateTopic(_ topic: Topic, moduleId: String?) async throws // TODO: delete moduleId ?
+    func deleteTopic(id: String, moduleId: String?) async throws
     
     func learnedWord(id: String) async throws -> LearnedWord
-    func addWord(topicId: String, word: LearnedWord) async throws
-    func updateWord(topicId: String, word: LearnedWord) async throws
-    func deleteWord(topicId: String, word: LearnedWord) async throws
+    func addWord(_ word: LearnedWord, topicId: String?) async throws
+    func updateWord(_ word: LearnedWord, topicId: String?) async throws
+    func deleteWord(_ word: LearnedWord, topicId: String?) async throws
     
     // WordPair
     func word(id: String) async throws -> WordPair
