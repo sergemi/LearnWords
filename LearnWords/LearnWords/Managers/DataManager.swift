@@ -27,12 +27,10 @@ protocol DataManager {
     func addModule(_ module: Module) async throws
     func updateModule(_ module: Module) async throws
     func deleteModule(id: String) async throws
-    
-//    var topics: [Topic] {get}
-//    
+      
     func topic(id: String) async throws -> Topic
     func addTopic(_ topic: Topic, moduleId: String?) async throws
-    func updateTopic(_ topic: Topic, moduleId: String?) async throws // TODO: delete moduleId ?
+    func updateTopic(_ topic: Topic, moduleId: String?) async throws
     func deleteTopic(id: String, moduleId: String?) async throws
     
     func learnedWord(id: String) async throws -> LearnedWord
@@ -42,8 +40,6 @@ protocol DataManager {
     
     // WordPair
     func word(id: String) async throws -> WordPair
-//    func addWord(learnedWordId: String, word: WordPair) async throws
-//    func updateWord(learnedWordId: String, word: WordPair) async throws
     func addWord(_ word: WordPair) async throws
     func updateWord(_ word: WordPair) async throws
     

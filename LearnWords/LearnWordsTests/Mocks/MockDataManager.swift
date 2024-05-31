@@ -131,25 +131,12 @@ final actor MockDataManager: DataManager {
         try await updateModule(module)
     }
     
-    // LearnedWords
-    
     func learnedWord(id: String) async throws -> LearnedWord {
         log.method() // TODO
         guard let learnedWord = learnedWords.first(where: {$0.id == id}) else {
             throw DataManagerError.learnedWordNotFound
         }
         return learnedWord
-        
-//        for module in modules {
-//            for topic in module.topics {
-//                guard let word = topic.words.first(where: {$0.id == id}) else {
-//                    break
-//                }
-//                return word
-//            }
-//        }
-//        
-//        return nil
     }
     
     func addWord(_ word: LearnedWord, topicId: String?) async throws {
@@ -170,16 +157,6 @@ final actor MockDataManager: DataManager {
         var topic = try await topic(id: topicId)
         topic.words.append(word)
         try await updateTopic(topic, moduleId: nil)
-        
-        
-//        guard var (topic, module) = topic(id: topicId) else {
-//            return nil
-//        }
-//        
-//        topic.words.append(word)
-//        _ = updateTopic(moduleId: module.id, topic: topic)
-//        
-//        return topic
     }
     
     func updateWord(_ word: LearnedWord, topicId: String?) async throws {
@@ -200,19 +177,6 @@ final actor MockDataManager: DataManager {
         }
         topic.words[index] = word
         try await updateTopic(topic, moduleId: nil)
-        
-//        guard var (topic, module) = topic(id: topicId) else {
-//            return nil
-//        }
-//        
-//        guard let index = topic.words.firstIndex(where: {$0.id == word.id}) else {
-//            return nil
-//        }
-//        topic.words[index] = word
-//        
-//        _ = updateTopic(moduleId: module.id, topic: topic)
-//        
-//        return topic
     }
     
     func deleteWord(_ word: LearnedWord, topicId: String?) async throws {
@@ -233,19 +197,6 @@ final actor MockDataManager: DataManager {
         }
         topic.words.remove(at: index)
         try await updateTopic(topic, moduleId: nil)
-        
-//        guard var (topic, module) = topic(id: topicId) else {
-//            return nil
-//        }
-//        
-//        guard let index = topic.words.firstIndex(where: {$0.id == word.id}) else {
-//            return nil
-//        }
-//        topic.words.remove(at: index)
-//        
-//        _ = updateTopic(moduleId: module.id, topic: topic)
-//        
-//        return topic
     }
     
     //WordPair
@@ -256,27 +207,14 @@ final actor MockDataManager: DataManager {
             throw DataManagerError.wordPairNotFound
         }
         return word
-//        for module in modules {
-//            for topic in module.topics {
-//                for learnedWord in topic.words {
-//                    if learnedWord.word.id == id {
-//                        return learnedWord.word
-//                    }
-//                }
-//            }
-//        }
-//        
-//        return nil
     }
     
-//    func addWord(learnedWordId: String, word: WordPair) async throws {
     func addWord(_ word: WordPair) async throws {
         log.method()
         
         wordPairs.append(word)
     }
     
-//    func updateWord(learnedWordId: String, word: WordPair) async throws {
     func updateWord(_ word: WordPair) async throws {
         log.method() // TODO
         
@@ -284,23 +222,5 @@ final actor MockDataManager: DataManager {
             throw DataManagerError.wordPairNotFound
         }
         wordPairs[index] = word
-        
-//        for module in modules {
-//            for topic in module.topics {
-//                for learnedWord in topic.words {
-//                    if learnedWord.id == learnedWordId {
-//                        var workWord = learnedWord
-//                        workWord.word = word
-//                        if( updateWord(topicId: topic.id, word: workWord) != nil ) {
-//                            return learnedWord
-//                        }
-//                        else {
-//                            return nil
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        return nil
     }
 }

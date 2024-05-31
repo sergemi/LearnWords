@@ -224,8 +224,5 @@ final class EditTopicViewModel: UniversalTableViewModel {
                 }
             }
         }
-        
-//        self.coordinator?.editWord(topicId: topic.id, learnedWord: word)
-//        reloadData()
     }
 }
