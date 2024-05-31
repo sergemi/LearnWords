@@ -7,13 +7,12 @@
 
 import Foundation
 
-class LearnModuleViewModel: UniversalTableViewModel {
+final class LearnModuleViewModel: UniversalTableViewModel {
     var learnCoordinator: LearnCoordinatorProtocol? = nil
     private let dataManager: DataManager!
     
     var moduleId: String
     var module: Module?
-    var topics: [Topic] = []
     
     init(dataManager: DataManager, moduleId: String) {
         self.dataManager = dataManager
@@ -21,28 +20,47 @@ class LearnModuleViewModel: UniversalTableViewModel {
         super.init()
         
         tableHeader.accept("Learn.Module.tableHeader".localized())
-        
-        // todo
-//        title.accept(self.module.name)
-//        name.accept(module.name)
-//        details.accept(module.details)
-        
         canSelect.accept(true)
     }
     
     override func reloadData(){
-        // TODO
-//        topics = Array(module.topics)
+        log.method()
         
-        let topicsRows = topics.map{
-            ModelTableViewCell(checkbox: .empty, title: $0.name, showArrow: true)
+        Task { [weak self] in
+            guard let self = self else {
+                return
+            }
+            do {
+                self.module = try await dataManager.module(id: moduleId) // todo: is it still need?
+                guard let module = self.module else {
+                    return
+                }
+                
+                let topicsRows = module.topics.map{
+                    ModelTableViewCell(checkbox: .empty, title: $0.name, showArrow: true)
+                }
+                DispatchQueue.main.async { [weak self] in
+                    self?.title.accept(module.name)
+                    self?.name.accept(module.name)
+                    self?.details.accept(module.details)
+                    self?.rows.accept(topicsRows)
+                }
+            }
+            catch {
+                if let error = error as? LocalizedError {
+                    print(error.localizedDescription)
+                } else {
+                    print("An unexpected error occurred: \(error)")
+                }
+            }
         }
-        rows.accept(topicsRows)
     }
     
     override func selectRow(index: Int) {
-        // todo
-//        let topic = topics[index]
-//        self.learnCoordinator?.topic(topic)
+        guard let module = module else {
+            return
+        }
+        let topicId = module.topics[index].id
+        learnCoordinator?.topic(topicId)
     }
 }

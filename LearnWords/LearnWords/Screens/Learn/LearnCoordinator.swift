@@ -11,8 +11,6 @@ import UIKit
 protocol LearnCoordinatorProtocol: AnyObject {
     func BaseLearn()
     func selectModule()
-//    func module(_ module: Module)
-//    func topic(_ topic: Topic)
     func module(_ id: String)
     func topic(_ id: String)
 

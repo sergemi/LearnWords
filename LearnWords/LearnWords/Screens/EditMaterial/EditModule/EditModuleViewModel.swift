@@ -155,6 +155,7 @@ final class EditModuleViewModel: UniversalTableViewModel {
     }
     
     override func reloadData(){
+        log.method()
         if isNew {
             return
         }
