@@ -10,8 +10,8 @@ import RxCocoa
 import RxSwift
 
 final class EditWordViewController: BaseViewController {
-    var viewModel: EditWordViewModel? = nil
-    let rightBtn = UIBarButtonItem(title: "rightBtn", style: .plain, target: nil, action: nil)
+    private var viewModel: EditWordViewModel? = nil
+    private let rightBtn = UIBarButtonItem(title: "rightBtn", style: .plain, target: nil, action: nil)
     
     @IBOutlet weak var targetTField: CustomTextField!
     @IBOutlet weak var pronounceTField: CustomTextField!

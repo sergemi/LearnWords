@@ -1392,7 +1392,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
             endingLineNumber = "21"
-            landmarkName = "init(dataManager:moduleId:topicId:isNew:)"
+            landmarkName = "init(dataManager:coordinator:moduleId:topicId:isNew:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1408,7 +1408,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
             endingLineNumber = "51"
-            landmarkName = "init(dataManager:moduleId:)"
+            landmarkName = "init(dataManager:coordinator:moduleId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
