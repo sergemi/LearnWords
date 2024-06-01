@@ -10,9 +10,9 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class LoginViewModel : BaseViewModel {
+final class LoginViewModel : BaseViewModel {
     let disposeBag = DisposeBag()
-    weak var authenticateCoordinator: AuthenticateProtocol?
+    private weak var authenticateCoordinator: AuthenticateProtocol?
     weak var showErrorDelegate: ShowErrorProtocol? = nil
     
     let title = BehaviorRelay<String?>(value: "Login".localized())
@@ -29,7 +29,8 @@ class LoginViewModel : BaseViewModel {
     let email = BehaviorRelay<String?>(value: "")
     let password = BehaviorRelay<String?>(value: "")
     
-    init() {
+    init(coordinator: AuthenticateProtocol?) {
+        authenticateCoordinator = coordinator
         bind()
     }
     

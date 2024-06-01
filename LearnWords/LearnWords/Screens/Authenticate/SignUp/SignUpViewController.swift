@@ -7,30 +7,31 @@
 
 import UIKit
 
-class SignUpViewController: BaseViewController {
-    var viewModel = SignUpViewModel()
-    
-    weak var authenticateCoordinator: AuthenticateProtocol? {
-        get {
-            return viewModel.authenticateCoordinator
-        }
-        set {
-            viewModel.authenticateCoordinator = newValue
-        }
-    }
+final class SignUpViewController: BaseViewController {
+    private var viewModel: SignUpViewModel?
     
     @IBOutlet weak var loginTF: CustomTextField!
     @IBOutlet weak var password1TF: CustomTextField!
     @IBOutlet weak var password2TF: CustomTextField!
     @IBOutlet weak var signUpBtn: UIButton!
     
+    convenience init(viewModel: SignUpViewModel) {
+        self.init(nibName: String(describing: "EditWordViewController"), bundle: nil)
+        self.viewModel = viewModel
+    }
+    
+    // MARK: - UIViewController Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewModel.showErrorDelegate = self
+        viewModel?.showErrorDelegate = self
     }
 
     override func bindUI() {
+        guard let viewModel = viewModel else {
+            return
+        }
         _ = viewModel.title.subscribe(onNext: { [weak self] value in
             guard let value = value else {
                 return

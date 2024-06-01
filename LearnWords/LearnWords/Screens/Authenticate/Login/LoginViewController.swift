@@ -7,35 +7,33 @@
 
 import UIKit
 
-class LoginViewController: BaseViewController {
-    var viewModel = LoginViewModel()
+final class LoginViewController: BaseViewController {
+    private var viewModel: LoginViewModel?
     
     @IBOutlet weak var loginTF: CustomTextField!
     @IBOutlet weak var passwordTF: CustomTextField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var signUpBtn: UIButton!
     
-    weak var authenticateCoordinator: AuthenticateProtocol? {
-        get {
-            return viewModel.authenticateCoordinator
-        }
-        set {
-            viewModel.authenticateCoordinator = newValue
-        }
+    convenience init(viewModel: LoginViewModel) {
+        self.init(nibName: String(describing: "EditWordViewController"), bundle: nil)
+        self.viewModel = viewModel
     }
-
     // MARK: - UIViewController Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.showErrorDelegate = self
+        viewModel?.showErrorDelegate = self
         navigationItem.hidesBackButton = true
     }
 
     
     // MARK: - BaseViewController
     override func bindUI() {
+        guard let viewModel = viewModel else {
+            return
+        }
         _ = viewModel.title.subscribe(onNext: { [weak self] value in
             guard let value = value else {
                 return

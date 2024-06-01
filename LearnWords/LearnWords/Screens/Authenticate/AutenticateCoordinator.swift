@@ -12,7 +12,7 @@ protocol AuthenticateProtocol: AnyObject {
     func signUp()
 }
 
-class AuthenticateCoordinator: CoordinatorProtocol, AuthenticateProtocol {
+final class AuthenticateCoordinator: CoordinatorProtocol, AuthenticateProtocol {
     var childCoordinators: [CoordinatorProtocol] = []
     
     var currentViewController: UIViewController?
@@ -40,15 +40,15 @@ class AuthenticateCoordinator: CoordinatorProtocol, AuthenticateProtocol {
     
     // - MARK: AuthenticateProtocol
     func login() {
-        let vc = LoginViewController.loadFromNib()
-        vc.authenticateCoordinator = self
+        let model = LoginViewModel(coordinator: self)
+        let vc = LoginViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
         currentViewController = vc
     }
     
     func signUp() {
-        let vc = SignUpViewController.loadFromNib()
-        vc.authenticateCoordinator = self
+        let model = SignUpViewModel(coordinator: self)
+        let vc = SignUpViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
         currentViewController = vc
     }

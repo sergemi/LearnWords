@@ -10,9 +10,9 @@ import RxSwift
 import RxCocoa
 import FirebaseAuth
 
-class SignUpViewModel : BaseViewModel {
+final class SignUpViewModel : BaseViewModel {
     let disposeBag = DisposeBag()
-    weak var authenticateCoordinator: AuthenticateProtocol?
+    private weak var authenticateCoordinator: AuthenticateProtocol?
     weak var showErrorDelegate: ShowErrorProtocol? = nil
     
     let title = BehaviorRelay<String?>(value: "Sign up".localized())
@@ -27,7 +27,8 @@ class SignUpViewModel : BaseViewModel {
     let password1 = BehaviorRelay<String?>(value: "")
     let password2 = BehaviorRelay<String?>(value: "")
     
-    init() {
+    init(coordinator: AuthenticateProtocol?) {
+        authenticateCoordinator = coordinator
         bind()
     }
     
