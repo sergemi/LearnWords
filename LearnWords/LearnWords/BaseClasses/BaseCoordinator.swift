@@ -9,9 +9,6 @@ import Foundation
 import UIKit
 
 protocol CoordinatorProtocol: AnyObject {
-//    init()
-//    init(navigationController:UINavigationController)
-    
     var currentViewController: UIViewController? {get}
     
     var childCoordinators: [CoordinatorProtocol] { get set }
@@ -19,14 +16,11 @@ protocol CoordinatorProtocol: AnyObject {
     var startViewController: UIViewController? {get set}
     var navigationController: UINavigationController {get}
     
-//    var id: Int {get}
-    
     func start()
     func start(coordinator: CoordinatorProtocol)
     func returnToParrent()
     
 //    func removeCoordinator(_ coordinator: CoordinatorProtocol)
-    
 }
 
 extension CoordinatorProtocol {

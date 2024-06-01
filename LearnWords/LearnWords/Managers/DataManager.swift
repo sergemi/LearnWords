@@ -20,7 +20,6 @@ enum DataManagerError: Error, LocalizedError {
 }
 
 protocol DataManager {
-//    var modules: [Module] {get}
 //    var modules: BehaviorRelay<[ModulePreload]> {get}
     var modules: [ModulePreload] { get async throws }
     func module(id: String) async throws -> Module

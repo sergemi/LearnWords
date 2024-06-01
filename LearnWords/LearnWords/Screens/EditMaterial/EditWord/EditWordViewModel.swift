@@ -10,8 +10,8 @@ import RxSwift
 import RxCocoa
 
 final class EditWordViewModel: BaseViewModel {
-    let disposeBag = DisposeBag()
-    var coordinator: EditMaterialCoordinatorProtocol? = nil
+    private let disposeBag = DisposeBag()
+    private var coordinator: EditMaterialCoordinatorProtocol? = nil
     private let dataManager: DataManager!
     
     var isNew = true
@@ -28,8 +28,9 @@ final class EditWordViewModel: BaseViewModel {
     let translate = BehaviorRelay<String?>(value: "")
     let notes = BehaviorRelay<String?>(value: "")
     
-    init(dataManager: DataManager, topicId: String, learnedWord: LearnedWord? = nil) {
+    init(dataManager: DataManager, coordinator: EditMaterialCoordinatorProtocol?, topicId: String, learnedWord: LearnedWord? = nil) {
         self.dataManager = dataManager
+        self.coordinator = coordinator
         self.topicId = topicId
         self.learnedWord = learnedWord
         self.isNew = learnedWord == nil
@@ -59,20 +60,7 @@ final class EditWordViewModel: BaseViewModel {
         learnedWord?.word.notes = self.notes.value ?? ""
         learnedWord?.word.translate = self.translate.value ?? ""
     }
-    
-//    convenience init(dataManager: DataManager, topic: Topic) {
-//        
-//        self.init(dataManager: dataManager, topic: topic,
-//                  learnedWord:
-//                    LearnedWord(word: WordPair(target: "",
-//                                                          translate: "",
-//                                                          pronounce: "",
-//                                                          notes: "")
-//                                ,
-//                                           exercises: []),
-//                  isNew: true)
-//    }
-    
+        
     fileprivate func bind() {
         _ = rightBtnObserver.bind(onNext: { [weak self] _ in
             log.method() // todo
@@ -116,21 +104,6 @@ final class EditWordViewModel: BaseViewModel {
                     }
                 }
             }
-            
-//            if self.isNew {
-//                let res = self.dataManager.addWord(topicId: self.topic.id, word: learnedWord)
-//                // TODO: show error
-//                print(res)
-//            }
-//            else {
-//                let res = self.dataManager.updateWord(topicId: self.topic.id, word: learnedWord)
-//                // TODO: show error
-//                print(res)
-//            }
-//            self.isNew = false
-//            self.UpdateButtonsVisibility()
-//            self.haveRightBarBtn.accept(self.isRightBtnEnabled())
-            
         }).disposed(by: disposeBag)
         
         _ = target.subscribe(onNext: { [weak self] value in

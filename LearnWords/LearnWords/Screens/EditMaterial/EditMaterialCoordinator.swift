@@ -62,50 +62,43 @@ final class EditMaterialCoordinator: CoordinatorProtocol, EditMaterialCoordinato
     
     // - MARK: EditMaterialCoordinatorProtocol
     func selectModule() {
-        let model = EditModuleListViewModel(dataManager: dataManager)
-        model.coordinator = self
+        let model = EditModuleListViewModel(dataManager: dataManager, coordinator: self)
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
     func addModule() {
-        let model = EditModuleViewModel(dataManager: dataManager)
-        model.coordinator = self
+        let model = EditModuleViewModel(dataManager: dataManager, coordinator: self)
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
     func editModule(_ id: String) {
-        let model = EditModuleViewModel(dataManager: dataManager, moduleId: id)
-        model.coordinator = self
+        let model = EditModuleViewModel(dataManager: dataManager, coordinator: self, moduleId: id)
         let vc = UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
     func addTopic(moduleId: String) {
-        let model = EditTopicViewModel(dataManager: dataManager, moduleId: moduleId)
-        model.coordinator = self
+        let model = EditTopicViewModel(dataManager: dataManager, coordinator: self, moduleId: moduleId)
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
     func editTopic(moduleId: String, topicId: String) {
-        let model = EditTopicViewModel(dataManager: dataManager, moduleId: moduleId, topicId: topicId)
-        model.coordinator = self
+        let model = EditTopicViewModel(dataManager: dataManager, coordinator: self, moduleId: moduleId, topicId: topicId)
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
     func addWord(topicId: String) {
-        let model = EditWordViewModel(dataManager: dataManager, topicId: topicId)
-        model.coordinator = self
+        let model = EditWordViewModel(dataManager: dataManager, coordinator: self, topicId: topicId)
         let vc =  EditWordViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
     func editWord(topicId: String, learnedWord: LearnedWord) {
-        let model = EditWordViewModel(dataManager: dataManager, topicId: topicId, learnedWord: learnedWord)
-        model.coordinator = self
+        let model = EditWordViewModel(dataManager: dataManager, coordinator: self, topicId: topicId, learnedWord: learnedWord)
         let vc =  EditWordViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }

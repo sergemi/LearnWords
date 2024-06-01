@@ -8,14 +8,16 @@
 import Foundation
 
 final class EditModuleListViewModel: UniversalTableViewModel {
-    var coordinator: EditMaterialCoordinatorProtocol? = nil
+    private var coordinator: EditMaterialCoordinatorProtocol? = nil
     private let dataManager: DataManager!
     private var modules: [ModulePreload] = []
     
-    init(dataManager: DataManager) {
+    init(dataManager: DataManager, coordinator: EditMaterialCoordinatorProtocol?) {
         log.method()
         
         self.dataManager = dataManager
+        self.coordinator = coordinator
+        
         super.init()
         
         bind()

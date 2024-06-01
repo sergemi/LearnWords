@@ -8,7 +8,7 @@
 import Foundation
 
 final class EditTopicViewModel: UniversalTableViewModel {
-    var coordinator: EditMaterialCoordinatorProtocol? = nil
+    private var coordinator: EditMaterialCoordinatorProtocol? = nil
     private let dataManager: DataManager!
 
     private let moduleId: String
@@ -17,8 +17,9 @@ final class EditTopicViewModel: UniversalTableViewModel {
     var isNew = true
     var isCanAdd = true
     
-    init(dataManager: DataManager, moduleId: String, topicId: String, isNew: Bool = false) {
+    init(dataManager: DataManager, coordinator: EditMaterialCoordinatorProtocol?,  moduleId: String, topicId: String, isNew: Bool = false) {
         self.dataManager = dataManager
+        self.coordinator = coordinator
         self.moduleId = moduleId
         self.topicId = topicId
         self.isNew = isNew
@@ -41,13 +42,14 @@ final class EditTopicViewModel: UniversalTableViewModel {
         bind()
     }
     
-    convenience init(dataManager: DataManager, moduleId: String) {
+    convenience init(dataManager: DataManager, coordinator: EditMaterialCoordinatorProtocol?, moduleId: String) {
         let newTopic = Topic(name: "",
                              details: "",
                              words: [],
                              exercises: [])
         
         self.init(dataManager: dataManager,
+                  coordinator: coordinator,
                   moduleId: moduleId,
                   topicId: newTopic.id,
                   isNew: true
