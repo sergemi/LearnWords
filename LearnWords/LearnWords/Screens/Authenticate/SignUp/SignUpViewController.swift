@@ -16,7 +16,7 @@ final class SignUpViewController: BaseViewController {
     @IBOutlet weak var signUpBtn: UIButton!
     
     convenience init(viewModel: SignUpViewModel) {
-        self.init(nibName: String(describing: "EditWordViewController"), bundle: nil)
+        self.init(nibName: String(describing: "SignUpViewController"), bundle: nil)
         self.viewModel = viewModel
     }
     

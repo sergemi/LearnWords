@@ -16,7 +16,7 @@ final class LoginViewController: BaseViewController {
     @IBOutlet weak var signUpBtn: UIButton!
     
     convenience init(viewModel: LoginViewModel) {
-        self.init(nibName: String(describing: "EditWordViewController"), bundle: nil)
+        self.init(nibName: String(describing: "LoginViewController"), bundle: nil)
         self.viewModel = viewModel
     }
     // MARK: - UIViewController Lifecycle
