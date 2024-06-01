@@ -60,7 +60,7 @@ final actor MockDataManager: DataManager {
     func deleteModule(id: String) async throws {
         log.method()
         guard let moduleIndex = storedModules.firstIndex(where: {$0.id == id}) else {
-            throw DataManagerError.updateDataError
+            throw DataManagerError.moduleNotFound
         }
         storedModules.remove(at: moduleIndex)
     }
@@ -111,7 +111,10 @@ final actor MockDataManager: DataManager {
     func deleteTopic(id: String, moduleId: String?) async throws {
         log.method()
         
-        topics.removeAll(where: {$0.id == id})
+        guard let index = topics.firstIndex(where: {$0.id == id}) else {
+            throw DataManagerError.topicNotFound
+        }
+        topics.remove(at: index)
         
         // update in module if needed
         guard let moduleId = moduleId else {
