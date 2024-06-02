@@ -9,16 +9,12 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class BaseStatViewController: BaseViewController {
-    var model = BaseStatViewModel()
+final class BaseStatViewController: BaseViewController {
+    private var viewModel: BaseStatViewModel?
     
-    weak var statCoordinator: StatCoordinatorProtocol? {
-        get {
-            return model.statCoordinator
-        }
-        set {
-            model.statCoordinator = newValue
-        }
+    convenience init(viewModel: BaseStatViewModel) {
+        self.init(nibName: String(describing: "BaseStatViewController"), bundle: nil)
+        self.viewModel = viewModel
     }
 
     override func viewDidLoad() {

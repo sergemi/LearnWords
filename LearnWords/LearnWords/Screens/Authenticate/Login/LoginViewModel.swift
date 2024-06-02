@@ -12,7 +12,7 @@ import RxCocoa
 
 final class LoginViewModel : BaseViewModel {
     let disposeBag = DisposeBag()
-    private weak var authenticateCoordinator: AuthenticateProtocol?
+    private weak var coordinator: AuthenticateProtocol?
     weak var showErrorDelegate: ShowErrorProtocol? = nil
     
     let title = BehaviorRelay<String?>(value: "Login".localized())
@@ -30,7 +30,7 @@ final class LoginViewModel : BaseViewModel {
     let password = BehaviorRelay<String?>(value: "")
     
     init(coordinator: AuthenticateProtocol?) {
-        authenticateCoordinator = coordinator
+        self.coordinator = coordinator
         bind()
     }
     
@@ -47,7 +47,7 @@ final class LoginViewModel : BaseViewModel {
                 if let error = error {
                     self?.showErrorDelegate?.errorAlert(error)
                 } else if result != nil{
-                    if let baseCoordinator = self?.authenticateCoordinator as? CoordinatorProtocol {
+                    if let baseCoordinator = self?.coordinator as? CoordinatorProtocol {
                         baseCoordinator.returnToParrent()
                     }
                 } else {
@@ -60,7 +60,7 @@ final class LoginViewModel : BaseViewModel {
             guard let self = self else {
                 return
             }
-            self.authenticateCoordinator?.signUp()
+            self.coordinator?.signUp()
         }).disposed(by: disposeBag)
     }
 }

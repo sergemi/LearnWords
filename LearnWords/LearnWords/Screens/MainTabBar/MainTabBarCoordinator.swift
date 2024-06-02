@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainTabBarCoordinator: NSObject, CoordinatorProtocol, UITabBarControllerDelegate {
+final class MainTabBarCoordinator: NSObject, CoordinatorProtocol, UITabBarControllerDelegate {
     var childCoordinators: [CoordinatorProtocol] = []
     weak var parent: CoordinatorProtocol? = nil
     unowned var navigationController:UINavigationController {

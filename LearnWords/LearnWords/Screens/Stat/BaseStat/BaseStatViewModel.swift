@@ -10,10 +10,11 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class BaseStatViewModel: BaseViewModel {
+final class BaseStatViewModel: BaseViewModel {
     let disposeBag = DisposeBag()
-    weak var statCoordinator: StatCoordinatorProtocol? = nil
+    weak var coordinator: StatCoordinatorProtocol? = nil
     
-    init() {
+    init(coordinator: StatCoordinatorProtocol) {
+        self.coordinator = coordinator
     }
 }

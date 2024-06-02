@@ -11,7 +11,7 @@ import RxSwift
 
 class UniversalTableViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
-    var viewModel: UniversalTableViewModel? = nil
+    var viewModel: UniversalTableViewModel?
     
 //    let rightBtn = UIBarButtonItem(image: UIImage(named: "add"), style: .plain, target: nil, action: nil)
     let rightBtn = UIBarButtonItem(title: "rightBtn", style: .plain, target: nil, action: nil)

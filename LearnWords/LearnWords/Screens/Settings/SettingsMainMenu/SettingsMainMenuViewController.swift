@@ -9,21 +9,17 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class SettingsMainMenuViewController: BaseViewController {
-    var model = SettingsMainMenuViewModel()
-    
-    weak var settingsCoordinator: SettingsCoordinatorProtocol? {
-        get {
-            return model.settingsCoordinator
-        }
-        set {
-            model.settingsCoordinator = newValue
-        }
-    }
+final class SettingsMainMenuViewController: BaseViewController {
+    private var viewModel: SettingsMainMenuViewModel?
     
     @IBOutlet weak var setupSystemlBtn: UIButton!
     @IBOutlet weak var editWordsBtn: UIButton!
     @IBOutlet weak var logoutBtn: UIButton!
+    
+    convenience init(viewModel: SettingsMainMenuViewModel) {
+        self.init(nibName: String(describing: "SettingsMainMenuViewController"), bundle: nil)
+        self.viewModel = viewModel
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +29,15 @@ class SettingsMainMenuViewController: BaseViewController {
     
     override func bindUI() {
         log.method()
+        guard let viewModel = viewModel else {
+            return
+        }
         
-        setupSystemlBtn.rx.tap.bind(to: model.localBaseBtnObserver).disposed(by: disposeBag)
+        setupSystemlBtn.rx.tap.bind(to: viewModel.localBaseBtnObserver).disposed(by: disposeBag)
         
-        editWordsBtn.rx.tap.bind(to: model.editWordsBtnObserver).disposed(by: disposeBag)
+        editWordsBtn.rx.tap.bind(to: viewModel.editWordsBtnObserver).disposed(by: disposeBag)
         
-        logoutBtn.rx.tap.bind(to: model.logoutBtnObserver).disposed(by: disposeBag)
+        logoutBtn.rx.tap.bind(to: viewModel.logoutBtnObserver).disposed(by: disposeBag)
     }
     
     func setupUI() {

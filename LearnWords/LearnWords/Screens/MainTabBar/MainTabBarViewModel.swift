@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class MainTabBarViewModel: BaseViewModel {
+final class MainTabBarViewModel: BaseViewModel {
     enum tabType: Int {
         case learn
         case addWord

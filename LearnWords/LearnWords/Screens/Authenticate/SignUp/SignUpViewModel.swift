@@ -12,7 +12,7 @@ import FirebaseAuth
 
 final class SignUpViewModel : BaseViewModel {
     let disposeBag = DisposeBag()
-    private weak var authenticateCoordinator: AuthenticateProtocol?
+    private weak var coordinator: AuthenticateProtocol?
     weak var showErrorDelegate: ShowErrorProtocol? = nil
     
     let title = BehaviorRelay<String?>(value: "Sign up".localized())
@@ -28,7 +28,7 @@ final class SignUpViewModel : BaseViewModel {
     let password2 = BehaviorRelay<String?>(value: "")
     
     init(coordinator: AuthenticateProtocol?) {
-        authenticateCoordinator = coordinator
+        self.coordinator = coordinator
         bind()
     }
     
@@ -57,7 +57,7 @@ final class SignUpViewModel : BaseViewModel {
                         return
                     }
                     if result != nil {
-                        if let baseCoordinator = self?.authenticateCoordinator as? CoordinatorProtocol {
+                        if let baseCoordinator = self?.coordinator as? CoordinatorProtocol {
                             baseCoordinator.returnToParrent()
                         }
                     }

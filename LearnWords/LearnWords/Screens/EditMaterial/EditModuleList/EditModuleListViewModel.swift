@@ -8,7 +8,7 @@
 import Foundation
 
 final class EditModuleListViewModel: UniversalTableViewModel {
-    private weak var coordinator: EditMaterialCoordinatorProtocol? = nil
+    private weak var coordinator: EditMaterialCoordinatorProtocol?
     private let dataManager: DataManager!
     private var modules: [ModulePreload] = []
     

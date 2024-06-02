@@ -10,7 +10,7 @@ import RxCocoa
 import RxSwift
 
 final class EditWordViewController: BaseViewController {
-    private var viewModel: EditWordViewModel? = nil
+    private var viewModel: EditWordViewModel?
     private let rightBtn = UIBarButtonItem(title: "rightBtn", style: .plain, target: nil, action: nil)
     
     @IBOutlet weak var targetTField: CustomTextField!

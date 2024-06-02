@@ -8,15 +8,16 @@
 import Foundation
 
 final class LearnModuleViewModel: UniversalTableViewModel {
-    var learnCoordinator: LearnCoordinatorProtocol? = nil
+    private weak var coordinator: LearnCoordinatorProtocol? = nil
     private let dataManager: DataManager!
     
     var moduleId: String
     var module: Module?
     
-    init(dataManager: DataManager, moduleId: String) {
+    init(dataManager: DataManager, coordinator: LearnCoordinatorProtocol, moduleId: String) {
         self.dataManager = dataManager
         self.moduleId = moduleId
+        self.coordinator = coordinator
         super.init()
         
         tableHeader.accept("Learn.Module.tableHeader".localized())
@@ -61,6 +62,6 @@ final class LearnModuleViewModel: UniversalTableViewModel {
             return
         }
         let topicId = module.topics[index].id
-        learnCoordinator?.topic(topicId)
+        coordinator?.topic(topicId)
     }
 }

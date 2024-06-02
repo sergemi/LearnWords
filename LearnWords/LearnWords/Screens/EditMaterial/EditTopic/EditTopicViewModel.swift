@@ -8,7 +8,7 @@
 import Foundation
 
 final class EditTopicViewModel: UniversalTableViewModel {
-    private weak var coordinator: EditMaterialCoordinatorProtocol? = nil
+    private weak var coordinator: EditMaterialCoordinatorProtocol?
     private let dataManager: DataManager!
 
     private let moduleId: String

@@ -13,7 +13,7 @@ protocol SettingsCoordinatorProtocol: AnyObject {
     func editMaterial()
 }
 
-class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocol {
+final class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocol {
     var currentViewController: UIViewController?
     
     var childCoordinators: [CoordinatorProtocol] = []
@@ -42,8 +42,8 @@ class SettingsCoordinator: CoordinatorProtocol, SettingsCoordinatorProtocol {
     func mainMenu() {
         log.method()
         
-        let vc = SettingsMainMenuViewController.loadFromNib()
-        vc.settingsCoordinator = self
+        let model = SettingsMainMenuViewModel(coordinator: self)
+        let vc = SettingsMainMenuViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     

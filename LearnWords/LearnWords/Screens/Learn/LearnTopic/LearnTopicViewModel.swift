@@ -8,15 +8,16 @@
 import Foundation
 
 final class LearnTopicViewModel: UniversalTableViewModel {
-    var learnCoordinator: LearnCoordinatorProtocol? = nil
+    private weak var coordinator: LearnCoordinatorProtocol?
     private let dataManager: DataManager!
     
     private var topicId: String
     var topic: Topic?
 //    var words: [LearnedWord] = []
     
-    init(dataManager: DataManager, topicId: String) {
+    init(dataManager: DataManager, coordinator:LearnCoordinatorProtocol, topicId: String) {
         self.dataManager = dataManager
+        self.coordinator = coordinator
         self.topicId = topicId
         super.init()
         

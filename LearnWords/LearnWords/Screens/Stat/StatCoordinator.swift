@@ -12,7 +12,7 @@ protocol StatCoordinatorProtocol: AnyObject {
     func BaseStat()
 }
 
-class StatCoordinator: CoordinatorProtocol, StatCoordinatorProtocol {
+final class StatCoordinator: CoordinatorProtocol, StatCoordinatorProtocol {
     var currentViewController: UIViewController?
     
     var childCoordinators: [CoordinatorProtocol] = []
@@ -41,8 +41,8 @@ class StatCoordinator: CoordinatorProtocol, StatCoordinatorProtocol {
     func BaseStat() {
         log.method()
         
-        let vc = BaseStatViewController.loadFromNib()
-        vc.statCoordinator = self
+        let model = BaseStatViewModel(coordinator: self)
+        let vc = BaseStatViewController(viewModel: model)
 //        navigationController.setViewControllers([vc], animated: true)
         navigationController.pushViewController(vc, animated: true)
     }

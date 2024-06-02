@@ -8,13 +8,14 @@
 import Foundation
 
 final class LearnModulesListViewModel: UniversalTableViewModel {
-    var learnCoordinator: LearnCoordinatorProtocol? = nil
+    private weak var coordinator: LearnCoordinatorProtocol?
     private let dataManager: DataManager!
     private var modules: [ModulePreload] = []
     
-    init(dataManager: DataManager) {
+    init(dataManager: DataManager, coordinator: LearnCoordinatorProtocol) {
         log.method()
         self.dataManager = dataManager
+        self.coordinator = coordinator
         super.init()
         
         title.accept("Learn.ModulesList.Title".localized())
@@ -48,6 +49,6 @@ final class LearnModulesListViewModel: UniversalTableViewModel {
     
     override func selectRow(index: Int) {
         let module = modules[index]
-        self.learnCoordinator?.module(module.id)
+        self.coordinator?.module(module.id)
     }
 }

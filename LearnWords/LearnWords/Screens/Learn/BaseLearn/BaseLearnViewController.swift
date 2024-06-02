@@ -9,21 +9,13 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class BaseLearnViewController: BaseViewController {
+final class BaseLearnViewController: BaseViewController {
     
-    var model = BaseLearnViewModel()
+    private var viewModel: BaseLearnViewModel?
     
     @IBOutlet weak var continueBtn: UIButton!
     @IBOutlet weak var newBtn: UIButton!
     
-    weak var learnCoordinator: LearnCoordinatorProtocol? {
-        get {
-            return model.learnCoordinator
-        }
-        set {
-            model.learnCoordinator = newValue
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +23,19 @@ class BaseLearnViewController: BaseViewController {
         setupUI()
     }
     
+    convenience init(viewModel: BaseLearnViewModel) {
+        self.init(nibName: String(describing: "BaseLearnViewController"), bundle: nil)
+        self.viewModel = viewModel
+    }
+    
     override func bindUI() {
         log.method()
+        guard let viewModel = viewModel else {
+            return
+        }
         
-        continueBtn.rx.tap.bind(to: model.continueBtnObserver).disposed(by: disposeBag)
-        newBtn.rx.tap.bind(to: model.newBtnObserver).disposed(by: disposeBag)
+        continueBtn.rx.tap.bind(to: viewModel.continueBtnObserver).disposed(by: disposeBag)
+        newBtn.rx.tap.bind(to: viewModel.newBtnObserver).disposed(by: disposeBag)
     }
     
     func setupUI() {

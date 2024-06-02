@@ -10,16 +10,18 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class SettingsMainMenuViewModel: BaseViewModel {
+final class SettingsMainMenuViewModel: BaseViewModel {
     let disposeBag = DisposeBag()
-    weak var settingsCoordinator: SettingsCoordinatorProtocol? = nil
+    private weak var coordinator: SettingsCoordinatorProtocol?
     
     let localBaseBtnObserver = PublishSubject<Void>()
     let editWordsBtnObserver = PublishSubject<Void>()
     let logoutBtnObserver = PublishSubject<Void>()
     
     
-    init() {
+    init(coordinator: SettingsCoordinatorProtocol) {
+        self.coordinator = coordinator
+        
         _ = localBaseBtnObserver.bind(onNext: {_ in
             let settingsURL = URL(string: UIApplication.openSettingsURLString)!
             UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
@@ -27,7 +29,7 @@ class SettingsMainMenuViewModel: BaseViewModel {
         
         _ = editWordsBtnObserver.bind(onNext: { [weak self] _ in
             print("!editWordsBtnObserver!")
-            self?.settingsCoordinator?.editMaterial()
+            self?.coordinator?.editMaterial()
         }).disposed(by: disposeBag)
         
         _ = logoutBtnObserver.bind(onNext: { _ in

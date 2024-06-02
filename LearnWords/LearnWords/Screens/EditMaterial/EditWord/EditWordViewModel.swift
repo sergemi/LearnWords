@@ -11,7 +11,7 @@ import RxCocoa
 
 final class EditWordViewModel: BaseViewModel {
     private let disposeBag = DisposeBag()
-    private weak var coordinator: EditMaterialCoordinatorProtocol? = nil
+    private weak var coordinator: EditMaterialCoordinatorProtocol?
     private let dataManager: DataManager!
     
     var isNew = true

@@ -53,31 +53,28 @@ final class LearnCoordinator: CoordinatorProtocol, LearnCoordinatorProtocol {
     func BaseLearn() {
         log.method()
         
-        let vc = BaseLearnViewController.loadFromNib()
-        vc.learnCoordinator = self
+        let model = BaseLearnViewModel(coordinator: self)
+        let vc = BaseLearnViewController(viewModel: model)
 //        navigationController.setViewControllers([vc], animated: true)
         navigationController.pushViewController(vc, animated: true)
     }
     
     func selectModule() {
-        let model = LearnModulesListViewModel(dataManager: dataManager)
-        model.learnCoordinator = self
+        let model = LearnModulesListViewModel(dataManager: dataManager, coordinator: self)
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
 //    func module(_ module: Module) {
     func module(_ id: String) {
-        let model = LearnModuleViewModel(dataManager: dataManager, moduleId: id)
-        model.learnCoordinator = self
+        let model = LearnModuleViewModel(dataManager: dataManager, coordinator: self, moduleId: id)
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
     
 //    func topic(_ topic: Topic) {
     func topic(_ id: String) {
-        let model = LearnTopicViewModel(dataManager: dataManager, topicId: id)
-        model.learnCoordinator = self
+        let model = LearnTopicViewModel(dataManager: dataManager, coordinator: self, topicId: id)
         let vc =  UniversalTableViewController(viewModel: model)
         navigationController.pushViewController(vc, animated: true)
     }
