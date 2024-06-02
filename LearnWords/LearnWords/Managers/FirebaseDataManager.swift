@@ -103,12 +103,32 @@ final actor FirebaseDataManager: DataManager {
     
     func deleteModuleFirebase(id: String) async throws {
         let ref = referenceFor(.modules).child(id)
-        try await ref.removeValue()
+//        try await ref.removeValue()
+        
+        try await ref.runTransactionBlock { currentData in
+            if currentData.value != nil {
+                currentData.value = nil
+                
+                return TransactionResult.success(withValue: currentData)
+            } else {
+                return TransactionResult.abort()
+            }
+        }
     }
     
     func deleteModulePreloadFirebase(id: String) async throws {
         let ref = referenceFor(.modulePreloads).child(id)
-        try await ref.removeValue()
+//        try await ref.removeValue()
+        
+        try await ref.runTransactionBlock { currentData in
+            if currentData.value != nil {
+                currentData.value = nil
+                
+                return TransactionResult.success(withValue: currentData)
+            } else {
+                return TransactionResult.abort()
+            }
+        }
     }
     
     func topic(id: String) async throws -> Topic {

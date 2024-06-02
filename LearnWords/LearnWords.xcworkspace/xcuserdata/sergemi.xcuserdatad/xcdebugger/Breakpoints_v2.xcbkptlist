@@ -2450,64 +2450,6 @@
             endingLineNumber = "30"
             landmarkName = "modules"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "AFBB8F04-1900-494B-B86E-32980CA6D2FB - 96795752714a128d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for LearnWords.FirebaseDataManager.modules.getter : Swift.Array&lt;LearnWords.ModulePreload&gt;"
-                  moduleName = "LearnWords"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sergemi/Documents/programming/Learn%20Words/LearnWords/LearnWords/Managers/FirebaseDataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30">
-               </Location>
-               <Location
-                  uuid = "AFBB8F04-1900-494B-B86E-32980CA6D2FB - 2e8d108369c1ed27"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for LearnWords.FirebaseDataManager.modules.getter : Swift.Array&lt;LearnWords.ModulePreload&gt;"
-                  moduleName = "LearnWords"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sergemi/Documents/programming/Learn%20Words/LearnWords/LearnWords/Managers/FirebaseDataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30">
-               </Location>
-               <Location
-                  uuid = "AFBB8F04-1900-494B-B86E-32980CA6D2FB - fac723f6daa4ae8f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for LearnWords.FirebaseDataManager.modules.getter : Swift.Array&lt;LearnWords.ModulePreload&gt;"
-                  moduleName = "LearnWords"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sergemi/Documents/programming/Learn%20Words/LearnWords/LearnWords/Managers/FirebaseDataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30">
-               </Location>
-               <Location
-                  uuid = "AFBB8F04-1900-494B-B86E-32980CA6D2FB - b48e19c4e9b00c80"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for LearnWords.FirebaseDataManager.modules.getter : Swift.Array&lt;LearnWords.ModulePreload&gt;"
-                  moduleName = "LearnWords"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sergemi/Documents/programming/Learn%20Words/LearnWords/LearnWords/Managers/FirebaseDataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2540,6 +2482,54 @@
             endingLineNumber = "32"
             landmarkName = "modules"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BBE6702B-CB9C-4741-912C-7B3CA591018E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LearnWords/Managers/FirebaseDataManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "deleteModuleFirebase(id:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "63FD0DE7-30A5-4886-A6F6-1FFEC80A7A18"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LearnWords/Managers/FirebaseDataManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "deleteModuleFirebase(id:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5C0D6D83-A526-49CF-9E2D-544CF336EFDA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LearnWords/Managers/FirebaseDataManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "deleteModuleFirebase(id:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
