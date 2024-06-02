@@ -48,8 +48,7 @@ class Config {
     lazy var dataManager: DataManager = {
         switch (dataBaseType) {
         case .firebase: // TODO: rewrite FirebaseDataManager
-//            return FirebaseDataManager(basePaht: firebaseBasePath)
-            return MockDataManager.instance
+            return FirebaseDataManager(basePaht: firebaseBasePath)
             
         case .realm: // TODO: rewrite RealmDataManager
 //            return RealmDataManager(realm: realm)

@@ -26,5 +26,7 @@
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:535744271163:ios:3a55bbf8cd1fb8a7011d1e</string>
+	<key>DATABASE_URL</key>
+	<string>https://learnwords-da1ea-default-rtdb.europe-west1.firebasedatabase.app</string>
 </dict>
 </plist>

@@ -22,9 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        Config.instance.dataBaseType = .moc
+//        Config.instance.dataBaseType = .moc
 //        Config.instance.dataBaseType = .realm
-//        Config.instance.dataBaseType = .firebase
+        Config.instance.dataBaseType = .firebase
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene

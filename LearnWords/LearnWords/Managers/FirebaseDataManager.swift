@@ -8,101 +8,107 @@
 import Foundation
 import FirebaseDatabase
 
-/*
-class FirebaseDataManager: DataManager {
+final actor FirebaseDataManager: DataManager {
     private let baseRef: DatabaseReference
     
     private enum dbKeys {
         static let modules = "modules"
         static let topics = "topics"
+        static let wordPairs = "wordPairs"
+        static let learnedWords = "learnedWords"
     }
     
     init(basePaht: String) {
         baseRef = Database.database().reference(withPath: basePaht)
+        log.method()
     }
     
-    // MARK: - DataManager
     var modules: [ModulePreload] {
-        return [] // TODO
+        return [] // TODO: implement
+    }
+    
+    func module(id: String) async throws -> Module {
+        log.method()
+        return Module() // TODO: implement
+    }
+    
+    func addModule(_ module: Module) async throws {
+        log.method()
+        // TODO: implement
+    }
+    
+    func updateModule(_ module: Module) async throws {
+        log.method()
+        // TODO: implement
+    }
+    
+    func deleteModule(id: String) async throws {
+        log.method()
+        // TODO: implement
+    }
+    
+    func topic(id: String) async throws -> Topic {
+        log.method()
         
-//        let itemsRef = baseRef.child(dbKeys.modules)
-//        return []
+        return Topic() // TODO: implement
     }
     
-    func reset() {
+    func addTopic(_ topic: Topic, moduleId: String?) async throws {
+        log.method()
         // TODO: implement
     }
     
-    func module(id: String) -> Module? {
+    func updateTopic(_ topic: Topic, moduleId: String?) async throws {
+        log.method()
         // TODO: implement
-        return nil
     }
     
-    func addModule(_ module: Module) -> Module? {
+    func deleteTopic(id: String, moduleId: String?) async throws {
+        log.method()
         // TODO: implement
-        return nil
     }
     
-    func updateModule(_ module: Module) -> Module? {
-        // TODO: implement
-        return nil
+    func learnedWord(id: String) async throws -> LearnedWord {
+        log.method()
+        
+        return LearnedWord() // TODO: implement
     }
     
-    func deleteModule(_ module: Module) -> Module? {
+    func addWord(_ word: LearnedWord, topicId: String?) async throws {
+        log.method()
         // TODO: implement
-        return nil
     }
     
-    func topic(id: String) -> Topic? {
+    func updateWord(_ word: LearnedWord, topicId: String?) async throws {
+        log.method()
         // TODO: implement
-        return nil
     }
     
-    func addTopic(moduleId: String, topic: Topic) -> Module? {
+    func deleteWord(_ word: LearnedWord, topicId: String?) async throws {
+        log.method()
         // TODO: implement
-        return nil
     }
     
-    func updateTopic(moduleId: String, topic: Topic) -> Module? {
-        // TODO: implement
-        return nil
+    func word(id: String) async throws -> WordPair {
+        log.method()
+        
+        return WordPair() // TODO: implement
     }
     
-    func deleteTopic(moduleId: String, topic: Topic) -> Module? {
+    func addWord(_ word: WordPair) async throws {
+        log.method()
         // TODO: implement
-        return nil
     }
     
-    func learnedWord(id: String) -> LearnedWord? {
+    func updateWord(_ word: WordPair) async throws {
+        log.method()
         // TODO: implement
-        return nil
     }
     
-    func addWord(topicId: String, word: LearnedWord) -> Topic? {
+    func reset() async throws {
+        log.method()
         // TODO: implement
-        return nil
     }
-    
-    func updateWord(topicId: String, word: LearnedWord) -> Topic? {
-        // TODO: implement
-        return nil
-    }
-    
-    func deleteWord(topicId: String, word: LearnedWord) -> Topic? {
-        // TODO: implement
-        return nil
-    }
-    
-    func word(id: String) -> WordPair? {
-        // TODO: implement
-        return nil
-    }
-    
-    func updateWord(learnedWordId: String, word: WordPair) -> LearnedWord? {
-        // TODO: implement
-        return nil
-    }
-    
     
 }
-*/
+
