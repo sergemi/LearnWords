@@ -38,3 +38,4 @@ struct WordPair {
 }
 
 extension WordPair: Equatable {}
+extension WordPair: Codable {}

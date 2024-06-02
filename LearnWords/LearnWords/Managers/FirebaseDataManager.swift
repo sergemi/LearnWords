@@ -11,11 +11,12 @@ import FirebaseDatabase
 final actor FirebaseDataManager: DataManager {
     private let baseRef: DatabaseReference
     
-    private enum dbKeys {
-        static let modules = "modules"
-        static let topics = "topics"
-        static let wordPairs = "wordPairs"
-        static let learnedWords = "learnedWords"
+    private enum DbKeys: String {
+        case modules = "modules"
+        case modulePreloads = "modulePreloads"
+        case topics = "topics"
+        case wordPairs = "wordPairs"
+        case learnedWords = "learnedWords"
     }
     
     init(basePaht: String) {
@@ -24,27 +25,90 @@ final actor FirebaseDataManager: DataManager {
     }
     
     var modules: [ModulePreload] {
-        return [] // TODO: implement
+        get async throws {
+            let ref = referenceFor(.modulePreloads)
+            let snapshot = try await ref.getData()
+            let obj = try anyObject(snapshot: snapshot)
+            let modules = try JSONDecoder().decode([ModulePreload].self, from: obj)
+            return modules
+        }
     }
     
     func module(id: String) async throws -> Module {
         log.method()
-        return Module() // TODO: implement
+        let ref = referenceFor(.modules).child(id)
+        
+        let snapshot = try await ref.getData()
+        guard snapshot.exists(),
+              let value = snapshot.value as? [String: Any] else {
+            throw DataManagerError.moduleNotFound
+        }
+        
+        let jsonData = try JSONSerialization.data(withJSONObject: value, options: [])
+        let module = try JSONDecoder().decode(Module.self, from: jsonData)
+        
+        return module
     }
     
     func addModule(_ module: Module) async throws {
         log.method()
-        // TODO: implement
+        
+        try await addModuleFirebase(module)
+        
+        let modulePreload = module.modulePreload
+        try await addModulePreloadFirebase(modulePreload)
+    }
+    
+    private func addModuleFirebase(_ module: Module) async throws {
+        let ref = referenceFor(.modules)
+        let object = try jsonObject(model: module)
+                
+        try await ref.child(module.id).setValue(object)
+    }
+    
+    private func addModulePreloadFirebase(_ module: ModulePreload) async throws {
+        let ref = referenceFor(.modulePreloads)
+        let object = try jsonObject(model: module)
+                
+        try await ref.child(module.id).setValue(object)
     }
     
     func updateModule(_ module: Module) async throws {
         log.method()
-        // TODO: implement
+        
+        try await updateModuleFirebase(module)
+        
+        let modulePreload = module.modulePreload
+        try await updateModulePreloadFirebase(modulePreload)
+    }
+    
+    private func updateModuleFirebase(_ module: Module) async throws {
+        let ref = referenceFor(.modules).child(module.id)
+        let object = try jsonObject(model: module)
+        try await ref.updateChildValues(object as! [AnyHashable : Any])
+    }
+    
+    private func updateModulePreloadFirebase(_ module: ModulePreload) async throws {
+        let ref = referenceFor(.modulePreloads).child(module.id)
+        let object = try jsonObject(model: module)
+        try await ref.updateChildValues(object as! [AnyHashable : Any])
     }
     
     func deleteModule(id: String) async throws {
         log.method()
-        // TODO: implement
+        
+        try await deleteModuleFirebase(id: id)
+        try await deleteModulePreloadFirebase(id: id)
+    }
+    
+    func deleteModuleFirebase(id: String) async throws {
+        let ref = referenceFor(.modules).child(id)
+        try await ref.removeValue()
+    }
+    
+    func deleteModulePreloadFirebase(id: String) async throws {
+        let ref = referenceFor(.modulePreloads).child(id)
+        try await ref.removeValue()
     }
     
     func topic(id: String) async throws -> Topic {
@@ -110,5 +174,26 @@ final actor FirebaseDataManager: DataManager {
         // TODO: implement
     }
     
+    // MARK: - Private service functions
+    
+    private func referenceFor(_ key: DbKeys) -> DatabaseReference {
+        return baseRef.child(key.rawValue)
+    }
+    
+    private func jsonObject(model: Codable) throws -> Any {
+        let jsonData = try JSONEncoder().encode(model)
+        let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
+        return jsonObject
+    }
+    
+    private func anyObject(snapshot: DataSnapshot) throws -> Data {
+        guard let value = snapshot.value as? [String: [String: Any]] else {
+            throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Data format is invalid"])
+            }
+        
+        let jsonData = try JSONSerialization.data(withJSONObject: Array(value.values), options: [])
+        
+        return jsonData
+    }
 }
 

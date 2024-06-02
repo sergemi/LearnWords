@@ -16,6 +16,9 @@ enum ExerciseType: String {
     case swapLettersTranslateInverse
 }
 
+extension ExerciseType: Equatable {}
+extension ExerciseType: Codable {}
+
 struct Exercise {
     let id: String
     
@@ -43,3 +46,4 @@ struct Exercise {
 }
 
 extension Exercise: Equatable {}
+extension Exercise: Codable {}

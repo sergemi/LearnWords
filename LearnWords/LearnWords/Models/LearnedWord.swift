@@ -31,3 +31,4 @@ struct LearnedWord {
 }
 
 extension LearnedWord: Equatable {}
+extension LearnedWord: Codable {}

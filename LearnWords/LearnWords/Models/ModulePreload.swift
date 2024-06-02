@@ -33,3 +33,6 @@ struct ModulePreload {
         self.init(name: "", author: "", isPublic: false)
     }
 }
+
+extension ModulePreload: Equatable {}
+extension ModulePreload: Codable {}

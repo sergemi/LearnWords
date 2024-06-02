@@ -27,3 +27,4 @@ struct TopicPreload {
 }
 
 extension TopicPreload: Equatable {}
+extension TopicPreload: Codable {}

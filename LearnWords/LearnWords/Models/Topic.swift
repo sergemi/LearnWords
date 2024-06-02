@@ -37,6 +37,7 @@ struct Topic {
 }
 
 extension Topic: Equatable {}
+extension Topic: Codable {}
 
 extension Topic {
     var topicPreload:TopicPreload {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Module {
+struct Module: Equatable, Codable {
     let id: String
     
     var name: String
@@ -39,9 +39,42 @@ struct Module {
     init() {
         self.init(name: "", details: "", topics: [], author: "", isPublic: false)
     }
-}
+    
+    // MARK - Codable
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case details
+        case topics
+        case author
+        case isPublic
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+        try container.encode(details, forKey: .details)
+        try container.encode(topics, forKey: .topics)
+        try container.encode(author, forKey: .author)
+        try container.encode(isPublic, forKey: .isPublic)
+    }
 
-extension Module: Equatable {}
+        // Реализуем инициализатор для настраиваемой десериализации
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(String.self, forKey: .id)
+        name = try container.decode(String.self, forKey: .name)
+        details = try container.decode(String.self, forKey: .details)
+        
+//        topics = try container.decode([TopicPreload].self, forKey: .topics)
+        topics = try container.decodeIfPresent([TopicPreload].self, forKey: .topics) ?? []
+        
+        author = try container.decode(String.self, forKey: .author)
+        isPublic = try container.decode(Bool.self, forKey: .isPublic)
+    }
+    
+}
 
 extension Module {
     var modulePreload: ModulePreload {
