@@ -16,7 +16,6 @@ struct Module: Equatable, Codable {
     var author: String // author id
     var isPublic: Bool
     
-//    init(id: String, name: String, details: String, topics: [Topic], author: String, isPublic: Bool) {
     init(id: String, name: String, details: String, topics: [TopicPreload], author: String, isPublic: Bool) {
         self.id = id
         self.name = name
@@ -26,7 +25,6 @@ struct Module: Equatable, Codable {
         self.isPublic = isPublic
     }
     
-//    init(name: String, details: String, topics: [Topic], author: String, isPublic: Bool) {
     init(name: String, details: String, topics: [TopicPreload], author: String, isPublic: Bool) {
         self.init(id: UUID().uuidString,
                   name: name,
@@ -52,6 +50,7 @@ struct Module: Equatable, Codable {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        
         try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
         try container.encode(details, forKey: .details)
@@ -60,14 +59,13 @@ struct Module: Equatable, Codable {
         try container.encode(isPublic, forKey: .isPublic)
     }
 
-        // Реализуем инициализатор для настраиваемой десериализации
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        
         id = try container.decode(String.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
         details = try container.decode(String.self, forKey: .details)
         
-//        topics = try container.decode([TopicPreload].self, forKey: .topics)
         topics = try container.decodeIfPresent([TopicPreload].self, forKey: .topics) ?? []
         
         author = try container.decode(String.self, forKey: .author)

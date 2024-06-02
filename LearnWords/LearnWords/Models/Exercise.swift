@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ExerciseType: String {
+enum ExerciseType: String, Equatable, Codable {
     case choseTranslate
     case choseTranslateInverse
     case writeTranslate
@@ -16,10 +16,7 @@ enum ExerciseType: String {
     case swapLettersTranslateInverse
 }
 
-extension ExerciseType: Equatable {}
-extension ExerciseType: Codable {}
-
-struct Exercise {
+struct Exercise: Equatable, Codable {
     let id: String
     
     var type: ExerciseType
@@ -44,6 +41,3 @@ struct Exercise {
         self.init(type: .choseTranslate, maxScore: 0)
     }
 }
-
-extension Exercise: Equatable {}
-extension Exercise: Codable {}

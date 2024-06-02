@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WordPair {
+struct WordPair: Equatable, Codable {
     let id: String
     
     var target: String
@@ -36,6 +36,3 @@ struct WordPair {
         self.init(target: "", translate: "", pronounce: "", notes: "")
     }
 }
-
-extension WordPair: Equatable {}
-extension WordPair: Codable {}

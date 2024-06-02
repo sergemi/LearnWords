@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ModulePreload {
+struct ModulePreload: Equatable, Codable {
     let id: String
     var name: String
     var author: String // author id
@@ -33,6 +33,3 @@ struct ModulePreload {
         self.init(name: "", author: "", isPublic: false)
     }
 }
-
-extension ModulePreload: Equatable {}
-extension ModulePreload: Codable {}

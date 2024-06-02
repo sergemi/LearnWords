@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TopicPreload {
+struct TopicPreload: Equatable, Codable {
     let id: String
     var name: String
     
@@ -25,6 +25,3 @@ struct TopicPreload {
         self.init(name: "")
     }
 }
-
-extension TopicPreload: Equatable {}
-extension TopicPreload: Codable {}
