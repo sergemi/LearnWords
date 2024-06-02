@@ -53,25 +53,25 @@ final actor FirebaseDataManager: DataManager {
     func addModule(_ module: Module) async throws {
         log.method()
         
-        try await addModuleFirebase(module)
+        try await updateModuleFirebase(module)
         
         let modulePreload = module.modulePreload
-        try await addModulePreloadFirebase(modulePreload)
+        try await updateModulePreloadFirebase(modulePreload)
     }
     
-    private func addModuleFirebase(_ module: Module) async throws {
-        let ref = referenceFor(.modules)
-        let object = try jsonObject(model: module)
-                
-        try await ref.child(module.id).setValue(object)
-    }
-    
-    private func addModulePreloadFirebase(_ module: ModulePreload) async throws {
-        let ref = referenceFor(.modulePreloads)
-        let object = try jsonObject(model: module)
-                
-        try await ref.child(module.id).setValue(object)
-    }
+//    private func addModuleFirebase(_ module: Module) async throws {
+//        let ref = referenceFor(.modules)
+//        let object = try jsonObject(model: module)
+//                
+//        try await ref.child(module.id).setValue(object)
+//    }
+//    
+//    private func addModulePreloadFirebase(_ module: ModulePreload) async throws {
+//        let ref = referenceFor(.modulePreloads)
+//        let object = try jsonObject(model: module)
+//                
+//        try await ref.child(module.id).setValue(object)
+//    }
     
     func updateModule(_ module: Module) async throws {
         log.method()
@@ -84,14 +84,37 @@ final actor FirebaseDataManager: DataManager {
     
     private func updateModuleFirebase(_ module: Module) async throws {
         let ref = referenceFor(.modules).child(module.id)
-        let object = try jsonObject(model: module)
-        try await ref.updateChildValues(object as! [AnyHashable : Any])
+        
+        try await ref.runTransactionBlock { currentData in
+            do {
+                let jsonData = try JSONEncoder().encode(module)
+                let moduleDict: [String: Any] = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? [String: Any] ?? [:]
+                currentData.value = moduleDict
+                            return TransactionResult.success(withValue: currentData)
+            } catch {
+                return TransactionResult.abort()
+            }
+        }
+        
+//        let object = try jsonObject(model: module)
+//        try await ref.updateChildValues(object as! [AnyHashable : Any])
     }
     
     private func updateModulePreloadFirebase(_ module: ModulePreload) async throws {
         let ref = referenceFor(.modulePreloads).child(module.id)
-        let object = try jsonObject(model: module)
-        try await ref.updateChildValues(object as! [AnyHashable : Any])
+        
+        try await ref.runTransactionBlock { currentData in
+            do {
+                let jsonData = try JSONEncoder().encode(module)
+                let moduleDict: [String: Any] = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? [String: Any] ?? [:]
+                currentData.value = moduleDict
+                            return TransactionResult.success(withValue: currentData)
+            } catch {
+                return TransactionResult.abort()
+            }
+        }
+//        let object = try jsonObject(model: module)
+//        try await ref.updateChildValues(object as! [AnyHashable : Any])
     }
     
     func deleteModule(id: String) async throws {
