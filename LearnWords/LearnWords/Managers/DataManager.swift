@@ -7,9 +7,6 @@
 
 import Foundation
 
-//import RxSwift
-//import RxCocoa
-
 enum DataManagerError: Error, LocalizedError {
     case unknownError
     case moduleNotFound
@@ -20,7 +17,6 @@ enum DataManagerError: Error, LocalizedError {
 }
 
 protocol DataManager {
-//    var modules: BehaviorRelay<[ModulePreload]> {get}
     var modules: [ModulePreload] { get async throws }
     func module(id: String) async throws -> Module
     func addModule(_ module: Module) async throws
