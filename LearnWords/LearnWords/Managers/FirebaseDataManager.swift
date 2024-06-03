@@ -23,6 +23,7 @@ final actor FirebaseDataManager: DataManager {
         baseRef = Database.database().reference(withPath: basePaht)
         log.method()
     }
+    // MARK: - DataManager
     
     var modules: [ModulePreload] {
         get async throws {
@@ -68,6 +69,126 @@ final actor FirebaseDataManager: DataManager {
         try await updateModulePreloadFirebase(modulePreload)
     }
     
+    func deleteModule(id: String) async throws {
+        log.method()
+        
+        try await deleteModuleFirebase(id: id)
+        try await deleteModulePreloadFirebase(id: id)
+    }
+    
+    func topic(id: String) async throws -> Topic {
+        log.method()
+        
+        let ref = referenceFor(.topics).child(id)
+        
+        let snapshot = try await ref.getData()
+        guard snapshot.exists(),
+              let value = snapshot.value as? [String: Any] else {
+            throw DataManagerError.topicNotFound
+        }
+        
+        let jsonData = try JSONSerialization.data(withJSONObject: value, options: [])
+        let topic = try JSONDecoder().decode(Topic.self, from: jsonData)
+        
+        return topic
+    }
+    
+    func addTopic(_ topic: Topic, moduleId: String?) async throws {
+        log.method()
+        
+        try await updateTopicFirebase(topic)
+        try await updateTopicInModuleFirebase(topic: topic.topicPreload, moduleId: moduleId)
+    }
+    
+    func updateTopic(_ topic: Topic, moduleId: String?) async throws {
+        log.method()
+        
+        try await updateTopicFirebase(topic)
+        try await updateTopicInModuleFirebase(topic: topic.topicPreload, moduleId: moduleId)
+    }
+    
+    func deleteTopic(id: String, moduleId: String?) async throws {
+        log.method()
+        
+        if let moduleId = moduleId {
+            try await deleteTopicFromModuleFirebase(topicId: id, moduleId: moduleId)
+        }
+        try await deleteTopicFirebase(id: id)
+    }
+    
+    func learnedWord(id: String) async throws -> LearnedWord {
+        log.method()
+        
+        let ref = referenceFor(.learnedWords).child(id)
+        
+        let snapshot = try await ref.getData()
+        guard snapshot.exists(),
+              let value = snapshot.value as? [String: Any] else {
+            throw DataManagerError.topicNotFound
+        }
+        
+        let jsonData = try JSONSerialization.data(withJSONObject: value, options: [])
+        let learnedWord = try JSONDecoder().decode(LearnedWord.self, from: jsonData)
+        
+        return learnedWord
+    }
+    
+    func addWord(_ word: LearnedWord, topicId: String?) async throws {
+        log.method()
+        
+        try await updateLearnedWordFirebase(word)
+        try await updateLearnedWordInTopicFirebase(word, topicId: topicId)
+    }
+    
+    func updateWord(_ word: LearnedWord, topicId: String?) async throws {
+        log.method()
+        
+        try await updateLearnedWordFirebase(word)
+        try await updateLearnedWordInTopicFirebase(word, topicId: topicId)
+    }
+    
+    func deleteWord(_ word: LearnedWord, topicId: String?) async throws {
+        log.method()
+        
+        try await deleteLearnedWordFromTopicFirebase(word, topicId: topicId)
+        try await deleteLearnedWordFirebase(word)
+    }
+    
+    func word(id: String) async throws -> WordPair {
+        log.method()
+        
+        let ref = referenceFor(.wordPairs).child(id)
+        
+        let snapshot = try await ref.getData()
+        guard snapshot.exists(),
+              let value = snapshot.value as? [String: Any] else {
+            throw DataManagerError.topicNotFound
+        }
+        
+        let jsonData = try JSONSerialization.data(withJSONObject: value, options: [])
+        let wordPair = try JSONDecoder().decode(WordPair.self, from: jsonData)
+        
+        return wordPair
+    }
+    
+    func addWord(_ word: WordPair) async throws {
+        log.method()
+        
+        try await updateWordFirebase(word)
+    }
+    
+    func updateWord(_ word: WordPair) async throws {
+        log.method()
+        
+        try await updateWordFirebase(word)
+    }
+    
+    func reset() async throws {
+        log.method()
+        // TODO: implement
+    }
+    
+    // MARK: - Private Data functions
     private func updateModuleFirebase(_ module: Module) async throws {
         let ref = referenceFor(.modules).child(module.id)
         
@@ -103,13 +224,6 @@ final actor FirebaseDataManager: DataManager {
 //        try await ref.updateChildValues(object as! [AnyHashable : Any])
     }
     
-    func deleteModule(id: String) async throws {
-        log.method()
-        
-        try await deleteModuleFirebase(id: id)
-        try await deleteModulePreloadFirebase(id: id)
-    }
-    
     func deleteModuleFirebase(id: String) async throws {
         let ref = referenceFor(.modules).child(id)
         
@@ -137,37 +251,6 @@ final actor FirebaseDataManager: DataManager {
                 return TransactionResult.abort()
             }
         }
-    }
-    
-    func topic(id: String) async throws -> Topic {
-        log.method()
-        
-        let ref = referenceFor(.topics).child(id)
-        
-        let snapshot = try await ref.getData()
-        guard snapshot.exists(),
-              let value = snapshot.value as? [String: Any] else {
-            throw DataManagerError.topicNotFound
-        }
-        
-        let jsonData = try JSONSerialization.data(withJSONObject: value, options: [])
-        let topic = try JSONDecoder().decode(Topic.self, from: jsonData)
-        
-        return topic
-    }
-    
-    func addTopic(_ topic: Topic, moduleId: String?) async throws {
-        log.method()
-        
-        try await updateTopicFirebase(topic)
-        try await updateTopicInModuleFirebase(topic: topic.topicPreload, moduleId: moduleId)
-    }
-    
-    func updateTopic(_ topic: Topic, moduleId: String?) async throws {
-        log.method()
-        
-        try await updateTopicFirebase(topic)
-        try await updateTopicInModuleFirebase(topic: topic.topicPreload, moduleId: moduleId)
     }
     
     private func updateTopicFirebase(_ topic: Topic) async throws {
@@ -206,15 +289,6 @@ final actor FirebaseDataManager: DataManager {
         try await updateModuleFirebase(module)
     }
     
-    func deleteTopic(id: String, moduleId: String?) async throws {
-        log.method()
-        
-        if let moduleId = moduleId {
-            try await deleteTopicFromModuleFirebase(topicId: id, moduleId: moduleId)
-        }
-        try await deleteTopicFirebase(id: id)
-    }
-    
     private func deleteTopicFromModuleFirebase(topicId: String, moduleId: String) async throws {
         log.method()
         
@@ -237,37 +311,6 @@ final actor FirebaseDataManager: DataManager {
                 return TransactionResult.abort()
             }
         }
-    }
-    
-    func learnedWord(id: String) async throws -> LearnedWord {
-        log.method()
-        
-        let ref = referenceFor(.learnedWords).child(id)
-        
-        let snapshot = try await ref.getData()
-        guard snapshot.exists(),
-              let value = snapshot.value as? [String: Any] else {
-            throw DataManagerError.topicNotFound
-        }
-        
-        let jsonData = try JSONSerialization.data(withJSONObject: value, options: [])
-        let learnedWord = try JSONDecoder().decode(LearnedWord.self, from: jsonData)
-        
-        return learnedWord
-    }
-    
-    func addWord(_ word: LearnedWord, topicId: String?) async throws {
-        log.method()
-        
-        try await updateLearnedWordFirebase(word)
-        try await updateLearnedWordInTopicFirebase(word, topicId: topicId)
-    }
-    
-    func updateWord(_ word: LearnedWord, topicId: String?) async throws {
-        log.method()
-        
-        try await updateLearnedWordFirebase(word)
-        try await updateLearnedWordInTopicFirebase(word, topicId: topicId)
     }
     
     private func updateLearnedWordFirebase(_ word: LearnedWord) async throws {
@@ -306,13 +349,6 @@ final actor FirebaseDataManager: DataManager {
         try await updateTopicFirebase(topic)
     }
     
-    func deleteWord(_ word: LearnedWord, topicId: String?) async throws {
-        log.method()
-        
-        try await deleteLearnedWordFromTopicFirebase(word, topicId: topicId)
-        try await deleteLearnedWordFirebase(word)
-    }
-    
     private func deleteLearnedWordFromTopicFirebase(_ word: LearnedWord, topicId: String?) async throws {
         log.method()
         
@@ -345,35 +381,6 @@ final actor FirebaseDataManager: DataManager {
         }
     }
     
-    func word(id: String) async throws -> WordPair {
-        log.method()
-        
-        let ref = referenceFor(.wordPairs).child(id)
-        
-        let snapshot = try await ref.getData()
-        guard snapshot.exists(),
-              let value = snapshot.value as? [String: Any] else {
-            throw DataManagerError.topicNotFound
-        }
-        
-        let jsonData = try JSONSerialization.data(withJSONObject: value, options: [])
-        let wordPair = try JSONDecoder().decode(WordPair.self, from: jsonData)
-        
-        return wordPair
-    }
-    
-    func addWord(_ word: WordPair) async throws {
-        log.method()
-        
-        try await updateWordFirebase(word)
-    }
-    
-    func updateWord(_ word: WordPair) async throws {
-        log.method()
-        
-        try await updateWordFirebase(word)
-    }
-    
     private func updateWordFirebase(_ word: WordPair) async throws {
         log.method()
         
@@ -389,11 +396,6 @@ final actor FirebaseDataManager: DataManager {
                 return TransactionResult.abort()
             }
         }
-    }
-    
-    func reset() async throws {
-        log.method()
-        // TODO: implement
     }
     
     // MARK: - Private service functions
