@@ -30,7 +30,7 @@ final actor FirebaseDataManager: DataManager {
             let snapshot = try await ref.getData()
             let obj = try anyObject(snapshot: snapshot)
             let modules = try JSONDecoder().decode([ModulePreload].self, from: obj)
-            return modules
+            return modules.sorted{$0.id < $1.id}
         }
     }
     

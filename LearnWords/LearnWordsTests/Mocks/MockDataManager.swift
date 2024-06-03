@@ -21,7 +21,7 @@ final actor MockDataManager: DataManager {
     var modules: [ModulePreload] {
         get async throws {
             //            try? await Task.sleep(nanoseconds: 1_000_000_000)
-            let modulesPreload = storedModules.map{$0.modulePreload}
+            let modulesPreload = storedModules.map{$0.modulePreload}.sorted{$0.id < $1.id}
             return modulesPreload
         }
     }
