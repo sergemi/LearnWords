@@ -59,20 +59,6 @@ final actor FirebaseDataManager: DataManager {
         try await updateModulePreloadFirebase(modulePreload)
     }
     
-//    private func addModuleFirebase(_ module: Module) async throws {
-//        let ref = referenceFor(.modules)
-//        let object = try jsonObject(model: module)
-//                
-//        try await ref.child(module.id).setValue(object)
-//    }
-//    
-//    private func addModulePreloadFirebase(_ module: ModulePreload) async throws {
-//        let ref = referenceFor(.modulePreloads)
-//        let object = try jsonObject(model: module)
-//                
-//        try await ref.child(module.id).setValue(object)
-//    }
-    
     func updateModule(_ module: Module) async throws {
         log.method()
         
@@ -88,8 +74,8 @@ final actor FirebaseDataManager: DataManager {
         try await ref.runTransactionBlock { currentData in
             do {
                 let jsonData = try JSONEncoder().encode(module)
-                let moduleDict: [String: Any] = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? [String: Any] ?? [:]
-                currentData.value = moduleDict
+                let dict: [String: Any] = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? [String: Any] ?? [:]
+                currentData.value = dict
                             return TransactionResult.success(withValue: currentData)
             } catch {
                 return TransactionResult.abort()
@@ -126,7 +112,6 @@ final actor FirebaseDataManager: DataManager {
     
     func deleteModuleFirebase(id: String) async throws {
         let ref = referenceFor(.modules).child(id)
-//        try await ref.removeValue()
         
         try await ref.runTransactionBlock { currentData in
             if currentData.value != nil {
@@ -157,22 +142,101 @@ final actor FirebaseDataManager: DataManager {
     func topic(id: String) async throws -> Topic {
         log.method()
         
-        return Topic() // TODO: implement
+        let ref = referenceFor(.topics).child(id)
+        
+        let snapshot = try await ref.getData()
+        guard snapshot.exists(),
+              let value = snapshot.value as? [String: Any] else {
+            throw DataManagerError.topicNotFound
+        }
+        
+        let jsonData = try JSONSerialization.data(withJSONObject: value, options: [])
+        let topic = try JSONDecoder().decode(Topic.self, from: jsonData)
+        
+        return topic
     }
     
     func addTopic(_ topic: Topic, moduleId: String?) async throws {
         log.method()
-        // TODO: implement
+        
+        try await updateTopicFirebase(topic)
+        try await updateTopicInModuleFirebase(topic: topic.topicPreload, moduleId: moduleId)
     }
     
     func updateTopic(_ topic: Topic, moduleId: String?) async throws {
         log.method()
-        // TODO: implement
+        
+        try await updateTopicFirebase(topic)
+        try await updateTopicInModuleFirebase(topic: topic.topicPreload, moduleId: moduleId)
+    }
+    
+    private func updateTopicFirebase(_ topic: Topic) async throws {
+        log.method()
+        
+        let ref = referenceFor(.topics).child(topic.id)
+        
+        try await ref.runTransactionBlock { currentData in
+            do {
+                let jsonData = try JSONEncoder().encode(topic)
+                let dict: [String: Any] = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? [String: Any] ?? [:]
+                currentData.value = dict
+                            return TransactionResult.success(withValue: currentData)
+            } catch {
+                return TransactionResult.abort()
+            }
+        }
+    }
+    
+    private func updateTopicInModuleFirebase(topic: TopicPreload, moduleId: String?) async throws {
+        log.method()
+        
+        guard let moduleId = moduleId else {
+            return
+        }
+        
+        var module = try await module(id: moduleId)
+        guard let index = module.topics.firstIndex(where: {$0.id == topic.id}) else {
+            // add new topic
+            module.topics.append(topic)
+            try await updateModuleFirebase(module)
+            return
+        }
+        // edit existing topic
+        module.topics[index] = topic
+        try await updateModuleFirebase(module)
     }
     
     func deleteTopic(id: String, moduleId: String?) async throws {
         log.method()
-        // TODO: implement
+        
+        if let moduleId = moduleId {
+            try await deleteTopicFromModuleFirebase(topicId: id, moduleId: moduleId)
+        }
+        try await deleteTopicFirebase(id: id)
+    }
+    
+    private func deleteTopicFromModuleFirebase(topicId: String, moduleId: String) async throws {
+        log.method()
+        
+        var module = try await module(id: moduleId)
+        module.topics.removeAll(where: {$0.id == topicId})
+        try await updateModule(module)
+    }
+    
+    private func deleteTopicFirebase(id: String) async throws {
+        log.method()
+        
+        let ref = referenceFor(.topics).child(id)
+        
+        try await ref.runTransactionBlock { currentData in
+            if currentData.value != nil {
+                currentData.value = nil
+                
+                return TransactionResult.success(withValue: currentData)
+            } else {
+                return TransactionResult.abort()
+            }
+        }
     }
     
     func learnedWord(id: String) async throws -> LearnedWord {

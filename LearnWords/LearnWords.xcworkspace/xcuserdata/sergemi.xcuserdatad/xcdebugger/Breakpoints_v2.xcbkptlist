@@ -2311,22 +2311,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "85628856-FE6E-4EC6-929D-E3AAE7E0CEF2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LearnWords/Managers/FirebaseDataManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "addModulePreloadFirebase(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "6AE36988-B31D-446A-AE32-3799160CF12C"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -2494,8 +2478,8 @@
             filePath = "LearnWords/Managers/FirebaseDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "deleteModuleFirebase(id:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2510,8 +2494,8 @@
             filePath = "LearnWords/Managers/FirebaseDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "deleteModuleFirebase(id:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2526,8 +2510,8 @@
             filePath = "LearnWords/Managers/FirebaseDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "deleteModuleFirebase(id:)"
             landmarkType = "7">
          </BreakpointContent>
