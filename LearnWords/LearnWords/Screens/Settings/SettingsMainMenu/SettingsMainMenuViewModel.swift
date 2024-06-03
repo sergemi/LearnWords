@@ -35,7 +35,14 @@ final class SettingsMainMenuViewModel: BaseViewModel {
         _ = logoutBtnObserver.bind(onNext: { _ in
             print("!logoutBtnObserver!")
             
-            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(5)) {                     AuthManager.logOut()
+            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(5)) {
+                do {
+                    try AuthManager.logOut()
+                }
+                catch {
+                    // TODO: show error
+                    print("Error when logout")
+                }
             }
             
             

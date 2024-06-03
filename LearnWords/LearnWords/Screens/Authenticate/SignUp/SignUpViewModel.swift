@@ -51,14 +51,18 @@ final class SignUpViewModel : BaseViewModel {
                 return
             }
             else {
-                AuthManager.createUserAndLogin(email: email, password: password1) {[weak self] result, error in
-                    if let error = error {
-                        self?.showErrorDelegate?.errorAlert(error)
-                        return
+                Task {
+                    do {
+                        _ = try await AuthManager.createUserAndLogin(email: email, password: password1)
+                        if let baseCoordinator = self.coordinator as? CoordinatorProtocol {
+                            DispatchQueue.main.async {
+                                baseCoordinator.returnToParrent()
+                            }
+                        }
                     }
-                    if result != nil {
-                        if let baseCoordinator = self?.coordinator as? CoordinatorProtocol {
-                            baseCoordinator.returnToParrent()
+                    catch {
+                        DispatchQueue.main.async {
+                            self.showErrorDelegate?.errorAlert(error)
                         }
                     }
                 }

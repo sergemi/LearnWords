@@ -11,18 +11,20 @@ import FirebaseAuth
 protocol AuthProtocol {
     static var userId: String?  {get}
     
-    static func logOut()
+    static func logOut() throws
     
-    static func login(email: String, password: String, withCompletion completion: AuthCompletionBlock?)
+    static func login(email: String, password: String) async throws -> AuthDataResult
     
-    static func createUser(email: String, password: String, withCompletion completion: AuthCompletionBlock?)
+    static func createUser(email: String, password: String) async throws -> AuthDataResult
     
-    static func createUserAndLogin(email: String, password: String, withCompletion completion: AuthCompletionBlock?)
+    static func createUserAndLogin(email: String, password: String) async throws -> AuthDataResult
     
-    typealias AuthCompletionBlock = (AuthDataResult?, Error?) -> Void
+    // TODO: implement
+//    static func resetPassword(email: String) async throws
+    
 }
 
-class AuthManager: AuthProtocol {
+final class AuthManager: AuthProtocol {
     private weak var coordinator: CoordinatorProtocol?
     private var handle: AuthStateDidChangeListenerHandle?
     
@@ -48,39 +50,27 @@ class AuthManager: AuthProtocol {
     static var userId: String? {
         return Auth.auth().currentUser?.uid
     }
-    
-    class func login(email: String, password: String, withCompletion completion: AuthCompletionBlock? = nil) {
-        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-            completion?(authResult, error)
-        }
+        
+    static func login(email: String, password: String) async throws -> AuthDataResult {
+        return try await Auth.auth().signIn(withEmail: email, password: password)
     }
-    
-    class func createUser(email: String, password: String, withCompletion completion: AuthCompletionBlock?) {
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                completion?(authResult, error)
+        
+    static func createUser(email: String, password: String) async throws -> AuthDataResult {
+            return try await Auth.auth().createUser(withEmail: email, password: password)
         }
-    }
     
-    class func createUserAndLogin(email: String, password: String, withCompletion completion: AuthCompletionBlock?) {
-        createUser(email: email, password: password) { result, error in
-            if error == nil {
-                login(email: email, password: password) { result, error in
-                    completion?(result, error)
-                }
-            }
-            else {
-                completion?(result, error)
-            }
-        }
+    static func createUserAndLogin(email: String, password: String) async throws -> AuthDataResult {
+        let res = try await createUser(email: email, password: password)
+        return try await login(email: email, password: password)
     }
     
     
-    class func logOut() {
-        do {
-          try Auth.auth().signOut()
-        } catch let error {
-          print("Auth sign out failed: \(error)")
-        }
+    class func logOut() throws {
+        try Auth.auth().signOut()
     }
+    
+//    func resetPassword(email: String) async throws {
+//        try await Auth.auth().sendPasswordReset(withEmail: email)
+//    }
 }
 

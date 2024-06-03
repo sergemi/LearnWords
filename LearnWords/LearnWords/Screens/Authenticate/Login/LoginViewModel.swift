@@ -43,15 +43,19 @@ final class LoginViewModel : BaseViewModel {
                 return
             }
             
-            AuthManager.login(email: email, password: password) { [weak self] result, error in
-                if let error = error {
-                    self?.showErrorDelegate?.errorAlert(error)
-                } else if result != nil{
-                    if let baseCoordinator = self?.coordinator as? CoordinatorProtocol {
-                        baseCoordinator.returnToParrent()
+            Task {
+                do {
+                    _ = try await AuthManager.login(email: email, password: password)
+                    if let baseCoordinator = self.coordinator as? CoordinatorProtocol {
+                        DispatchQueue.main.async {
+                            baseCoordinator.returnToParrent()
+                        }
                     }
-                } else {
-                    self?.showErrorDelegate?.errorAllert("Unknown login error")
+                }
+                catch {
+                    DispatchQueue.main.async {
+                        self.showErrorDelegate?.errorAlert(error)
+                    }
                 }
             }
         }).disposed(by: disposeBag)
