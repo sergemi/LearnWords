@@ -10,6 +10,7 @@ import RealmSwift
 
 class Config {
     static let instance = Config()
+    static let instanceUT = Config()
     
     enum Mode {
         case release
@@ -24,7 +25,7 @@ class Config {
         case rest
     }
     
-    private init() {
+    private init(mode: Mode = .release) {
     }
     
     var mode: Mode = .release
@@ -47,11 +48,14 @@ class Config {
     
     lazy var dataManager: DataManager = {
         switch (dataBaseType) {
-        case .firebase: // TODO: rewrite FirebaseDataManager
+        case .firebase:
             return FirebaseDataManager(basePaht: firebaseBasePath)
             
         case .realm: // TODO: rewrite RealmDataManager
 //            return RealmDataManager(realm: realm)
+            return MockDataManager.instance
+            
+        case .moc:
             return MockDataManager.instance
          
             // TODO: implement rest types

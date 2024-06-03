@@ -15,9 +15,8 @@ final class DataManagerTests: XCTestCase {
         let mockAuthManager = MockAuthManager()
         MockAuthManager.userId = "mocUser1@gmail.com"
         
-        Config.instance.mode = .unitTests
-        Config.instance.dataBaseType = .moc
-        dataManager = Config.instance.dataManager
+        Config.instanceUT.dataBaseType = .moc
+        dataManager = Config.instanceUT.dataManager
         
         Task {
             try await dataManager.reset()
