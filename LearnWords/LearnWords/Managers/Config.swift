@@ -10,7 +10,7 @@ import RealmSwift
 
 class Config {
     static let instance = Config()
-    static let instanceUT = Config()
+    static let instanceUT = Config(mode: .unitTests)
     
     enum Mode {
         case release
@@ -26,6 +26,7 @@ class Config {
     }
     
     private init(mode: Mode = .release) {
+        self.mode = mode
     }
     
     var mode: Mode = .release

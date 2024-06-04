@@ -15,12 +15,27 @@ final class DataManagerTests: XCTestCase {
         let mockAuthManager = MockAuthManager()
         MockAuthManager.userId = "mocUser1@gmail.com"
         
-        Config.instanceUT.dataBaseType = .moc
+//        Config.instanceUT.dataBaseType = .moc
+        Config.instanceUT.dataBaseType = .firebase
         dataManager = Config.instanceUT.dataManager
+        
+        if Config.instanceUT.dataBaseType == .firebase {
+            Task {
+                do {
+                    _ = try await AuthManager.login(email: "ut_user1@gmail.com", password: "qwerty123")
+                }
+                catch {
+                    print("Can't login test firebase user")
+                }
+            }
+        }
         
         Task {
             try await dataManager.reset()
         }
+        
+        // login: ut_user1@gmail.com
+        // pswd: qwerty123
     }
     
     override func tearDownWithError() throws {
