@@ -185,7 +185,16 @@ final actor FirebaseDataManager: DataManager {
     
     func reset() async throws {
         log.method()
-        // TODO: implement
+        
+        try await baseRef.runTransactionBlock { currentData in
+            if currentData.value != nil {
+                currentData.value = nil
+                
+                return TransactionResult.success(withValue: currentData)
+            } else {
+                return TransactionResult.abort()
+            }
+        }
     }
     
     // MARK: - Private Data functions

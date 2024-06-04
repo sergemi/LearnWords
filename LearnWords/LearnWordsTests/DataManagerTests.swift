@@ -39,7 +39,11 @@ final class DataManagerTests: XCTestCase {
     }
     
     override func tearDownWithError() throws {
-        dataManager = nil
+        Task {
+            try await dataManager.reset()
+            dataManager = nil
+        }
+//        dataManager = nil
     }
     
     func testCorrectUserLoggedIn() {
@@ -124,7 +128,7 @@ final class DataManagerTests: XCTestCase {
     
     func testDeleteModule() async throws {
         // Given
-        let module = Module(id: "module id", name: "Module", details: "test", topics: [], author: "Tester", isPublic: true)
+        let module = Module(id: UUID().uuidString, name: "Module", details: "test", topics: [], author: "Tester", isPublic: true)
         
         try await dataManager.addModule(module)
         
@@ -247,7 +251,7 @@ final class DataManagerTests: XCTestCase {
     
     func testAddGetTopicWithModule() async throws {
         // Given
-        let module = Module(id: "module id", name: "Module", details: "test", topics: [], author: "Tester", isPublic: true)
+        let module = Module(id: UUID().uuidString, name: "Module", details: "test", topics: [], author: "Tester", isPublic: true)
         try await dataManager.addModule(module)
         
         let topic1 = Topic(name: "topic 1", details: "topic details", words: [], exercises: [])
@@ -263,7 +267,7 @@ final class DataManagerTests: XCTestCase {
     
     func testUpdateTopicWithModule() async throws {
         // Given
-        let module = Module(id: "module id", name: "Module", details: "test", topics: [], author: "Tester", isPublic: true)
+        let module = Module(id: UUID().uuidString, name: "Module", details: "test", topics: [], author: "Tester", isPublic: true)
         try await dataManager.addModule(module)
         
         let topic1 = Topic(name: "topic 1", details: "topic details", words: [], exercises: [])
@@ -284,7 +288,7 @@ final class DataManagerTests: XCTestCase {
     
     func testUpdateTopicWrongIdWithModule() async throws {
         // Given
-        let module = Module(id: "module id", name: "Module", details: "test", topics: [], author: "Tester", isPublic: true)
+        let module = Module(id: UUID().uuidString, name: "Module", details: "test", topics: [], author: "Tester", isPublic: true)
         try await dataManager.addModule(module)
         
         let topic = Topic(name: "test topic", details: "topic details", words: [], exercises: [])
@@ -303,7 +307,7 @@ final class DataManagerTests: XCTestCase {
     
     func testDeleteTopicWithModule() async throws {
         // Given
-        let module = Module(id: "module id", name: "Module", details: "test", topics: [], author: "Tester", isPublic: true)
+        let module = Module(id: UUID().uuidString, name: "Module", details: "test", topics: [], author: "Tester", isPublic: true)
         try await dataManager.addModule(module)
         
         let topic = Topic(name: "test topic", details: "topic details", words: [], exercises: [])
@@ -325,7 +329,7 @@ final class DataManagerTests: XCTestCase {
     
     func testDeleteTopicWrongIdWithModule() async throws {
         // Given
-        let module = Module(id: "module id", name: "Module", details: "test", topics: [], author: "Tester", isPublic: true)
+        let module = Module(id: UUID().uuidString, name: "Module", details: "test", topics: [], author: "Tester", isPublic: true)
         try await dataManager.addModule(module)
         
         // When
