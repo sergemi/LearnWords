@@ -13,11 +13,11 @@ protocol AuthProtocol {
     
     static func logOut() throws
     
-    static func login(email: String, password: String) async throws -> AuthDataResult
+    static func login(email: String, password: String) async throws
     
-    static func createUser(email: String, password: String) async throws -> AuthDataResult
+    static func createUser(email: String, password: String) async throws
     
-    static func createUserAndLogin(email: String, password: String) async throws -> AuthDataResult
+    static func createUserAndLogin(email: String, password: String) async throws
     
     // TODO: implement
 //    static func resetPassword(email: String) async throws
@@ -51,19 +51,18 @@ final class AuthManager: AuthProtocol {
         return Auth.auth().currentUser?.uid
     }
         
-    static func login(email: String, password: String) async throws -> AuthDataResult {
-        return try await Auth.auth().signIn(withEmail: email, password: password)
+    static func login(email: String, password: String) async throws {
+        try await Auth.auth().signIn(withEmail: email, password: password)
     }
         
-    static func createUser(email: String, password: String) async throws -> AuthDataResult {
-            return try await Auth.auth().createUser(withEmail: email, password: password)
+    static func createUser(email: String, password: String) async throws {
+            try await Auth.auth().createUser(withEmail: email, password: password)
         }
     
-    static func createUserAndLogin(email: String, password: String) async throws -> AuthDataResult {
-        let res = try await createUser(email: email, password: password)
-        return try await login(email: email, password: password)
+    static func createUserAndLogin(email: String, password: String) async throws {
+        try await createUser(email: email, password: password)
+        try await login(email: email, password: password)
     }
-    
     
     class func logOut() throws {
         try Auth.auth().signOut()
