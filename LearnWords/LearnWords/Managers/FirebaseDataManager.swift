@@ -29,6 +29,9 @@ final actor FirebaseDataManager: DataManager {
         get async throws {
             let ref = referenceFor(.modulePreloads)
             let snapshot = try await ref.getData()
+            if !snapshot.exists() {
+                return []
+            }
             let obj = try anyObject(snapshot: snapshot)
             let modules = try JSONDecoder().decode([ModulePreload].self, from: obj)
             return modules.sorted{$0.id < $1.id}
@@ -62,7 +65,9 @@ final actor FirebaseDataManager: DataManager {
     
     func updateModule(_ module: Module) async throws {
         log.method()
-        
+        // check if module exist
+        _ = try await self.module(id: module.id)
+                
         try await updateModuleFirebase(module)
         
         let modulePreload = module.modulePreload
@@ -71,6 +76,9 @@ final actor FirebaseDataManager: DataManager {
     
     func deleteModule(id: String) async throws {
         log.method()
+        
+        // check if module exist
+        _ = try await module(id: id)
         
         try await deleteModuleFirebase(id: id)
         try await deleteModulePreloadFirebase(id: id)
@@ -103,12 +111,18 @@ final actor FirebaseDataManager: DataManager {
     func updateTopic(_ topic: Topic, moduleId: String?) async throws {
         log.method()
         
+        // check if topic exist
+        _ = try await self.topic(id: topic.id)
+        
         try await updateTopicFirebase(topic)
         try await updateTopicInModuleFirebase(topic: topic.topicPreload, moduleId: moduleId)
     }
     
     func deleteTopic(id: String, moduleId: String?) async throws {
         log.method()
+        
+        // check if topic exist
+        _ = try await self.topic(id: id)
         
         if let moduleId = moduleId {
             try await deleteTopicFromModuleFirebase(topicId: id, moduleId: moduleId)
@@ -124,7 +138,7 @@ final actor FirebaseDataManager: DataManager {
         let snapshot = try await ref.getData()
         guard snapshot.exists(),
               let value = snapshot.value as? [String: Any] else {
-            throw DataManagerError.topicNotFound
+            throw DataManagerError.learnedWordNotFound
         }
         
         let jsonData = try JSONSerialization.data(withJSONObject: value, options: [])
@@ -143,12 +157,18 @@ final actor FirebaseDataManager: DataManager {
     func updateWord(_ word: LearnedWord, topicId: String?) async throws {
         log.method()
         
+        // test if word exist
+        _ = try await learnedWord(id:word.id)
+        
         try await updateLearnedWordFirebase(word)
         try await updateLearnedWordInTopicFirebase(word, topicId: topicId)
     }
     
     func deleteWord(_ word: LearnedWord, topicId: String?) async throws {
         log.method()
+        
+        // test if word exist
+        _ = try await learnedWord(id:word.id)
         
         try await deleteLearnedWordFromTopicFirebase(word, topicId: topicId)
         try await deleteLearnedWordFirebase(word)
@@ -180,6 +200,9 @@ final actor FirebaseDataManager: DataManager {
     func updateWord(_ word: WordPair) async throws {
         log.method()
         
+        // check if word exist
+        _ = try await self.word(id: word.id)
+        
         try await updateWordFirebase(word)
     }
     
@@ -200,6 +223,7 @@ final actor FirebaseDataManager: DataManager {
     // MARK: - Private Data functions
     private func updateModuleFirebase(_ module: Module) async throws {
         let ref = referenceFor(.modules).child(module.id)
+        var transactionError: Error?
         
         try await ref.runTransactionBlock { currentData in
             do {
@@ -208,8 +232,13 @@ final actor FirebaseDataManager: DataManager {
                 currentData.value = dict
                             return TransactionResult.success(withValue: currentData)
             } catch {
+                transactionError = error
                 return TransactionResult.abort()
             }
+        }
+        
+        if let error = transactionError {
+            throw error
         }
         
 //        let object = try jsonObject(model: module)
@@ -218,6 +247,7 @@ final actor FirebaseDataManager: DataManager {
     
     private func updateModulePreloadFirebase(_ module: ModulePreload) async throws {
         let ref = referenceFor(.modulePreloads).child(module.id)
+        var transactionError: Error?
         
         try await ref.runTransactionBlock { currentData in
             do {
@@ -226,8 +256,12 @@ final actor FirebaseDataManager: DataManager {
                 currentData.value = moduleDict
                             return TransactionResult.success(withValue: currentData)
             } catch {
+                transactionError = error
                 return TransactionResult.abort()
             }
+        }
+        if let error = transactionError {
+            throw error
         }
 //        let object = try jsonObject(model: module)
 //        try await ref.updateChildValues(object as! [AnyHashable : Any])
@@ -235,15 +269,28 @@ final actor FirebaseDataManager: DataManager {
     
     func deleteModuleFirebase(id: String) async throws {
         let ref = referenceFor(.modules).child(id)
+        var transactionError: Error?
         
+        // TODO: if we try delete module wich not exist function don't throw 'moduleNotFound' esception. Also need check when firebase add async/await syntax for transactions
         try await ref.runTransactionBlock { currentData in
+            //
+            
+            //
+            
+            
             if currentData.value != nil {
+//            if !(currentData.value is NSNull) {
                 currentData.value = nil
                 
                 return TransactionResult.success(withValue: currentData)
             } else {
+                transactionError = DataManagerError.moduleNotFound
                 return TransactionResult.abort()
             }
+             
+        }
+        if let error = transactionError {
+            throw error
         }
     }
     
@@ -266,6 +313,7 @@ final actor FirebaseDataManager: DataManager {
         log.method()
         
         let ref = referenceFor(.topics).child(topic.id)
+        var transactionError: Error?
         
         try await ref.runTransactionBlock { currentData in
             do {
@@ -274,8 +322,12 @@ final actor FirebaseDataManager: DataManager {
                 currentData.value = dict
                             return TransactionResult.success(withValue: currentData)
             } catch {
+                transactionError = error
                 return TransactionResult.abort()
             }
+        }
+        if let error = transactionError {
+            throw error
         }
     }
     
@@ -326,6 +378,7 @@ final actor FirebaseDataManager: DataManager {
         log.method()
         
         let ref = referenceFor(.learnedWords).child(word.id)
+        var transactionError: Error?
         
         try await ref.runTransactionBlock { currentData in
             do {
@@ -334,8 +387,12 @@ final actor FirebaseDataManager: DataManager {
                 currentData.value = dict
                             return TransactionResult.success(withValue: currentData)
             } catch {
+                transactionError = error
                 return TransactionResult.abort()
             }
+        }
+        if let error = transactionError {
+            throw error
         }
     }
     
@@ -394,6 +451,7 @@ final actor FirebaseDataManager: DataManager {
         log.method()
         
         let ref = referenceFor(.wordPairs).child(word.id)
+        var transactionError: Error?
         
         try await ref.runTransactionBlock { currentData in
             do {
@@ -402,8 +460,12 @@ final actor FirebaseDataManager: DataManager {
                 currentData.value = dict
                             return TransactionResult.success(withValue: currentData)
             } catch {
+                transactionError = error
                 return TransactionResult.abort()
             }
+        }
+        if let error = transactionError {
+            throw error
         }
     }
     
