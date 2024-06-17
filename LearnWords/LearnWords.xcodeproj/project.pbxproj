@@ -147,6 +147,9 @@
 		8F8948862BDAAB150070E699 /* FirebaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
 		8F8948882BDE79CC0070E699 /* TopicPreload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicPreload.swift; sourceTree = "<group>"; };
 		8F89488A2BDE8D070070E699 /* ModulePreload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulePreload.swift; sourceTree = "<group>"; };
+		8FD764F92C20E187002F1E43 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FD764FB2C20E187002F1E43 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FD764FD2C20E187002F1E43 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FDA29EB299E4D9A00DD4003 /* PopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		8FDA29EC299E4D9A00DD4003 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		8FDA29F0299E4DA700DD4003 /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
@@ -238,6 +241,9 @@
 		375B5EDC503EF01E17D75AA8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8FD764F92C20E187002F1E43 /* FirebaseAuth.framework */,
+				8FD764FB2C20E187002F1E43 /* FirebaseCore.framework */,
+				8FD764FD2C20E187002F1E43 /* FirebaseDatabase.framework */,
 				FD94A19289068F6A6A3AB6AE /* Pods_LearnWords.framework */,
 			);
 			name = Frameworks;
@@ -1128,6 +1134,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7C8K3NAH2H;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1151,6 +1158,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7C8K3NAH2H;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;

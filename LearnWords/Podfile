@@ -12,6 +12,7 @@ pod 'RxOptional'
 pod 'FirebaseAuth'
 #pod 'FirebaseFirestore'
 pod 'Firebase/Database'
+pod 'GoogleSignIn'
 
 #pod 'RealmSwift', '~>10'
 pod 'RealmSwift'
