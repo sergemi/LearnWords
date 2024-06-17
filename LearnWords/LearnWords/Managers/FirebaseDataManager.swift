@@ -19,7 +19,7 @@ final actor FirebaseDataManager: DataManager {
         case learnedWords = "learnedWords"
     }
     
-    init(basePaht: String) {
+    init(basePaht: String) { // AuthManager.userId
         baseRef = Database.database().reference(withPath: basePaht)
         log.method()
     }
@@ -209,7 +209,7 @@ final actor FirebaseDataManager: DataManager {
     func reset() async throws {
         log.method()
         
-        try await baseRef.runTransactionBlock { currentData in
+        try await baseRef.child(AuthManager.userId ?? "guest").runTransactionBlock { currentData in
             if currentData.value != nil {
                 currentData.value = nil
                 
@@ -472,7 +472,8 @@ final actor FirebaseDataManager: DataManager {
     // MARK: - Private service functions
     
     private func referenceFor(_ key: DbKeys) -> DatabaseReference {
-        return baseRef.child(key.rawValue)
+        return baseRef.child(AuthManager.userId ?? "guest").child(key.rawValue)
+//        return baseRef.child(key.rawValue)
     }
     
     private func jsonObject(model: Codable) throws -> Any {
