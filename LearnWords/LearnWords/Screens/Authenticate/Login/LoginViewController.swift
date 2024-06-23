@@ -6,9 +6,14 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseAuth
+import GoogleSignIn
 
 final class LoginViewController: BaseViewController {
     private var viewModel: LoginViewModel?
+    
+    @IBOutlet weak var GoogleButton: GIDSignInButton!
     
     @IBOutlet weak var loginTF: CustomTextField!
     @IBOutlet weak var passwordTF: CustomTextField!
