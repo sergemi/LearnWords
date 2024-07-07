@@ -93,9 +93,8 @@
                         </view>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="jt4-Vs-b6L" firstAttribute="width" secondItem="8f7-rf-eWu" secondAttribute="width" id="1r2-Th-ZMT"/>
                         <constraint firstItem="ZEb-os-eQP" firstAttribute="width" secondItem="8f7-rf-eWu" secondAttribute="width" id="Q8H-Aj-rH3"/>
-                        <constraint firstAttribute="trailing" secondItem="jt4-Vs-b6L" secondAttribute="trailing" id="Wsq-Ka-sMS"/>
-                        <constraint firstItem="jt4-Vs-b6L" firstAttribute="leading" secondItem="8f7-rf-eWu" secondAttribute="leading" id="Ywf-hj-o6H"/>
                     </constraints>
                 </stackView>
             </subviews>

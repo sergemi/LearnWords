@@ -10,6 +10,10 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+import FirebaseCore // ?
+import FirebaseAuth
+import GoogleSignIn // ?
+
 final class LoginViewModel : BaseViewModel {
     let disposeBag = DisposeBag()
     private weak var coordinator: AuthenticateProtocol?
@@ -34,15 +38,7 @@ final class LoginViewModel : BaseViewModel {
         bind()
     }
     
-    fileprivate func bind() {
-        _ = googleBtnObserver.bind(onNext: { [weak self] _ in
-            guard let self = self else {
-                return
-            }
-            
-            print("google!")
-        }).disposed(by: disposeBag)
-            
+    fileprivate func bind() {    
         _ = loginBtnObserver.bind(onNext: { [weak self] _ in
             guard let self = self,
                   let email = self.email.value,
@@ -54,11 +50,7 @@ final class LoginViewModel : BaseViewModel {
             Task {
                 do {
                     _ = try await AuthManager.login(email: email, password: password)
-                    if let baseCoordinator = self.coordinator as? CoordinatorProtocol {
-                        DispatchQueue.main.async {
-                            baseCoordinator.returnToParrent()
-                        }
-                    }
+                    self.returnToParrentCoordinator()
                 }
                 catch {
                     DispatchQueue.main.async {
@@ -76,21 +68,28 @@ final class LoginViewModel : BaseViewModel {
         }).disposed(by: disposeBag)
     }
     
-    func onGoogleLogin() {
+    fileprivate func returnToParrentCoordinator() {
+        if let baseCoordinator = self.coordinator as? CoordinatorProtocol {
+            DispatchQueue.main.async {
+                baseCoordinator.returnToParrent()
+            }
+        }
+    }
+    
+    func onGoogleLogin(credential: AuthCredential) {
         log.method()
         
         Task {
             do {
-                _ = try await AuthManager.loginGoogle()
+                _ = try await AuthManager.loginGoogle(credential: credential)
                 
-                print("Ok?")
+                returnToParrentCoordinator()
             }
             catch {
                 DispatchQueue.main.async {
                     self.showErrorDelegate?.errorAlert(error)
                 }
             }
-            print("ok???")
         }
     }
 }

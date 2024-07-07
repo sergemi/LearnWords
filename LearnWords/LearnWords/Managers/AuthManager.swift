@@ -21,7 +21,7 @@ protocol AuthProtocol {
     
     static func createUserAndLogin(email: String, password: String) async throws
     
-    static func loginGoogle() async throws
+    static func loginGoogle(credential: AuthCredential) async throws
     
     // TODO: implement
 //    static func resetPassword(email: String) async throws
@@ -72,15 +72,8 @@ final class AuthManager: AuthProtocol {
         try Auth.auth().signOut()
     }
     
-    static func loginGoogle() async throws {
-//        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-//        
-//        let config = GIDConfiguration(clientID: clientID)
-//        GIDSignIn.sharedInstance.configuration = config
-//        
-//        let user = try await GIDSignIn.sharedInstance.signIn(withPresenting: self)
-        
-        print("+++")
+    static func loginGoogle(credential: AuthCredential) async throws {
+        try await Auth.auth().signIn(with: credential)
     }
     
 //    func resetPassword(email: String) async throws {

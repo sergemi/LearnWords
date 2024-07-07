@@ -38,65 +38,30 @@ final class LoginViewController: BaseViewController {
     
     @IBAction func onGoogleLogin(_ sender: Any) {
         log.method()
-//        viewModel?.onGoogleLogin()
-//        return
         
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         
         let config = GIDConfiguration(clientID: clientID)
         GIDSignIn.sharedInstance.configuration = config
         
-        GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] result, error in
-          guard error == nil else {
-              return // todo
-          }
-
-          guard let user = result?.user,
-            let idToken = user.idToken?.tokenString
-          else {
-              return // todo
-          }
-
-          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                         accessToken: user.accessToken.tokenString)
-            
-            Auth.auth().signIn(with: credential) { result, error in
-
-              print("+++")
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { [weak self] result, error in
+            guard error == nil else {
+                self?.errorAlert(error!)
+                return
             }
-
-            print("+++")
-          // ...
+            
+            guard let user = result?.user,
+                  let idToken = user.idToken?.tokenString
+            else {
+                self?.errorAllert("Can't get user token") // TODO: Localize
+                return
+            }
+            
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                           accessToken: user.accessToken.tokenString)
+            
+            self?.viewModel?.onGoogleLogin(credential: credential)
         }
-        
-        print("!!!")
-        /*
-        GIDSignIn.sharedInstance.signIn(withPresenting: self) { authentication, error in
-                        if let error = error {
-                            print("There is an error signing the user in ==> \(error)")
-                            return
-                        }
-                        guard let user = authentication?.user, let idToken = user.idToken?.tokenString else { return }
-                        let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
-                        
-                    Auth.auth().signIn(with: credential) { [weak self] authResult, error in
-                            if error != nil {
-                                print(error ?? "0")
-                            } else {
-                                print("Cool!!!")
-//                                self.email = authResult?.user.email
-//                                let name = user.profile?.name
-//                                
-//                     
-//                                ProgressHUD.show("Wait ,Loading...")
-//                                
-//                              //present tab bar
-//                                tabManager(homeScreenVC)
-                                
-                            }
-                        }
-                    }
-         */
     }
     
     
