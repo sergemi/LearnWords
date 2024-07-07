@@ -6,7 +6,9 @@
 //
 
 import UIKit
+import FirebaseCore // ?
 import FirebaseAuth
+import GoogleSignIn // ?
 
 protocol AuthProtocol {
     static var userId: String?  {get}
@@ -18,6 +20,8 @@ protocol AuthProtocol {
     static func createUser(email: String, password: String) async throws
     
     static func createUserAndLogin(email: String, password: String) async throws
+    
+    static func loginGoogle() async throws
     
     // TODO: implement
 //    static func resetPassword(email: String) async throws
@@ -66,6 +70,17 @@ final class AuthManager: AuthProtocol {
     
     class func logOut() throws {
         try Auth.auth().signOut()
+    }
+    
+    static func loginGoogle() async throws {
+//        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+//        
+//        let config = GIDConfiguration(clientID: clientID)
+//        GIDSignIn.sharedInstance.configuration = config
+//        
+//        let user = try await GIDSignIn.sharedInstance.signIn(withPresenting: self)
+        
+        print("+++")
     }
     
 //    func resetPassword(email: String) async throws {

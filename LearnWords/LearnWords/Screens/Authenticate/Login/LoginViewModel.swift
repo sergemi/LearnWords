@@ -22,7 +22,7 @@ final class LoginViewModel : BaseViewModel {
     let loginBtnCaption = BehaviorRelay<String?>(value: "Login".localized())
     let signUpBtnCaption = BehaviorRelay<String?>(value: "Sign Up".localized())
     
-    
+    let googleBtnObserver = PublishSubject<Void>()
     let loginBtnObserver = PublishSubject<Void>()
     let signUpBtnObserver = PublishSubject<Void>()
     
@@ -35,6 +35,14 @@ final class LoginViewModel : BaseViewModel {
     }
     
     fileprivate func bind() {
+        _ = googleBtnObserver.bind(onNext: { [weak self] _ in
+            guard let self = self else {
+                return
+            }
+            
+            print("google!")
+        }).disposed(by: disposeBag)
+            
         _ = loginBtnObserver.bind(onNext: { [weak self] _ in
             guard let self = self,
                   let email = self.email.value,
@@ -66,5 +74,23 @@ final class LoginViewModel : BaseViewModel {
             }
             self.coordinator?.signUp()
         }).disposed(by: disposeBag)
+    }
+    
+    func onGoogleLogin() {
+        log.method()
+        
+        Task {
+            do {
+                _ = try await AuthManager.loginGoogle()
+                
+                print("Ok?")
+            }
+            catch {
+                DispatchQueue.main.async {
+                    self.showErrorDelegate?.errorAlert(error)
+                }
+            }
+            print("ok???")
+        }
     }
 }

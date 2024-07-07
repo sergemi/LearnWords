@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="LearnWords" customModuleProvider="target">
             <connections>
-                <outlet property="GoogleButton" destination="jt4-Vs-b6L" id="L8D-TT-OWI"/>
+                <outlet property="googleBtn" destination="jt4-Vs-b6L" id="cdk-c6-f4d"/>
                 <outlet property="loginBtn" destination="K92-Aj-d2C" id="tYZ-0X-GRf"/>
                 <outlet property="loginTF" destination="zW2-XM-mC9" id="0vc-1R-62I"/>
                 <outlet property="passwordTF" destination="gET-DR-1Hf" id="I0q-Fg-MOe"/>
@@ -33,6 +33,9 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="mhj-ko-NpA"/>
                             </constraints>
+                            <connections>
+                                <action selector="onGoogleLogin:" destination="-1" eventType="touchUpInside" id="0dH-WE-CC1"/>
+                            </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZEb-os-eQP" userLabel="Email" customClass="ToolsView" customModule="LearnWords" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="83" width="353" height="250"/>
