@@ -42,7 +42,6 @@ extension CoordinatorProtocol {
         }
         navigationController.popToViewController(startViewController, animated: true) // maybe don't need
         navigationController.dismiss(animated: true)
-        
         removeFromParent()
     }
     
@@ -54,7 +53,7 @@ extension CoordinatorProtocol {
     }
     
     func removeCoordinator(_ coordinator: CoordinatorProtocol) {
-        guard !childCoordinators.isEmpty else {
+        if childCoordinators.isEmpty {
             return
         }
         
@@ -62,7 +61,7 @@ extension CoordinatorProtocol {
         for curCoordinator in childCoordinators.reversed() {
             if coordinator === curCoordinator {
                 childCoordinators.remove(at: index)
-                break // todo: or return ?
+                break
             }
             index = index-1
         }
@@ -72,13 +71,3 @@ extension CoordinatorProtocol {
         parent?.removeCoordinator(self)
     }
 }
-
-//extension CoordinatorProtocol {
-//    func forceLogin() {
-//        log.method()
-//
-//        let authCoordinator = AuthCoordinator(navigationController: navigationController)
-//        start(coordinator: authCoordinator)
-//    }
-//}
-
