@@ -11,6 +11,10 @@ import FirebaseAuth
 @testable import LearnWords
 
 class MockAuthManager: AuthProtocol {
+    static func loginGoogle(credential: AuthCredential) async throws {
+        fatalError("Not realized")
+    }
+    
     static var userId: String? = nil
     
     struct MockUser {

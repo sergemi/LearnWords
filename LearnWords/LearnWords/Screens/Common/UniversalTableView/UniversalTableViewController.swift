@@ -11,10 +11,10 @@ import RxSwift
 
 class UniversalTableViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
-    var viewModel: UniversalTableViewModel?
+    private var viewModel: UniversalTableViewModel?
     
 //    let rightBtn = UIBarButtonItem(image: UIImage(named: "add"), style: .plain, target: nil, action: nil)
-    let rightBtn = UIBarButtonItem(title: "rightBtn", style: .plain, target: nil, action: nil)
+    private let rightBtn = UIBarButtonItem(title: "rightBtn", style: .plain, target: nil, action: nil)
     
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var tableHeaderLbl: UILabel!
@@ -39,7 +39,6 @@ class UniversalTableViewController: BaseViewController, UITableViewDelegate, UIT
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-//        viewModel?.reloadTableData()
         viewModel?.reloadData()
     }
     
