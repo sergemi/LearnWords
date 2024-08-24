@@ -10,6 +10,7 @@
 		1761131D62D7AB43F88939AB /* Pods_LearnWords.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD94A19289068F6A6A3AB6AE /* Pods_LearnWords.framework */; };
 		8F0748CE2C285BFC001992BE /* ToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0748CD2C285BFC001992BE /* ToolsView.swift */; };
 		8F7493CA2C2999EA007811C0 /* GIDSignIn+concurency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7493C92C2999EA007811C0 /* GIDSignIn+concurency.swift */; };
+		8F816DD02C3C624F00111ED1 /* EditModuleListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F816DCF2C3C624F00111ED1 /* EditModuleListViewModelTest.swift */; };
 		8F85B680299AC16C0097657D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F85B67F299AC16C0097657D /* AppDelegate.swift */; };
 		8F85B682299AC16C0097657D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F85B681299AC16C0097657D /* SceneDelegate.swift */; };
 		8F85B687299AC16C0097657D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F85B685299AC16C0097657D /* Main.storyboard */; };
@@ -115,6 +116,7 @@
 		39E3F00D296D5AADDB42B20E /* Pods-LearnWords.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnWords.debug.xcconfig"; path = "Target Support Files/Pods-LearnWords/Pods-LearnWords.debug.xcconfig"; sourceTree = "<group>"; };
 		8F0748CD2C285BFC001992BE /* ToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsView.swift; sourceTree = "<group>"; };
 		8F7493C92C2999EA007811C0 /* GIDSignIn+concurency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GIDSignIn+concurency.swift"; sourceTree = "<group>"; };
+		8F816DCF2C3C624F00111ED1 /* EditModuleListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModuleListViewModelTest.swift; sourceTree = "<group>"; };
 		8F85B67C299AC16C0097657D /* LearnWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F85B67F299AC16C0097657D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F85B681299AC16C0097657D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -253,6 +255,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8F816DCC2C3C4C8E00111ED1 /* UT */ = {
+			isa = PBXGroup;
+			children = (
+				8F816DCD2C3C4D3800111ED1 /* Screens */,
+				8F8948172BC69E5E0070E699 /* UIButtonExtTest.swift */,
+				8F89486E2BC862ED0070E699 /* DataManagerTests.swift */,
+				8F8948782BCC7FDE0070E699 /* ModelsRealmConverting.swift */,
+				8F8948692BC8583F0070E699 /* Mocks */,
+			);
+			path = UT;
+			sourceTree = "<group>";
+		};
+		8F816DCD2C3C4D3800111ED1 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				8F816DCE2C3C4D4B00111ED1 /* EditMaterial */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		8F816DCE2C3C4D4B00111ED1 /* EditMaterial */ = {
+			isa = PBXGroup;
+			children = (
+				8F816DCF2C3C624F00111ED1 /* EditModuleListViewModelTest.swift */,
+			);
+			path = EditMaterial;
+			sourceTree = "<group>";
+		};
 		8F85B673299AC16C0097657D = {
 			isa = PBXGroup;
 			children = (
@@ -368,10 +398,7 @@
 		8F8948162BC69E5E0070E699 /* LearnWordsTests */ = {
 			isa = PBXGroup;
 			children = (
-				8F8948692BC8583F0070E699 /* Mocks */,
-				8F8948172BC69E5E0070E699 /* UIButtonExtTest.swift */,
-				8F89486E2BC862ED0070E699 /* DataManagerTests.swift */,
-				8F8948782BCC7FDE0070E699 /* ModelsRealmConverting.swift */,
+				8F816DCC2C3C4C8E00111ED1 /* UT */,
 			);
 			path = LearnWordsTests;
 			sourceTree = "<group>";
@@ -908,6 +935,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F8948182BC69E5E0070E699 /* UIButtonExtTest.swift in Sources */,
+				8F816DD02C3C624F00111ED1 /* EditModuleListViewModelTest.swift in Sources */,
 				8F89486F2BC862ED0070E699 /* DataManagerTests.swift in Sources */,
 				8F89486D2BC858FC0070E699 /* MockAuthManager.swift in Sources */,
 				8F8948792BCC7FDE0070E699 /* ModelsRealmConverting.swift in Sources */,
